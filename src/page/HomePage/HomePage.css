@@ -1,12 +1,12 @@
 .floatingButton {
     position: fixed;
-    height: 60px;
+    height: 50px;
     top: 40px;
     right: 40px;
     background-color: #013ea1;
     border: 1px solid white;
     color: #FFF;
-    border-radius: 50px;
+    border-radius: 15px;
     text-align: center;
     box-shadow: 2px 2px 3px #999;
 }
@@ -112,7 +112,7 @@ p {
 
     .totalBill {
         border: 1px solid black;
-        padding-right: 5px;
+        padding: 2px 5px 2px 2px;
 
         div {
             display: flex;

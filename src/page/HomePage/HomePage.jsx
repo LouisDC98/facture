@@ -19,7 +19,7 @@ function HomePage() {
 
     return (
         <div>
-            <button className='floatingButton' onClick={() => handleToogleForm()}>+ infos générales</button>
+            <button className='floatingButton button-49' onClick={() => handleToogleForm()}>+ infos générales</button>
             <div className='a4Format'>
                 {openForm && <FormFacture closeModal={(e) => handleToogleForm(e)} setMainInfos={(e) => setMainInfos(e)} />}
                 <section className='headerFacture'>
@@ -79,10 +79,10 @@ function HomePage() {
                                 <p>{parseFloat(articles.reduce((total, element) => total + parseFloat(element.total), 0)).toFixed(2)}</p>
                             </div>
                             <br />
-                            <div>
+                            {/* <div>
                                 <p>Remise panier TTC</p>
                                 <p>-6.00</p>
-                            </div>
+                            </div> */}
                             <br />
                             <br />
                             <div>
