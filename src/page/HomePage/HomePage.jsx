@@ -8,6 +8,7 @@ import FormFacture from '../../component/FormFacture/FormFacture'
 function HomePage() {
     let [openForm, setOpenForm] = useState(true)
     let [mainInfos, setMainInfos] = useState({})
+    let [articles, setArticles] = useState([])
 
     const handleToogleForm = (e) => {
         setOpenForm(!openForm)
@@ -61,7 +62,7 @@ function HomePage() {
                             <p className='marginLeft'>{mainInfos?.dateLivraison}</p>
                         </div>
                     </div>
-                    <Bill />
+                    <Bill articles={articles} setArticles={(e)=> {setArticles(e)}}/>
                     <div className='bilanFacture'>
                         <div className='nbrArticle'><p>Nombres d'articles remis :</p><p>17</p><br /><br /></div>
                         <div style={{ width: "40%" }}>

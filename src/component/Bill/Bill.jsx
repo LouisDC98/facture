@@ -1,35 +1,58 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Bill.css"
 
-function Bill() {
+import FormArticle from '../FormArticle/FormArticle';
+
+function Bill(props) {
+    let {articles, setArticles} = props
+    let [openForm, setOpenForm] = useState(false)
+
+    const handleToogleForm = (e) => {
+        setOpenForm(!openForm)
+        if (e) {
+            setArticles([...articles, e]);
+        }
+    }
+
+    const handleDeleteRow = (index) => {
+        const updatedArticles = articles.filter((_, i) => i !== index);
+        setArticles(updatedArticles);
+    }
+
     return (
-        <table>
-            <thead className='headerTable'>
-                <tr>
-                    <th>Code EAN 13</th>
-                    <th>Libellé</th>
-                    <th>Qté Cdée</th>
-                    <th>Qté livrée</th>
-                    <th>TVA %</th>
-                    <th>Prix Unit. TTC</th>
-                    <th>Montant remise TTC</th>
-                    <th>Montant TTC</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>3333340008267</td>
-                    <td>Filet 2Kg Pommes de T. de consommation chair ferme</td>
-                    <td className='alignEnd'>1</td>
-                    <td className='alignEnd'>1</td>
-                    <td className='alignEnd'>20</td>
-                    <td className='alignEnd'>1.99</td>
-                    <td className='alignEnd'></td>
-                    <td className='alignEnd'>1.99</td>
-                </tr>
-                
-            </tbody>
-        </table>
+        <div>
+            {openForm && <FormArticle closeModal={(e) => { handleToogleForm(e) }} />}
+            <table>
+                <thead className='headerTable'>
+                    <tr>
+                        <th style={{ width: "100px" }}>Code EAN 13</th>
+                        <th>Libellé</th>
+                        <th>Qté Cdée</th>
+                        <th>Qté livrée</th>
+                        <th>TVA %</th>
+                        <th>Prix Unit. TTC</th>
+                        <th>Montant remise TTC</th>
+                        <th>Montant TTC</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {articles.length > 0 && articles.map((article, index) => (
+                        <tr key={index}>
+                            <td>{article.code}</td>
+                            <td>{article.libelle}</td>
+                            <td className='alignEnd'>{article.qtyCmd}</td>
+                            <td className='alignEnd'>{article.qtyCmd}</td>
+                            <td className='alignEnd'>{article.tva}</td>
+                            <td className='alignEnd'>{article.prixUnit}</td>
+                            <td className='alignEnd'>{article.prixRemise}</td>
+                            <td className='alignEnd'>{(article.prixUnit - article.prixRemise) * article.qtyCmd}</td>
+                            <button className='deleteRow' onClick={() => { handleDeleteRow(index) }}></button>
+                        </tr>
+                    ))}
+                    <button className='addElement' type="button" onClick={() => handleToogleForm()}></button>
+                </tbody>
+            </table>
+        </div>
     )
 }
 
