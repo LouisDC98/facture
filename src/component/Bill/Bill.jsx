@@ -4,7 +4,7 @@ import "./Bill.css"
 import FormArticle from '../FormArticle/FormArticle';
 
 function Bill(props) {
-    let {articles, setArticles} = props
+    let { articles, setArticles } = props
     let [openForm, setOpenForm] = useState(false)
 
     const handleToogleForm = (e) => {
@@ -44,12 +44,12 @@ function Bill(props) {
                             <td className='alignEnd'>{article.qtyCmd}</td>
                             <td className='alignEnd'>{article.tva}</td>
                             <td className='alignEnd'>{article.prixUnit}</td>
-                            <td className='alignEnd'>{article.prixRemise}</td>
-                            <td className='alignEnd'>{(article.prixUnit - article.prixRemise) * article.qtyCmd}</td>
-                            <button className='deleteRow' onClick={() => { handleDeleteRow(index) }}></button>
+                            <td className='alignEnd'>{article.prixRemise !== 0 ? -article.prixRemise : ""}</td>
+                            <td className='alignEnd'>{article.total}</td>
+                            <button className='deleteRow elementToHide' onClick={() => { handleDeleteRow(index) }}></button>
                         </tr>
                     ))}
-                    <button className='addElement' type="button" onClick={() => handleToogleForm()}></button>
+                    <button className='addElement elementToHide' type="button" onClick={() => handleToogleForm()}></button>
                 </tbody>
             </table>
         </div>

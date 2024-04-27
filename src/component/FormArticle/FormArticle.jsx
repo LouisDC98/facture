@@ -9,6 +9,10 @@ function FormArticle(props) {
     const { register, handleSubmit } = useForm();
 
     const onSubmit = data => {
+        data.total = ((data.prixUnit * data.qtyCmd) - data.prixRemise).toFixed(2);
+        if (data.prixRemise === "") {
+            data.prixRemise = 0;
+        }
         console.log('articleData', data)
         closeModal(data)
     }
@@ -21,10 +25,10 @@ function FormArticle(props) {
                 <form className='gridModalArticle' onSubmit={handleSubmit(onSubmit)}>
                     <input type='text' className='inputArticle code' placeholder='Code EAN 13' {...register("code", { required: true })}></input>
                     <input type='text' className='inputArticle libelle' placeholder='Libellé'{...register("libelle", { required: true })}></input>
-                    <input type='number' className='inputArticle qtyCmd' placeholder='Qté Cdée'{...register("qtyCmd", { required: true })}></input>
-                    <input type='number' className='inputArticle tva' placeholder='TVA %'{...register("tva", { required: true })}></input>
-                    <input type='number' className='inputArticle prixUnit' placeholder='Prix Unit. TTC'{...register("prixUnit", { required: true })}></input>
-                    <input type='number' className='inputArticle prixRemise' placeholder='Montant remise TTC'{...register("prixRemise", { required: true })}></input>
+                    <input type='number' step=".01" className='inputArticle qtyCmd' placeholder='Qté Cdée'{...register("qtyCmd", { required: true })}></input>
+                    <input type='number' step=".01" className='inputArticle tva' placeholder='TVA %'{...register("tva", { required: true })}></input>
+                    <input type='number' step=".01" className='inputArticle prixUnit' placeholder='Prix Unit. TTC'{...register("prixUnit", { required: true })}></input>
+                    <input type='number' step=".01" className='inputArticle prixRemise' placeholder='Montant remise TTC'{...register("prixRemise")}></input>
                     <button type='submit' className='saveButton' />
                 </form>
 
