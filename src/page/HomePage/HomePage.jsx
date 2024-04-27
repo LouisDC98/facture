@@ -92,24 +92,24 @@ function HomePage() {
                             <br />
                             <div>
                                 <p>Total TTC en Euros</p>
-                                <p>{(parseFloat(articles.reduce((total, element) => total + parseFloat(element.total), 0)) - 6).toFixed(2)}</p>
+                                <p>{(parseFloat(articles.reduce((total, element) => total + parseFloat(element.total), 0))).toFixed(2)}</p>
                             </div>
                         </div>
                         <div className='totalBill'>
                             <p>Modes de règlement</p>
                             <div>
                                 <p>Compte fidélité</p>
-                                <p>{((parseFloat(articles.reduce((total, element) => total + parseFloat(element.total), 0)) - 6) * 0.23).toFixed(2)}</p>
+                                <p>{((parseFloat(articles.reduce((total, element) => total + parseFloat(element.total), 0))) * 0.23).toFixed(2)}</p>
                             </div>
                             <div>
                                 <p>Carte Bancaire</p>
-                                <p>{((parseFloat(articles.reduce((total, element) => total + parseFloat(element.total), 0)) - 6) * 0.77).toFixed(2)}</p>
+                                <p>{((parseFloat(articles.reduce((total, element) => total + parseFloat(element.total), 0))) * 0.77).toFixed(2)}</p>
                             </div>
                             <br />
                             <br />
                             <div>
                                 <p>Total TTC en Euros</p>
-                                <p>{(parseFloat(articles.reduce((total, element) => total + parseFloat(element.total), 0)) - 6).toFixed(2)}</p>
+                                <p>{(parseFloat(articles.reduce((total, element) => total + parseFloat(element.total), 0))).toFixed(2)}</p>
                             </div>
                             <br />
                         </div>
