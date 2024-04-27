@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./Bill.css"
 
-import FormArticle from '../FormArticle/FormArticle';
+import FormArticle from '../Modals/FormArticle/FormArticle';
 
 function Bill(props) {
     let { articles, setArticles } = props

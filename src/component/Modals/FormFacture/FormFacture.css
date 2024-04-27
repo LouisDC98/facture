@@ -1,0 +1,42 @@
+.modalBgFacture {
+    .gridModal {
+        margin: 50px 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    input {
+        width: 70%;
+    }
+
+    .divSelect {
+        width: 100%;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        grid-column: 1 / 3;
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+
+    select {
+        border: 1px solid black;
+        border-radius: 5px;
+        background-color: aliceblue;
+    }
+
+    .inputDisplay {
+        position: relative;
+
+        .marginTop {
+            margin-top: 30px;
+        }
+
+        .label {
+            font-size: 12px;
+            position: absolute;
+            top: -3px;
+            left: 10px;
+        }
+    }
+}

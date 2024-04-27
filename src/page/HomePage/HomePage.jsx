@@ -3,7 +3,7 @@ import './HomePage.css'
 
 import logo from '../../assets/logoCarrefour.png'
 import Bill from '../../component/Bill/Bill'
-import FormFacture from '../../component/FormFacture/FormFacture'
+import FormFacture from '../../component/Modals/FormFacture/FormFacture'
 
 function HomePage() {
     let [openForm, setOpenForm] = useState(true)
@@ -21,12 +21,12 @@ function HomePage() {
         <div>
             <button className='floatingButton' onClick={() => handleToogleForm()}>+ infos générales</button>
             <div className='a4Format'>
-                {openForm && <FormFacture closeModal={(e) => { handleToogleForm(e) }} setMainInfos={(e) => { setMainInfos(e) }} />}
-                <div className='headerFacture'>
+                {openForm && <FormFacture closeModal={(e) => handleToogleForm(e)} setMainInfos={(e) => setMainInfos(e)} />}
+                <section className='headerFacture'>
                     <img src={logo} alt="logoCarrefour" />
                     <p>1/1</p>
-                </div>
-                <div className='displayMainInfoFacture'>
+                </section>
+                <section className='displayMainInfoFacture'>
                     <div>
                         <p>CARREFOUR TOULOUSE PURPAN 36 RTE DE BAYONNE</p> <br />
                         <p>PURPAN 31000 TOULOUSE</p> <br /><br />
@@ -46,8 +46,8 @@ function HomePage() {
                         <p className='marginLeft'>{mainInfos?.codePostal} {mainInfos?.city}</p> <br />
                         <p className='marginLeft'>{mainInfos?.country}</p> <br /><br />
                     </div>
-                </div>
-                <div className='dateRow'>
+                </section>
+                <section className='dateRow'>
                     <div>
                         <p className='italic'>Date de commande</p>
                         <p className='marginLeft'>{mainInfos?.date}</p>
@@ -60,9 +60,9 @@ function HomePage() {
                         <p className='italic'>Date de livraison</p>
                         <p className='marginLeft'>{mainInfos?.dateLivraison}</p>
                     </div>
-                </div>
+                </section>
                 <Bill articles={articles} setArticles={(e) => { setArticles(e) }} />
-                <div className='bilanFacture'>
+                <section className='bilanFacture'>
                     <div className='nbrArticle'><p>Nombres d'articles remis :</p><p>{parseFloat(articles.reduce((total, element) => total + parseFloat(element.qtyCmd), 0))}</p><br /><br /></div>
                     <div style={{ width: "40%" }}>
                         <div className='totalBill'>
@@ -114,11 +114,11 @@ function HomePage() {
                             <br />
                         </div>
                     </div>
-                </div>
-                <div className='footer'>
+                </section>
+                <section className='footer'>
                     <p>SARL RMS 31 , au capital de: 8000€, DOMAINE DE BONNE SOURCE NARBONNE 11100, RCS</p>
                     <p>NARBONNE 91070684500013 TVA CEE FR20910706845</p>
-                </div>
+                </section>
             </div>
         </div>
     )
