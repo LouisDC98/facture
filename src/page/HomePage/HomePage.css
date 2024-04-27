@@ -1,0 +1,150 @@
+.floatingButton {
+	position:fixed;
+	height:60px;
+	top:40px;
+	right:40px;
+	background-color:#013ea1;
+    border: 1px solid white;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+
+.a4Format {
+    height: 297mm;
+    width: 210mm;
+    background-color: white;
+    padding: 20px;
+    position: relative;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+}
+
+.headerFacture {
+    display: flex;
+    justify-content: space-between;
+
+    img {
+        width: 50mm;
+    }
+
+    p {
+        font-size: 12px;
+        margin-right: 10px;
+    }
+
+}
+
+.displayMainInfoFacture {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    p {
+        line-height: 0px;
+    }
+
+    .size11 {
+        font-size: 11px;
+    }
+
+    .adressInfo {
+        border: 1px solid black;
+        padding: 10px;
+        width: 300px;
+    }
+
+    .marginLeft {
+        margin-left: 10px;
+    }
+}
+
+.dateRow {
+    margin-top: 5px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20px;
+    padding: 0 5px;
+
+    div {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .italic {
+        font-style: italic;
+    }
+
+    .marginLeft {
+        margin-left: 15px;
+    }
+
+    .marginEnd {
+        margin-right: 50px;
+    }
+}
+
+.bilanFacture {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    right: 20px;
+
+    .nbrArticle {
+        border: 1px solid black;
+        display: flex;
+        justify-content: flex-start;
+        width: 57%;
+        padding: 0 5px;
+    }
+}
+
+.totalBill {
+    border: 1px solid black;
+    padding-right: 5px;
+
+    div {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+
+
+.toto {
+    /* background-color: red; */
+    width: 100%;
+    height: 100%;
+}
+
+.footer {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    line-height: 13px;
+}
+
+.justifyStart {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+input {
+    background-color: rgb(225, 225, 225);
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-left: 5px;
+    height: 10px;
+}

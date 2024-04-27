@@ -1,0 +1,84 @@
+.displayModal {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(1px);
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.modalBg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+
+    input {
+        padding: 5px;
+        background-color: aliceblue;
+        width: 70%;
+        margin: 10px 5px;
+    }
+
+    button {
+        position: fixed;
+        right: 20px;
+        border: none;
+        background-color: transparent;
+    }
+
+    .closeButton {
+        top: 20px;
+        height: 25px;
+        width: 25px;
+        background-image: url('../../assets/close.svg');
+    }
+
+    .saveButton {
+        bottom: 20px;
+        height: 25px;
+        width: 25px;
+        background-image: url('../../assets/save.svg');
+    }
+
+    .divSelect {
+        width: 100%;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        grid-column: 1 / 3;
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+
+    select {
+        border: 1px solid black;
+        border-radius: 5px;
+        background-color: aliceblue;
+    }
+}
+
+.inputDisplay {
+    position: relative;
+    margin-top: 30px;
+}
+
+.label {
+    font-size: 12px;
+    position: absolute;
+    top: -3px;
+    left: 10px;
+
+}
+
+.gridModal {
+    margin: 50px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
