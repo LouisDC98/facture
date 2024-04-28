@@ -74,11 +74,16 @@ tbody {
     .alignEnd {
         text-align: end;
     }
+
+    .subArticle {
+        margin-top: 5px;
+        font-style: italic;
+    }
 }
 
 .addElement {
     position: absolute;
-    bottom: -25px;
+    bottom: 30px;
     right: -30px;
     height: 25px;
     width: 25px;

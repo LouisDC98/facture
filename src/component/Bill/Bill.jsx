@@ -38,18 +38,34 @@ function Bill(props) {
                 <tbody>
                     {articles.length > 0 && articles.map((article, index) => (
                         <tr key={index}>
-                            <td>{article.code}</td>
-                            <td>{article.libelle}</td>
-                            <td className='alignEnd'>{article.qtyCmd}</td>
-                            <td className='alignEnd'>{article.qtyCmd}</td>
-                            <td className='alignEnd'>{article.tva}</td>
-                            <td className='alignEnd'>{article.prixUnit}</td>
-                            <td className='alignEnd'>{article.prixRemise !== 0 ? -article.prixRemise : ""}</td>
-                            <td className='alignEnd'>{article.total}</td>
+                            <td valign='top'>{article.code}</td>
+                            <td valign='top'>
+                                {article.libelle}
+                                {article.prixRemise !== 0 && <p className='subArticle'>Remise sur le lot de produits</p>}
+                            </td>
+                            <td valign='top' className='alignEnd'>{article.qtyCmd}</td>
+                            <td valign='top' className='alignEnd'>{article.qtyCmd}</td>
+                            <td valign='top' className='alignEnd'>{article.tva}</td>
+                            <td valign='top' className='alignEnd'>{article.prixUnit}</td>
+                            <td valign='top' className='alignEnd'>{article.prixRemise !== 0 ? -article.prixRemise : ""}</td>
+                            <td valign='top' className='alignEnd'>{article.total}</td>
                             <button className='deleteRow elementToHide' onClick={() => { handleDeleteRow(index) }}></button>
                         </tr>
                     ))}
                     <button className='addElement elementToHide' type="button" onClick={() => handleToogleForm()}></button>
+                    <tr>
+                        <td valign='top'>9713236189234</td>
+                        <td valign='top'>
+                            Sacs réutilisables consignés Drive<br />
+                            <p className='subArticle'>Nb sac(s) livré(s) : 2 / Nb sac(s) rendu(s) : 0</p>
+                        </td>
+                        <td valign='top' className='alignEnd'>1</td>
+                        <td valign='top' className='alignEnd'>2</td>
+                        <td valign='top' className='alignEnd'>0</td>
+                        <td valign='top' className='alignEnd'>0.35</td>
+                        <td valign='top' className='alignEnd'></td>
+                        <td valign='top' className='alignEnd'>0.70</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

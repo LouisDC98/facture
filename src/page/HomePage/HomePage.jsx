@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './HomePage.css'
 
 import logo from '../../assets/logoCarrefour.png'
@@ -9,6 +9,7 @@ function HomePage() {
     let [openForm, setOpenForm] = useState(true)
     let [mainInfos, setMainInfos] = useState({})
     let [articles, setArticles] = useState([])
+    let [totaux, setTotaux] = useState([])
 
     const handleToogleForm = (e) => {
         setOpenForm(!openForm)
@@ -16,6 +17,15 @@ function HomePage() {
             setMainInfos(e)
         }
     }
+
+    useEffect(() => {
+        let calcs = {
+            totalRemises: parseFloat(articles.filter(element => element.prixRemise !== "").reduce((total, element) => total + parseFloat(element.prixRemise), 0)).toFixed(2),
+            totalPanier: parseFloat(articles.reduce((total, element) => total + parseFloat(element.total), 0)+ 0.70),  
+            totalNbrArticle: parseFloat(articles.reduce((total, element) => total + parseFloat(element.qtyCmd), 0)+2)
+        }
+        setTotaux(calcs)
+    }, [articles]);
 
     return (
         <div>
@@ -63,20 +73,16 @@ function HomePage() {
                 </section>
                 <Bill articles={articles} setArticles={(e) => { setArticles(e) }} />
                 <section className='bilanFacture'>
-                    <div className='nbrArticle'><p>Nombres d'articles remis :</p><p>{parseFloat(articles.reduce((total, element) => total + parseFloat(element.qtyCmd), 0))}</p><br /><br /></div>
+                    <div className='nbrArticle'><p>Nombres d'articles remis :</p><p>{totaux.totalNbrArticle}</p><br /><br /></div>
                     <div style={{ width: "40%" }}>
                         <div className='totalBill'>
                             <div>
                                 <p>Total de vos remises</p>
-                                <p>{parseFloat(
-                                    articles
-                                        .filter(element => element.prixRemise !== "") // Filtrer les éléments avec une valeur non vide pour prixRemise
-                                        .reduce((total, element) => total + parseFloat(element.prixRemise), 0)
-                                ).toFixed(2)}</p>
+                                <p>{totaux.totalRemises}</p>
                             </div>
                             <div>
                                 <p>Total panier TTC (après remises)</p>
-                                <p>{parseFloat(articles.reduce((total, element) => total + parseFloat(element.total), 0)).toFixed(2)}</p>
+                                <p>{totaux.totalPanier.toFixed(2)}</p>
                             </div>
                             <br />
                             {/* <div>
@@ -92,24 +98,24 @@ function HomePage() {
                             <br />
                             <div>
                                 <p>Total TTC en Euros</p>
-                                <p>{(parseFloat(articles.reduce((total, element) => total + parseFloat(element.total), 0))).toFixed(2)}</p>
+                                <p>{totaux.totalPanier.toFixed(2)}</p>
                             </div>
                         </div>
                         <div className='totalBill'>
                             <p>Modes de règlement</p>
                             <div>
                                 <p>Compte fidélité</p>
-                                <p>{((parseFloat(articles.reduce((total, element) => total + parseFloat(element.total), 0))) * 0.23).toFixed(2)}</p>
+                                <p>{(totaux.totalPanier * 0.23).toFixed(2)}</p>
                             </div>
                             <div>
                                 <p>Carte Bancaire</p>
-                                <p>{((parseFloat(articles.reduce((total, element) => total + parseFloat(element.total), 0))) * 0.77).toFixed(2)}</p>
+                                <p>{(totaux.totalPanier * 0.77).toFixed(2)}</p>
                             </div>
                             <br />
                             <br />
                             <div>
                                 <p>Total TTC en Euros</p>
-                                <p>{(parseFloat(articles.reduce((total, element) => total + parseFloat(element.total), 0))).toFixed(2)}</p>
+                                <p>{totaux.totalPanier.toFixed(2)}</p>
                             </div>
                             <br />
                         </div>
