@@ -38,6 +38,28 @@ function FormFacture(props) {
         }
     }
 
+    const handleRandomCommand = () => {
+        const randomNumber = "5" + Math.floor(Math.random() * 1000000000000).toString().padStart(12, "0");
+        setValue('commandNumber', randomNumber, { shouldValidate: true });
+    }
+
+    const handleRandomFacture = () => {
+        const randomDigits = Math.floor(Math.random() * 1000000).toString().padStart(6, "0");
+        const factureNumber = "WEB-000119-00" + randomDigits;
+        setValue('factureNumber', factureNumber, { shouldValidate: true });
+    }
+
+    const autoDate = (e) => {
+        let dateInitiale = new Date(e);
+        dateInitiale.setDate(dateInitiale.getDate() + 1);
+    
+        var year = dateInitiale.getFullYear();
+        var month = (dateInitiale.getMonth() + 1).toString().padStart(2, '0');
+        var day = dateInitiale.getDate().toString().padStart(2, '0');
+        let newDate = year + '-' + month + '-' + day;
+        setValue('dateFacturation', newDate, { shouldValidate: true });
+    }
+
     function formatDate(inputDate) {
         let parts = inputDate.split('-');
         let year = parseInt(parts[0]);
@@ -57,22 +79,30 @@ function FormFacture(props) {
         data.codePostal = insertSpaceAfterTwoChars(data.codePostal.trim())
         data.date = formatDate(data.date)
         data.dateFacturation = formatDate(data.dateFacturation)
-        data.dateLivraison = formatDate(data.dateLivraison)
-        console.log('data', data)
         closeModal(data)
     }
 
     return (
         <div className='displayModal'>
             <div className='modalBg modalBgFacture'>
-                <button onClick={() => closeModal()} className='closeButton' />
+                <button onClick={() => closeModal()} className='buttonIcon closeButton' />
 
                 <form className='gridModal' onSubmit={handleSubmit(onSubmit)}>
-                    <input type='text' placeholder='N° de commande' {...register("commandNumber", { required: true })}></input>
-                    <input type='text' placeholder='N° de facture'{...register("factureNumber", { required: true })}></input>
+                    <div className='positionRelative'>
+                        <input type='text' placeholder='N° de commande' {...register("commandNumber", { required: true })}></input>
+                        <button className='randomButton' onClick={() => handleRandomCommand()}></button>
+                    </div>
+                    <div className='positionRelative'>
+                        <input type='text' placeholder='N° de facture'{...register("factureNumber", { required: true })}></input>
+                        <button className='randomButton' onClick={() => handleRandomFacture()}></button>
+                    </div>
                     <div className='inputDisplay'>
                         <label className='label'>Date de commande</label>
-                        <input type='date' {...register("date", { required: true })}></input>
+                        <input type='date' onSelect={(e) => autoDate(e.target.value)} {...register("date", { required: true })}></input>
+                    </div>
+                    <div className='inputDisplay marginTop'>
+                        <label className='label'>Date facturation/livraison</label>
+                        <input type='date' {...register("dateFacturation", { required: true })}></input>
                     </div>
                     <div className='divSelect'>
                         <select onChange={(e) => { handleSelect(e.target.value) }}>
@@ -91,16 +121,7 @@ function FormFacture(props) {
                     <input type='text' placeholder='Ville'{...register("city", { required: true })}></input>
                     <input type='text' placeholder='Pays'{...register("country", { required: true })}></input>
                     <input type='text' placeholder='Identifiant client'{...register("clientID", { required: true })}></input>
-                    <div></div>
-                    <div className='inputDisplay marginTop'>
-                        <label className='label'>Date de facturation</label>
-                        <input type='date' {...register("dateFacturation", { required: true })}></input>
-                    </div>
-                    <div className='inputDisplay marginTop'>
-                        <label className='label'>Date de livraison</label>
-                        <input type='date' {...register("dateLivraison", { required: true })}></input>
-                    </div>
-                    <button type='submit' className='saveButton' />
+                    <button type='submit' className='buttonIcon saveButton' />
                 </form>
 
             </div>

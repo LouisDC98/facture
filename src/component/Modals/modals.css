@@ -43,7 +43,7 @@ input {
     margin: 10px 5px;
 }
 
-button {
+.buttonIcon {
     position: fixed;
     right: 20px;
     border: none;

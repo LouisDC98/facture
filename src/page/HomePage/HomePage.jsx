@@ -58,7 +58,7 @@ function HomePage() {
                     </div>
                     <div className='marginEnd'>
                         <p className='italic'>Date de livraison</p>
-                        <p className='marginLeft'>{mainInfos?.dateLivraison}</p>
+                        <p className='marginLeft'>{mainInfos?.dateFacturation}</p>
                     </div>
                 </section>
                 <Bill articles={articles} setArticles={(e) => { setArticles(e) }} />
