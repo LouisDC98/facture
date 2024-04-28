@@ -9,7 +9,7 @@ function HomePage() {
     let [openForm, setOpenForm] = useState(true)
     let [mainInfos, setMainInfos] = useState({})
     let [articles, setArticles] = useState([])
-    let [totaux, setTotaux] = useState([])
+    let [totaux, setTotaux] = useState({totalRemises:0,totalPanier:0,totalNbrArticle:0})
 
     const handleToogleForm = (e) => {
         setOpenForm(!openForm)
@@ -19,12 +19,14 @@ function HomePage() {
     }
 
     useEffect(() => {
-        let calcs = {
-            totalRemises: parseFloat(articles.filter(element => element.prixRemise !== "").reduce((total, element) => total + parseFloat(element.prixRemise), 0)).toFixed(2),
-            totalPanier: parseFloat(articles.reduce((total, element) => total + parseFloat(element.total), 0)+ 0.70),  
-            totalNbrArticle: parseFloat(articles.reduce((total, element) => total + parseFloat(element.qtyCmd), 0)+2)
+        if (articles.length > 0) {
+            let calcs = {
+                totalRemises: parseFloat(articles.filter(element => element.prixRemise !== "").reduce((total, element) => total + parseFloat(element.prixRemise), 0)).toFixed(2),
+                totalPanier: parseFloat(articles.reduce((total, element) => total + parseFloat(element.total), 0) + 0.70),
+                totalNbrArticle: parseFloat(articles.reduce((total, element) => total + parseFloat(element.qtyCmd), 0) + 2)
+            }
+            setTotaux(calcs)
         }
-        setTotaux(calcs)
     }, [articles]);
 
     return (
