@@ -40,8 +40,8 @@ function HomePage() {
                 </section>
                 <section className='displayMainInfoFacture'>
                     <div>
-                        <p>CARREFOUR TOULOUSE PURPAN 36 RTE DE BAYONNE</p> <br />
-                        <p>PURPAN 31000 TOULOUSE</p> <br /><br />
+                        <p>{mainInfos?.magasin?.primary}</p> <br />
+                        <p>{mainInfos?.magasin?.secondary}</p> <br /><br />
                         <p className='size11'>Une question sur votre facture ?</p> <br />
                         <p>www.carrefour.fr/nous-contacter</p> <br />
                         <p>Horaires : lun. au sam. de 8h - 22h</p> <br /><br />

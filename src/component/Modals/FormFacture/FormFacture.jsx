@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './FormFacture.css'
 import data from "../../../data.json"
 import { useForm } from "react-hook-form";
@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 
 function FormFacture(props) {
     let { closeModal } = props
+    let [magasin, setMagasin] = useState(0)
 
     const { register, handleSubmit, setValue, reset } = useForm();
 
@@ -38,6 +39,8 @@ function FormFacture(props) {
         }
     }
 
+    const magasinList = [{primary: "CARREFOUR TOULOUSE PURPAN 36 RTE DE BAYONNE", secondary: "PURPAN 31000 TOULOUSE"}, {primary: "CARREFOUR PORTET SUR GARONNE BOULEVARD DE L'EUROPE", secondary: "31126 PORTET SUR GARONNE CEDEX"}]
+
     const handleRandomCommand = () => {
         const randomNumber = "5" + Math.floor(Math.random() * 1000000000000).toString().padStart(12, "0");
         setValue('commandNumber', randomNumber, { shouldValidate: true });
@@ -52,7 +55,7 @@ function FormFacture(props) {
     const autoDate = (e) => {
         let dateInitiale = new Date(e);
         dateInitiale.setDate(dateInitiale.getDate() + 1);
-    
+
         var year = dateInitiale.getFullYear();
         var month = (dateInitiale.getMonth() + 1).toString().padStart(2, '0');
         var day = dateInitiale.getDate().toString().padStart(2, '0');
@@ -73,6 +76,7 @@ function FormFacture(props) {
     }
 
     const onSubmit = data => {
+        data.magasin = magasinList[magasin]
         data.adresse = data.adresse.toUpperCase()
         data.city = data.city.toUpperCase()
         data.country = data.country.toUpperCase()
@@ -88,6 +92,12 @@ function FormFacture(props) {
                 <button onClick={() => closeModal()} className='buttonIcon closeButton' />
 
                 <form className='gridModal' onSubmit={handleSubmit(onSubmit)}>
+                    <div className='divSelect'>
+                        <select onChange={(e) => { setMagasin(e.target.value) }}>
+                            <option value={0}>Purpan</option>
+                            <option value={1}>Portet</option>
+                        </select>
+                    </div>
                     <div className='positionRelative'>
                         <input type='text' placeholder='N° de commande' {...register("commandNumber", { required: true })}></input>
                         <button className='randomButton' onClick={() => handleRandomCommand()}></button>
@@ -104,7 +114,7 @@ function FormFacture(props) {
                         <label className='label'>Date facturation/livraison</label>
                         <input type='date' {...register("dateFacturation", { required: true })}></input>
                     </div>
-                    <div className='divSelect'>
+                    <div className='divSelect marginTopSelect'>
                         <select onChange={(e) => { handleSelect(e.target.value) }}>
                             <option value={"null"}>Données personnelles</option>
                             {data.map((option, index) => (
