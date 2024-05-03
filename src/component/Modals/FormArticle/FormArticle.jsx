@@ -5,9 +5,9 @@ import { useForm } from "react-hook-form";
 
 
 function FormArticle(props) {
-    let { closeModal } = props
+    let { closeModal, currentArticle } = props
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit } = useForm({ defaultValues: currentArticle });
 
     const onSubmit = data => {
         data.total = ((data.prixUnit * data.qtyCmd) - data.prixRemise).toFixed(2);
