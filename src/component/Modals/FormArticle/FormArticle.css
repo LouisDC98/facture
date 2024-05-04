@@ -12,9 +12,9 @@
         width: 100%;
         margin: 0;
         box-sizing: border-box;
-        font-size: 10px; 
+        font-size: 10px;
     }
-    
+
     ::placeholder {
         font-size: 9px;
     }
@@ -43,15 +43,30 @@
         grid-column: 10/ 14;
     }
 
+    .displayInput {
+        position: relative;
+
+        label {
+            font-size: 10px;
+            position: absolute;
+            top: -8px;
+            left: 7px;
+            background-color: white;
+        }
+    }
+
     .checkBoxMajor {
+        margin-top: -15px;
         display: flex;
         align-items: center;
         grid-row: 3;
         grid-column: 7/ 10;
+
         label {
             font-size: 10px;
             flex-grow: 0;
         }
+
         input {
             flex: 1;
         }
@@ -61,8 +76,8 @@
 
 .gridModalArticle {
     margin: 50px 0;
-    column-gap: 5px;
-    row-gap: 10px;
+    column-gap: 10px;
+    row-gap: 20px;
     display: grid;
-    grid-template-columns: repeat(14, 35px);
+    grid-template-columns: repeat(13, 30px);
 }

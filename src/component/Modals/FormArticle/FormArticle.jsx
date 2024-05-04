@@ -29,17 +29,35 @@ function FormArticle(props) {
             <div className='modalBg modalBgArticle'>
                 <button onClick={() => closeModal()} className='buttonIcon closeButton' />
                 <form className='gridModalArticle' onSubmit={handleSubmit(onSubmit)}>
-                    <input type='text' className='code' placeholder='Code EAN 13' {...register("code", { required: true })}></input>
-                    <input type='text' className='libelle' placeholder='Libellé'{...register("libelle", { required: true })}></input>
-                    <input type='number' className='qtyCmd' placeholder='Qté Cdée'{...register("qtyCmd", { required: true })}></input>
+                    <div className='displayInput code'>
+                        <label>Code EAN 13</label>
+                        <input type='text' {...register("code", { required: true })}></input>
+                    </div>
+                    <div className='displayInput libelle'>
+                        <label>Libellé</label>
+                        <input type='text' {...register("libelle", { required: true })}></input>
+                    </div>
+                    <div className='displayInput qtyCmd'>
+                        <label>Qté Cdée</label>
+                        <input type='number' {...register("qtyCmd", { required: true })}></input>
+                    </div>
+                    <div className='displayInput tva'>
+                        <label>TVA %</label>
+                        <input list="tva" type='number' step=".5" {...register("tva", { required: true })}></input>
+                    </div>
                     <datalist id='tva'>
                         <option value="20">20</option>
                         <option value="5.5">5.5</option>
                         <option value="10">10</option>
                     </datalist>
-                    <input list="tva" type='number' step=".5" className='tva' placeholder='TVA %'{...register("tva", { required: true })}></input>
-                    <input type='number' step=".01" className='prixUnit' placeholder='Prix Unit. TTC'{...register("prixUnit", { required: true })}></input>
-                    <input type='number' step=".01" className='prixRemise' placeholder='Montant remise TTC'{...register("prixRemise")}></input>
+                    <div className='displayInput prixUnit'>
+                        <label>Prix Unit. TTC</label>
+                        <input type='number' step=".01" {...register("prixUnit", { required: true })}></input>
+                    </div>
+                    <div className='displayInput prixRemise'>
+                        <label>Montant remise TTC</label>
+                        <input type='number' step=".01" {...register("prixRemise")}></input>
+                    </div>
                     <div className='checkBoxMajor'>
                         <label htmlFor="checkMajor">majoration 20% ?</label>
                         <input type='checkbox' id="checkMajor" onClick={() => setMajor(!major)}></input>
