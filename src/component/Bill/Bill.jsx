@@ -53,7 +53,7 @@ function Bill(props) {
     return (
         <div>
             {openForm && <FormArticle closeModal={(e) => { handleToogleForm(e) }} currentArticle={currentArticle} />}
-            <button className='shuffleArticles' onClick={() => handleShuffleArticle()}></button>
+            <button className='shuffleArticles elementToHide' onClick={() => handleShuffleArticle()}></button>
             <table>
                 <thead className='headerTable'>
                     <tr>
