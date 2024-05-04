@@ -9,7 +9,7 @@ function HomePage() {
     let [openForm, setOpenForm] = useState(true)
     let [mainInfos, setMainInfos] = useState({})
     let [articles, setArticles] = useState([])
-    let [totaux, setTotaux] = useState({totalRemises:0,totalPanier:0,totalNbrArticle:0})
+    let [totaux, setTotaux] = useState({ totalRemises: 0, totalPanier: 0, totalNbrArticle: 0 })
 
     const handleToogleForm = (e) => {
         setOpenForm(!openForm)
@@ -31,7 +31,13 @@ function HomePage() {
 
     return (
         <div>
-            <button className='floatingButton button-49' onClick={() => handleToogleForm()}>+ infos générales</button>
+            <button class="floatingButton button-82-pushable" onClick={() => handleToogleForm()}>
+                <span class="button-82-shadow"></span>
+                <span class="button-82-edge"></span>
+                <span class="button-82-front text">
+                    Informations générales
+                </span>
+            </button>
             <div className='a4Format'>
                 {openForm && <FormFacture closeModal={(e) => handleToogleForm(e)} setMainInfos={(e) => setMainInfos(e)} />}
                 <section className='headerFacture'>

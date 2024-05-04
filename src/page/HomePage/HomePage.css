@@ -1,15 +1,10 @@
 .floatingButton {
-    position: fixed;
-    height: 50px;
+    position: absolute;
     top: 40px;
     right: 40px;
-    background-color: #013ea1;
-    border: 1px solid white;
-    color: #FFF;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 2px 2px 3px #999;
 }
+
+.floatingButton:hover {cursor : url('../../assets/penis.svg'), auto;}
 
 .a4Format {
     height: 292mm;
