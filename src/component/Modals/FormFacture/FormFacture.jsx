@@ -39,7 +39,7 @@ function FormFacture(props) {
         }
     }
 
-    const magasinList = [{primary: "CARREFOUR TOULOUSE PURPAN 36 RTE DE BAYONNE", secondary: "PURPAN 31000 TOULOUSE"}, {primary: "CARREFOUR PORTET SUR GARONNE BOULEVARD DE L'EUROPE", secondary: "31126 PORTET SUR GARONNE CEDEX"}]
+    const magasinList = [{ primary: "CARREFOUR TOULOUSE PURPAN 36 RTE DE BAYONNE", secondary: "PURPAN 31000 TOULOUSE" }, { primary: "CARREFOUR PORTET SUR GARONNE BOULEVARD DE L'EUROPE", secondary: "31126 PORTET SUR GARONNE CEDEX" }]
 
     const handleRandomCommand = () => {
         const randomNumber = "5" + Math.floor(Math.random() * 1000000000000).toString().padStart(12, "0");
@@ -98,20 +98,22 @@ function FormFacture(props) {
                             <option value={1}>Portet</option>
                         </select>
                     </div>
-                    <div className='positionRelative'>
-                        <input type='text' placeholder='N° de commande' {...register("commandNumber", { required: true })}></input>
+                    <div className='displayInput'>
+                        <label>N° de commande</label>
+                        <input type='text' {...register("commandNumber", { required: true })}></input>
                         <button className='randomButton' onClick={() => handleRandomCommand()}></button>
                     </div>
-                    <div className='positionRelative'>
-                        <input type='text' placeholder='N° de facture'{...register("factureNumber", { required: true })}></input>
+                    <div className='displayInput'>
+                        <label>N° de facture</label>
+                        <input type='text' {...register("factureNumber", { required: true })}></input>
                         <button className='randomButton' onClick={() => handleRandomFacture()}></button>
                     </div>
-                    <div className='inputDisplay'>
-                        <label className='label'>Date de commande</label>
+                    <div className='displayInput'>
+                        <label>Date de commande</label>
                         <input type='date' onSelect={(e) => autoDate(e.target.value)} {...register("date", { required: true })}></input>
                     </div>
-                    <div className='inputDisplay marginTop'>
-                        <label className='label'>Date facturation/livraison</label>
+                    <div className='displayInput'>
+                        <label>Date de facturation/livraison</label>
                         <input type='date' {...register("dateFacturation", { required: true })}></input>
                     </div>
                     <div className='divSelect marginTopSelect'>
@@ -124,13 +126,35 @@ function FormFacture(props) {
                             ))}
                         </select>
                     </div>
-                    <input type='text' placeholder='Nom'{...register("lastName", { required: true })}></input>
-                    <input type='text' placeholder='Prénom'{...register("firstName", { required: true })}></input>
-                    <input type='text' placeholder='Adresse'{...register("adresse", { required: true })}></input>
-                    <input type='text' placeholder='Code postal'{...register("codePostal", { required: true })}></input>
-                    <input type='text' placeholder='Ville'{...register("city", { required: true })}></input>
-                    <input type='text' placeholder='Pays'{...register("country", { required: true })}></input>
-                    <input type='text' placeholder='Identifiant client'{...register("clientID", { required: true })}></input>
+
+                    <div className='displayInput'>
+                        <label>Nom</label>
+                        <input type='text' {...register("lastName", { required: true })}></input>
+                    </div>
+                    <div className='displayInput'>
+                        <label>Prénom</label>
+                        <input type='text' {...register("firstName", { required: true })}></input>
+                    </div>
+                    <div className='displayInput'>
+                        <label>Adresse</label>
+                        <input type='text' {...register("adresse", { required: true })}></input>
+                    </div>
+                    <div className='displayInput'>
+                        <label>Code postal</label>
+                        <input type='text' {...register("codePostal", { required: true })}></input>
+                    </div>
+                    <div className='displayInput'>
+                        <label>Ville</label>
+                        <input type='text' {...register("city", { required: true })}></input>
+                    </div>
+                    <div className='displayInput'>
+                        <label>Pays</label>
+                        <input type='text' {...register("country", { required: true })}></input>
+                    </div>
+                    <div className='displayInput'>
+                        <label>Identifiant client</label>
+                        <input type='text' {...register("clientID", { required: true })}></input>
+                    </div>
                     <button type='submit' className='buttonIcon saveButton' />
                 </form>
 

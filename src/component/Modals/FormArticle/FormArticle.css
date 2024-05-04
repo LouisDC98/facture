@@ -51,6 +51,7 @@
             position: absolute;
             top: -8px;
             left: 7px;
+            padding: 0 5px;
             background-color: white;
         }
     }

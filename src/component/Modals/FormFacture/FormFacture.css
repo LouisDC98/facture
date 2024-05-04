@@ -2,11 +2,25 @@
     .gridModal {
         margin: 50px 0;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 200px);
+    }
+
+    .displayInput {
+        position: relative;
+
+        label {
+            font-size: 10px;
+            position: absolute;
+            top: 4px;
+            left: 12px;
+            padding: 0 5px;
+            background-color: white;
+        }
     }
 
     input {
         width: 70%;
+        font-size: 10px;
     }
 
     .positionRelative {
@@ -43,18 +57,4 @@
         background-color: rgb(251, 251, 251);
     }
 
-    .inputDisplay {
-        position: relative;
-
-        .marginTop {
-            margin-top: 30px;
-        }
-
-        .label {
-            font-size: 12px;
-            position: absolute;
-            top: -3px;
-            left: 10px;
-        }
-    }
 }
