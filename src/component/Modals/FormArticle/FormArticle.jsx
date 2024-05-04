@@ -14,7 +14,8 @@ function FormArticle(props) {
         if (major) {
             data.prixUnit *= 1.2;
             data.prixUnit = Math.floor(data.prixUnit / 0.05) * 0.05;
-            setMajor(false)
+            data.prixUnit = parseFloat(data.prixUnit.toFixed(2));
+            setMajor(false);
         }
 
         data.total = ((data.prixUnit * data.qtyCmd) - data.prixRemise).toFixed(2);
