@@ -42,6 +42,21 @@
     .prixRemise {
         grid-column: 10/ 14;
     }
+
+    .checkBoxMajor {
+        display: flex;
+        align-items: center;
+        grid-row: 3;
+        grid-column: 7/ 10;
+        label {
+            font-size: 10px;
+            flex-grow: 0;
+        }
+        input {
+            flex: 1;
+        }
+
+    }
 }
 
 .gridModalArticle {

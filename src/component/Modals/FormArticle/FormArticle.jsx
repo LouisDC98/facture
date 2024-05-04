@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './FormArticle.css'
 import '../modals.css'
 import { useForm } from "react-hook-form";
@@ -6,10 +6,17 @@ import { useForm } from "react-hook-form";
 
 function FormArticle(props) {
     let { closeModal, currentArticle } = props
+    let [major, setMajor] = useState(false)
 
     const { register, handleSubmit } = useForm({ defaultValues: currentArticle });
 
     const onSubmit = data => {
+        if (major) {
+            data.prixUnit *= 1.2;
+            data.prixUnit = Math.floor(data.prixUnit / 0.05) * 0.05;
+            setMajor(false)
+        }
+
         data.total = ((data.prixUnit * data.qtyCmd) - data.prixRemise).toFixed(2);
         if (data.prixRemise === "") {
             data.prixRemise = 0;
@@ -33,6 +40,10 @@ function FormArticle(props) {
                     <input list="tva" type='number' step=".5" className='tva' placeholder='TVA %'{...register("tva", { required: true })}></input>
                     <input type='number' step=".01" className='prixUnit' placeholder='Prix Unit. TTC'{...register("prixUnit", { required: true })}></input>
                     <input type='number' step=".01" className='prixRemise' placeholder='Montant remise TTC'{...register("prixRemise")}></input>
+                    <div className='checkBoxMajor'>
+                        <label htmlFor="checkMajor">majoration 20% ?</label>
+                        <input type='checkbox' id="checkMajor" onClick={() => setMajor(!major)}></input>
+                    </div>
                     <button type='submit' className='buttonIcon saveButton' />
                 </form>
             </div>
