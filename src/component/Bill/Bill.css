@@ -1,13 +1,7 @@
-@media print {
-    .elementToHide {
-      display: none;
-    }
-  }
-
 table {
     width: 100%;
     margin-top: 8px;
-    border-collapse: collapse; 
+    border-collapse: collapse;
 }
 
 thead {
@@ -116,15 +110,4 @@ tbody {
     border: none;
     background-color: transparent;
     background-image: url('../../assets/edit.svg');
-}
-
-.shuffleArticles {
-    position: absolute;
-    right: -50px;
-    height:30px;
-    width: 30px;
-    border: none;
-    background-color: rgb(245, 192, 123);
-    border-radius: 5px;
-    background-image: url('../../assets/shuffle.svg');  
 }

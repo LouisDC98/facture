@@ -41,19 +41,9 @@ function Bill(props) {
         setArticles(updatedArticles);
     }
 
-    const handleShuffleArticle = () => {
-        const updatedArticles = [...articles];
-        for (let i = updatedArticles.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [updatedArticles[i], updatedArticles[j]] = [updatedArticles[j], updatedArticles[i]];
-        }
-        setArticles(updatedArticles)
-    }
-
     return (
         <div>
             {openForm && <FormArticle closeModal={(e) => { handleToogleForm(e) }} currentArticle={currentArticle} />}
-            <button className='shuffleArticles elementToHide' onClick={() => handleShuffleArticle()}></button>
             <table>
                 <thead className='headerTable'>
                     <tr>

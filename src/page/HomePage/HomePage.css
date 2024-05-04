@@ -4,7 +4,25 @@
     right: 40px;
 }
 
-.floatingButton:hover {cursor : url('../../assets/penis.svg'), auto;}
+.floatingButton:hover {
+    cursor: url('../../assets/penis.svg'), auto;
+}
+
+.shuffleArticles {
+    position: absolute;
+    top: 425px;
+    right: 40px;
+    height: 40px;
+
+    img {
+        margin-left: 5px;
+    }
+
+    .displayflex {
+        display: flex;
+        align-items: center;
+    }
+}
 
 .a4Format {
     height: 292mm;

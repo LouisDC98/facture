@@ -4,6 +4,7 @@ import './HomePage.css'
 import logo from '../../assets/logoCarrefour.png'
 import Bill from '../../component/Bill/Bill'
 import FormFacture from '../../component/Modals/FormFacture/FormFacture'
+import shuffle from "../../assets/shuffle.svg"
 
 function HomePage() {
     let [openForm, setOpenForm] = useState(true)
@@ -29,13 +30,30 @@ function HomePage() {
         }
     }, [articles]);
 
+    const handleShuffleArticle = () => {
+        const updatedArticles = [...articles];
+        for (let i = updatedArticles.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [updatedArticles[i], updatedArticles[j]] = [updatedArticles[j], updatedArticles[i]];
+        }
+        setArticles(updatedArticles)
+    }
+
     return (
         <div>
-            <button class="floatingButton button-82-pushable" onClick={() => handleToogleForm()}>
+            <button class="floatingButton button-82-pushable elementToHide" onClick={() => handleToogleForm()}>
                 <span class="button-82-shadow"></span>
                 <span class="button-82-edge"></span>
                 <span class="button-82-front text">
                     Informations générales
+                </span>
+            </button>
+            <button class="shuffleArticles button-82-pushable elementToHide" onClick={() => handleShuffleArticle()}>
+                <span class="button-82-shadow"></span>
+                <span class="button-82-edge"></span>
+                <span class="button-82-front text displayflex">
+                    Mélanger la liste
+                    <img src={shuffle} alt="shuffle"/>
                 </span>
             </button>
             <div className='a4Format'>
