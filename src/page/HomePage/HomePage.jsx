@@ -64,39 +64,39 @@ function HomePage() {
                 </section>
                 <section className='displayMainInfoFacture'>
                     <div>
-                        <p className='wrapperP'>{mainInfos?.magasin?.primary || <p>CARREFOUR TOULOUSE PURPAN 36 RTE DE BAYONNE</p>}</p>
-                        <p className='wrapperP'>{mainInfos?.magasin?.secondary || <p>PURPAN 31000 TOULOUSE</p>}</p><br />
+                        <p className='wrapperP'>{mainInfos?.magasin?.primary || <span>CARREFOUR TOULOUSE PURPAN 36 RTE DE BAYONNE</span>}</p>
+                        <p className='wrapperP'>{mainInfos?.magasin?.secondary || <span>PURPAN 31000 TOULOUSE</span>}</p><br />
 
                         <p className='size11'>Une question sur votre facture ?</p>
                         <p>www.carrefour.fr/nous-contacter</p>
                         <p>Horaires : lun. au sam. de 8h - 22h</p> <br />
 
-                        <p className='wrapperP'>N° de commande {mainInfos?.commandNumber || <p>9999999999999</p>}</p>
-                        <p className='wrapperP'>Identifiant client {mainInfos?.clientID || <p>9999999</p>}</p>
-                        <p className='wrapperP'>N° de facture {mainInfos?.factureNumber || <p>WEB-999999-99999999</p>}</p><br />
+                        <p className='wrapperP'>N° de commande {mainInfos?.commandNumber || <span>9999999999999</span>}</p>
+                        <p className='wrapperP'>Identifiant client {mainInfos?.clientID || <span>9999999</span>}</p>
+                        <p className='wrapperP'>N° de facture {mainInfos?.factureNumber || <span>WEB-999999-99999999</span>}</p><br />
 
-                        <p className='wrapperP'>Merci pour votre commande Carrefour Drive du {mainInfos?.date || <p>01/01/2000</p>}</p><br /><br /><br /><br />
+                        <p className='wrapperP'>Merci pour votre commande Carrefour Drive du {mainInfos?.date || <span>01/01/2000</span>}</p><br /><br /><br /><br />
                     </div>
                     <div className='adressInfo'>
                         <p >Adresse de facturation</p>
-                        {mainInfos.lastName ? <p className='marginLeft'>{mainInfos?.lastName} {mainInfos?.firstName}</p> : <p>Maxime DUPONT</p>}
-                        {mainInfos.adresse ? <p className='marginLeft'>{mainInfos?.adresse}</p> : <p>11 avenue des Champs Elysées</p>}
-                        {mainInfos.codePostal ? <p className='marginLeft'>{mainInfos?.codePostal} {mainInfos?.city}</p> : <p>99 999 Paris</p>}
-                        {mainInfos.country ? <p className='marginLeft'>{mainInfos?.country}</p> : <p>France</p>}<br />
+                        <p className='marginLeft wrapperP'>{mainInfos?.lastName && mainInfos?.firstName ? `${mainInfos.lastName} ${mainInfos.firstName}` : <span>Maxime DUPONT</span>}</p>
+                        <p className='marginLeft wrapperP'>{mainInfos?.adresse ? mainInfos.adresse : <span>11 avenue des Champs Elysées</span>}</p>
+                        <p className='marginLeft wrapperP'>{mainInfos?.codePostal && mainInfos?.city ? `${mainInfos.codePostal} ${mainInfos.city}` : <span>99 999 Paris</span>}</p>
+                        <p className='marginLeft wrapperP'>{mainInfos?.country ? mainInfos.country : <span>France</span>}</p><br />
                     </div>
                 </section>
                 <section className='dateRow'>
                     <div>
                         <p className='italic'>Date de commande</p>
-                        <p className='wrapperP marginLeft'>{mainInfos?.date || <p>01/01/2000</p>}</p>
+                        <p className='wrapperP marginLeft'>{mainInfos?.date || <span>01/01/2000</span>}</p>
                     </div>
                     <div>
                         <p className='italic'>Date de Facturation</p>
-                        <p className='wrapperP marginLeft'>{mainInfos?.dateFacturation || <p>01/01/2000</p>}</p>
+                        <p className='wrapperP marginLeft'>{mainInfos?.dateFacturation || <span>01/01/2000</span>}</p>
                     </div>
                     <div className='marginEnd'>
                         <p className='italic'>Date de livraison</p>
-                        <p className='wrapperP marginLeft'>{mainInfos?.dateFacturation || <p>01/01/2000</p>}</p>
+                        <p className='wrapperP marginLeft'>{mainInfos?.dateFacturation || <span>01/01/2000</span>}</p>
                     </div>
                 </section>
                 <Bill articles={articles} setArticles={(e) => { setArticles(e) }} />

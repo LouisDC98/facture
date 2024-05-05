@@ -42,8 +42,9 @@ function Bill(props) {
     }
 
     return (
-        <div>
+        <div className='relative'>
             {openForm && <FormArticle closeModal={(e) => { handleToogleForm(e) }} currentArticle={currentArticle} />}
+            <button className='addElement elementToHide' type="button" onClick={() => handleToogleForm()}></button>
             <table>
                 <thead className='headerTable'>
                     <tr>
@@ -75,7 +76,6 @@ function Bill(props) {
                             <button className='editRow elementToHide' onClick={() => { handleEditRow(index) }}></button>
                         </tr>
                     ))}
-                    <button className='addElement elementToHide' type="button" onClick={() => handleToogleForm()}></button>
                     <tr>
                         <td valign='top'>9713236189234</td>
                         <td valign='top'>

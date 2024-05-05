@@ -67,6 +67,7 @@ function FormFacture(props) {
     }
 
     const autoDate = (e) => {
+        if (!e) return
         let dateInitiale = new Date(e);
         dateInitiale.setDate(dateInitiale.getDate() + 1);
 
@@ -131,10 +132,10 @@ function FormFacture(props) {
                         <input type='date' {...register("dateFacturation", { required: true })}></input>
                     </div>
                     <div className='divSelect marginTopSelect'>
-                        <select onChange={(e) => { handleSelect(e.target.value) }}>
+                        <select value={localStorage.getItem("data") || "null"} onChange={(e) => { handleSelect(e.target.value) }}>
                             <option value={"null"}>Données personnelles</option>
                             {data.map((option, index) => (
-                                <option key={index} value={index} selected={localStorage.getItem("data") === JSON.stringify(index)}>
+                                <option key={index} value={index}>
                                     {option.firstName}
                                 </option>
                             ))}

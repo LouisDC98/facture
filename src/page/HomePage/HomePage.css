@@ -145,7 +145,7 @@ p {
 .wrapperP {
     display: flex;
 
-    p {
+    span {
         background-color: rgb(198, 198, 198);
         border-radius: 10px;
         height: 15px;
