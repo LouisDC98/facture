@@ -39,8 +39,49 @@ function HomePage() {
         setArticles(updatedArticles)
     }
 
+    const handleSaveArticles = () => {
+        const json = JSON.stringify(articles)
+
+        let element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(json));
+        element.setAttribute('download', "test1");
+
+        element.style.display = 'none';
+        document.body.appendChild(element);
+
+        element.click();
+        document.body.removeChild(element);
+    }
+
+    const handleCopyJSON = () => {
+        const json = JSON.stringify(articles);
+
+        const tempInput = document.createElement("textarea");
+        tempInput.value = json;
+        document.body.appendChild(tempInput);
+
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+    }
+
     return (
         <div>
+            <button className="downloadButton button-82-pushable elementToHide" onClick={() => handleSaveArticles()}>
+                <span className="button-82-shadow"></span>
+                <span className="button-82-edge"></span>
+                <span className="button-82-front text">
+                    Télécharger la liste
+                </span>
+            </button>
+
+            <button className="copyButton button-82-pushable elementToHide" onClick={() => handleCopyJSON()}>
+                <span className="button-82-shadow"></span>
+                <span className="button-82-edge"></span>
+                <span className="button-82-front text">
+                    Copier la liste
+                </span>
+            </button>
             <button className="floatingButton button-82-pushable elementToHide" onClick={() => handleToogleForm()}>
                 <span className="button-82-shadow"></span>
                 <span className="button-82-edge"></span>
