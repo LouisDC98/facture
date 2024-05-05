@@ -44,7 +44,7 @@ function HomePage() {
 
         let element = document.createElement('a');
         element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(json));
-        element.setAttribute('download', "test1");
+        element.setAttribute('download', "Articles_liste");
 
         element.style.display = 'none';
         document.body.appendChild(element);
@@ -65,8 +65,34 @@ function HomePage() {
         document.body.removeChild(tempInput);
     }
 
+    const handleFileUpload = async (event) => {
+        const file = event.target.files[0];
+        if (!file) return
+        const reader = new FileReader();
+
+        reader.onload = async (event) => {
+            const content = event.target.result;
+
+            const obj = JSON.parse(content);
+            setArticles(prevArticles => prevArticles.concat(obj));
+        };
+
+        reader.readAsText(file);
+    };
+
     return (
         <div>
+            <div className="uploadButton">
+                <label for="fileInput" class="btn">Choisir un fichier</label>
+                <input  style={{visibility:"hidden"}} type="file" id="fileInput" accept=".txt" onChange={(e) => { handleFileUpload(e) }} />
+            </div>
+            <button className="downloadButton button-82-pushable elementToHide" onClick={() => handleSaveArticles()}>
+                <span className="button-82-shadow"></span>
+                <span className="button-82-edge"></span>
+                <span className="button-82-front text">
+                    Télécharger la liste
+                </span>
+            </button>
             <button className="downloadButton button-82-pushable elementToHide" onClick={() => handleSaveArticles()}>
                 <span className="button-82-shadow"></span>
                 <span className="button-82-edge"></span>
