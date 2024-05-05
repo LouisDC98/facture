@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './FormFacture.css'
 import data from "../../../data.json"
 import { useForm } from "react-hook-form";
@@ -36,8 +36,22 @@ function FormFacture(props) {
             setValue('city', data[e].adresse.ville, { shouldValidate: true })
             setValue('country', data[e].adresse.pays, { shouldValidate: true })
             setValue('clientID', data[e].idClient, { shouldValidate: true })
+            localStorage.setItem("data", e);
         }
     }
+
+    useEffect(() => {
+        let localData = data[localStorage.getItem("data")]
+        if (localData) {
+            setValue('lastName', localData.lastName, { shouldValidate: true })
+            setValue('firstName', localData.firstName, { shouldValidate: true })
+            setValue('adresse', localData.adresse.rue, { shouldValidate: true })
+            setValue('codePostal', localData.adresse.code_postal, { shouldValidate: true })
+            setValue('city', localData.adresse.ville, { shouldValidate: true })
+            setValue('country', localData.adresse.pays, { shouldValidate: true })
+            setValue('clientID', localData.idClient, { shouldValidate: true })
+        }
+    }, []);
 
     const magasinList = [{ primary: "CARREFOUR TOULOUSE PURPAN 36 RTE DE BAYONNE", secondary: "PURPAN 31000 TOULOUSE" }, { primary: "CARREFOUR PORTET SUR GARONNE BOULEVARD DE L'EUROPE", secondary: "31126 PORTET SUR GARONNE CEDEX" }]
 
@@ -120,7 +134,7 @@ function FormFacture(props) {
                         <select onChange={(e) => { handleSelect(e.target.value) }}>
                             <option value={"null"}>Données personnelles</option>
                             {data.map((option, index) => (
-                                <option key={index} value={index}>
+                                <option key={index} value={index} selected={localStorage.getItem("data") === JSON.stringify(index)}>
                                     {option.firstName}
                                 </option>
                             ))}
