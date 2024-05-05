@@ -41,17 +41,17 @@ function HomePage() {
 
     return (
         <div>
-            <button class="floatingButton button-82-pushable elementToHide" onClick={() => handleToogleForm()}>
-                <span class="button-82-shadow"></span>
-                <span class="button-82-edge"></span>
-                <span class="button-82-front text">
+            <button className="floatingButton button-82-pushable elementToHide" onClick={() => handleToogleForm()}>
+                <span className="button-82-shadow"></span>
+                <span className="button-82-edge"></span>
+                <span className="button-82-front text">
                     Informations générales
                 </span>
             </button>
-            <button class="shuffleArticles button-82-pushable elementToHide" onClick={() => handleShuffleArticle()}>
-                <span class="button-82-shadow"></span>
-                <span class="button-82-edge"></span>
-                <span class="button-82-front text displayflex">
+            <button className="shuffleArticles button-82-pushable elementToHide" onClick={() => handleShuffleArticle()}>
+                <span className="button-82-shadow"></span>
+                <span className="button-82-edge"></span>
+                <span className="button-82-front text displayflex">
                     Mélanger la liste
                     <img src={shuffle} alt="shuffle" />
                 </span>
