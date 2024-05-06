@@ -20,5 +20,27 @@
             "pays": "France"
         },
         "idClient": "5024049"
+    },
+    {
+        "firstName": "Paul",
+        "lastName": "Lescure",
+        "adresse": {
+            "rue": "10 rue Bancel",
+            "ville": "Melun",
+            "code_postal": "77000",
+            "pays": "France"
+        },
+        "idClient": "5019253"
+    },
+    {
+        "firstName": "Hugo",
+        "lastName": "Pavot",
+        "adresse": {
+            "rue": "2 avenue Henri Roure",
+            "ville": "Marseille",
+            "code_postal": "13016",
+            "pays": "France"
+        },
+        "idClient": "5167204"
     }
 ]
