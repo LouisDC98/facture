@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/facture/static/css/main.21d9b1c6.css",
-    "main.js": "/facture/static/js/main.ce1fb70a.js",
+    "main.js": "/facture/static/js/main.f077264e.js",
     "static/media/logoCarrefour.png": "/facture/static/media/logoCarrefour.b142899cb0f4e2175a66.png",
     "static/media/penis.svg": "/facture/static/media/penis.83fe61b60c6741db8eee.svg",
     "static/media/random.svg": "/facture/static/media/random.66fe2becbd38aa2b5ac7.svg",
@@ -13,10 +13,10 @@
     "static/media/plus.svg": "/facture/static/media/plus.32bd23b548216c67faf7.svg",
     "static/media/delete.svg": "/facture/static/media/delete.0d99cc422554b3a1952d.svg",
     "main.21d9b1c6.css.map": "/facture/static/css/main.21d9b1c6.css.map",
-    "main.ce1fb70a.js.map": "/facture/static/js/main.ce1fb70a.js.map"
+    "main.f077264e.js.map": "/facture/static/js/main.f077264e.js.map"
   },
   "entrypoints": [
     "static/css/main.21d9b1c6.css",
-    "static/js/main.ce1fb70a.js"
+    "static/js/main.f077264e.js"
   ]
 }
