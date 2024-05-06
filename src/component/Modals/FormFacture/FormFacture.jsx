@@ -53,7 +53,12 @@ function FormFacture(props) {
         }
     }, []);
 
-    const magasinList = [{ primary: "CARREFOUR TOULOUSE PURPAN 36 RTE DE BAYONNE", secondary: "PURPAN 31000 TOULOUSE" }, { primary: "CARREFOUR PORTET SUR GARONNE BOULEVARD DE L'EUROPE", secondary: "31126 PORTET SUR GARONNE CEDEX" }]
+    const magasinList = [
+        { primary: "CARREFOUR TOULOUSE PURPAN 36 RTE DE BAYONNE", secondary: "PURPAN 31000 TOULOUSE" }, 
+        { primary: "CARREFOUR PORTET SUR GARONNE BOULEVARD DE L'EUROPE", secondary: "31126 PORTET SUR GARONNE CEDEX" },
+        { primary: "CARREFOUR MELUN ALLEE DU MARCHE", secondary: "77000 MELUN" },
+        { primary: "CARREFOUR MARSEILLE AVENUE DE ST ANTOINE", secondary: "Grand Littoral 13015 MARSEILLE" }
+    ]
 
     const handleRandomCommand = () => {
         const randomNumber = "5" + Math.floor(Math.random() * 1000000000000).toString().padStart(12, "0");
