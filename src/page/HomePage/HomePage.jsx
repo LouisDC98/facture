@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import './HomePage.css'
 import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
@@ -9,7 +9,6 @@ import FormFacture from '../../component/Modals/FormFacture/FormFacture'
 import shuffle from "../../assets/shuffle.svg"
 
 function HomePage() {
-    const a4Page = useRef();
     let [openForm, setOpenForm] = useState(true)
     let [mainInfos, setMainInfos] = useState({})
     let [articles, setArticles] = useState([])
@@ -24,7 +23,6 @@ function HomePage() {
 
     const handleExportPNG = () => {
         const element = document.getElementById('a4Page');
-
         const scale = 2;
         const options = {
             scale: scale,
@@ -153,7 +151,7 @@ function HomePage() {
                     <img src={shuffle} alt="shuffle" />
                 </span>
             </button>
-            <div className='a4Format' ref={a4Page}>
+            <div className='a4Format' id="a4Page">
                 {openForm && <FormFacture closeModal={(e) => handleToogleForm(e)} setMainInfos={(e) => setMainInfos(e)} />}
                 <section className='headerFacture'>
                     <img src={logo} alt="logoCarrefour" />
