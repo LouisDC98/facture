@@ -78,7 +78,7 @@ tbody {
 .addElement {
     position: absolute;
     bottom: 30px;
-    left: -30px;
+    left: -45px;
     height: 25px;
     width: 25px;
     border: none;
@@ -88,7 +88,7 @@ tbody {
 
 .deleteRow {
     position: absolute;
-    right: -30px;
+    right: -45px;
     height: 25px;
     width: 25px;
     border: none;
@@ -98,7 +98,7 @@ tbody {
 
 .editRow {
     position: absolute;
-    right: -50px;
+    right: -65px;
     height: 20px;
     width: 20px;
     border: none;

@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import './HomePage.css'
+import html2canvas from 'html2canvas';
+import { saveAs } from 'file-saver';
 
 import logo from '../../assets/logoCarrefour.png'
 import Bill from '../../component/Bill/Bill'
@@ -7,6 +9,7 @@ import FormFacture from '../../component/Modals/FormFacture/FormFacture'
 import shuffle from "../../assets/shuffle.svg"
 
 function HomePage() {
+    const a4Page = useRef();
     let [openForm, setOpenForm] = useState(true)
     let [mainInfos, setMainInfos] = useState({})
     let [articles, setArticles] = useState([])
@@ -18,6 +21,26 @@ function HomePage() {
             setMainInfos(e)
         }
     }
+
+    const handleExportPNG = () => {
+        const element = document.getElementById('a4Page');
+
+        const scale = 2;
+        const options = {
+            scale: scale,
+            useCORS: true
+        };
+
+        html2canvas(element, options)
+            .then((canvas) => {
+                canvas.toBlob((blob) => {
+                    saveAs(blob, 'page.png');
+                }, 'image/png', 1);
+            })
+            .catch((error) => {
+                console.error('Erreur lors de la conversion en image :', error);
+            });
+    };
 
     useEffect(() => {
         if (articles.length > 0) {
@@ -83,8 +106,8 @@ function HomePage() {
     return (
         <div>
             <div className="uploadButton">
-                <label for="fileInput" class="btn">Choisir un fichier</label>
-                <input  style={{visibility:"hidden"}} type="file" id="fileInput" accept=".txt" onChange={(e) => { handleFileUpload(e) }} />
+                <label htmlFor="fileInput" className="btn">Choisir un fichier</label>
+                <input style={{ visibility: "hidden" }} type="file" id="fileInput" accept=".txt" onChange={(e) => { handleFileUpload(e) }} />
             </div>
             <button className="downloadButton button-82-pushable elementToHide" onClick={() => handleSaveArticles()}>
                 <span className="button-82-shadow"></span>
@@ -108,6 +131,13 @@ function HomePage() {
                     Copier la liste
                 </span>
             </button>
+            <button className="PNGButton button-82-pushable elementToHide" onClick={() => handleExportPNG()}>
+                <span className="button-82-shadow"></span>
+                <span className="button-82-edge"></span>
+                <span className="button-82-front text">
+                    Importer en PNG
+                </span>
+            </button>
             <button className="floatingButton button-82-pushable elementToHide" onClick={() => handleToogleForm()}>
                 <span className="button-82-shadow"></span>
                 <span className="button-82-edge"></span>
@@ -123,7 +153,7 @@ function HomePage() {
                     <img src={shuffle} alt="shuffle" />
                 </span>
             </button>
-            <div className='a4Format'>
+            <div className='a4Format' ref={a4Page}>
                 {openForm && <FormFacture closeModal={(e) => handleToogleForm(e)} setMainInfos={(e) => setMainInfos(e)} />}
                 <section className='headerFacture'>
                     <img src={logo} alt="logoCarrefour" />

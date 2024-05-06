@@ -10,6 +10,12 @@
     left: 40px;
 }
 
+.PNGButton {
+    position: absolute;
+    top: 230px;
+    left: 40px;
+}
+
 .copyButton {
     position: absolute;
     top: 100px;
