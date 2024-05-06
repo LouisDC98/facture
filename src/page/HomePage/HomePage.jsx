@@ -32,7 +32,7 @@ function HomePage() {
         html2canvas(element, options)
             .then((canvas) => {
                 canvas.toBlob((blob) => {
-                    saveAs(blob, 'page.png');
+                    saveAs(blob, 'facture.png');
                 }, 'image/png', 1);
             })
             .catch((error) => {
