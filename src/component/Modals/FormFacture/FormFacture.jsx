@@ -116,6 +116,8 @@ function FormFacture(props) {
                         <select onChange={(e) => { setMagasin(e.target.value) }}>
                             <option value={0}>Purpan</option>
                             <option value={1}>Portet</option>
+                            <option value={2}>Melun</option>
+                            <option value={3}>Marseille</option>
                         </select>
                     </div>
                     <div className='displayInput'>
