@@ -1,0 +1,67 @@
+.displayMainInfoFacture {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    p {
+        line-height: 20px;
+    }
+
+    .size11 {
+        font-size: 11px;
+    }
+
+    .adressInfo {
+        border: 1px solid black;
+        padding: 10px;
+        width: 300px;
+
+        .marginLeft {
+            margin-left: 10px;
+        }
+    }
+
+}
+
+.dateRow {
+    margin-top: 5px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20px;
+    padding: 0 5px;
+
+    div {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .italic {
+        font-style: italic;
+    }
+
+    .marginLeft {
+        margin-left: 15px;
+    }
+
+    .marginEnd {
+        margin-right: 50px;
+    }
+}
+
+.wrapperP {
+    display: flex;
+
+    span {
+        background-color: rgb(198, 198, 198);
+        border-radius: 10px;
+        height: 15px;
+        margin: 3px 0;
+        margin-left: 2px;
+        width: fit-content;
+        color: transparent;
+    }
+}
