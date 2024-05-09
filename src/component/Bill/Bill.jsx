@@ -45,7 +45,7 @@ function Bill(props) {
         <div className='relative'>
             {openForm && <FormArticle closeModal={(e) => { handleToogleForm(e) }} currentArticle={currentArticle} />}
             <button className='addElement elementToHide' type="button" onClick={() => handleToogleForm()}></button>
-            <table>
+            <table className='bill'>
                 <thead className='headerTable'>
                     <tr>
                         <th style={{ width: "100px" }}>Code EAN 13</th>
