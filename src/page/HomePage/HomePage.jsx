@@ -74,17 +74,17 @@ function HomePage() {
         document.body.removeChild(element);
     }
 
-    const handleCopyJSON = () => {
-        const json = JSON.stringify(articles);
+    // const handleCopyJSON = () => {
+    //     const json = JSON.stringify(articles);
 
-        const tempInput = document.createElement("textarea");
-        tempInput.value = json;
-        document.body.appendChild(tempInput);
+    //     const tempInput = document.createElement("textarea");
+    //     tempInput.value = json;
+    //     document.body.appendChild(tempInput);
 
-        tempInput.select();
-        document.execCommand("copy");
-        document.body.removeChild(tempInput);
-    }
+    //     tempInput.select();
+    //     document.execCommand("copy");
+    //     document.body.removeChild(tempInput);
+    // }
 
     const handleFileUpload = async (event) => {
         const file = event.target.files[0];
@@ -104,36 +104,29 @@ function HomePage() {
     return (
         <div>
             <div className="uploadButton">
-                <label htmlFor="fileInput" className="btn">Choisir un fichier</label>
+                <label htmlFor="fileInput" className="btn">Importer la liste</label>
                 <input style={{ visibility: "hidden" }} type="file" id="fileInput" accept=".txt" onChange={(e) => { handleFileUpload(e) }} />
             </div>
             <button className="downloadButton button-82-pushable elementToHide" onClick={() => handleSaveArticles()}>
                 <span className="button-82-shadow"></span>
                 <span className="button-82-edge"></span>
                 <span className="button-82-front text">
-                    Télécharger la liste
-                </span>
-            </button>
-            <button className="downloadButton button-82-pushable elementToHide" onClick={() => handleSaveArticles()}>
-                <span className="button-82-shadow"></span>
-                <span className="button-82-edge"></span>
-                <span className="button-82-front text">
-                    Télécharger la liste
+                    Exporter la liste
                 </span>
             </button>
 
-            <button className="copyButton button-82-pushable elementToHide" onClick={() => handleCopyJSON()}>
+            {/* <button className="copyButton button-82-pushable elementToHide" onClick={() => handleCopyJSON()}>
                 <span className="button-82-shadow"></span>
                 <span className="button-82-edge"></span>
                 <span className="button-82-front text">
                     Copier la liste
                 </span>
-            </button>
+            </button> */}
             <button className="PNGButton button-82-pushable elementToHide" onClick={() => handleExportPNG()}>
                 <span className="button-82-shadow"></span>
                 <span className="button-82-edge"></span>
                 <span className="button-82-front text">
-                    Importer en PNG
+                    Exporter en PNG
                 </span>
             </button>
             <button className="floatingButton button-82-pushable elementToHide" onClick={() => handleToogleForm()}>
