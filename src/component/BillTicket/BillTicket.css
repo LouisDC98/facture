@@ -1,0 +1,56 @@
+.billTicket {
+    border-collapse: collapse;
+    margin-top: 20px;
+
+    th {
+        font-size: 14px;
+        color: #183c6e;
+        font-weight: 700;
+    }
+
+    th:nth-child(1) {
+        text-align: start;
+        width: 30px;
+        padding-right: 25px;
+    }
+
+    th:nth-child(2) {
+        text-align: start;
+        width: 275px;
+        padding-right: 25px;
+    }
+
+    th:nth-child(3) {
+        text-align: end;
+        width: 125px;
+        padding-right: 10px;
+    }
+
+    th:nth-child(4) {
+        text-align: end;
+        width: 90px;
+    }
+
+
+    tbody {
+        td {
+            font-size: 11px;
+        }
+
+        td:nth-child(2) {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: hidden;
+            max-width: 275px;
+        }
+
+        td:nth-child(3) {
+            text-align: end;
+            padding-right: 10px;
+        }
+
+        td:nth-child(4) {
+            text-align: end;
+        }
+    }
+}

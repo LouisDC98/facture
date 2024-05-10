@@ -1,0 +1,32 @@
+.headerTicket {
+    color: #183c6e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .telNumberTicket {
+        margin: 10px 0;
+    }
+
+    img {
+        width: 50mm;
+        margin-bottom: 15px;
+        margin-left: 10px;
+    }
+
+    h2 {
+        margin: 0;
+        font-size: 15px;
+    }
+
+    p {
+        font-size: 11px;
+        font-weight: 600;
+    }
+
+}
+
+.dateTicket {
+    margin-top: 25px;
+    font-size: 12px;
+}

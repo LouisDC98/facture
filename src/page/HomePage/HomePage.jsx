@@ -8,11 +8,15 @@ import Bill from '../../component/Bill/Bill'
 import FormFacture from '../../component/Modals/FormFacture/FormFacture'
 import shuffle from "../../assets/shuffle.svg"
 import HeaderFacture from '../../component/HeaderFacture/HeaderFacture';
+import HeaderTicket from '../../component/HeaderTicket/HeaderTicket';
+import BillTicket from '../../component/BillTicket/BillTicket';
 
 function HomePage() {
     let [openForm, setOpenForm] = useState(true)
     let [mainInfos, setMainInfos] = useState({})
     let [articles, setArticles] = useState([])
+    let [tvaArray, setTvaArray] = useState([])
+    let [format, setFormat] = useState(true)
     let [totaux, setTotaux] = useState({ totalRemises: 0, totalPanier: 0, totalNbrArticle: 0 })
 
     const handleToogleForm = (e) => {
@@ -50,6 +54,7 @@ function HomePage() {
             }
             setTotaux(calcs)
         }
+        // calcTVA()
     }, [articles]);
 
     const handleShuffleArticle = () => {
@@ -102,6 +107,39 @@ function HomePage() {
         reader.readAsText(file);
     };
 
+    const calcTVA = () => {
+        let toto = {
+            prix0: "0.00",
+            tva0: "0.00",
+            prix5: "0.00",
+            tva5: "0.00",
+            prix10: "0.00",
+            tva10: "0.00",
+            prix20: "0.00",
+            tva20: "0.00",
+        };
+
+        for (const e of articles) {
+            if (e.tva === "0") {
+                toto.prix0 = ((Number(e.prixUnit) - Number(e.prixRemise)) * (1 - 0)).toFixed(2);
+                toto.tva0 = ((Number(e.prixUnit) - Number(e.prixRemise)) * 0).toFixed(2);
+            } else if (e.tva === "5.5") {
+                toto.prix5 = ((Number(e.prixUnit) - Number(e.prixRemise)) * (1 - 0.055)).toFixed(2);
+                toto.tva5 = ((Number(e.prixUnit) - Number(e.prixRemise)) * 0.055).toFixed(2);
+            } else if (e.tva === "10") {
+                toto.prix10 = ((Number(e.prixUnit) - Number(e.prixRemise)) * (1 - 0.1)).toFixed(2);
+                toto.tva10 = ((Number(e.prixUnit) - Number(e.prixRemise)) * 0.1).toFixed(2);
+            } else if (e.tva === "20") {
+                toto.prix20 = ((Number(e.prixUnit) - Number(e.prixRemise)) * 1 - Number(e.tva) / 100).toFixed(2);
+                toto.tva20 = ((Number(e.prixUnit) - Number(e.prixRemise)) * Number(e.tva) / 100).toFixed(2);
+            }
+            toto.prixTotal = ((Number(e.prixUnit) - Number(e.prixRemise)) * 1 - Number(e.tva) / 100).toFixed(2);
+            // toto.tvaTotal = ((Number(e.prixUnit) - Number(e.prixRemise)) * (Number(e.tva) / 100)).toFixed(2);
+            toto.tvaTotal = (20 * 0.2).toFixed(2);
+        }
+        setTvaArray(toto);
+    };
+
     return (
         <div>
             <div className="uploadButton">
@@ -123,6 +161,14 @@ function HomePage() {
                     Copier la liste
                 </span>
             </button> */}
+            <div className='switchFormat'>
+                <p>facture</p>
+                <div className='formatInput'>
+                    <input type="checkbox" id="switch" onClick={() => setFormat(!format)} />
+                    <label for="switch">Toggle</label>
+                </div>
+                <p>ticket</p>
+            </div>
             <button className="PNGButton button-82-pushable elementToHide" onClick={() => handleExportPNG()}>
                 <span className="button-82-shadow"></span>
                 <span className="button-82-edge"></span>
@@ -145,12 +191,52 @@ function HomePage() {
                     <img src={shuffle} alt="shuffle" />
                 </span>
             </button>
-            <div className='a4Format' id="a4Page">
+            <div className={`a4Format ${!format ? 'ticketFormat' : ''}`} id="a4Page">
                 {openForm && <FormFacture closeModal={(e) => handleToogleForm(e)} setMainInfos={(e) => setMainInfos(e)} />}
-                <HeaderFacture mainInfos={mainInfos} />
-                <Bill articles={articles} setArticles={(e) => { setArticles(e) }} />
+                {format ? <HeaderFacture mainInfos={mainInfos} /> : <HeaderTicket />}
+                {format ? <Bill articles={articles} setArticles={(e) => { setArticles(e) }} /> : <BillTicket articles={articles} setArticles={(e) => { setArticles(e) }} />}
+                {/* <Bill articles={articles} setArticles={(e) => { setArticles(e) }} /> */}
                 <section className='bilanFacture'>
-                    <div className='nbrArticle'><p>Nombres d'articles remis :</p><p>{totaux.totalNbrArticle}</p><br /><br /></div>
+                    <div className='recapFacture'>
+                        {/* 
+                        <table className='tvaTable'>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Total</th>
+                                    {tvaArray.prix0 !== "0.00" && <th>TVA 0</th>}
+                                    {tvaArray.prix5 !== "0.00" && <th>TVA 5.5</th>}
+                                    {tvaArray.prix10 !== "0.00" && <th>TVA 10</th>}
+                                    {tvaArray.prix20 !== "0.00" && <th>TVA 20</th>}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>HT</td>
+                                    <td className='alignEnd'>{tvaArray?.prixTotal}</td>
+                                    {tvaArray.prix0 !== "0.00" && <td className='alignEnd'>{tvaArray?.prix0}</td>}
+                                    {tvaArray.prix5 !== "0.00" && <td className='alignEnd'>{tvaArray?.prix5}</td>}
+                                    {tvaArray.prix10 !== "0.00" && <td className='alignEnd'>{tvaArray?.prix10}</td>}
+                                    {tvaArray.prix20 !== "0.00" && <td className='alignEnd'>{tvaArray?.prix20}</td>}
+                                </tr>
+                                <tr>
+                                    <td>TVA</td>
+                                    <td className='alignEnd'>{tvaArray?.tvaTotal}</td>
+                                    {tvaArray.prix0 !== "0.00" && <td className='alignEnd'>{tvaArray?.tva0}</td>}
+                                    {tvaArray.prix5 !== "0.00" && <td className='alignEnd'>{tvaArray?.tva5}</td>}
+                                    {tvaArray.prix10 !== "0.00" && <td className='alignEnd'>{tvaArray?.tva10}</td>}
+                                    {tvaArray.prix20 !== "0.00" && <td className='alignEnd'>{tvaArray?.tva20}</td>}
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br /><br />
+                        <br /><br />
+                        <br /><br /><br /> */}
+
+                        <div className='nbrArticle'>
+                            <p>Nombres d'articles remis :</p><p>{totaux.totalNbrArticle}</p><br /><br />
+                        </div>
+                    </div>
                     <div style={{ width: "40%" }}>
                         <div className='totalBill'>
                             <div>
