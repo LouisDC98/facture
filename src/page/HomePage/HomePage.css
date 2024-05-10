@@ -116,21 +116,6 @@ p {
     font-size: 10px;
 }
 
-.headerFacture {
-    display: flex;
-    justify-content: space-between;
-
-    img {
-        width: 50mm;
-    }
-
-    p {
-        font-size: 12px;
-        margin-right: 10px;
-    }
-
-}
-
 .bilanFacture {
     display: flex;
     justify-content: space-between;
@@ -144,7 +129,7 @@ p {
         border: 1px solid black;
         display: flex;
         justify-content: flex-start;
-        width: 57%;
+        width: 95%;
         padding: 0 5px;
     }
 
@@ -166,16 +151,54 @@ p {
     line-height: 13px;
 }
 
-.wrapperP {
-    display: flex;
+.recapFacture {
+    width: 60%;
+}
 
-    span {
-        background-color: rgb(198, 198, 198);
-        border-radius: 10px;
-        height: 15px;
-        margin: 3px 0;
-        margin-left: 2px;
-        width: fit-content;
-        color: transparent;
+.tvaTable {
+    /* width: 100%; */
+    border-collapse: collapse;
+    background-color: white;
+
+    thead {
+
+        th {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 9px 0;
+            font-size: 10px;
+            font-weight: normal;
+            border: 1px solid black;
+            width: 55px;
+        }
+
+        th:first-child {
+            border: none;
+        }
+    }
+
+    tbody {
+
+        tr td:first-child {
+            text-align: center;
+        }
+
+        td {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 2px;
+            font-size: 10px;
+            font-weight: normal;
+            border: 1px solid black;
+        }
+
+        .alignEnd {
+            text-align: end;
+        }
+
+        .subArticle {
+            margin-top: 5px;
+            font-style: italic;
+        }
     }
 }

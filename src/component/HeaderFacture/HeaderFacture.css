@@ -1,3 +1,18 @@
+.headerFacture {
+    display: flex;
+    justify-content: space-between;
+
+    img {
+        width: 50mm;
+    }
+
+    p {
+        font-size: 12px;
+        margin-right: 10px;
+    }
+
+}
+
 .displayMainInfoFacture {
     margin-top: 30px;
     display: flex;

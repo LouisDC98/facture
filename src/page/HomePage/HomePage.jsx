@@ -3,10 +3,11 @@ import './HomePage.css'
 import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
 
-import logo from '../../assets/logoCarrefour.png'
+
 import Bill from '../../component/Bill/Bill'
 import FormFacture from '../../component/Modals/FormFacture/FormFacture'
 import shuffle from "../../assets/shuffle.svg"
+import HeaderFacture from '../../component/HeaderFacture/HeaderFacture';
 
 function HomePage() {
     let [openForm, setOpenForm] = useState(true)
@@ -146,10 +147,6 @@ function HomePage() {
             </button>
             <div className='a4Format' id="a4Page">
                 {openForm && <FormFacture closeModal={(e) => handleToogleForm(e)} setMainInfos={(e) => setMainInfos(e)} />}
-                <section className='headerFacture'>
-                    <img src={logo} alt="logoCarrefour" />
-                    <p>1/1</p>
-                </section>
                 <HeaderFacture mainInfos={mainInfos} />
                 <Bill articles={articles} setArticles={(e) => { setArticles(e) }} />
                 <section className='bilanFacture'>

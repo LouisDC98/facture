@@ -1,10 +1,16 @@
 import React from 'react'
 import "./HeaderFacture.css"
 
+import logo from '../../assets/logoCarrefour.png'
+
 function HeaderFacture(props) {
     let { mainInfos } = props
     return (
         <>
+            <section className='headerFacture'>
+                <img src={logo} alt="logoCarrefour" />
+                <p>1/1</p>
+            </section>
             <section className='displayMainInfoFacture'>
                 <div>
                     <p className='wrapperP'>{mainInfos?.magasin?.primary || <span>CARREFOUR TOULOUSE PURPAN 36 RTE DE BAYONNE</span>}</p>
