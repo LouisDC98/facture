@@ -121,93 +121,12 @@ p {
     font-size: 10px;
 }
 
-.bilanFacture {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-    position: absolute;
-    bottom: 40px;
-    left: 20px;
-    right: 20px;
-
-    .nbrArticle {
-        border: 1px solid black;
-        display: flex;
-        justify-content: flex-start;
-        width: 95%;
-        padding: 0 5px;
-    }
-
-    .totalBill {
-        border: 1px solid black;
-        padding: 2px 5px 2px 2px;
-
-        div {
-            display: flex;
-            justify-content: space-between;
-        }
-    }
-}
-
 .footer {
     position: absolute;
     bottom: 10px;
     left: 20px;
     line-height: 13px;
 }
-
-.recapFacture {
-    width: 60%;
-}
-
-.tvaTable {
-    /* width: 100%; */
-    border-collapse: collapse;
-    background-color: white;
-
-    thead {
-
-        th {
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 0;
-            padding: 9px 0;
-            font-size: 10px;
-            font-weight: normal;
-            border: 1px solid black;
-            width: 55px;
-        }
-
-        th:first-child {
-            border: none;
-        }
-    }
-
-    tbody {
-
-        tr td:first-child {
-            text-align: center;
-        }
-
-        td {
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 0;
-            padding: 2px;
-            font-size: 10px;
-            font-weight: normal;
-            border: 1px solid black;
-        }
-
-        .alignEnd {
-            text-align: end;
-        }
-
-        .subArticle {
-            margin-top: 5px;
-            font-style: italic;
-        }
-    }
-}
-
 
 /* Switch button */
 .switchFormat {

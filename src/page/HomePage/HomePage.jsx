@@ -10,6 +10,8 @@ import shuffle from "../../assets/shuffle.svg"
 import HeaderFacture from '../../component/HeaderFacture/HeaderFacture';
 import HeaderTicket from '../../component/HeaderTicket/HeaderTicket';
 import BillTicket from '../../component/BillTicket/BillTicket';
+import BilanFacture from '../../component/BilanFacture/BilanFacture';
+import BilanTicket from '../../component/BilanTicket/BilanTicket';
 
 function HomePage() {
     let [openForm, setOpenForm] = useState(true)
@@ -54,7 +56,7 @@ function HomePage() {
             }
             setTotaux(calcs)
         }
-        // calcTVA()
+        calcTVA()
     }, [articles]);
 
     const handleShuffleArticle = () => {
@@ -107,38 +109,58 @@ function HomePage() {
         reader.readAsText(file);
     };
 
-    const calcTVA = () => {
-        let toto = {
-            prix0: "0.00",
-            tva0: "0.00",
-            prix5: "0.00",
-            tva5: "0.00",
-            prix10: "0.00",
-            tva10: "0.00",
-            prix20: "0.00",
-            tva20: "0.00",
+    function calcTVA() {
+        let montantsParTVA = {
+            prix0: 0,
+            tva0: 0,
+            prix5: 0,
+            tva5: 0,
+            prix10: 0,
+            tva10: 0,
+            prix20: 0,
+            tva20: 0,
+            totalPrix: 0,
+            totalTVA: 0
         };
 
-        for (const e of articles) {
-            if (e.tva === "0") {
-                toto.prix0 = ((Number(e.prixUnit) - Number(e.prixRemise)) * (1 - 0)).toFixed(2);
-                toto.tva0 = ((Number(e.prixUnit) - Number(e.prixRemise)) * 0).toFixed(2);
-            } else if (e.tva === "5.5") {
-                toto.prix5 = ((Number(e.prixUnit) - Number(e.prixRemise)) * (1 - 0.055)).toFixed(2);
-                toto.tva5 = ((Number(e.prixUnit) - Number(e.prixRemise)) * 0.055).toFixed(2);
-            } else if (e.tva === "10") {
-                toto.prix10 = ((Number(e.prixUnit) - Number(e.prixRemise)) * (1 - 0.1)).toFixed(2);
-                toto.tva10 = ((Number(e.prixUnit) - Number(e.prixRemise)) * 0.1).toFixed(2);
-            } else if (e.tva === "20") {
-                toto.prix20 = ((Number(e.prixUnit) - Number(e.prixRemise)) * 1 - Number(e.tva) / 100).toFixed(2);
-                toto.tva20 = ((Number(e.prixUnit) - Number(e.prixRemise)) * Number(e.tva) / 100).toFixed(2);
+        let tempArticles = [...articles, { total: "0.70", tva: "0" }]
+
+        tempArticles.forEach(objet => {
+            const total = parseFloat(objet.total);
+            const tva = parseFloat(objet.tva);
+
+            const montantHT = total - (total * tva / (100 + tva));
+            const montantTVA = total * tva / (100 + tva);
+
+            switch (tva) {
+                case 0:
+                    montantsParTVA.prix0 += montantHT;
+                    montantsParTVA.tva0 += montantTVA;
+                    break;
+                case 5.5:
+                    montantsParTVA.prix5 += montantHT;
+                    montantsParTVA.tva5 += montantTVA;
+                    break;
+                case 10:
+                    montantsParTVA.prix10 += montantHT;
+                    montantsParTVA.tva10 += montantTVA;
+                    break;
+                case 20:
+                    montantsParTVA.prix20 += montantHT;
+                    montantsParTVA.tva20 += montantTVA;
+                    break;
+                default:
+                    break;
             }
-            toto.prixTotal = ((Number(e.prixUnit) - Number(e.prixRemise)) * 1 - Number(e.tva) / 100).toFixed(2);
-            // toto.tvaTotal = ((Number(e.prixUnit) - Number(e.prixRemise)) * (Number(e.tva) / 100)).toFixed(2);
-            toto.tvaTotal = (20 * 0.2).toFixed(2);
+        });
+        montantsParTVA.totalPrix = (montantsParTVA.prix0 + montantsParTVA.prix5 + montantsParTVA.prix10 + montantsParTVA.prix20);
+        montantsParTVA.totalTVA = (montantsParTVA.tva0 + montantsParTVA.tva5 + montantsParTVA.tva10 + montantsParTVA.tva20);
+
+        for (let key in montantsParTVA) {
+            montantsParTVA[key] = montantsParTVA[key].toFixed(2);
         }
-        setTvaArray(toto);
-    };
+        setTvaArray(montantsParTVA);
+    }
 
     return (
         <div>
@@ -195,95 +217,7 @@ function HomePage() {
                 {openForm && <FormFacture closeModal={(e) => handleToogleForm(e)} setMainInfos={(e) => setMainInfos(e)} />}
                 {format ? <HeaderFacture mainInfos={mainInfos} /> : <HeaderTicket />}
                 {format ? <Bill articles={articles} setArticles={(e) => { setArticles(e) }} /> : <BillTicket articles={articles} setArticles={(e) => { setArticles(e) }} />}
-                {/* <Bill articles={articles} setArticles={(e) => { setArticles(e) }} /> */}
-                <section className='bilanFacture'>
-                    <div className='recapFacture'>
-                        {/* 
-                        <table className='tvaTable'>
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>Total</th>
-                                    {tvaArray.prix0 !== "0.00" && <th>TVA 0</th>}
-                                    {tvaArray.prix5 !== "0.00" && <th>TVA 5.5</th>}
-                                    {tvaArray.prix10 !== "0.00" && <th>TVA 10</th>}
-                                    {tvaArray.prix20 !== "0.00" && <th>TVA 20</th>}
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>HT</td>
-                                    <td className='alignEnd'>{tvaArray?.prixTotal}</td>
-                                    {tvaArray.prix0 !== "0.00" && <td className='alignEnd'>{tvaArray?.prix0}</td>}
-                                    {tvaArray.prix5 !== "0.00" && <td className='alignEnd'>{tvaArray?.prix5}</td>}
-                                    {tvaArray.prix10 !== "0.00" && <td className='alignEnd'>{tvaArray?.prix10}</td>}
-                                    {tvaArray.prix20 !== "0.00" && <td className='alignEnd'>{tvaArray?.prix20}</td>}
-                                </tr>
-                                <tr>
-                                    <td>TVA</td>
-                                    <td className='alignEnd'>{tvaArray?.tvaTotal}</td>
-                                    {tvaArray.prix0 !== "0.00" && <td className='alignEnd'>{tvaArray?.tva0}</td>}
-                                    {tvaArray.prix5 !== "0.00" && <td className='alignEnd'>{tvaArray?.tva5}</td>}
-                                    {tvaArray.prix10 !== "0.00" && <td className='alignEnd'>{tvaArray?.tva10}</td>}
-                                    {tvaArray.prix20 !== "0.00" && <td className='alignEnd'>{tvaArray?.tva20}</td>}
-                                </tr>
-                            </tbody>
-                        </table>
-                        <br /><br />
-                        <br /><br />
-                        <br /><br /><br /> */}
-
-                        <div className='nbrArticle'>
-                            <p>Nombres d'articles remis :</p><p>{totaux.totalNbrArticle}</p><br /><br />
-                        </div>
-                    </div>
-                    <div style={{ width: "40%" }}>
-                        <div className='totalBill'>
-                            <div>
-                                <p>Total de vos remises</p>
-                                <p>{totaux.totalRemises}</p>
-                            </div>
-                            <div>
-                                <p>Total panier TTC (après remises)</p>
-                                <p>{totaux.totalPanier.toFixed(2)}</p>
-                            </div>
-                            <br />
-                            {/* <div>
-                                <p>Remise panier TTC</p>
-                                <p>-6.00</p>
-                            </div> */}
-                            <br />
-                            <br />
-                            <div>
-                                <p>Frais de préparation TTC</p>
-                                <p>Offerts</p>
-                            </div>
-                            <br />
-                            <div>
-                                <p>Total TTC en Euros</p>
-                                <p>{totaux.totalPanier.toFixed(2)}</p>
-                            </div>
-                        </div>
-                        <div className='totalBill'>
-                            <p>Modes de règlement</p>
-                            <div>
-                                <p>Compte fidélité</p>
-                                <p>{(totaux.totalPanier * 0.23).toFixed(2)}</p>
-                            </div>
-                            <div>
-                                <p>Carte Bancaire</p>
-                                <p>{(totaux.totalPanier * 0.77).toFixed(2)}</p>
-                            </div>
-                            <br />
-                            <br />
-                            <div>
-                                <p>Total TTC en Euros</p>
-                                <p>{totaux.totalPanier.toFixed(2)}</p>
-                            </div>
-                            <br />
-                        </div>
-                    </div>
-                </section>
+                {format ? <BilanFacture totaux={totaux} tvaArray={tvaArray} /> : <BilanTicket />}
                 <section className='footer'>
                     <p>SARL RMS 31 , au capital de: 8000€, DOMAINE DE BONNE SOURCE NARBONNE 11100, RCS</p>
                     <p>NARBONNE 91070684500013 TVA CEE FR20910706845</p>

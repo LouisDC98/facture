@@ -1,0 +1,31 @@
+.bilanTicket {
+    margin-top: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgb(181, 181, 181);
+
+    .ticketGridBilan {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 20px;
+    }
+
+    .ticketAvRemise {
+        font-size: 14px;
+        color: #183c6e;
+        font-weight: 700;
+    }
+
+    .secondColumn {
+        text-align: end;
+    }
+
+    .colorRemise {
+        color: rgb(92, 141, 18);
+    }
+
+    .ticketTotalPrix {
+        font-size: 16px;
+        color: #183c6e;
+        font-weight: 700;
+    }
+}
