@@ -41,7 +41,8 @@ function BillTicket(props) {
         setArticles(updatedArticles);
     }
     return (
-        <>
+        <section className='relativeTicket'>
+            <button className='addElement elementToHide' type="button" onClick={() => handleToogleForm()}></button>
             {openForm && <FormArticle closeModal={(e) => { handleToogleForm(e) }} currentArticle={currentArticle} />}
             <table className='billTicket'>
                 <thead>
@@ -66,7 +67,7 @@ function BillTicket(props) {
                     ))}
                 </tbody>
             </table>
-        </>
+        </section>
     )
 }
 

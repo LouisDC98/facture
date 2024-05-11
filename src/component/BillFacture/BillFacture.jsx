@@ -42,7 +42,7 @@ function Bill(props) {
     }
 
     return (
-        <div className='relative'>
+        <div className='relativeFacture'>
             {openForm && <FormArticle closeModal={(e) => { handleToogleForm(e) }} currentArticle={currentArticle} />}
             <button className='addElement elementToHide' type="button" onClick={() => handleToogleForm()}></button>
             <table className='bill'>

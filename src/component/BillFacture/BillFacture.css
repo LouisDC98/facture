@@ -75,37 +75,37 @@
     }
 }
 
-.addElement {
-    position: absolute;
-    bottom: 30px;
-    left: -45px;
-    height: 25px;
-    width: 25px;
-    border: none;
-    background-color: transparent;
-    background-image: url('../../assets/plus.svg');
-}
-
-.deleteRow {
-    position: absolute;
-    right: -45px;
-    height: 25px;
-    width: 25px;
-    border: none;
-    background-color: transparent;
-    background-image: url('../../assets/delete.svg');
-}
-
-.editRow {
-    position: absolute;
-    right: -65px;
-    height: 20px;
-    width: 20px;
-    border: none;
-    background-color: transparent;
-    background-image: url('../../assets/edit.svg');
-}
-
-.relative {
+.relativeFacture {
     position: relative;
+
+    .addElement {
+        position: absolute;
+        bottom: 30px;
+        left: -45px;
+        height: 25px;
+        width: 25px;
+        border: none;
+        background-color: transparent;
+        background-image: url('../../assets/plus.svg');
+    }
+
+    .deleteRow {
+        position: absolute;
+        right: -45px;
+        height: 25px;
+        width: 25px;
+        border: none;
+        background-color: transparent;
+        background-image: url('../../assets/delete.svg');
+    }
+    
+    .editRow {
+        position: absolute;
+        right: -65px;
+        height: 20px;
+        width: 20px;
+        border: none;
+        background-color: transparent;
+        background-image: url('../../assets/edit.svg');
+    }
 }
