@@ -1,12 +1,12 @@
 .bilanTicket {
     margin-top: 30px;
-    padding-bottom: 20px;
-    border-bottom: 2px solid rgb(181, 181, 181);
 
     .ticketGridBilan {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, auto);
         row-gap: 20px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid rgb(181, 181, 181);
     }
 
     .ticketAvRemise {
@@ -27,5 +27,19 @@
         font-size: 16px;
         color: #183c6e;
         font-weight: 700;
+    }
+
+    .ticketGridTVA {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 7px;
+        margin-top: 15px;
+        margin-bottom: 30px;
+    }
+
+    .dashedBorder {
+        border-top: 1px dashed black;
+        border-bottom: 2px solid rgb(181, 181, 181);
+        padding: 10px 0 15px 0;
     }
 }
