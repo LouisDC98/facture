@@ -121,13 +121,6 @@ p {
     font-size: 10px;
 }
 
-.footer {
-    position: absolute;
-    bottom: 10px;
-    left: 20px;
-    line-height: 13px;
-}
-
 /* Switch button */
 .switchFormat {
     position: absolute;

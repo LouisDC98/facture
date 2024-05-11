@@ -12,6 +12,8 @@ import HeaderTicket from '../../component/HeaderTicket/HeaderTicket';
 import BillTicket from '../../component/BillTicket/BillTicket';
 import BilanFacture from '../../component/BilanFacture/BilanFacture';
 import BilanTicket from '../../component/BilanTicket/BilanTicket';
+import FooterFacture from '../../component/FooterFacture/FooterFacture';
+import FooterTicket from '../../component/FooterTicket/FooterTicket';
 
 function HomePage() {
     let [openForm, setOpenForm] = useState(true)
@@ -217,11 +219,8 @@ function HomePage() {
                 {openForm && <FormFacture closeModal={(e) => handleToogleForm(e)} setMainInfos={(e) => setMainInfos(e)} />}
                 {format ? <HeaderFacture mainInfos={mainInfos} /> : <HeaderTicket />}
                 {format ? <Bill articles={articles} setArticles={(e) => { setArticles(e) }} /> : <BillTicket articles={articles} setArticles={(e) => { setArticles(e) }} />}
-                {format ? <BilanFacture totaux={totaux} tvaArray={tvaArray} /> : <BilanTicket articles={articles} totaux={totaux} tvaArray={tvaArray}/>}
-                <section className='footer'>
-                    <p>SARL RMS 31 , au capital de: 8000€, DOMAINE DE BONNE SOURCE NARBONNE 11100, RCS</p>
-                    <p>NARBONNE 91070684500013 TVA CEE FR20910706845</p>
-                </section>
+                {format ? <BilanFacture totaux={totaux} tvaArray={tvaArray} /> : <BilanTicket articles={articles} totaux={totaux} tvaArray={tvaArray} />}
+                {format ? <FooterFacture /> : <FooterTicket />}
             </div>
         </div>
     )
