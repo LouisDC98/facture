@@ -4,7 +4,7 @@ import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
 
 
-import Bill from '../../component/Bill/Bill'
+import Bill from '../../component/BillFacture/BillFacture'
 import FormFacture from '../../component/Modals/FormFacture/FormFacture'
 import shuffle from "../../assets/shuffle.svg"
 import HeaderFacture from '../../component/HeaderFacture/HeaderFacture';

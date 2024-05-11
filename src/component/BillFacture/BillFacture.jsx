@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "./Bill.css"
+import "./BillFacture.css"
 
 import FormArticle from '../Modals/FormArticle/FormArticle';
 
