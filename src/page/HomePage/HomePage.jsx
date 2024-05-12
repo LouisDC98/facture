@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import './HomePage.css'
 import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
@@ -16,6 +16,7 @@ import FooterFacture from '../../component/FooterFacture/FooterFacture';
 import FooterTicket from '../../component/FooterTicket/FooterTicket';
 
 function HomePage() {
+    const fileInputRef = useRef(null);
     let [openForm, setOpenForm] = useState(true)
     let [mainInfos, setMainInfos] = useState({})
     let [articles, setArticles] = useState([])
@@ -110,6 +111,7 @@ function HomePage() {
         };
 
         reader.readAsText(file);
+        fileInputRef.current.value = ''
     };
 
     function calcTVA() {
@@ -169,7 +171,7 @@ function HomePage() {
         <div>
             <div className="uploadButton">
                 <label htmlFor="fileInput" className="btn">Importer la liste</label>
-                <input style={{ visibility: "hidden" }} type="file" id="fileInput" accept=".txt" onChange={(e) => { handleFileUpload(e) }} />
+                <input style={{ visibility: "hidden" }} type="file" id="fileInput" ref={fileInputRef} accept=".txt" onChange={(e) => { handleFileUpload(e) }} />
             </div>
             <button className="downloadButton button-82-pushable elementToHide" onClick={() => handleSaveArticles()}>
                 <span className="button-82-shadow"></span>
