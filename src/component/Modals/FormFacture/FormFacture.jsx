@@ -51,6 +51,8 @@ function FormFacture(props) {
             setValue('country', localData.adresse.pays, { shouldValidate: true })
             setValue('clientID', localData.idClient, { shouldValidate: true })
         }
+        handleRandomFacture()
+        handleRandomCommand()
     }, []);
 
     const magasinList = [
@@ -139,7 +141,7 @@ function FormFacture(props) {
                         <input type='date' {...register("dateFacturation", { required: true })}></input>
                     </div>
                     <div className='divSelect marginTopSelect'>
-                        <select value={localStorage.getItem("data") || "null"} onChange={(e) => { handleSelect(e.target.value) }}>
+                        <select defaultValue={localStorage.getItem("data") || "null"} onChange={(e) => { handleSelect(e.target.value) }}>
                             <option value={"null"}>Données personnelles</option>
                             {data.map((option, index) => (
                                 <option key={index} value={index}>
