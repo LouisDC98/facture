@@ -1,0 +1,12 @@
+.footerTicket {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+
+    .indicatif {
+        font-size: 13px;
+        margin-top: 40px;
+    }
+}

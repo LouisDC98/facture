@@ -1,9 +1,28 @@
-import React from 'react'
+import React, { useEffect} from 'react'
 import "./HeaderTicket.css"
 
 import logo from '../../assets/logoCarrefour.png'
 
-function HeaderTicket() {
+function HeaderTicket(props) {
+    let { mainInfos, setHeure } = props
+
+    useEffect(() => {
+        let randomHour = heureAleatoire()
+        setHeure(randomHour)
+    }, []);
+
+    const heureAleatoire = () => {
+        let minutesAleatoires = Math.floor(Math.random() * 300);
+
+        let heures = Math.floor(minutesAleatoires / 60) + 11;
+        let minutes = minutesAleatoires % 60;
+
+        heures = heures < 10 ? '0' + heures : heures;
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+
+        return heures + ':' + minutes;
+    }
+
     return (
         <>
             <section className='headerTicket'>
@@ -15,7 +34,7 @@ function HeaderTicket() {
                 <p>Sam.: 08:30 à 21:00</p>
                 <p>Dim.: Fermé</p>
             </section>
-            <div className='dateTicket'>08/05/2024 à 15h40</div>
+            <p className='wrapperP dateTicket'>{mainInfos?.date ? mainInfos.date + " à " + heureAleatoire() : <span>01/01/2000 à 01:01</span>}</p>
         </>
     )
 }

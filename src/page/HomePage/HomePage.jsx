@@ -20,6 +20,7 @@ function HomePage() {
     let [mainInfos, setMainInfos] = useState({})
     let [articles, setArticles] = useState([])
     let [tvaArray, setTvaArray] = useState([])
+    let [heure, setHeure] = useState(undefined)
     let [format, setFormat] = useState(true)
     let [totaux, setTotaux] = useState({ totalRemises: 0, totalPanier: 0, totalNbrArticle: 0 })
 
@@ -189,7 +190,7 @@ function HomePage() {
                 <p>facture</p>
                 <div className='formatInput'>
                     <input type="checkbox" id="switch" onClick={() => setFormat(!format)} />
-                    <label for="switch">Toggle</label>
+                    <label htmlFor="switch">Toggle</label>
                 </div>
                 <p>ticket</p>
             </div>
@@ -217,10 +218,10 @@ function HomePage() {
             </button>
             <div className={`a4Format ${!format ? 'ticketFormat' : ''}`} id="a4Page">
                 {openForm && <FormFacture closeModal={(e) => handleToogleForm(e)} setMainInfos={(e) => setMainInfos(e)} />}
-                {format ? <HeaderFacture mainInfos={mainInfos} /> : <HeaderTicket />}
+                {format ? <HeaderFacture mainInfos={mainInfos} /> : <HeaderTicket mainInfos={mainInfos} setHeure={(heure) => setHeure(heure)} />}
                 {format ? <Bill articles={articles} setArticles={(e) => { setArticles(e) }} /> : <BillTicket articles={articles} setArticles={(e) => { setArticles(e) }} />}
                 {format ? <BilanFacture totaux={totaux} tvaArray={tvaArray} /> : <BilanTicket articles={articles} totaux={totaux} tvaArray={tvaArray} />}
-                {format ? <FooterFacture /> : <FooterTicket />}
+                {format ? <FooterFacture /> : <FooterTicket mainInfos={mainInfos} heure={heure} />}
             </div>
         </div>
     )

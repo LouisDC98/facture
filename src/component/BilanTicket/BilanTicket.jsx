@@ -3,7 +3,6 @@ import "./BilanTicket.css"
 
 function BilanTicket(props) {
     let { totaux, tvaArray } = props
-    console.log('totla', tvaArray)
 
     return (
         <section className='bilanTicket'>
