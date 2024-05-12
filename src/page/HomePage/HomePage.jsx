@@ -42,7 +42,7 @@ function HomePage() {
         html2canvas(element, options)
             .then((canvas) => {
                 canvas.toBlob((blob) => {
-                    saveAs(blob, 'facture.png');
+                    saveAs(blob, `facture_${mainInfos?.factureNumber}.png`);
                 }, 'image/png', 1);
             })
             .catch((error) => {
