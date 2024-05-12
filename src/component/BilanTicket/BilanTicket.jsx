@@ -4,6 +4,8 @@ import "./BilanTicket.css"
 function BilanTicket(props) {
     let { totaux, tvaArray } = props
 
+    console.log('tva', tvaArray)
+
     return (
         <section className='bilanTicket'>
             <div className='ticketGridBilan'>
@@ -41,7 +43,7 @@ function BilanTicket(props) {
 
 
                 <p className='ticketAvRemise dashedBorder'>Total TVA</p>
-                <p className='ticketAvRemise secondColumn dashedBorder'>{(tvaArray.totalPrix - 0.7 + tvaArray.totalTVA).toFixed(2)}€</p>
+                <p className='ticketAvRemise secondColumn dashedBorder'>{(Number(tvaArray.totalPrix) - 0.7 + Number(tvaArray.totalTVA)).toFixed(2)}€</p>
                 <p className='ticketAvRemise secondColumn dashedBorder'>{tvaArray.totalTVA}€</p>
             </div>
 
