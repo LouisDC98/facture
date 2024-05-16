@@ -35,6 +35,7 @@
     tbody {
         td {
             font-size: 11px;
+            padding: 3px 0;
         }
 
         td:nth-child(2) {
