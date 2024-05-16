@@ -162,7 +162,7 @@ function HomePage() {
         montantsParTVA.totalTVA = (montantsParTVA.tva0 + montantsParTVA.tva5 + montantsParTVA.tva10 + montantsParTVA.tva20);
 
         for (let key in montantsParTVA) {
-            montantsParTVA[key] = montantsParTVA[key].toFixed(2);
+            montantsParTVA[key] = parseFloat(montantsParTVA[key].toFixed(2));
         }
         setTvaArray(montantsParTVA);
     }

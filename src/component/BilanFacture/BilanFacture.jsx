@@ -13,28 +13,28 @@ function BilanFacture(props) {
                         <tr>
                             <th></th>
                             <th>Total</th>
-                            {tvaArray.prix0 !== "0.00" && <th>TVA 0</th>}
-                            {tvaArray.prix5 !== "0.00" && <th>TVA 5.5</th>}
-                            {tvaArray.prix10 !== "0.00" && <th>TVA 10</th>}
-                            {tvaArray.prix20 !== "0.00" && <th>TVA 20</th>}
+                            {tvaArray.prix0 !== 0 && <th>TVA 0</th>}
+                            {tvaArray.prix5 !== 0 && <th>TVA 5.5</th>}
+                            {tvaArray.prix10 !== 0 && <th>TVA 10</th>}
+                            {tvaArray.prix20 !== 0 && <th>TVA 20</th>}
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>HT</td>
                             <td className='alignEnd'>{tvaArray?.totalPrix}</td>
-                            {tvaArray.prix0 !== "0.00" && <td className='alignEnd'>{tvaArray?.prix0}</td>}
-                            {tvaArray.prix5 !== "0.00" && <td className='alignEnd'>{tvaArray?.prix5}</td>}
-                            {tvaArray.prix10 !== "0.00" && <td className='alignEnd'>{tvaArray?.prix10}</td>}
-                            {tvaArray.prix20 !== "0.00" && <td className='alignEnd'>{tvaArray?.prix20}</td>}
+                            {tvaArray.prix0 !== 0 && <td className='alignEnd'>{tvaArray?.prix0}</td>}
+                            {tvaArray.prix5 !== 0 && <td className='alignEnd'>{tvaArray?.prix5}</td>}
+                            {tvaArray.prix10 !== 0 && <td className='alignEnd'>{tvaArray?.prix10}</td>}
+                            {tvaArray.prix20 !== 0 && <td className='alignEnd'>{tvaArray?.prix20}</td>}
                         </tr>
                         <tr>
                             <td>TVA</td>
                             <td className='alignEnd'>{tvaArray?.totalTVA}</td>
-                            {tvaArray.prix0 !== "0.00" && <td className='alignEnd'>{tvaArray?.tva0}</td>}
-                            {tvaArray.prix5 !== "0.00" && <td className='alignEnd'>{tvaArray?.tva5}</td>}
-                            {tvaArray.prix10 !== "0.00" && <td className='alignEnd'>{tvaArray?.tva10}</td>}
-                            {tvaArray.prix20 !== "0.00" && <td className='alignEnd'>{tvaArray?.tva20}</td>}
+                            {tvaArray.prix0 !== 0 && <td className='alignEnd'>{tvaArray?.tva0}</td>}
+                            {tvaArray.prix5 !== 0 && <td className='alignEnd'>{tvaArray?.tva5}</td>}
+                            {tvaArray.prix10 !== 0 && <td className='alignEnd'>{tvaArray?.tva10}</td>}
+                            {tvaArray.prix20 !== 0 && <td className='alignEnd'>{tvaArray?.tva20}</td>}
                         </tr>
                     </tbody>
                 </table>
