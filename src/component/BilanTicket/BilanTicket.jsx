@@ -1,8 +1,10 @@
 import React from 'react'
 import "./BilanTicket.css"
 
+import carte from "../../assets/carteFidelite.jpg"
+
 function BilanTicket(props) {
-    let { totaux, tvaArray } = props
+    let { totaux, tvaArray, cardNumber } = props
 
     return (
         <section className='bilanTicket'>
@@ -20,6 +22,12 @@ function BilanTicket(props) {
                 <div></div>
                 <p>Carte bancaire utilisée</p>
                 <p className='secondColumn colorRemise'>-{(totaux.totalPanier - 0.7 - totaux.totalRemises).toFixed(2)}€</p>
+            </div>
+
+            <div className='displayCardSection'>
+                <img src={carte} alt='Carte fidélité' className='cardSize'/>
+                <p className='titleCard ticketAvRemise'>Ma carte fidélité</p>
+                <p className='cardNumber'>{cardNumber}</p>
             </div>
 
             <div className='ticketGridTVA'>

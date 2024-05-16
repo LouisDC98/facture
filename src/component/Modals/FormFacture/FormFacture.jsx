@@ -36,6 +36,7 @@ function FormFacture(props) {
             setValue('city', data[e].adresse.ville, { shouldValidate: true })
             setValue('country', data[e].adresse.pays, { shouldValidate: true })
             setValue('clientID', data[e].idClient, { shouldValidate: true })
+            setValue('cardNumber', data[e].cardNumber, { shouldValidate: true })
             localStorage.setItem("data", e);
         }
     }
@@ -50,6 +51,7 @@ function FormFacture(props) {
             setValue('city', localData.adresse.ville, { shouldValidate: true })
             setValue('country', localData.adresse.pays, { shouldValidate: true })
             setValue('clientID', localData.idClient, { shouldValidate: true })
+            setValue('cardNumber', localData.cardNumber, { shouldValidate: true })
         }
         handleRandomFacture()
         handleRandomCommand()

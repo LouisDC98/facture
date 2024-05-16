@@ -6,7 +6,7 @@
         grid-template-columns: repeat(2, auto);
         row-gap: 20px;
         padding-bottom: 20px;
-        border-bottom: 2px solid rgb(181, 181, 181);
+
     }
 
     .ticketAvRemise {
@@ -27,6 +27,30 @@
         font-size: 16px;
         color: #183c6e;
         font-weight: 700;
+    }
+
+    .displayCardSection {
+        margin: 5px 0;
+        position: relative;
+        border-bottom: 2px solid rgb(181, 181, 181);
+
+        .cardSize {
+            height: 35px;
+            width: 50px;
+        }
+
+        .titleCard {
+            position: absolute;
+            top: 2px;
+            left: 50px;
+        }
+
+        .cardNumber {
+            position: absolute;
+            top: 20px;
+            left: 50px;
+        }
+
     }
 
     .ticketGridTVA {

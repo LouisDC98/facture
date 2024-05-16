@@ -8,7 +8,8 @@
             "code_postal": "31300",
             "pays": "France"
         },
-        "idClient": "5092060"
+        "idClient": "5092060",
+        "cardNumber": "8136204390218357912"
     },
     {
         "firstName": "Yohan",
@@ -19,7 +20,8 @@
             "code_postal": "31300",
             "pays": "France"
         },
-        "idClient": "5024049"
+        "idClient": "5024049",
+        "cardNumber": "6254973180423560809"
     },
     {
         "firstName": "Paul",
@@ -30,7 +32,8 @@
             "code_postal": "77000",
             "pays": "France"
         },
-        "idClient": "5019253"
+        "idClient": "5019253",
+        "cardNumber": "4790386215096327154"
     },
     {
         "firstName": "Hugo",
@@ -41,6 +44,7 @@
             "code_postal": "13016",
             "pays": "France"
         },
-        "idClient": "5167204"
+        "idClient": "5167204",
+        "cardNumber": "7035124982309561874"
     }
 ]

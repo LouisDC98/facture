@@ -222,7 +222,7 @@ function HomePage() {
                 {openForm && <FormFacture closeModal={(e) => handleToogleForm(e)} setMainInfos={(e) => setMainInfos(e)} />}
                 {format ? <HeaderFacture mainInfos={mainInfos} /> : <HeaderTicket mainInfos={mainInfos} setHeure={(heure) => setHeure(heure)} />}
                 {format ? <Bill articles={articles} setArticles={(e) => { setArticles(e) }} /> : <BillTicket articles={articles} setArticles={(e) => { setArticles(e) }} />}
-                {format ? <BilanFacture totaux={totaux} tvaArray={tvaArray} /> : <BilanTicket articles={articles} totaux={totaux} tvaArray={tvaArray} />}
+                {format ? <BilanFacture totaux={totaux} tvaArray={tvaArray} /> : <BilanTicket cardNumber={mainInfos.cardNumber} totaux={totaux} tvaArray={tvaArray} />}
                 {format ? <FooterFacture /> : <FooterTicket mainInfos={mainInfos} heure={heure} />}
             </div>
         </div>
