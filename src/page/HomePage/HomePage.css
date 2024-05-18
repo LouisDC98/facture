@@ -108,6 +108,12 @@
     }
 }
 
+.barCodesButton {
+    position: absolute;
+    top: 360px;
+    right: 40px;
+}
+
 .a4Format {
     height: 292mm;
     width: 210mm;

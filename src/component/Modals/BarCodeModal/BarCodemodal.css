@@ -1,0 +1,15 @@
+.modalBgBarCode {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 20px;
+    padding: 20px;
+
+    .codeBarsize {
+        height: 100px;
+    }
+
+    .centerP {
+        text-align: center;
+    }
+
+}

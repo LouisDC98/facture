@@ -15,6 +15,7 @@ import BilanTicket from '../../component/BilanTicket/BilanTicket';
 import FooterFacture from '../../component/FooterFacture/FooterFacture';
 import FooterTicket from '../../component/FooterTicket/FooterTicket';
 import essential from "../../essential.json"
+import BarCodeModal from '../../component/Modals/BarCodeModal/BarCodeModal';
 
 function HomePage() {
     const fileInputRef = useRef(null);
@@ -25,6 +26,7 @@ function HomePage() {
     let [heure, setHeure] = useState(undefined)
     let [format, setFormat] = useState(true)
     let [totaux, setTotaux] = useState({ totalRemises: 0, totalPanier: 0, totalNbrArticle: 0 })
+    let [openBarCode, setOpenBarCode] = useState(false)
 
     const handleToogleForm = (e) => {
         setOpenForm(!openForm)
@@ -222,6 +224,13 @@ function HomePage() {
                     Informations générales
                 </span>
             </button>
+            <button className="barCodesButton button-82-pushable elementToHide" onClick={() => setOpenBarCode(!openBarCode)}>
+                <span className="button-82-shadow"></span>
+                <span className="button-82-edge"></span>
+                <span className="button-82-front text">
+                    Montrer les codes barres
+                </span>
+            </button>
             <button className="shuffleArticles button-82-pushable elementToHide" onClick={() => handleShuffleArticle()}>
                 <span className="button-82-shadow"></span>
                 <span className="button-82-edge"></span>
@@ -231,6 +240,7 @@ function HomePage() {
                 </span>
             </button>
             <div className={`a4Format ${!format ? 'ticketFormat' : ''}`} id="a4Page">
+                {openBarCode && <BarCodeModal closeModal={() => setOpenBarCode(!openBarCode)} articles={articles} />}
                 {openForm && <FormFacture closeModal={(e) => handleToogleForm(e)} setMainInfos={(e) => setMainInfos(e)} />}
                 {format ? <HeaderFacture mainInfos={mainInfos} /> : <HeaderTicket mainInfos={mainInfos} setHeure={(heure) => setHeure(heure)} />}
                 {format ? <Bill articles={articles} setArticles={(e) => { setArticles(e) }} /> : <BillTicket articles={articles} setArticles={(e) => { setArticles(e) }} />}
