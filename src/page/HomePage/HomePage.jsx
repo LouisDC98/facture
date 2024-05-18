@@ -14,6 +14,7 @@ import BilanFacture from '../../component/BilanFacture/BilanFacture';
 import BilanTicket from '../../component/BilanTicket/BilanTicket';
 import FooterFacture from '../../component/FooterFacture/FooterFacture';
 import FooterTicket from '../../component/FooterTicket/FooterTicket';
+import essential from "../../essential.json"
 
 function HomePage() {
     const fileInputRef = useRef(null);
@@ -69,6 +70,11 @@ function HomePage() {
             const j = Math.floor(Math.random() * (i + 1));
             [updatedArticles[i], updatedArticles[j]] = [updatedArticles[j], updatedArticles[i]];
         }
+        setArticles(updatedArticles)
+    }
+
+    const handleAddEssentials = () => {
+        const updatedArticles = [...articles, ...essential];
         setArticles(updatedArticles)
     }
 
@@ -170,7 +176,7 @@ function HomePage() {
     return (
         <div>
             <div className="uploadButton">
-                <label htmlFor="fileInput" className="btn">Importer la liste</label>
+                <label htmlFor="fileInput" className="btn">Importer une liste</label>
                 <input style={{ visibility: "hidden" }} type="file" id="fileInput" ref={fileInputRef} accept=".txt" onChange={(e) => { handleFileUpload(e) }} />
             </div>
             <button className="downloadButton button-82-pushable elementToHide" onClick={() => handleSaveArticles()}>
@@ -180,7 +186,13 @@ function HomePage() {
                     Exporter la liste
                 </span>
             </button>
-
+            <button className="essentialList button-82-pushable elementToHide" onClick={() => handleAddEssentials()}>
+                <span className="button-82-shadow"></span>
+                <span className="button-82-edge"></span>
+                <span className="button-82-front text">
+                    Importer les essentiels
+                </span>
+            </button>
             {/* <button className="copyButton button-82-pushable elementToHide" onClick={() => handleCopyJSON()}>
                 <span className="button-82-shadow"></span>
                 <span className="button-82-edge"></span>

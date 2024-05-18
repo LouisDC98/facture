@@ -1,0 +1,65 @@
+[
+    {
+        "code": "8006540036853",
+        "libelle": "Lessive ARIEL PODS Color 70D",
+        "qtyCmd": 2,
+        "tva": 20,
+        "prixUnit": 59.95,
+        "prixRemise": 0,
+        "total": 119.9
+    },
+    {
+        "code": "8006540447291",
+        "libelle": "Lessive ARIEL liquide POWER Alpine 70D",
+        "qtyCmd": 2,
+        "tva": 20,
+        "prixUnit": 49.85,
+        "prixRemise": 0,
+        "total": 99.7
+    },
+    {
+        "code": "5014328094011",
+        "libelle": "TETLEY Thé noir English Breakfast intense et subtil",
+        "qtyCmd": 3,
+        "tva": 5.5,
+        "prixUnit": 7.1,
+        "prixRemise": 0,
+        "total": 21.3
+    },
+    {
+        "code": "4006000024141",
+        "libelle": "Crème Visage Hydratante 2en1 Anti Taches",
+        "qtyCmd": 1,
+        "tva": 20,
+        "prixUnit": 19.8,
+        "prixRemise": 0,
+        "total": 19.8
+    },
+    {
+        "code": "8700216318709",
+        "libelle": "Lessive DASH PODS Envolée d'Air 33D",
+        "qtyCmd": 2,
+        "tva": 20,
+        "prixUnit": 17.35,
+        "prixRemise": 0,
+        "total": 34.7
+    },
+    {
+        "code": "8700216318556",
+        "libelle": "Lessive DASH PODS Bouquet de pivoines 28D",
+        "qtyCmd": 1,
+        "tva": 20,
+        "prixUnit": 16.65,
+        "prixRemise": 0,
+        "total": 16.65
+    },
+    {
+        "code": "8700216320559",
+        "libelle": "Lessive DASH Liquide Détergent Envolée d'Air 55",
+        "qtyCmd": 2,
+        "tva": 20,
+        "prixUnit": 17.85,
+        "prixRemise": 0,
+        "total": 35.7
+    }
+]
