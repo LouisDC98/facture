@@ -1,0 +1,47 @@
+[
+    {
+        "primary": "CARREFOUR TOULOUSE PURPAN 36 RTE DE BAYONNE",
+        "secondary": "PURPAN 31000 TOULOUSE",
+        "tel": "05 34 26 58 79",
+        "ticket": "TOULOUSE PURPAN",
+        "horaires": [
+            "Lun. au Jeu.: 08:30 à 21:30",
+            "Ven.: 08:30 à 22:00",
+            "Sam.: 08:30 à 21:00",
+            "Dim.: Fermé"
+        ]
+    },
+    {
+        "primary": "CARREFOUR PORTET SUR GARONNE BOULEVARD DE L'EUROPE",
+        "secondary": "31126 PORTET SUR GARONNE CEDEX",
+        "tel": "05 62 20 46 79",
+        "ticket": "TOULOUSE PORTET SUR GARONNE",
+        "horaires": [
+            "Lun.: 09:00 à 19:00",
+            "Mar. au Sam.: 08:30 à 20:30",
+            "Dim.: Fermé"
+        ]
+    },
+    {
+        "primary": "CARREFOUR MELUN ALLEE DU MARCHE",
+        "secondary": "77000 MELUN",
+        "tel": "01 64 14 20 06",
+        "ticket": "MELUN ALLEE DU MARCHE",
+        "horaires": [
+            "Lun.: 09:00 à 19:00",
+            "Mar. au Sam.: 09:00 à 20:00",
+            "Dim.: 09:00 à 12:20"
+        ]
+    },
+    {
+        "primary": "CARREFOUR MARSEILLE AVENUE DE ST ANTOINE",
+        "secondary": "Grand Littoral 13015 MARSEILLE",
+        "tel": "04 91 03 93 79",
+        "ticket": "MARSEILLE AVENUE DE ST ANTOINE",
+        "horaires": [
+            "Lun.: 09:00 à 20:00",
+            "Mar. au Sam.: 08:00 à 21:00",
+            "Dim.: Fermé"
+        ]
+    }
+]
