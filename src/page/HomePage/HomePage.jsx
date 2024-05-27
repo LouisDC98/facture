@@ -17,6 +17,8 @@ import FooterTicket from '../../component/FooterTicket/FooterTicket';
 import essential from "../../essential.json"
 import BarCodeModal from '../../component/Modals/BarCodeModal/BarCodeModal';
 
+import { randomFactureNbr, randomCommandNbr, autoDate, formatDate } from "../../callBack.js"
+
 function HomePage() {
     const fileInputRef = useRef(null);
     let [openForm, setOpenForm] = useState(true)
@@ -54,55 +56,36 @@ function HomePage() {
             });
     };
 
-    const dateWithoutWE = (dateDebut) => {
+    const consecutiveDates = (dateDebut) => {
         const dates = [];
         const [day, month, year] = dateDebut.split('/');
         let jour = new Date(`${month}/${day}/${year}`);
 
         while (dates.length < 5) {
             jour.setDate(jour.getDate() + 1);
-            if (jour.getDay() !== 0 && jour.getDay() !== 6) {
-                const formattedDate = `${(jour.getDate() < 10 ? '0' : '') + jour.getDate()}/${((jour.getMonth() + 1) < 10 ? '0' : '') + (jour.getMonth() + 1)}/${jour.getFullYear()}`;
-                dates.push(formattedDate);
-            }
+            const formattedDate = `${jour.getFullYear()}-${((jour.getMonth() + 1) < 10 ? '0' : '') + (jour.getMonth() + 1)}-${(jour.getDate() < 10 ? '0' : '') + jour.getDate()}`;
+            dates.push(formattedDate);
         }
         return dates;
     }
 
-    const autoDate = (e) => {
+    const facturationDateSetting = (e) => {
         if (!e) return
-        const [day1, month1, year1] = e.split('/');
-        let dateInitiale = new Date(`${month1}/${day1}/${year1}`);
-        dateInitiale.setDate(dateInitiale.getDate() + 1);
-
-        var year = dateInitiale.getFullYear();
-        var month = (dateInitiale.getMonth() + 1).toString().padStart(2, '0');
-        var day = dateInitiale.getDate().toString().padStart(2, '0');
-        let newDate = day + '/' + month + '/' + year;
-        return newDate
-    }
-
-    const randomCommand = () => {
-        const randomNumber = "5" + Math.floor(Math.random() * 1000000000000).toString().padStart(12, "0");
-        return randomNumber
-    }
-
-    const randomFacture = () => {
-        const randomDigits = Math.floor(Math.random() * 1000000).toString().padStart(6, "0");
-        const factureNumber = "WEB-000119-00" + randomDigits;
-        return factureNumber
+        let { day, month, year } = autoDate(e)
+        return day + '/' + month + '/' + year
     }
 
     const handleExportPNGx4 = async () => {
-        const dates = dateWithoutWE(mainInfos.date);
+        const dates = consecutiveDates(mainInfos.date);
         for (let i = 0; i < dates.length; i++) {
             setMainInfos(prevArticles => ({
                 ...prevArticles,
-                date: dates[i],
-                dateFacturation: autoDate(dates[i]),
-                factureNumber: randomFacture(),
-                commandNumber: randomCommand()
+                date: formatDate(dates[i]),
+                dateFacturation: facturationDateSetting(dates[i]),
+                factureNumber: randomFactureNbr(),
+                commandNumber: randomCommandNbr()
             }));
+            handleShuffleArticle()
             await new Promise(resolve => setTimeout(resolve, 100));
             handleExportPNG();
         }

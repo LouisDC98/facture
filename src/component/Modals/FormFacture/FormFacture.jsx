@@ -4,6 +4,7 @@ import data from "../../../data.json"
 import { useForm } from "react-hook-form";
 import magasinList from "../../../magasins.json"
 
+import { randomFactureNbr, randomCommandNbr, autoDate } from "../../../callBack.js"
 
 function FormFacture(props) {
     let { closeModal } = props
@@ -54,31 +55,17 @@ function FormFacture(props) {
             setValue('clientID', localData.idClient, { shouldValidate: true })
             setValue('cardNumber', localData.cardNumber, { shouldValidate: true })
         }
-        handleRandomFacture()
-        handleRandomCommand()
+        let factureNbr = randomFactureNbr()
+        let cmdNbr = randomCommandNbr()
+        setValue('commandNumber', cmdNbr, { shouldValidate: true });
+        setValue('factureNumber', factureNbr, { shouldValidate: true });
     }, []);
 
-    const handleRandomCommand = () => {
-        const randomNumber = "5" + Math.floor(Math.random() * 1000000000000).toString().padStart(12, "0");
-        setValue('commandNumber', randomNumber, { shouldValidate: true });
-    }
-
-    const handleRandomFacture = () => {
-        const randomDigits = Math.floor(Math.random() * 1000000).toString().padStart(6, "0");
-        const factureNumber = "WEB-000119-00" + randomDigits;
-        setValue('factureNumber', factureNumber, { shouldValidate: true });
-    }
-
-    const autoDate = (e) => {
+    const onChangeDate = (e) => {
         if (!e) return
-        let dateInitiale = new Date(e);
-        dateInitiale.setDate(dateInitiale.getDate() + 1);
-
-        var year = dateInitiale.getFullYear();
-        var month = (dateInitiale.getMonth() + 1).toString().padStart(2, '0');
-        var day = dateInitiale.getDate().toString().padStart(2, '0');
-        let newDate = year + '-' + month + '-' + day;
-        setValue('dateFacturation', newDate, { shouldValidate: true });
+        let { day, month, year } = autoDate(e)
+        let facturationDate = year + '-' + month + '-' + day
+        setValue('dateFacturation', facturationDate, { shouldValidate: true });
     }
 
     function formatDate(inputDate) {
@@ -121,16 +108,16 @@ function FormFacture(props) {
                     <div className='displayInput'>
                         <label>N° de commande</label>
                         <input type='text' {...register("commandNumber", { required: true })}></input>
-                        <button className='randomButton' onClick={() => handleRandomCommand()}></button>
+                        <button className='randomButton' onClick={() => randomCommandNbr()}></button>
                     </div>
                     <div className='displayInput'>
                         <label>N° de facture</label>
                         <input type='text' {...register("factureNumber", { required: true })}></input>
-                        <button className='randomButton' onClick={() => handleRandomFacture()}></button>
+                        <button className='randomButton' onClick={() => randomFactureNbr()}></button>
                     </div>
                     <div className='displayInput'>
                         <label>Date de commande</label>
-                        <input type='date' onSelect={(e) => autoDate(e.target.value)} {...register("date", { required: true })}></input>
+                        <input type='date' onSelect={(e) => onChangeDate(e.target.value)} {...register("date", { required: true })}></input>
                     </div>
                     <div className='displayInput'>
                         <label>Date de facturation/livraison</label>
