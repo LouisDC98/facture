@@ -4,10 +4,10 @@ import data from "../../../data.json"
 import { useForm } from "react-hook-form";
 import magasinList from "../../../magasins.json"
 
-import { randomFactureNbr, randomCommandNbr, autoDate } from "../../../callBack.js"
+import { randomFactureNbr, randomCommandNbr, autoDate, formatDateRevert } from "../../../callBack.js"
 
 function FormFacture(props) {
-    let { closeModal } = props
+    let { closeModal, mainInfos } = props
     let [magasin, setMagasin] = useState(0)
 
     const { register, handleSubmit, setValue, reset } = useForm();
@@ -55,6 +55,14 @@ function FormFacture(props) {
             setValue('clientID', localData.idClient, { shouldValidate: true })
             setValue('cardNumber', localData.cardNumber, { shouldValidate: true })
         }
+
+        if (mainInfos.date) {
+            setValue('date', formatDateRevert(mainInfos?.date), { shouldValidate: true })
+        }
+        if (mainInfos.date) {
+            setValue('dateFacturation', formatDateRevert(mainInfos?.dateFacturation), { shouldValidate: true })
+        }
+
         let factureNbr = randomFactureNbr()
         let cmdNbr = randomCommandNbr()
         setValue('commandNumber', cmdNbr, { shouldValidate: true });

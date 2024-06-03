@@ -41,3 +41,18 @@ export function formatDate(inputDate) {
 
     return formattedDate;
 }
+
+//change date format
+//@inputDate : string date format "dd/mm/yyyy"
+//@return : string date format "yyyy-mm-dd"
+export function formatDateRevert(inputDate) {
+    let parts = inputDate.split('/');
+    let day = parseInt(parts[0]);
+    let month = parseInt(parts[1]);
+    let year = parseInt(parts[2]);
+
+    let dateObject = new Date(year, month - 1, day);
+    let formattedDate = dateObject.getFullYear() + '-' + ('0' + (dateObject.getMonth() + 1)).slice(-2) + '-' + ('0' + dateObject.getDate()).slice(-2);
+
+    return formattedDate;
+}
