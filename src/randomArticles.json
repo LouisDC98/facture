@@ -25,5 +25,41 @@
         "prixUnit": 3.69,
         "prixRemise": 0,
         "total": 3.69
-    }
+    },
+            {
+            "code": "3560070837052",
+            "libelle": "Riz Basmati CARREFOUR EXTRA",
+            "qtyCmd": 1,
+            "tva": 5.5,
+            "prixUnit": 1.49,
+            "prixRemise": 0,
+            "total": 1.49
+        },
+        {
+            "code": "3560071253295",
+            "libelle": "Sauce soja salée CARREFOUR SENSATION",
+            "qtyCmd": 1,
+            "tva": 5.5,
+            "prixUnit": 1.89,
+            "prixRemise": 0,
+            "total": 1.89
+        },
+        {
+            "code": "3560071099213",
+            "libelle": "Crème Entière Semi-Épaisse 30% Mg CARREFOUR CLASSIC'",
+            "qtyCmd": 1,
+            "tva": 5.5,
+            "prixUnit": 2.75,
+            "prixRemise": 0,
+            "total": 2.75
+        },
+        {
+            "code": "3017800078846",
+            "libelle": "Haricots rouges Origine France D'AUCY",
+            "qtyCmd": 2,
+            "tva": 5.5,
+            "prixUnit": 1.45,
+            "prixRemise": 0,
+            "total": 2.9
+        }
 ]
