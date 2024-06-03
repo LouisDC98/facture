@@ -68,6 +68,16 @@ function FormFacture(props) {
         setValue('dateFacturation', facturationDate, { shouldValidate: true });
     }
 
+    const handleRandomFactureNbr = () => {
+        let number = randomFactureNbr()
+        setValue('factureNumber', number, { shouldValidate: true });
+    }
+
+    const handleRandomCommandeNbr = () => {
+        let number = randomCommandNbr()
+        setValue('commandNumber', number, { shouldValidate: true });
+    }
+
     function formatDate(inputDate) {
         let parts = inputDate.split('-');
         let year = parseInt(parts[0]);
@@ -108,12 +118,12 @@ function FormFacture(props) {
                     <div className='displayInput'>
                         <label>N° de commande</label>
                         <input type='text' {...register("commandNumber", { required: true })}></input>
-                        <button className='randomButton' onClick={() => randomCommandNbr()}></button>
+                        <button className='randomButton' onClick={() => handleRandomCommandeNbr()}></button>
                     </div>
                     <div className='displayInput'>
                         <label>N° de facture</label>
                         <input type='text' {...register("factureNumber", { required: true })}></input>
-                        <button className='randomButton' onClick={() => randomFactureNbr()}></button>
+                        <button className='randomButton' onClick={() => handleRandomFactureNbr()}></button>
                     </div>
                     <div className='displayInput'>
                         <label>Date de commande</label>
