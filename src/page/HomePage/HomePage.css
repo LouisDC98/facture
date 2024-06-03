@@ -114,6 +114,16 @@
     }
 }
 
+.addRandomArticle {
+    position: absolute;
+    top: 490px;
+    right: 40px;
+    height: 40px;
+    input {
+        width: 30px;
+    }
+}
+
 .barCodesButton {
     position: absolute;
     top: 360px;

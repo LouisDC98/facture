@@ -1,0 +1,29 @@
+[
+    {
+        "code": "3270190205685",
+        "libelle": "Œufs plein air CARREFOUR ORIGINAL",
+        "qtyCmd": 2,
+        "tva": 5.5,
+        "prixUnit": 2.95,
+        "prixRemise": 0,
+        "total": 5.9
+    },
+    {
+        "code": "7613035040823",
+        "libelle": "Tablette de chocolat noir NESTLE DESSERT",
+        "qtyCmd": 1,
+        "tva": 5.5,
+        "prixUnit": 2.19,
+        "prixRemise": 0,
+        "total": 2.19
+    },
+    {
+        "code": "3560070434169",
+        "libelle": "Piperade à la basquaise CARREFOUR EXTRA",
+        "qtyCmd": 1,
+        "tva": 5.5,
+        "prixUnit": 3.69,
+        "prixRemise": 0,
+        "total": 3.69
+    }
+]

@@ -15,6 +15,7 @@ import BilanTicket from '../../component/BilanTicket/BilanTicket';
 import FooterFacture from '../../component/FooterFacture/FooterFacture';
 import FooterTicket from '../../component/FooterTicket/FooterTicket';
 import essential from "../../essential.json"
+import randomArticles from "../../randomArticles.json"
 import BarCodeModal from '../../component/Modals/BarCodeModal/BarCodeModal';
 
 import { randomFactureNbr, randomCommandNbr, autoDate, formatDate } from "../../callBack.js"
@@ -29,6 +30,7 @@ function HomePage() {
     let [format, setFormat] = useState(true)
     let [totaux, setTotaux] = useState({ totalRemises: 0, totalPanier: 0, totalNbrArticle: 0 })
     let [openBarCode, setOpenBarCode] = useState(false)
+    let [nbrRandomArticles, setNbrRandomArticles] = useState(0)
 
     const handleToogleForm = (e) => {
         setOpenForm(!openForm)
@@ -115,6 +117,14 @@ function HomePage() {
     const handleAddEssentials = () => {
         const updatedArticles = [...articles, ...essential];
         setArticles(updatedArticles)
+    }
+
+    const handleAddRandomArticles = () => {
+        const shuffledRandomArticles = [...randomArticles].sort(() => 0.5 - Math.random());
+        const selectedArticles = shuffledRandomArticles.slice(0, nbrRandomArticles);
+        const updatedArticles = [...articles, ...selectedArticles];
+
+        setArticles(updatedArticles);
     }
 
     const handleSaveArticles = () => {
@@ -283,6 +293,16 @@ function HomePage() {
                     <img src={shuffle} alt="shuffle" />
                 </span>
             </button>
+            <div className="addRandomArticle">
+                <input type='number' onChange={(e) => setNbrRandomArticles(e.target.value)}></input>
+                <button className="button-82-pushable elementToHide" onClick={() => handleAddRandomArticles()}>
+                    <span className="button-82-shadow"></span>
+                    <span className="button-82-edge"></span>
+                    <span className="button-82-front text displayflex">
+                        + articles random
+                    </span>
+                </button>
+            </div>
             <div className={`a4Format ${!format ? 'ticketFormat' : ''}`} id="a4Page">
                 {openBarCode && <BarCodeModal closeModal={() => setOpenBarCode(!openBarCode)} articles={articles} />}
                 {openForm && <FormFacture closeModal={(e) => handleToogleForm(e)} setMainInfos={(e) => setMainInfos(e)} />}
