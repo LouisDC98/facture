@@ -1,65 +1,182 @@
 [
-    {
-        "code": "3270190205685",
-        "libelle": "Œufs plein air CARREFOUR ORIGINAL",
-        "qtyCmd": 2,
-        "tva": 5.5,
-        "prixUnit": 2.95,
-        "prixRemise": 0,
-        "total": 5.9
-    },
-    {
-        "code": "7613035040823",
-        "libelle": "Tablette de chocolat noir NESTLE DESSERT",
-        "qtyCmd": 1,
-        "tva": 5.5,
-        "prixUnit": 2.19,
-        "prixRemise": 0,
-        "total": 2.19
-    },
-    {
-        "code": "3560070434169",
-        "libelle": "Piperade à la basquaise CARREFOUR EXTRA",
-        "qtyCmd": 1,
-        "tva": 5.5,
-        "prixUnit": 3.69,
-        "prixRemise": 0,
-        "total": 3.69
-    },
-            {
-            "code": "3560070837052",
-            "libelle": "Riz Basmati CARREFOUR EXTRA",
-            "qtyCmd": 1,
-            "tva": 5.5,
-            "prixUnit": 1.49,
-            "prixRemise": 0,
-            "total": 1.49
-        },
-        {
-            "code": "3560071253295",
-            "libelle": "Sauce soja salée CARREFOUR SENSATION",
-            "qtyCmd": 1,
-            "tva": 5.5,
-            "prixUnit": 1.89,
-            "prixRemise": 0,
-            "total": 1.89
-        },
-        {
-            "code": "3560071099213",
-            "libelle": "Crème Entière Semi-Épaisse 30% Mg CARREFOUR CLASSIC'",
-            "qtyCmd": 1,
-            "tva": 5.5,
-            "prixUnit": 2.75,
-            "prixRemise": 0,
-            "total": 2.75
-        },
-        {
-            "code": "3017800078846",
-            "libelle": "Haricots rouges Origine France D'AUCY",
-            "qtyCmd": 2,
-            "tva": 5.5,
-            "prixUnit": 1.45,
-            "prixRemise": 0,
-            "total": 2.9
-        }
+   {
+      "code":"3270190205685",
+      "libelle":"Œufs plein air CARREFOUR ORIGINAL",
+      "qtyCmd":2,
+      "tva":5.5,
+      "prixUnit":2.95,
+      "prixRemise":0,
+      "total":5.9
+   },
+   {
+      "code":"7613035040823",
+      "libelle":"Tablette de chocolat noir NESTLE DESSERT",
+      "qtyCmd":1,
+      "tva":5.5,
+      "prixUnit":2.19,
+      "prixRemise":0,
+      "total":2.19
+   },
+   {
+      "code":"3560070434169",
+      "libelle":"Piperade à la basquaise CARREFOUR EXTRA",
+      "qtyCmd":1,
+      "tva":5.5,
+      "prixUnit":3.69,
+      "prixRemise":0,
+      "total":3.69
+   },
+   {
+      "code":"3560070837052",
+      "libelle":"Riz Basmati CARREFOUR EXTRA",
+      "qtyCmd":1,
+      "tva":5.5,
+      "prixUnit":1.49,
+      "prixRemise":0,
+      "total":1.49
+   },
+   {
+      "code":"3560071253295",
+      "libelle":"Sauce soja salée CARREFOUR SENSATION",
+      "qtyCmd":1,
+      "tva":5.5,
+      "prixUnit":1.89,
+      "prixRemise":0,
+      "total":1.89
+   },
+   {
+      "code":"3560071099213",
+      "libelle":"Crème Entière Semi-Épaisse 30% Mg CARREFOUR CLASSIC'",
+      "qtyCmd":1,
+      "tva":5.5,
+      "prixUnit":2.75,
+      "prixRemise":0,
+      "total":2.75
+   },
+   {
+      "code":"3017800078846",
+      "libelle":"Haricots rouges Origine France D'AUCY",
+      "qtyCmd":2,
+      "tva":5.5,
+      "prixUnit":1.45,
+      "prixRemise":0,
+      "total":2.9
+   },
+   {
+      "code":"3165440006702",
+      "libelle":"Couscous sachet cuisson TIPIAK",
+      "qtyCmd":1,
+      "tva":5.5,
+      "prixUnit":1.45,
+      "prixRemise":0,
+      "total":1.45
+   },
+   {
+      "code":"3027030016396",
+      "libelle":"Yaourt Maison Ferments Lactiques ALSA",
+      "qtyCmd":2,
+      "tva":5.5,
+      "prixUnit":2.89,
+      "prixRemise":0,
+      "total":5.78
+   },
+   {
+      "code":"3179142054589",
+      "libelle":"Levure du Boulanger VAHINE",
+      "qtyCmd":1,
+      "tva":5.5,
+      "prixUnit":1.25,
+      "prixRemise":0,
+      "total":1.25
+   },
+   {
+      "code":"3560070526703",
+      "libelle":"Vinaigre d'alcool 8% d'acidité SIMPL",
+      "qtyCmd":1,
+      "tva":20,
+      "prixUnit":0.49,
+      "prixRemise":0,
+      "total":0.49
+   },
+   {
+      "code":"3011261030962",
+      "libelle":"Eponge à récurer grattantes super efficaces SPONTEX",
+      "qtyCmd":1,
+      "tva":20,
+      "prixUnit":1.45,
+      "prixRemise":0,
+      "total":1.45
+   },
+   {
+      "code":"4008871217547",
+      "libelle":"Sac poubelle ultra-résistant 30L HANDY BAGS",
+      "qtyCmd":1,
+      "tva":20,
+      "prixUnit":2.99,
+      "prixRemise":0,
+      "total":2.99
+   },
+   {
+      "code":"8720181048869",
+      "libelle":"Brosse à dents Bambou 100% Souple SIGNAL",
+      "qtyCmd":1,
+      "tva":20,
+      "prixUnit":2.79,
+      "prixRemise":0,
+      "total":2.79
+   },
+   {
+      "code":"8001090576491",
+      "libelle":"Dentifrice Pro Expert Blancheur Saine ORAL-B",
+      "qtyCmd":2,
+      "tva":20,
+      "prixUnit":3.99,
+      "prixRemise":0,
+      "total":7.98
+   },
+   {
+      "code":"3560071187620",
+      "libelle":"Mouchoirs CARREFOUR ECO PLANET",
+      "qtyCmd":1,
+      "tva":20,
+      "prixUnit":1.75,
+      "prixRemise":0,
+      "total":1.75
+   },
+   {
+      "code":"3240931548111",
+      "libelle":"Pâtes Fraîches Gnocchi À Poêler LUSTUCRU",
+      "qtyCmd":1,
+      "tva":5.5,
+      "prixUnit":1.75,
+      "prixRemise":0,
+      "total":1.75
+   },
+   {
+      "code":"3270190207696",
+      "libelle":"Emmental râpé fondant CARREFOUR CLASSIC'",
+      "qtyCmd":1,
+      "tva":5.5,
+      "prixUnit":1.65,
+      "prixRemise":0,
+      "total":1.65
+   },
+   {
+      "code":"3248340056449",
+      "libelle":"Lait Entier Stérilisé UHT C'EST QUI LE PATRON ?!",
+      "qtyCmd":6,
+      "tva":5.5,
+      "prixUnit":1.37,
+      "prixRemise":0,
+      "total":8.22
+   },
+   {
+      "code":"3270190134695",
+      "libelle":"Sauce bio pulpe de tomates fraîches CARREFOUR BIO",
+      "qtyCmd":2,
+      "tva":5.5,
+      "prixUnit":1.89,
+      "prixRemise":0,
+      "total":3.78
+   }
 ]
