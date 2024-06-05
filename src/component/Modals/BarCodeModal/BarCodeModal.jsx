@@ -11,10 +11,12 @@ function BarCodeModal(props) {
                 <button onClick={() => closeModal()} className='buttonIcon closeButton' />
                 <div className='modalBgBarCode'>
                     {articles.map((article, index) => (
-                        <div key={index} className='centerP'>
-                            <p>{article.libelle}</p>
-                            <Barcode value={article.code} className="codeBarsize"/>
-                        </div>
+                        (!article.random || article.random === false) && (
+                            <div key={index} className='centerP'>
+                                <p>{article.libelle}</p>
+                                <Barcode value={article.code} className="codeBarsize" />
+                            </div>
+                        )
                     ))}
                 </div>
             </div>
