@@ -6,7 +6,8 @@
       "tva":5.5,
       "prixUnit":2.95,
       "prixRemise":0,
-      "total":5.9
+      "total":5.9,
+      "random": true
    },
    {
       "code":"7613035040823",
@@ -15,7 +16,8 @@
       "tva":5.5,
       "prixUnit":2.19,
       "prixRemise":0,
-      "total":2.19
+      "total":2.19,
+      "random": true
    },
    {
       "code":"3560070434169",
@@ -24,7 +26,8 @@
       "tva":5.5,
       "prixUnit":3.69,
       "prixRemise":0,
-      "total":3.69
+      "total":3.69,
+      "random": true
    },
    {
       "code":"3560070837052",
@@ -33,7 +36,8 @@
       "tva":5.5,
       "prixUnit":1.49,
       "prixRemise":0,
-      "total":1.49
+      "total":1.49,
+      "random": true
    },
    {
       "code":"3560071253295",
@@ -42,7 +46,8 @@
       "tva":5.5,
       "prixUnit":1.89,
       "prixRemise":0,
-      "total":1.89
+      "total":1.89,
+      "random": true
    },
    {
       "code":"3560071099213",
@@ -51,7 +56,8 @@
       "tva":5.5,
       "prixUnit":2.75,
       "prixRemise":0,
-      "total":2.75
+      "total":2.75,
+      "random": true
    },
    {
       "code":"3017800078846",
@@ -60,7 +66,8 @@
       "tva":5.5,
       "prixUnit":1.45,
       "prixRemise":0,
-      "total":2.9
+      "total":2.9,
+      "random": true
    },
    {
       "code":"3165440006702",
@@ -69,7 +76,8 @@
       "tva":5.5,
       "prixUnit":1.45,
       "prixRemise":0,
-      "total":1.45
+      "total":1.45,
+      "random": true
    },
    {
       "code":"3027030016396",
@@ -78,7 +86,8 @@
       "tva":5.5,
       "prixUnit":2.89,
       "prixRemise":0,
-      "total":5.78
+      "total":5.78,
+      "random": true
    },
    {
       "code":"3179142054589",
@@ -87,7 +96,8 @@
       "tva":5.5,
       "prixUnit":1.25,
       "prixRemise":0,
-      "total":1.25
+      "total":1.25,
+      "random": true
    },
    {
       "code":"3560070526703",
@@ -96,7 +106,8 @@
       "tva":20,
       "prixUnit":0.49,
       "prixRemise":0,
-      "total":0.49
+      "total":0.49,
+      "random": true
    },
    {
       "code":"3011261030962",
@@ -105,7 +116,8 @@
       "tva":20,
       "prixUnit":1.45,
       "prixRemise":0,
-      "total":1.45
+      "total":1.45,
+      "random": true
    },
    {
       "code":"4008871217547",
@@ -114,7 +126,8 @@
       "tva":20,
       "prixUnit":2.99,
       "prixRemise":0,
-      "total":2.99
+      "total":2.99,
+      "random": true
    },
    {
       "code":"8720181048869",
@@ -123,7 +136,8 @@
       "tva":20,
       "prixUnit":2.79,
       "prixRemise":0,
-      "total":2.79
+      "total":2.79,
+      "random": true
    },
    {
       "code":"8001090576491",
@@ -132,7 +146,8 @@
       "tva":20,
       "prixUnit":3.99,
       "prixRemise":0,
-      "total":7.98
+      "total":7.98,
+      "random": true
    },
    {
       "code":"3560071187620",
@@ -141,7 +156,8 @@
       "tva":20,
       "prixUnit":1.75,
       "prixRemise":0,
-      "total":1.75
+      "total":1.75,
+      "random": true
    },
    {
       "code":"3240931548111",
@@ -150,7 +166,8 @@
       "tva":5.5,
       "prixUnit":1.75,
       "prixRemise":0,
-      "total":1.75
+      "total":1.75,
+      "random": true
    },
    {
       "code":"3270190207696",
@@ -159,7 +176,8 @@
       "tva":5.5,
       "prixUnit":1.65,
       "prixRemise":0,
-      "total":1.65
+      "total":1.65,
+      "random": true
    },
    {
       "code":"3248340056449",
@@ -168,7 +186,8 @@
       "tva":5.5,
       "prixUnit":1.37,
       "prixRemise":0,
-      "total":8.22
+      "total":8.22,
+      "random": true
    },
    {
       "code":"3270190134695",
@@ -177,6 +196,7 @@
       "tva":5.5,
       "prixUnit":1.89,
       "prixRemise":0,
-      "total":3.78
+      "total":3.78,
+      "random": true
    }
 ]
