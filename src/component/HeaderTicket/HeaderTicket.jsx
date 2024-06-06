@@ -27,13 +27,13 @@ function HeaderTicket(props) {
         <>
             <section className='headerTicket'>
                 <img src={logo} alt="logoCarrefour" />
-                <h2 className='wrapperP'>{mainInfos?.magasin?.ticket ? mainInfos.magasin?.ticket : <span>TOULOUSE PURPAN</span>}</h2>
-                <p className='wrapperP telNumberTicket'>{mainInfos?.magasin?.tel ? mainInfos.magasin?.tel + " à " + heureAleatoire() : <span>06 66 66 66 66</span>}</p>
-                {mainInfos?.magasin?.horaires.map((option, index) => (
+                <h2 className='wrapperP'>{mainInfos?.currentProfile.magasin?.ticket ? mainInfos.currentProfile.magasin?.ticket : <span>TOULOUSE PURPAN</span>}</h2>
+                <p className='wrapperP telNumberTicket'>{mainInfos?.currentProfile.magasin?.tel ? mainInfos.currentProfile.magasin?.tel + " à " + heureAleatoire() : <span>06 66 66 66 66</span>}</p>
+                {mainInfos?.currentProfile.magasin?.horaires.map((option, index) => (
                     <p key={index}>{option}</p>
                 ))}
             </section>
-            <p className='wrapperP dateTicket'>{mainInfos?.date ? mainInfos.date + " à " + heureAleatoire() : <span>01/01/2000 à 01:01</span>}</p>
+            <p className='wrapperP dateTicket'>{mainInfos?.data.date ? mainInfos.data.date + " à " + heureAleatoire() : <span>01/01/2000 à 01:01</span>}</p>
         </>
     )
 }

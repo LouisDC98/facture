@@ -35,11 +35,11 @@ function HomePage() {
     const handleToogleForm = (e) => {
         setOpenForm(!openForm)
         if (e) {
-            setMainInfos(e)
+            setMainInfos({ ...e, currentProfile: e.profile[0] })
         }
     }
 
-    const handleExportPNG = () => {
+    const handleExportPNG = async () => {
         const element = document.getElementById('a4Page');
         const scale = 2;
         const options = {
@@ -47,15 +47,37 @@ function HomePage() {
             useCORS: true
         };
 
-        html2canvas(element, options)
-            .then((canvas) => {
-                canvas.toBlob((blob) => {
-                    saveAs(blob, `facture_${mainInfos?.factureNumber}.png`);
-                }, 'image/png', 1);
-            })
-            .catch((error) => {
-                console.error('Erreur lors de la conversion en image :', error);
-            });
+        for (let i = 0; i < mainInfos.profile.length; i++) {
+            if (i > 0) {
+                let filteredArticles = articles.filter(article => !article.random)
+                setArticles(filteredArticles);
+                let nbrRandomArticles2 = articles.filter(article => article.random).length;
+
+                let newArticles = handleAddRandomArticles(nbrRandomArticles2, filteredArticles)
+                handleShuffleArticle(newArticles)
+            }
+
+            setMainInfos(prevState => ({
+                ...prevState,
+                currentProfile: mainInfos.profile[i],
+                data: {
+                    ...prevState.data,
+                    factureNumber: randomFactureNbr(),
+                    commandNumber: randomCommandNbr()
+                }
+            }));
+            await new Promise(resolve => setTimeout(resolve, 100));
+
+            html2canvas(element, options)
+                .then((canvas) => {
+                    canvas.toBlob((blob) => {
+                        saveAs(blob, `facture_${mainInfos?.data.factureNumber}.png`);
+                    }, 'image/png', 1);
+                })
+                .catch((error) => {
+                    console.error('Erreur lors de la conversion en image :', error);
+                });
+        }
     };
 
     const consecutiveDates = (dateDebut) => {
@@ -87,7 +109,7 @@ function HomePage() {
                 factureNumber: randomFactureNbr(),
                 commandNumber: randomCommandNbr()
             }));
-            handleShuffleArticle()
+            handleShuffleArticle(articles)
             await new Promise(resolve => setTimeout(resolve, 100));
             handleExportPNG();
         }
@@ -105,8 +127,8 @@ function HomePage() {
         calcTVA()
     }, [articles]);
 
-    const handleShuffleArticle = () => {
-        const updatedArticles = [...articles];
+    const handleShuffleArticle = (customArticle) => {
+        const updatedArticles = [...customArticle];
         for (let i = updatedArticles.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [updatedArticles[i], updatedArticles[j]] = [updatedArticles[j], updatedArticles[i]];
@@ -119,12 +141,13 @@ function HomePage() {
         setArticles(updatedArticles)
     }
 
-    const handleAddRandomArticles = () => {
+    const handleAddRandomArticles = (nbrToAdd, listArticle) => {
         const shuffledRandomArticles = [...randomArticles].sort(() => 0.5 - Math.random());
-        const selectedArticles = shuffledRandomArticles.slice(0, nbrRandomArticles);
-        const updatedArticles = [...articles, ...selectedArticles];
+        const selectedArticles = shuffledRandomArticles.slice(0, nbrToAdd);
+        const updatedArticles = [...listArticle, ...selectedArticles];
 
         setArticles(updatedArticles);
+        return updatedArticles
     }
 
     const handleSaveArticles = () => {
@@ -264,13 +287,13 @@ function HomePage() {
                     Exporter en PNG
                 </span>
             </button>
-            <button className="PNGButtonx4 button-82-pushable elementToHide" onClick={() => handleExportPNGx4()}>
+            {/* <button className="PNGButtonx4 button-82-pushable elementToHide" onClick={() => handleExportPNGx4()}>
                 <span className="button-82-shadow"></span>
                 <span className="button-82-edge"></span>
                 <span className="button-82-front text">
                     Exporter en PNGx4
                 </span>
-            </button>
+            </button> */}
             <button className="floatingButton button-82-pushable elementToHide" onClick={() => handleToogleForm()}>
                 <span className="button-82-shadow"></span>
                 <span className="button-82-edge"></span>
@@ -285,7 +308,7 @@ function HomePage() {
                     Montrer les codes barres
                 </span>
             </button>
-            <button className="shuffleArticles button-82-pushable elementToHide" onClick={() => handleShuffleArticle()}>
+            <button className="shuffleArticles button-82-pushable elementToHide" onClick={() => handleShuffleArticle(articles)}>
                 <span className="button-82-shadow"></span>
                 <span className="button-82-edge"></span>
                 <span className="button-82-front text displayflex">
@@ -295,7 +318,7 @@ function HomePage() {
             </button>
             <div className="addRandomArticle">
                 <input type='number' onChange={(e) => setNbrRandomArticles(e.target.value)}></input>
-                <button className="button-82-pushable elementToHide" onClick={() => handleAddRandomArticles()}>
+                <button className="button-82-pushable elementToHide" onClick={() => handleAddRandomArticles(nbrRandomArticles, articles)}>
                     <span className="button-82-shadow"></span>
                     <span className="button-82-edge"></span>
                     <span className="button-82-front text displayflex">
@@ -305,7 +328,7 @@ function HomePage() {
             </div>
             <div className={`a4Format ${!format ? 'ticketFormat' : ''}`} id="a4Page">
                 {openBarCode && <BarCodeModal closeModal={() => setOpenBarCode(!openBarCode)} articles={articles} />}
-                {openForm && <FormFacture closeModal={(e) => handleToogleForm(e)} setMainInfos={(e) => setMainInfos(e)} mainInfos={mainInfos}/>}
+                {openForm && <FormFacture closeModal={(e) => handleToogleForm(e)} setMainInfos={(e) => setMainInfos(e)} mainInfos={mainInfos} />}
                 {format ? <HeaderFacture mainInfos={mainInfos} /> : <HeaderTicket mainInfos={mainInfos} setHeure={(heure) => setHeure(heure)} />}
                 {format ? <Bill articles={articles} setArticles={(e) => { setArticles(e) }} /> : <BillTicket articles={articles} setArticles={(e) => { setArticles(e) }} />}
                 {format ? <BilanFacture totaux={totaux} tvaArray={tvaArray} /> : <BilanTicket cardNumber={mainInfos.cardNumber} totaux={totaux} tvaArray={tvaArray} />}

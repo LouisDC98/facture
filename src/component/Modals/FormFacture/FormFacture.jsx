@@ -1,61 +1,21 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './FormFacture.css'
-import data from "../../../data.json"
-import { useForm } from "react-hook-form";
+import users from "../../../data.json"
+import { useForm, useFieldArray } from "react-hook-form";
 import magasinList from "../../../magasins.json"
 
 import { randomFactureNbr, randomCommandNbr, autoDate, formatDateRevert } from "../../../callBack.js"
 
 function FormFacture(props) {
     let { closeModal, mainInfos } = props
-    let [magasin, setMagasin] = useState(0)
 
-    const { register, handleSubmit, setValue, reset } = useForm();
-
-    const insertSpaceAfterTwoChars = (str) => {
-        let firstTwoChars = str.substring(0, 2);
-        let remainingChars = str.substring(2);
-        let result = firstTwoChars + ' ' + remainingChars;
-        return result;
-    }
-
-    const handleSelect = (e) => {
-        if (e === "null") {
-            reset({
-                lastName: "",
-                firstName: "",
-                adresse: "",
-                codePostal: "",
-                city: "",
-                country: "",
-                clientID: ""
-            });
-        } else {
-            setValue('lastName', data[e].lastName, { shouldValidate: true })
-            setValue('firstName', data[e].firstName, { shouldValidate: true })
-            setValue('adresse', data[e].adresse.rue, { shouldValidate: true })
-            setValue('codePostal', data[e].adresse.code_postal, { shouldValidate: true })
-            setValue('city', data[e].adresse.ville, { shouldValidate: true })
-            setValue('country', data[e].adresse.pays, { shouldValidate: true })
-            setValue('clientID', data[e].idClient, { shouldValidate: true })
-            setValue('cardNumber', data[e].cardNumber, { shouldValidate: true })
-            localStorage.setItem("data", e);
-        }
-    }
+    const { register, handleSubmit, setValue, control } = useForm();
+    const { fields, append, remove } = useFieldArray({
+        control,
+        name: "test",
+    });
 
     useEffect(() => {
-        let localData = data[localStorage.getItem("data")]
-        if (localData) {
-            setValue('lastName', localData.lastName, { shouldValidate: true })
-            setValue('firstName', localData.firstName, { shouldValidate: true })
-            setValue('adresse', localData.adresse.rue, { shouldValidate: true })
-            setValue('codePostal', localData.adresse.code_postal, { shouldValidate: true })
-            setValue('city', localData.adresse.ville, { shouldValidate: true })
-            setValue('country', localData.adresse.pays, { shouldValidate: true })
-            setValue('clientID', localData.idClient, { shouldValidate: true })
-            setValue('cardNumber', localData.cardNumber, { shouldValidate: true })
-        }
-
         if (mainInfos.date) {
             setValue('date', formatDateRevert(mainInfos?.date), { shouldValidate: true })
         }
@@ -99,14 +59,27 @@ function FormFacture(props) {
     }
 
     const onSubmit = data => {
-        data.magasin = magasinList[magasin]
-        data.adresse = data.adresse.toUpperCase()
-        data.city = data.city.toUpperCase()
-        data.country = data.country.toUpperCase()
-        data.codePostal = insertSpaceAfterTwoChars(data.codePostal.trim())
+        const formattedData = data.test.map((item) => {
+            const selectedData = users[item.value];
+            const selectedMagasin = magasinList.find(magasin => magasin.id === parseInt(item.magasin, 10));
+            return {
+                lastName: selectedData.lastName,
+                adresse: selectedData.adresse,
+                cardNumber: selectedData.cardNumber,
+                city: selectedData.city,
+                clientID: selectedData.clientID,
+                codePostal: selectedData.codePostal,
+                country: selectedData.country,
+                firstName: selectedData.firstName,
+                magasin: selectedMagasin,
+            };
+        });
+        delete data.test
         data.date = formatDate(data.date)
         data.dateFacturation = formatDate(data.dateFacturation)
-        closeModal(data)
+        let finalData = { data, profile: [...formattedData] }
+        console.log('finalData', finalData)
+        closeModal(finalData)
     }
 
     return (
@@ -115,14 +88,6 @@ function FormFacture(props) {
                 <button onClick={() => closeModal()} className='buttonIcon closeButton' />
 
                 <form className='gridModal' onSubmit={handleSubmit(onSubmit)}>
-                    <div className='divSelect'>
-                        <select onChange={(e) => { setMagasin(e.target.value) }}>
-                            <option value={0}>Purpan</option>
-                            <option value={1}>Portet</option>
-                            <option value={2}>Melun</option>
-                            <option value={3}>Marseille</option>
-                        </select>
-                    </div>
                     <div className='displayInput'>
                         <label>N° de commande</label>
                         <input type='text' {...register("commandNumber", { required: true })}></input>
@@ -137,49 +102,37 @@ function FormFacture(props) {
                         <label>Date de commande</label>
                         <input type='date' onSelect={(e) => onChangeDate(e.target.value)} {...register("date", { required: true })}></input>
                     </div>
-                    <div className='displayInput'>
+                    <div className='displayInput marginBottom'>
                         <label>Date de facturation/livraison</label>
                         <input type='date' {...register("dateFacturation", { required: true })}></input>
                     </div>
-                    <div className='divSelect marginTopSelect'>
-                        <select defaultValue={localStorage.getItem("data") || "null"} onChange={(e) => { handleSelect(e.target.value) }}>
-                            <option value={"null"}>Données personnelles</option>
-                            {data.map((option, index) => (
-                                <option key={index} value={index}>
-                                    {option.firstName}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
 
-                    <div className='displayInput'>
-                        <label>Nom</label>
-                        <input type='text' {...register("lastName", { required: true })}></input>
-                    </div>
-                    <div className='displayInput'>
-                        <label>Prénom</label>
-                        <input type='text' {...register("firstName", { required: true })}></input>
-                    </div>
-                    <div className='displayInput'>
-                        <label>Adresse</label>
-                        <input type='text' {...register("adresse", { required: true })}></input>
-                    </div>
-                    <div className='displayInput'>
-                        <label>Code postal</label>
-                        <input type='text' {...register("codePostal", { required: true })}></input>
-                    </div>
-                    <div className='displayInput'>
-                        <label>Ville</label>
-                        <input type='text' {...register("city", { required: true })}></input>
-                    </div>
-                    <div className='displayInput'>
-                        <label>Pays</label>
-                        <input type='text' {...register("country", { required: true })}></input>
-                    </div>
-                    <div className='displayInput'>
-                        <label>Identifiant client</label>
-                        <input type='text' {...register("clientID", { required: true })}></input>
-                    </div>
+                    {fields.map((field, index) => (
+                        <div key={field.id} className='divField'>
+                            <div className='divSelect'>
+                                <select {...register(`test.${index}.value`)}>
+                                    <option value="null" hidden>Utilisateur</option>
+                                    {users.map((option, optIndex) => (
+                                        <option key={optIndex} value={optIndex}>
+                                            {option.firstName}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                            <div className='divSelect'>
+                                <select {...register(`test.${index}.magasin`)}>
+                                    <option value="null" hidden>Magasin</option>
+                                    {magasinList.map((magasin) => (
+                                        <option key={magasin.id} value={magasin.id}>
+                                            {magasin.name}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                            <button type='button' className='removeUserBtn' onClick={() => remove(index)}></button>
+                        </div>
+                    ))}
+                    <button type='button' className='addFieldBtn' onClick={() => append({ value: 'null', magasin: 0 })}></button>
                     <button type='submit' className='buttonIcon saveButton' />
                 </form>
 
