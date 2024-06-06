@@ -1,5 +1,7 @@
 [
     {
+        "id": 1,
+        "name":"Purpan", 
         "primary": "CARREFOUR TOULOUSE PURPAN 36 RTE DE BAYONNE",
         "secondary": "PURPAN 31000 TOULOUSE",
         "tel": "05 34 26 58 79",
@@ -12,6 +14,8 @@
         ]
     },
     {
+        "id": 2,
+        "name":"Portet", 
         "primary": "CARREFOUR PORTET SUR GARONNE BOULEVARD DE L'EUROPE",
         "secondary": "31126 PORTET SUR GARONNE CEDEX",
         "tel": "05 62 20 46 79",
@@ -23,6 +27,8 @@
         ]
     },
     {
+        "id": 3,
+        "name":"Melun", 
         "primary": "CARREFOUR MELUN ALLEE DU MARCHE",
         "secondary": "77000 MELUN",
         "tel": "01 64 14 20 06",
@@ -34,6 +40,8 @@
         ]
     },
     {
+        "id": 4,
+        "name":"Marseille", 
         "primary": "CARREFOUR MARSEILLE AVENUE DE ST ANTOINE",
         "secondary": "Grand Littoral 13015 MARSEILLE",
         "tel": "04 91 03 93 79",
