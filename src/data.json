@@ -2,49 +2,41 @@
     {
         "firstName": "Louis",
         "lastName": "Da Costa",
-        "adresse": {
-            "rue": "16 avenue Raymond Badiou",
-            "ville": "Toulouse",
-            "code_postal": "31300",
-            "pays": "France"
-        },
-        "idClient": "5092060",
+        "adresse": "16 avenue Raymond Badiou",
+        "city": "Toulouse",
+        "codePostal": "31300",
+        "country": "France",
+        "clientID": "5092060",
         "cardNumber": "8136204390218357912"
     },
     {
         "firstName": "Yohan",
         "lastName": "Davion",
-        "adresse": {
-            "rue": "71 rue de Cugnaux",
-            "ville": "Toulouse",
-            "code_postal": "31300",
-            "pays": "France"
-        },
-        "idClient": "5024049",
+        "adresse": "71 rue de Cugnaux",
+        "city": "Toulouse",
+        "codePostal": "31300",
+        "country": "France",
+        "clientID": "5024049",
         "cardNumber": "6254973180423560809"
     },
     {
         "firstName": "Paul",
         "lastName": "Lescure",
-        "adresse": {
-            "rue": "10 rue Bancel",
-            "ville": "Melun",
-            "code_postal": "77000",
-            "pays": "France"
-        },
-        "idClient": "5019253",
+        "adresse": "10 rue Bancel",
+        "city": "Melun",
+        "codePostal": "77000",
+        "country": "France",
+        "clientID": "5019253",
         "cardNumber": "4790386215096327154"
     },
     {
         "firstName": "Hugo",
         "lastName": "Pavot",
-        "adresse": {
-            "rue": "2 avenue Henri Roure",
-            "ville": "Marseille",
-            "code_postal": "13016",
-            "pays": "France"
-        },
-        "idClient": "5167204",
+        "adresse": "2 avenue Henri Roure",
+        "city": "Marseille",
+        "codePostal": "13016",
+        "country": "France",
+        "clientID": "5167204",
         "cardNumber": "7035124982309561874"
     }
 ]
