@@ -1,0 +1,46 @@
+.modalBgEssential {
+    display: grid;
+    grid-template-columns: repeat(3, 250px);
+    row-gap: 20px;
+    column-gap: 20px;
+    padding: 30px;
+    align-items: center;
+
+    .checkBoxBtn {
+        display: inline-block;
+        margin: 5px;
+        position: relative;
+        border-radius: 10px;
+        background-color: rgb(239, 239, 239);
+        border-right: 3px solid red;
+        border-bottom: 3px solid red;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    .checkBoxBtn.checked {
+        border-right: 3px solid green;
+        border-bottom: 3px solid green;
+    }
+
+    .customCheckbox {
+        display: none;
+    }
+
+    .customLabel {
+        display: inline-block;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    .visually-hidden {
+        position: absolute;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        width: 1px;
+        margin: -1px;
+        padding: 0;
+        border: 0;
+    }
+}

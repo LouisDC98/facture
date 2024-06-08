@@ -19,6 +19,7 @@ import randomArticles from "../../randomArticles.json"
 import BarCodeModal from '../../component/Modals/BarCodeModal/BarCodeModal';
 
 import { randomFactureNbr, randomCommandNbr, autoDate, formatDate } from "../../callBack.js"
+import EssentialsModal from '../../component/Modals/EssentialsModal/EssentialsModal.jsx';
 
 function HomePage() {
     const fileInputRef = useRef(null);
@@ -31,6 +32,7 @@ function HomePage() {
     let [totaux, setTotaux] = useState({ totalRemises: 0, totalPanier: 0, totalNbrArticle: 0 })
     let [openBarCode, setOpenBarCode] = useState(false)
     let [nbrRandomArticles, setNbrRandomArticles] = useState(0)
+    let [openEssentials, setOpenEssentials] = useState(false)
 
     const handleToogleForm = (e) => {
         setOpenForm(!openForm)
@@ -258,7 +260,7 @@ function HomePage() {
                     Exporter la liste
                 </span>
             </button>
-            <button className="essentialList button-82-pushable elementToHide" onClick={() => handleAddEssentials()}>
+            <button className="essentialList button-82-pushable elementToHide" onClick={() => setOpenEssentials(!openEssentials)}>
                 <span className="button-82-shadow"></span>
                 <span className="button-82-edge"></span>
                 <span className="button-82-front text">
@@ -329,6 +331,7 @@ function HomePage() {
             <div className={`a4Format ${!format ? 'ticketFormat' : ''}`} id="a4Page">
                 {openBarCode && <BarCodeModal closeModal={() => setOpenBarCode(!openBarCode)} articles={articles} />}
                 {openForm && <FormFacture closeModal={(e) => handleToogleForm(e)} setMainInfos={(e) => setMainInfos(e)} mainInfos={mainInfos} />}
+                {openEssentials && <EssentialsModal closeModal={() => setOpenEssentials(!openEssentials)} setArticles={(e) => { setArticles(e) }} articles={articles} />}
                 {format ? <HeaderFacture firstProfile={mainInfos.currentProfile} /> : <HeaderTicket firstProfile={mainInfos.currentProfile} setHeure={(heure) => setHeure(heure)} />}
                 {format ? <Bill articles={articles} setArticles={(e) => { setArticles(e) }} /> : <BillTicket articles={articles} setArticles={(e) => { setArticles(e) }} />}
                 {format ? <BilanFacture totaux={totaux} tvaArray={tvaArray} /> : <BilanTicket cardNumber={mainInfos.cardNumber} totaux={totaux} tvaArray={tvaArray} />}
