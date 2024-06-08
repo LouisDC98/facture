@@ -71,7 +71,7 @@ function HomePage() {
             html2canvas(element, options)
                 .then((canvas) => {
                     canvas.toBlob((blob) => {
-                        saveAs(blob, `facture_${mainInfos?.data.factureNumber}.png`);
+                        saveAs(blob, `facture_${mainInfos?.currentProfile.factureNumber}.png`);
                     }, 'image/png', 1);
                 })
                 .catch((error) => {
@@ -329,7 +329,7 @@ function HomePage() {
             <div className={`a4Format ${!format ? 'ticketFormat' : ''}`} id="a4Page">
                 {openBarCode && <BarCodeModal closeModal={() => setOpenBarCode(!openBarCode)} articles={articles} />}
                 {openForm && <FormFacture closeModal={(e) => handleToogleForm(e)} setMainInfos={(e) => setMainInfos(e)} mainInfos={mainInfos} />}
-                {format ? <HeaderFacture mainInfos={mainInfos} /> : <HeaderTicket mainInfos={mainInfos} setHeure={(heure) => setHeure(heure)} />}
+                {format ? <HeaderFacture firstProfile={mainInfos.currentProfile} /> : <HeaderTicket firstProfile={mainInfos.currentProfile} setHeure={(heure) => setHeure(heure)} />}
                 {format ? <Bill articles={articles} setArticles={(e) => { setArticles(e) }} /> : <BillTicket articles={articles} setArticles={(e) => { setArticles(e) }} />}
                 {format ? <BilanFacture totaux={totaux} tvaArray={tvaArray} /> : <BilanTicket cardNumber={mainInfos.cardNumber} totaux={totaux} tvaArray={tvaArray} />}
                 {format ? <FooterFacture /> : <FooterTicket mainInfos={mainInfos} heure={heure} />}

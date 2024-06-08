@@ -1,6 +1,6 @@
 //create a random command number following a patern
 export function randomCommandNbr() {
-    const randomNumber = "5" + Math.floor(Math.random() * 1000000000000).toString().padStart(12, "0");
+    const randomNumber = "58" + Math.floor(Math.random() * 100000000000).toString().padStart(11, "0");
     return randomNumber
 }
 

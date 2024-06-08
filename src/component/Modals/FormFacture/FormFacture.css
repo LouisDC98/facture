@@ -1,6 +1,6 @@
 .modalBgFacture {
     .gridModal {
-        margin: 50px 0;
+        margin: 50px 30px;
         display: grid;
         grid-template-columns: repeat(2, 200px);
     }
@@ -11,9 +11,9 @@
         label {
             font-size: 10px;
             position: absolute;
-            top: 4px;
-            left: 12px;
-            padding: 0 5px;
+            top: -2px;
+            left: 14px;
+            padding: 0 2px;
             background-color: white;
         }
     }
@@ -21,6 +21,7 @@
     input {
         width: 70%;
         font-size: 10px;
+        margin: 5px 10px;
     }
 
     .positionRelative {
@@ -63,7 +64,7 @@
     .removeUserBtn {
         position: absolute;
         bottom: 3px;
-        right: 65px;
+        right: -35px;
         border: none;
         background-color: transparent;
         height: 25px;
@@ -74,15 +75,15 @@
     .divSelect {
         display: flex;
         justify-content: center;
-        margin: 5px 20px;
+        margin: 5px 10px;
     }
 
 }
 
 .addFieldBtn {
     position: absolute;
-    bottom: 50px;
-    left: 60px;
+    bottom: 30px;
+    left: 15px;
     border: none;
     background-color: transparent;
     height: 25px;

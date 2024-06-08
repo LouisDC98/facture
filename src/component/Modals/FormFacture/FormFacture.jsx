@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './FormFacture.css'
 import users from "../../../data.json"
 import { useForm, useFieldArray } from "react-hook-form";
 import magasinList from "../../../magasins.json"
 
-import { randomFactureNbr, randomCommandNbr, autoDate, formatDateRevert } from "../../../callBack.js"
+import { randomFactureNbr, randomCommandNbr, autoDate } from "../../../callBack.js"
 
 function FormFacture(props) {
-    let { closeModal, mainInfos } = props
+    let { closeModal } = props
 
     const { register, handleSubmit, setValue, control } = useForm();
     const { fields, append, remove } = useFieldArray({
@@ -15,35 +15,25 @@ function FormFacture(props) {
         name: "test",
     });
 
-    useEffect(() => {
-        if (mainInfos.date) {
-            setValue('date', formatDateRevert(mainInfos?.date), { shouldValidate: true })
-        }
-        if (mainInfos.date) {
-            setValue('dateFacturation', formatDateRevert(mainInfos?.dateFacturation), { shouldValidate: true })
-        }
+    // useEffect(() => {
+    //     if (mainInfos.date) {
+    //         setValue('date', formatDateRevert(mainInfos?.date), { shouldValidate: true })
+    //     }
+    //     if (mainInfos.date) {
+    //         setValue('dateFacturation', formatDateRevert(mainInfos?.dateFacturation), { shouldValidate: true })
+    //     }
 
-        let factureNbr = randomFactureNbr()
-        let cmdNbr = randomCommandNbr()
-        setValue('commandNumber', cmdNbr, { shouldValidate: true });
-        setValue('factureNumber', factureNbr, { shouldValidate: true });
-    }, []);
+    //     // let factureNbr = randomFactureNbr()
+    //     // let cmdNbr = randomCommandNbr()
+    //     // setValue('commandNumber', cmdNbr, { shouldValidate: true });
+    //     // setValue('factureNumber', factureNbr, { shouldValidate: true });
+    // }, []);
 
-    const onChangeDate = (e) => {
+    const onChangeDate = (e, index) => {
         if (!e) return
         let { day, month, year } = autoDate(e)
         let facturationDate = year + '-' + month + '-' + day
-        setValue('dateFacturation', facturationDate, { shouldValidate: true });
-    }
-
-    const handleRandomFactureNbr = () => {
-        let number = randomFactureNbr()
-        setValue('factureNumber', number, { shouldValidate: true });
-    }
-
-    const handleRandomCommandeNbr = () => {
-        let number = randomCommandNbr()
-        setValue('commandNumber', number, { shouldValidate: true });
+        setValue(`test.${index}.dateFacturation`, facturationDate, { shouldValidate: true });
     }
 
     function formatDate(inputDate) {
@@ -72,14 +62,14 @@ function FormFacture(props) {
                 country: selectedData.country,
                 firstName: selectedData.firstName,
                 magasin: selectedMagasin,
+                date: formatDate(item.date),
+                dateFacturation: formatDate(item.dateFacturation),
+                factureNumber: randomFactureNbr(),
+                commandNumber: randomCommandNbr()
             };
         });
-        delete data.test
-        data.date = formatDate(data.date)
-        data.dateFacturation = formatDate(data.dateFacturation)
-        let finalData = { data, profile: [...formattedData] }
-        console.log('finalData', finalData)
-        closeModal(finalData)
+
+        closeModal({ profile: [...formattedData] })
     }
 
     return (
@@ -88,25 +78,6 @@ function FormFacture(props) {
                 <button onClick={() => closeModal()} className='buttonIcon closeButton' />
 
                 <form className='gridModal' onSubmit={handleSubmit(onSubmit)}>
-                    <div className='displayInput'>
-                        <label>N° de commande</label>
-                        <input type='text' {...register("commandNumber", { required: true })}></input>
-                        <button className='randomButton' onClick={() => handleRandomCommandeNbr()}></button>
-                    </div>
-                    <div className='displayInput'>
-                        <label>N° de facture</label>
-                        <input type='text' {...register("factureNumber", { required: true })}></input>
-                        <button className='randomButton' onClick={() => handleRandomFactureNbr()}></button>
-                    </div>
-                    <div className='displayInput'>
-                        <label>Date de commande</label>
-                        <input type='date' onSelect={(e) => onChangeDate(e.target.value)} {...register("date", { required: true })}></input>
-                    </div>
-                    <div className='displayInput marginBottom'>
-                        <label>Date de facturation/livraison</label>
-                        <input type='date' {...register("dateFacturation", { required: true })}></input>
-                    </div>
-
                     {fields.map((field, index) => (
                         <div key={field.id} className='divField'>
                             <div className='divSelect'>
@@ -129,10 +100,18 @@ function FormFacture(props) {
                                     ))}
                                 </select>
                             </div>
+                            <div className='displayInput'>
+                                <label>Commande</label>
+                                <input type='date' onSelect={(e) => onChangeDate(e.target.value, index)} {...register(`test.${index}.date`, { required: true })}></input>
+                            </div>
+                            <div className='displayInput'>
+                                <label>Facturation</label>
+                                <input type='date' {...register(`test.${index}.dateFacturation`, { required: true })}></input>
+                            </div>
                             <button type='button' className='removeUserBtn' onClick={() => remove(index)}></button>
                         </div>
                     ))}
-                    <button type='button' className='addFieldBtn' onClick={() => append({ value: 'null', magasin: 0 })}></button>
+                    <button type='button' className='addFieldBtn' onClick={() => append({ value: 'null', magasin: 0, date: "null" })}></button>
                     <button type='submit' className='buttonIcon saveButton' />
                 </form>
 
