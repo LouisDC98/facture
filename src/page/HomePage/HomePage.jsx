@@ -18,7 +18,7 @@ import essential from "../../data/essential.json"
 import randomArticles from "../../data/randomArticles.json"
 import BarCodeModal from '../../component/Modals/BarCodeModal/BarCodeModal';
 
-import { randomFactureNbr, randomCommandNbr, autoDate, formatDate } from "../../callBack.js"
+import { randomFactureNbr, randomCommandNbr } from "../../callBack.js"
 import EssentialsModal from '../../component/Modals/EssentialsModal/EssentialsModal.jsx';
 
 function HomePage() {
@@ -79,41 +79,6 @@ function HomePage() {
                 .catch((error) => {
                     console.error('Erreur lors de la conversion en image :', error);
                 });
-        }
-    };
-
-    const consecutiveDates = (dateDebut) => {
-        const dates = [];
-        const [day, month, year] = dateDebut.split('/');
-        let jour = new Date(`${month}/${day}/${year}`);
-
-        while (dates.length < 5) {
-            jour.setDate(jour.getDate() + 1);
-            const formattedDate = `${jour.getFullYear()}-${((jour.getMonth() + 1) < 10 ? '0' : '') + (jour.getMonth() + 1)}-${(jour.getDate() < 10 ? '0' : '') + jour.getDate()}`;
-            dates.push(formattedDate);
-        }
-        return dates;
-    }
-
-    const facturationDateSetting = (e) => {
-        if (!e) return
-        let { day, month, year } = autoDate(e)
-        return day + '/' + month + '/' + year
-    }
-
-    const handleExportPNGx4 = async () => {
-        const dates = consecutiveDates(mainInfos.date);
-        for (let i = 0; i < dates.length; i++) {
-            setMainInfos(prevArticles => ({
-                ...prevArticles,
-                date: formatDate(dates[i]),
-                dateFacturation: facturationDateSetting(dates[i]),
-                factureNumber: randomFactureNbr(),
-                commandNumber: randomCommandNbr()
-            }));
-            handleShuffleArticle(articles)
-            await new Promise(resolve => setTimeout(resolve, 100));
-            handleExportPNG();
         }
     };
 
@@ -289,13 +254,6 @@ function HomePage() {
                     Exporter en PNG
                 </span>
             </button>
-            {/* <button className="PNGButtonx4 button-82-pushable elementToHide" onClick={() => handleExportPNGx4()}>
-                <span className="button-82-shadow"></span>
-                <span className="button-82-edge"></span>
-                <span className="button-82-front text">
-                    Exporter en PNGx4
-                </span>
-            </button> */}
             <button className="floatingButton button-82-pushable elementToHide" onClick={() => handleToogleForm()}>
                 <span className="button-82-shadow"></span>
                 <span className="button-82-edge"></span>
