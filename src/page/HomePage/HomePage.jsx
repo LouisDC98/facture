@@ -103,6 +103,7 @@ function HomePage() {
     }
 
     const handleAddRandomArticles = (nbrToAdd, listArticle) => {
+        if (nbrToAdd < 0) return
         const shuffledRandomArticles = [...randomArticles].sort(() => 0.5 - Math.random());
         const selectedArticles = shuffledRandomArticles.slice(0, nbrToAdd);
         const updatedArticles = [...listArticle, ...selectedArticles];
