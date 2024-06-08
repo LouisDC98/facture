@@ -1,8 +1,8 @@
 import React from 'react'
 import './FormFacture.css'
-import users from "../../../data.json"
+import users from "../../../data/users.json"
 import { useForm, useFieldArray } from "react-hook-form";
-import magasinList from "../../../magasins.json"
+import magasinList from "../../../data/magasins.json"
 
 import { randomFactureNbr, randomCommandNbr, autoDate } from "../../../callBack.js"
 

@@ -14,8 +14,8 @@ import BilanFacture from '../../component/BilanFacture/BilanFacture';
 import BilanTicket from '../../component/BilanTicket/BilanTicket';
 import FooterFacture from '../../component/FooterFacture/FooterFacture';
 import FooterTicket from '../../component/FooterTicket/FooterTicket';
-import essential from "../../essential.json"
-import randomArticles from "../../randomArticles.json"
+import essential from "../../data/essential.json"
+import randomArticles from "../../data/randomArticles.json"
 import BarCodeModal from '../../component/Modals/BarCodeModal/BarCodeModal';
 
 import { randomFactureNbr, randomCommandNbr, autoDate, formatDate } from "../../callBack.js"

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "./EssentialsModal.css";
-import essential from "../../../essential.json";
+import essential from "../../../data/essential.json";
 
 function EssentialsModal({ closeModal, setArticles, articles }) {
   const [tempArticle, setTempArticle] = useState(articles);
