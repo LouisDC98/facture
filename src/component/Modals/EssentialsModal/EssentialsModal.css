@@ -1,6 +1,8 @@
-.closeButton {
-    right: 30px;
-    top: 10px;
+.modalEssential {
+    .closeButton {
+        right: 30px;
+        top: 10px;
+    }
 }
 
 .modalBgEssential {

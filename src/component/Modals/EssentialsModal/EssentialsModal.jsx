@@ -20,7 +20,7 @@ function EssentialsModal({ closeModal, setArticles, articles }) {
 
   return (
     <div className='displayModal'>
-      <div className='modalBg'>
+      <div className='modalBg modalEssential'>
         <button onClick={closeModal} className='buttonIcon closeButton'></button>
         <div className='modalBgEssential'>
           {essential.map((article, index) => (
