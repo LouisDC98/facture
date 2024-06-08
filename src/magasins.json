@@ -51,5 +51,29 @@
             "Mar. au Sam.: 08:00 à 21:00",
             "Dim.: Fermé"
         ]
+    },
+    {
+        "id": 5,
+        "name":"Paris", 
+        "primary": "CARREFOUR PARIS AUTEUIL",
+        "secondary": "1 Avenue Du General Sarrail 75016 PARIS",
+        "tel": "09 80 98 09 86",
+        "ticket": "PARIS AUTEUIL",
+        "horaires": [
+            "Lun. au Sam.: 08:30 à 20:30",
+            "Dim.: Fermé"
+        ]
+    },
+    {
+        "id": 6,
+        "name":"Tours", 
+        "primary": "CARREFOUR TOURS SAINT PIERRE DES CORPS",
+        "secondary": "Avenue Jacques Duclos 37700 Saint-Pierre-des-Corps",
+        "tel": "09 80 98 09 86",
+        "ticket": "TOURS SAINT PIERRE DES CORPS",
+        "horaires": [
+            "Lun. au Sam.: 08:00 à 20:30",
+            "Dim.: Fermé"
+        ]
     }
 ]

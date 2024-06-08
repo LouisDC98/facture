@@ -198,5 +198,75 @@
       "prixRemise":0,
       "total":3.78,
       "random": true
+   },
+   {
+      "code":"3560071194345",
+      "libelle":"Cacao en poudre 100% cacao CARREFOUR ORIGINAL",
+      "qtyCmd":1,
+      "tva":5.5,
+      "prixUnit":1.93,
+      "prixRemise":0,
+      "total":1.93,
+      "random": true
+   },
+   {
+      "code":"3700278400881",
+      "libelle":"Chocolat en poudre céréales, banane & cacao BANANIA",
+      "qtyCmd":1,
+      "tva":5.5,
+      "prixUnit":2.34,
+      "prixRemise":0,
+      "total":2.34,
+      "random": true
+   },
+   {
+      "code":"5055953902531",
+      "libelle":"Thé noir Original Earl Grey TWININGS",
+      "qtyCmd":1,
+      "tva":5.5,
+      "prixUnit":2.46,
+      "prixRemise":0,
+      "total":2.46,
+      "random": true
+   },
+   {
+      "code":"3274080001005",
+      "libelle":"Eau de source CRISTALINE",
+      "qtyCmd":1,
+      "tva":5.5,
+      "prixUnit":1.22,
+      "prixRemise":0,
+      "total":1.22,
+      "random": true
+   },
+   {
+      "code":"3257971091316",
+      "libelle":"Eau minérale naturelle MONT ROUCOUS",
+      "qtyCmd":2,
+      "tva":5.5,
+      "prixUnit":3.12,
+      "prixRemise":0,
+      "total":6.24,
+      "random": true
+   },
+   {
+      "code":"3560071013042",
+      "libelle":"Céréales chocolat noir Crunchy CARREFOUR",
+      "qtyCmd":1,
+      "tva":5.5,
+      "prixUnit":2.75,
+      "prixRemise":0,
+      "total":2.75,
+      "random": true
+   },
+   {
+      "code":"3329770082359",
+      "libelle":"Yaourt protéiné sur lit de fruits rouges myrtilles 0% MG SKYR YOPLAIT",
+      "qtyCmd":1,
+      "tva":5.5,
+      "prixUnit":3.65,
+      "prixRemise":0,
+      "total":3.65,
+      "random": true
    }
 ]

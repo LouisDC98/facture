@@ -38,5 +38,25 @@
         "country": "France",
         "clientID": "5167204",
         "cardNumber": "7035124982309561874"
+    },
+    {
+        "firstName": "Tom",
+        "lastName": "Vertillon",
+        "adresse": "56 rue de Paris",
+        "city": "Paris",
+        "codePostal": "70123",
+        "country": "France",
+        "clientID": "5197537",
+        "cardNumber": "7035124637309599138"
+    },
+    {
+        "firstName": "Victor",
+        "lastName": "Cazet",
+        "adresse": "2 rue de l'Harmonie",
+        "city": "Tours",
+        "codePostal": "37700",
+        "country": "France",
+        "clientID": "5188601",
+        "cardNumber": "7035124963309544434"
     }
 ]
