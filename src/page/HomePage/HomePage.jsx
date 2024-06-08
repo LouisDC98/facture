@@ -6,7 +6,6 @@ import { saveAs } from 'file-saver';
 
 import Bill from '../../component/BillFacture/BillFacture'
 import FormFacture from '../../component/Modals/FormFacture/FormFacture'
-import shuffle from "../../assets/shuffle.svg"
 import HeaderFacture from '../../component/HeaderFacture/HeaderFacture';
 import HeaderTicket from '../../component/HeaderTicket/HeaderTicket';
 import BillTicket from '../../component/BillTicket/BillTicket';
@@ -19,6 +18,7 @@ import BarCodeModal from '../../component/Modals/BarCodeModal/BarCodeModal';
 
 import { randomFactureNbr, randomCommandNbr } from "../../callBack.js"
 import EssentialsModal from '../../component/Modals/EssentialsModal/EssentialsModal.jsx';
+import BtnCustom from '../../component/BtnCustom/BtnCustom.jsx';
 
 function HomePage() {
     const fileInputRef = useRef(null);
@@ -200,20 +200,13 @@ function HomePage() {
                 <label htmlFor="fileInput" className="btn">Importer une liste</label>
                 <input style={{ visibility: "hidden" }} type="file" id="fileInput" ref={fileInputRef} accept=".txt" onChange={(e) => { handleFileUpload(e) }} />
             </div>
-            <button className="downloadButton button-82-pushable elementToHide" onClick={() => handleSaveArticles()}>
-                <span className="button-82-shadow"></span>
-                <span className="button-82-edge"></span>
-                <span className="button-82-front text">
-                    Exporter la liste
-                </span>
-            </button>
-            <button className="essentialList button-82-pushable elementToHide" onClick={() => setOpenEssentials(!openEssentials)}>
-                <span className="button-82-shadow"></span>
-                <span className="button-82-edge"></span>
-                <span className="button-82-front text">
-                    Importer les essentiels
-                </span>
-            </button>
+            <BtnCustom title="Exporter la liste" position="downloadButton" action={() => handleSaveArticles()} />
+            <BtnCustom title="Importer les essentiels" position="essentialList" action={() => setOpenEssentials(!openEssentials)} />
+            <BtnCustom title="Exporter en PNG" position="PNGButton" action={() => handleExportPNG()} />
+            <BtnCustom title="Informations générales" position="floatingButton" action={() => handleToogleForm()} />
+            <BtnCustom title="Montrer les codes barres" position="barCodesButton" action={() => setOpenBarCode(!openBarCode)} />
+            <BtnCustom title="Mélanger la liste" position="shuffleArticles" action={() => handleShuffleArticle(articles)} />
+            <BtnCustom title="Exporter la liste" position="downloadButton" action={() => handleSaveArticles()} />
             <div className='switchFormat'>
                 <p>facture</p>
                 <div className='formatInput'>
@@ -222,35 +215,6 @@ function HomePage() {
                 </div>
                 <p>ticket</p>
             </div>
-            <button className="PNGButton button-82-pushable elementToHide" onClick={() => handleExportPNG()}>
-                <span className="button-82-shadow"></span>
-                <span className="button-82-edge"></span>
-                <span className="button-82-front text">
-                    Exporter en PNG
-                </span>
-            </button>
-            <button className="floatingButton button-82-pushable elementToHide" onClick={() => handleToogleForm()}>
-                <span className="button-82-shadow"></span>
-                <span className="button-82-edge"></span>
-                <span className="button-82-front text">
-                    Informations générales
-                </span>
-            </button>
-            <button className="barCodesButton button-82-pushable elementToHide" onClick={() => setOpenBarCode(!openBarCode)}>
-                <span className="button-82-shadow"></span>
-                <span className="button-82-edge"></span>
-                <span className="button-82-front text">
-                    Montrer les codes barres
-                </span>
-            </button>
-            <button className="shuffleArticles button-82-pushable elementToHide" onClick={() => handleShuffleArticle(articles)}>
-                <span className="button-82-shadow"></span>
-                <span className="button-82-edge"></span>
-                <span className="button-82-front text displayflex">
-                    Mélanger la liste
-                    <img src={shuffle} alt="shuffle" />
-                </span>
-            </button>
             <div className="addRandomArticle">
                 <input type='number' onChange={(e) => setNbrRandomArticles(e.target.value)}></input>
                 <button className="button-82-pushable elementToHide" onClick={() => handleAddRandomArticles(nbrRandomArticles, articles)}>
