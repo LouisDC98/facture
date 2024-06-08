@@ -66,45 +66,75 @@ function FormFacture(props) {
     return (
         <div className='displayModal'>
             <div className='modalBg modalBgFacture'>
+                <h2>Select a champion</h2>
                 <button onClick={() => closeModal()} className='buttonIcon closeButton' />
 
-                <form className='gridModal' onSubmit={handleSubmit(onSubmit)}>
-                    {fields.map((field, index) => (
-                        <div key={field.id} className='divField'>
-                            <div className='divSelect'>
-                                <select {...register(`profile.${index}.user`)}>
-                                    <option value="null" hidden>Utilisateur</option>
-                                    {users.map((option, optIndex) => (
-                                        <option key={optIndex} value={optIndex}>
-                                            {option.firstName}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
-                            <div className='divSelect'>
-                                <select {...register(`profile.${index}.magasin`)}>
-                                    <option value="null" hidden>Magasin</option>
-                                    {magasinList.map((magasin) => (
-                                        <option key={magasin.id} value={magasin.id}>
-                                            {magasin.name}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
-                            <div className='displayInput'>
-                                <label>Commande</label>
-                                <input type='date' onSelect={(e) => onChangeDate(e.target.value, index)} {...register(`profile.${index}.date`, { required: true })}></input>
-                            </div>
-                            <div className='displayInput'>
-                                <label>Facturation</label>
-                                <input type='date' {...register(`profile.${index}.dateFacturation`, { required: true })}></input>
-                            </div>
-                            <button type='button' className='removeUserBtn' onClick={() => remove(index)}></button>
-                        </div>
-                    ))}
-                    <button type='button' className='addFieldBtn' onClick={() => append({ user: 'null', magasin: "null", date: "null" })}></button>
-                    <button type='submit' className='buttonIcon saveButton' />
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <table className='tableFormFacture'>
+                        <thead>
+                            <tr className='headerRow'>
+                                <th></th>
+                                <th>Utilisateur</th>
+                                <th>Magasin</th>
+                                <th>Commande</th>
+                                <th>Facturation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {fields.map((field, index) => (
+                                <tr key={field.id} className='divField'>
+                                    <td>
+                                        <button type='button' className='removeUserBtn' onClick={() => remove(index)} title={"Supprimer la ligne"}></button>
+                                    </td>
+                                    <td>
+                                        <select {...register(`profile.${index}.user`)}>
+                                            <option value="null" hidden>Nom</option>
+                                            {users.map((option, optIndex) => (
+                                                <option key={optIndex} value={optIndex}>
+                                                    {option.firstName}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select {...register(`profile.${index}.magasin`)}>
+                                            <option value="null" hidden>Magasin</option>
+                                            {magasinList.map((magasin) => (
+                                                <option key={magasin.id} value={magasin.id}>
+                                                    {magasin.name}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type='date' onSelect={(e) => onChangeDate(e.target.value, index)} {...register(`profile.${index}.date`, { required: true })}></input>
+                                    </td>
+                                    <td>
+                                        <input type='date' {...register(`profile.${index}.dateFacturation`, { required: true })}></input>
+                                    </td>
+                                </tr>
+
+                            ))}
+                            <tr className='divField'>
+                                <td>
+                                    <button type='button' className='addFieldBtn' onClick={() => append({ user: 'null', magasin: "null", date: "null" })} title={"Ajouter une ligne"}></button>
+                                </td>
+                                <td colSpan="100%" className='greyCell'>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr >
+                                <td colSpan="100%">
+                                </td>
+                            </tr>
+
+                        </tfoot>
+
+                    </table>
                 </form>
+                <button type='submit' className='buttonIcon saveButton' />
 
             </div>
         </div>

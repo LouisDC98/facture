@@ -1,70 +1,65 @@
 .modalBgFacture {
-    .gridModal {
-        margin: 50px 30px;
-        display: grid;
-        grid-template-columns: repeat(2, 200px);
+    padding: 0px 30px 60px 30px;
+
+    h2 {
+        margin: 20px 0 10px 0;
     }
 
-    .displayInput {
-        position: relative;
+    .tableFormFacture {
+        border-collapse: collapse;
+        border-radius: 5px;
+        overflow: hidden;
 
-        label {
-            font-size: 10px;
-            position: absolute;
-            top: -2px;
-            left: 14px;
-            padding: 0 2px;
-            background-color: white;
+        .headerRow {
+            background-color: hsl(345deg 100% 47%);
+            color: white;
+
+            th {
+                padding: 5px 15px;
+                font-weight: 100;
+                font-size: 15px;
+            }
+        }
+
+        tbody {
+            tr {
+                text-align: center;
+                border-bottom: 1px solid rgb(189, 189, 189);
+            }
+
+            tr:last-child {
+                border: none;
+            }
+
+            .greyCell {
+                background-color: rgb(241, 240, 240);
+            }
+        }
+
+        tfoot {
+            background-color: hsl(345deg 100% 47%);
+            height: 5px;
         }
     }
 
     input {
         width: 70%;
-        font-size: 10px;
+        font-size: 11px;
         margin: 5px 10px;
-    }
-
-    .positionRelative {
-        position: relative;
-    }
-
-    .randomButton {
-        position: absolute;
-        top: 12px;
-        right: 20px;
         border: none;
         background-color: transparent;
-        height: 15px;
-        width: 15px;
-        background-image: url('../../../assets/random.svg');
-    }
-
-    .marginTopSelect {
-        margin-top: 30px;
-    }
-
-    .marginBottom {
-        margin-bottom: 15px;
     }
 
     select {
-        border: 1px solid black;
-        border-radius: 5px;
-        background-color: rgb(251, 251, 251);
+        border: none;
     }
 
 }
 
 .divField {
-    display: flex;
-    justify-content: center;
-    grid-column: span 2;
     position: relative;
 
     .removeUserBtn {
-        position: absolute;
-        bottom: 3px;
-        right: -35px;
         border: none;
         background-color: transparent;
         height: 25px;
@@ -72,18 +67,9 @@
         background-image: url('../../../assets/delete.svg');
     }
 
-    .divSelect {
-        display: flex;
-        justify-content: center;
-        margin: 5px 10px;
-    }
-
 }
 
 .addFieldBtn {
-    position: absolute;
-    bottom: 30px;
-    left: 15px;
     border: none;
     background-color: transparent;
     height: 25px;
