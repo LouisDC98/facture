@@ -125,18 +125,6 @@ function HomePage() {
         document.body.removeChild(element);
     }
 
-    // const handleCopyJSON = () => {
-    //     const json = JSON.stringify(articles);
-
-    //     const tempInput = document.createElement("textarea");
-    //     tempInput.value = json;
-    //     document.body.appendChild(tempInput);
-
-    //     tempInput.select();
-    //     document.execCommand("copy");
-    //     document.body.removeChild(tempInput);
-    // }
-
     const handleFileUpload = async (event) => {
         const file = event.target.files[0];
         if (!file) return
@@ -226,13 +214,6 @@ function HomePage() {
                     Importer les essentiels
                 </span>
             </button>
-            {/* <button className="copyButton button-82-pushable elementToHide" onClick={() => handleCopyJSON()}>
-                <span className="button-82-shadow"></span>
-                <span className="button-82-edge"></span>
-                <span className="button-82-front text">
-                    Copier la liste
-                </span>
-            </button> */}
             <div className='switchFormat'>
                 <p>facture</p>
                 <div className='formatInput'>
