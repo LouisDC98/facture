@@ -6,6 +6,10 @@
 
     .codeBarsize {
         height: 100px;
+        filter: blur(5px);
+    }
+    .codeBarsize:hover {
+        filter: blur(0px);
     }
 
     .centerP {
