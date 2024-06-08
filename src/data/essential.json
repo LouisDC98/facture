@@ -36,30 +36,48 @@
         "total": 19.8
     },
     {
-        "code": "8700216318709",
-        "libelle": "Lessive DASH PODS Envolée d'Air 33D",
+        "code": "8006540967027",
+        "libelle": "Lessive DASH PODS Air Frais & Fleurs Blanches 40D",
         "qtyCmd": 2,
         "tva": 20,
-        "prixUnit": 17.35,
+        "prixUnit": 24.95,
         "prixRemise": 0,
-        "total": 34.7
+        "total": 49.9
     },
     {
-        "code": "8700216318556",
-        "libelle": "Lessive DASH PODS Bouquet de pivoines 28D",
+        "code": "8700216319096",
+        "libelle": "Lessive DASH PODS EXTRA Fraîcheur de Coton 28D",
         "qtyCmd": 1,
         "tva": 20,
-        "prixUnit": 16.65,
+        "prixUnit": 17.75,
         "prixRemise": 0,
-        "total": 16.65
+        "total": 17.75
     },
     {
-        "code": "8700216320559",
-        "libelle": "Lessive DASH Liquide Détergent Envolée d'Air 55",
-        "qtyCmd": 2,
+        "code": "5601028026901",
+        "libelle": "PAPIER TOILETTE Magic RENOVA 12R",
+        "qtyCmd": 4,
         "tva": 20,
-        "prixUnit": 17.85,
+        "prixUnit": 4.18,
         "prixRemise": 0,
-        "total": 35.7
+        "total": 16.72
+    },
+    {
+        "code": "5601028035040",
+        "libelle": "PAPIER TOILETTE Toucher Magique Ultra Confort 6R",
+        "qtyCmd": 4,
+        "tva": 20,
+        "prixUnit": 4.7,
+        "prixRemise": 0,
+        "total": 18.8
+    },
+    {
+        "code": "3119789830498",
+        "libelle": "Bière Blonde Premium HEINEKEN 28x25cl",
+        "qtyCmd": 4,
+        "tva": 20,
+        "prixUnit": 21.85,
+        "prixRemise": 0,
+        "total": 87.4
     }
 ]
