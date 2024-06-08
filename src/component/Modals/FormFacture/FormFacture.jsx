@@ -1,56 +1,47 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './FormFacture.css'
 import users from "../../../data/users.json"
 import { useForm, useFieldArray } from "react-hook-form";
 import magasinList from "../../../data/magasins.json"
 
-import { randomFactureNbr, randomCommandNbr, autoDate } from "../../../callBack.js"
+import { randomFactureNbr, randomCommandNbr, autoDate, formatDate, formatDateRevert } from "../../../callBack.js"
 
 function FormFacture(props) {
-    let { closeModal } = props
+    let { closeModal, mainInfos } = props
 
     const { register, handleSubmit, setValue, control } = useForm();
     const { fields, append, remove } = useFieldArray({
         control,
-        name: "test",
+        name: "profile",
     });
 
-    // useEffect(() => {
-    //     if (mainInfos.date) {
-    //         setValue('date', formatDateRevert(mainInfos?.date), { shouldValidate: true })
-    //     }
-    //     if (mainInfos.date) {
-    //         setValue('dateFacturation', formatDateRevert(mainInfos?.dateFacturation), { shouldValidate: true })
-    //     }
 
-    //     // let factureNbr = randomFactureNbr()
-    //     // let cmdNbr = randomCommandNbr()
-    //     // setValue('commandNumber', cmdNbr, { shouldValidate: true });
-    //     // setValue('factureNumber', factureNbr, { shouldValidate: true });
-    // }, []);
+    useEffect(() => {
+        if (mainInfos.profile?.length > 0) {
+
+            mainInfos.profile.forEach((element, i) => {
+                append({ user: "null", magasin: "null", date: "", dateFacturation: "" });
+
+                setValue(`profile.${i}.user`, users.findIndex(e => e.firstName === element.firstName), { shouldValidate: true });
+                setValue(`profile.${i}.magasin`, magasinList.find(e => e.name === element.magasin.name).id, { shouldValidate: true });
+                setValue(`profile.${i}.date`, formatDateRevert(element.date), { shouldValidate: true });
+                setValue(`profile.${i}.dateFacturation`, formatDateRevert(element.dateFacturation), { shouldValidate: true });
+            });
+        } else if (fields.length === 0) {
+            append({ user: "null", magasin: "null", date: "", dateFacturation: "" });
+        }
+    }, [mainInfos]);
 
     const onChangeDate = (e, index) => {
         if (!e) return
         let { day, month, year } = autoDate(e)
         let facturationDate = year + '-' + month + '-' + day
-        setValue(`test.${index}.dateFacturation`, facturationDate, { shouldValidate: true });
-    }
-
-    function formatDate(inputDate) {
-        let parts = inputDate.split('-');
-        let year = parseInt(parts[0]);
-        let month = parseInt(parts[1]);
-        let day = parseInt(parts[2]);
-
-        let dateObject = new Date(year, month - 1, day);
-        let formattedDate = ('0' + dateObject.getDate()).slice(-2) + '/' + ('0' + (dateObject.getMonth() + 1)).slice(-2) + '/' + dateObject.getFullYear();
-
-        return formattedDate;
+        setValue(`profile.${index}.dateFacturation`, facturationDate, { shouldValidate: true });
     }
 
     const onSubmit = data => {
-        const formattedData = data.test.map((item) => {
-            const selectedData = users[item.value];
+        const formattedData = data.profile.map((item) => {
+            const selectedData = users[item.user];
             const selectedMagasin = magasinList.find(magasin => magasin.id === parseInt(item.magasin, 10));
             return {
                 lastName: selectedData.lastName,
@@ -81,7 +72,7 @@ function FormFacture(props) {
                     {fields.map((field, index) => (
                         <div key={field.id} className='divField'>
                             <div className='divSelect'>
-                                <select {...register(`test.${index}.value`)}>
+                                <select {...register(`profile.${index}.user`)}>
                                     <option value="null" hidden>Utilisateur</option>
                                     {users.map((option, optIndex) => (
                                         <option key={optIndex} value={optIndex}>
@@ -91,7 +82,7 @@ function FormFacture(props) {
                                 </select>
                             </div>
                             <div className='divSelect'>
-                                <select {...register(`test.${index}.magasin`)}>
+                                <select {...register(`profile.${index}.magasin`)}>
                                     <option value="null" hidden>Magasin</option>
                                     {magasinList.map((magasin) => (
                                         <option key={magasin.id} value={magasin.id}>
@@ -102,16 +93,16 @@ function FormFacture(props) {
                             </div>
                             <div className='displayInput'>
                                 <label>Commande</label>
-                                <input type='date' onSelect={(e) => onChangeDate(e.target.value, index)} {...register(`test.${index}.date`, { required: true })}></input>
+                                <input type='date' onSelect={(e) => onChangeDate(e.target.value, index)} {...register(`profile.${index}.date`, { required: true })}></input>
                             </div>
                             <div className='displayInput'>
                                 <label>Facturation</label>
-                                <input type='date' {...register(`test.${index}.dateFacturation`, { required: true })}></input>
+                                <input type='date' {...register(`profile.${index}.dateFacturation`, { required: true })}></input>
                             </div>
                             <button type='button' className='removeUserBtn' onClick={() => remove(index)}></button>
                         </div>
                     ))}
-                    <button type='button' className='addFieldBtn' onClick={() => append({ value: 'null', magasin: 0, date: "null" })}></button>
+                    <button type='button' className='addFieldBtn' onClick={() => append({ user: 'null', magasin: "null", date: "null" })}></button>
                     <button type='submit' className='buttonIcon saveButton' />
                 </form>
 
