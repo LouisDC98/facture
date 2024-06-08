@@ -14,7 +14,6 @@ import BilanFacture from '../../component/BilanFacture/BilanFacture';
 import BilanTicket from '../../component/BilanTicket/BilanTicket';
 import FooterFacture from '../../component/FooterFacture/FooterFacture';
 import FooterTicket from '../../component/FooterTicket/FooterTicket';
-import essential from "../../data/essential.json"
 import randomArticles from "../../data/randomArticles.json"
 import BarCodeModal from '../../component/Modals/BarCodeModal/BarCodeModal';
 
@@ -100,11 +99,6 @@ function HomePage() {
             const j = Math.floor(Math.random() * (i + 1));
             [updatedArticles[i], updatedArticles[j]] = [updatedArticles[j], updatedArticles[i]];
         }
-        setArticles(updatedArticles)
-    }
-
-    const handleAddEssentials = () => {
-        const updatedArticles = [...articles, ...essential];
         setArticles(updatedArticles)
     }
 
