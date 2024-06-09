@@ -1,9 +1,6 @@
 .modalBgFacture {
     padding: 0px 30px 60px 30px;
 
-    h2 {
-        margin: 20px 0 10px 0;
-    }
 
     .tableFormFacture {
         border-collapse: collapse;
@@ -12,12 +9,14 @@
 
         .headerRow {
             background-color: hsl(345deg 100% 47%);
+            border: 1px solid hsl(345deg 100% 47%);
             color: white;
 
             th {
                 padding: 5px 15px;
                 font-weight: 100;
                 font-size: 15px;
+                border: 1px solid hsl(345deg 100% 47%);
             }
         }
 

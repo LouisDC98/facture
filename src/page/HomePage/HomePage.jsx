@@ -32,13 +32,7 @@ function HomePage() {
     let [openBarCode, setOpenBarCode] = useState(false)
     let [nbrRandomArticles, setNbrRandomArticles] = useState(0)
     let [openEssentials, setOpenEssentials] = useState(false)
-
-    const handleToogleForm = (e) => {
-        setOpenForm(!openForm)
-        if (e) {
-            setMainInfos({ ...e, currentProfile: e.profile[0] })
-        }
-    }
+    
 
     const handleExportPNG = async () => {
         const element = document.getElementById('a4Page');
@@ -204,7 +198,7 @@ function HomePage() {
             <BtnCustom title="Exporter la liste" position="downloadButton" action={() => handleSaveArticles()} />
             <BtnCustom title="Importer les essentiels" position="essentialList" action={() => setOpenEssentials(!openEssentials)} />
             <BtnCustom title="Exporter en PNG" position="PNGButton" action={() => handleExportPNG()} />
-            <BtnCustom title="Informations générales" position="floatingButton" action={() => handleToogleForm()} />
+            <BtnCustom title="Informations générales" position="floatingButton" action={() => setOpenForm(!openForm)} />
             <BtnCustom title="Montrer les codes barres" position="barCodesButton" action={() => setOpenBarCode(!openBarCode)} />
             <BtnCustom title="Mélanger la liste" position="shuffleArticles" action={() => handleShuffleArticle(articles)} />
             <BtnCustom title="Exporter la liste" position="downloadButton" action={() => handleSaveArticles()} />
@@ -228,7 +222,7 @@ function HomePage() {
             </div>
             <div className={`a4Format ${!format ? 'ticketFormat' : ''}`} id="a4Page">
                 {openBarCode && <BarCodeModal closeModal={() => setOpenBarCode(!openBarCode)} articles={articles} />}
-                {openForm && <FormFacture closeModal={(e) => handleToogleForm(e)} setMainInfos={(e) => setMainInfos(e)} mainInfos={mainInfos} />}
+                {openForm && <FormFacture closeModal={() => setOpenForm(!openForm)} setMainInfos={(e) => setMainInfos(e)} mainInfos={mainInfos} />}
                 {openEssentials && <EssentialsModal closeModal={() => setOpenEssentials(!openEssentials)} setArticles={(e) => { setArticles(e) }} articles={articles} />}
                 {format ? <HeaderFacture firstProfile={mainInfos.currentProfile} /> : <HeaderTicket firstProfile={mainInfos.currentProfile} setHeure={(heure) => setHeure(heure)} />}
                 {format ? <Bill articles={articles} setArticles={(e) => { setArticles(e) }} /> : <BillTicket articles={articles} setArticles={(e) => { setArticles(e) }} />}

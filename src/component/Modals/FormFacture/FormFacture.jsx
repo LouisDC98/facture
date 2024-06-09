@@ -7,7 +7,7 @@ import magasinList from "../../../data/magasins.json"
 import { randomFactureNbr, randomCommandNbr, autoDate, formatDate, formatDateRevert } from "../../../callBack.js"
 
 function FormFacture(props) {
-    let { closeModal, mainInfos } = props
+    let { closeModal, setMainInfos, mainInfos } = props
 
     const { register, handleSubmit, setValue, control } = useForm();
     const { fields, append, remove } = useFieldArray({
@@ -60,7 +60,8 @@ function FormFacture(props) {
             };
         });
 
-        closeModal({ profile: [...formattedData] })
+        setMainInfos({ profile: [...formattedData] , currentProfile: formattedData[0] })
+        closeModal()
     }
 
     return (
@@ -133,8 +134,8 @@ function FormFacture(props) {
                         </tfoot>
 
                     </table>
-                </form>
                 <button type='submit' className='buttonIcon saveButton' />
+                </form>
 
             </div>
         </div>
