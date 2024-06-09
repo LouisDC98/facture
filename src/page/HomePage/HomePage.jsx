@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import './HomePage.css'
 import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
+import { CSSTransition } from 'react-transition-group';
 
 
 import Bill from '../../component/BillFacture/BillFacture'
@@ -19,6 +20,7 @@ import BarCodeModal from '../../component/Modals/BarCodeModal/BarCodeModal';
 import { randomFactureNbr, randomCommandNbr } from "../../callBack.js"
 import EssentialsModal from '../../component/Modals/EssentialsModal/EssentialsModal.jsx';
 import BtnCustom from '../../component/BtnCustom/BtnCustom.jsx';
+import ArticleModal from '../../component/Modals/ArticlesModal/Articlesmodal.jsx';
 
 function HomePage() {
     const fileInputRef = useRef(null);
@@ -31,8 +33,7 @@ function HomePage() {
     let [totaux, setTotaux] = useState({ totalRemises: 0, totalPanier: 0, totalNbrArticle: 0 })
     let [openBarCode, setOpenBarCode] = useState(false)
     let [nbrRandomArticles, setNbrRandomArticles] = useState(0)
-    let [openEssentials, setOpenEssentials] = useState(false)
-    
+    let [openArticles, setOpenArticles] = useState(false)
 
     const handleExportPNG = async () => {
         const element = document.getElementById('a4Page');
@@ -196,12 +197,12 @@ function HomePage() {
                 <input style={{ visibility: "hidden" }} type="file" id="fileInput" ref={fileInputRef} accept=".txt" onChange={(e) => { handleFileUpload(e) }} />
             </div>
             <BtnCustom title="Exporter la liste" position="downloadButton" action={() => handleSaveArticles()} />
-            <BtnCustom title="Importer les essentiels" position="essentialList" action={() => setOpenEssentials(!openEssentials)} />
             <BtnCustom title="Exporter en PNG" position="PNGButton" action={() => handleExportPNG()} />
             <BtnCustom title="Informations générales" position="floatingButton" action={() => setOpenForm(!openForm)} />
             <BtnCustom title="Montrer les codes barres" position="barCodesButton" action={() => setOpenBarCode(!openBarCode)} />
             <BtnCustom title="Mélanger la liste" position="shuffleArticles" action={() => handleShuffleArticle(articles)} />
             <BtnCustom title="Exporter la liste" position="downloadButton" action={() => handleSaveArticles()} />
+            <BtnCustom title="Gestion articles" position="articlesButton" action={() => setOpenArticles(!openArticles)} />
             <div className='switchFormat'>
                 <p>facture</p>
                 <div className='formatInput'>
@@ -230,9 +231,16 @@ function HomePage() {
                 >
                     <FormFacture closeModal={() => setOpenForm(!openForm)} setMainInfos={(e) => setMainInfos(e)} mainInfos={mainInfos} />
                 </CSSTransition>
-                {openEssentials && <EssentialsModal closeModal={() => setOpenEssentials(!openEssentials)} setArticles={(e) => { setArticles(e) }} articles={articles} />}
+                <CSSTransition
+                    in={openArticles}
+                    timeout={300}
+                    classNames="modal"
+                    unmountOnExit
+                >
+                    <ArticleModal closeModal={() => setOpenArticles(!openArticles)} setArticles={(e) => setArticles(e)} articles={articles} />
+                </CSSTransition>
                 {format ? <HeaderFacture firstProfile={mainInfos.currentProfile} /> : <HeaderTicket firstProfile={mainInfos.currentProfile} setHeure={(heure) => setHeure(heure)} />}
-                {format ? <Bill articles={articles} setArticles={(e) => { setArticles(e) }} /> : <BillTicket articles={articles} setArticles={(e) => { setArticles(e) }} />}
+                {format ? <Bill articles={articles} /> : <BillTicket articles={articles} setArticles={(e) => { setArticles(e) }} />}
                 {format ? <BilanFacture totaux={totaux} tvaArray={tvaArray} /> : <BilanTicket cardNumber={mainInfos.cardNumber} totaux={totaux} tvaArray={tvaArray} />}
                 {format ? <FooterFacture /> : <FooterTicket mainInfos={mainInfos} heure={heure} />}
             </div>

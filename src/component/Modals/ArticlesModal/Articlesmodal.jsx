@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './ArticlesModal.css'
 import '../modals.css'
 import { useForm, useFieldArray } from "react-hook-form";
+import essentials from "../../../data/essential.json"
+import arrow from "../../../assets/arrow_down.svg"
 
 
 function ArticlesModal(props) {
@@ -41,11 +43,52 @@ function ArticlesModal(props) {
         }
     }, [articles]);
 
+
+    const [open, setOpen] = useState(false);
+
+    const handleClick = () => {
+        setOpen((value) => !value);
+    };
+
+    const handleCheckboxChange = (article) => {
+        let index = fields.findIndex(e => e.code === article.code)
+        if (index !== -1) {
+            if (fields.length === 1) {
+                append({ code: "", libelle: "", qtyCmd: '', tva: "", prixUnit: "", prixRemise: "" })
+            }
+            remove(index)
+        } else {
+            if (fields[0]?.code === "") {
+                remove(0)
+            }
+            append({ code: article.code, libelle: article.libelle, qtyCmd: article.qtyCmd, tva: article.tva, prixUnit: article.prixUnit, prixRemise: article.prixRemise })
+        }
+    };
+
     return (
         <div className='displayModal'>
             <div className='modalBg modalBgArticle'>
-                <h2>Elaborer sa liste</h2>
+                <h2>Elaborer la liste</h2>
                 <button onClick={() => closeModal()} className='buttonIcon closeButton' />
+
+                <div className="accordionComponent">
+                    <div onClick={handleClick} className="accordionHeader" aria-expanded={!open}>
+                        <div>Articles essentiels</div>
+                        <img src={arrow} alt='openAccordion' className="accordionOpenBtn" />
+                    </div>
+                    <div className="accordionContent" aria-expanded={!open}>
+                        {essentials.map((article, index) => (
+                            <div key={index} className='toto'>
+                                <input
+                                    type="checkbox"
+                                    checked={fields.findIndex(field => field.code === article.code) !== -1}
+                                    onChange={() => handleCheckboxChange(article)}
+                                />
+                                <p>{article.libelle}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <table className='tableFormFacture'>

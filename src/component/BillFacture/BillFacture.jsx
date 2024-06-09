@@ -1,50 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import "./BillFacture.css"
 
-import FormArticle from '../Modals/FormArticle/FormArticle';
-
 function Bill(props) {
-    let { articles, setArticles } = props
-    let [openForm, setOpenForm] = useState(false)
-    let [currentArticle, setCurrentArticle] = useState(undefined)
-    let [currentIndex, setCurrentIndex] = useState(undefined)
-
-    const handleToogleForm = (e) => {
-        setOpenForm(!openForm)
-        if (e) {
-
-            if (currentIndex !== undefined) {
-                //edit row
-                const updatedArticles = [...articles];
-                updatedArticles[currentIndex] = e;
-
-                setArticles(updatedArticles);
-                setCurrentArticle(undefined)
-                setCurrentIndex(undefined)
-            }
-            else {
-                //insert new row
-                setArticles([...articles, e]);
-            }
-        }
-    }
-
-    const handleEditRow = (index) => {
-        setCurrentArticle(articles[index]);
-        setCurrentIndex(index);
-
-        setOpenForm(!openForm)
-    }
-
-    const handleDeleteRow = (index) => {
-        const updatedArticles = articles.filter((_, i) => i !== index);
-        setArticles(updatedArticles);
-    }
+    let { articles } = props
 
     return (
         <div className='relativeFacture'>
-            {openForm && <FormArticle closeModal={(e) => { handleToogleForm(e) }} currentArticle={currentArticle} />}
-            <button className='addElement elementToHide' type="button" onClick={() => handleToogleForm()}></button>
             <table className='bill'>
                 <thead className='headerTable'>
                     <tr>
@@ -72,8 +33,6 @@ function Bill(props) {
                             <td valign='top' className='alignEnd'>{article.prixUnit}</td>
                             <td valign='top' className='alignEnd'>{article.prixRemise !== 0 ? -article.prixRemise : ""}</td>
                             <td valign='top' className='alignEnd'>{article.total}</td>
-                            <button className='deleteRow elementToHide' onClick={() => { handleDeleteRow(index) }}></button>
-                            <button className='editRow elementToHide' onClick={() => { handleEditRow(index) }}></button>
                         </tr>
                     ))}
                     <tr>

@@ -12,7 +12,7 @@
 
 .PNGButton {
     position: absolute;
-    top: 280px;
+    top: 170px;
     left: 40px;
 }
 
@@ -22,9 +22,9 @@
     left: 40px;
 }
 
-.essentialList {
+.articlesButton {
     position: absolute;
-    top: 170px;
+    top: 500px;
     left: 40px;
 }
 
@@ -152,7 +152,7 @@ p {
 /* Switch button */
 .switchFormat {
     position: absolute;
-    top: 210px;
+    top: -20px;
     left: 40px;
     display: flex;
     align-items: end;
