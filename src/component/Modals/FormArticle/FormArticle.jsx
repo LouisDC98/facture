@@ -64,7 +64,7 @@ function FormArticle(props) {
                         <label htmlFor="checkMajor">majoration 20% ?</label>
                         <input type='checkbox' id="checkMajor" onClick={() => setMajor(!major)}></input>
                     </div>
-                    <button type='submit' className='buttonIcon saveButton' />
+                    <button type='submit' className='saveButton'>Sauvegarder</button>
                 </form>
             </div>
         </div>
