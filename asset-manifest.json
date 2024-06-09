@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/facture/static/css/main.1691d0e2.css",
+    "main.css": "/facture/static/css/main.0377ab0b.css",
     "main.js": "/facture/static/js/main.420b5ca2.js",
     "static/media/giphy.gif": "/facture/static/media/giphy.fabec932b84ee29c30b4.gif",
     "static/media/carteFidelite.jpg": "/facture/static/media/carteFidelite.a4a4b51166e7258b72b5.jpg",
@@ -13,11 +13,11 @@
     "index.html": "/facture/index.html",
     "static/media/plus.svg": "/facture/static/media/plus.32bd23b548216c67faf7.svg",
     "static/media/delete.svg": "/facture/static/media/delete.0d99cc422554b3a1952d.svg",
-    "main.1691d0e2.css.map": "/facture/static/css/main.1691d0e2.css.map",
+    "main.0377ab0b.css.map": "/facture/static/css/main.0377ab0b.css.map",
     "main.420b5ca2.js.map": "/facture/static/js/main.420b5ca2.js.map"
   },
   "entrypoints": [
-    "static/css/main.1691d0e2.css",
+    "static/css/main.0377ab0b.css",
     "static/js/main.420b5ca2.js"
   ]
 }
