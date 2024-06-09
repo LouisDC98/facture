@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/facture/static/css/main.0377ab0b.css",
-    "main.js": "/facture/static/js/main.420b5ca2.js",
+    "main.css": "/facture/static/css/main.95e5043c.css",
+    "main.js": "/facture/static/js/main.29fb461b.js",
     "static/media/giphy.gif": "/facture/static/media/giphy.fabec932b84ee29c30b4.gif",
     "static/media/carteFidelite.jpg": "/facture/static/media/carteFidelite.a4a4b51166e7258b72b5.jpg",
     "static/media/logoCarrefour.png": "/facture/static/media/logoCarrefour.b142899cb0f4e2175a66.png",
     "static/media/penis.svg": "/facture/static/media/penis.83fe61b60c6741db8eee.svg",
     "static/media/codeBarre.PNG": "/facture/static/media/codeBarre.f3a227d3692f83839b94.PNG",
     "static/media/edit.svg": "/facture/static/media/edit.b7024ef346f8a7383dff.svg",
-    "static/media/save.svg": "/facture/static/media/save.7a9c3db5c951dd7e955d.svg",
-    "static/media/close.svg": "/facture/static/media/close.2e9cfce322b3a43a8e4e.svg",
+    "static/media/close.svg": "/facture/static/media/close.646de3435dae909959a6.svg",
     "index.html": "/facture/index.html",
+    "static/media/arrow_down.svg": "/facture/static/media/arrow_down.8967a58681906be9bf0bf7c140bf1bea.svg",
     "static/media/plus.svg": "/facture/static/media/plus.32bd23b548216c67faf7.svg",
     "static/media/delete.svg": "/facture/static/media/delete.0d99cc422554b3a1952d.svg",
-    "main.0377ab0b.css.map": "/facture/static/css/main.0377ab0b.css.map",
-    "main.420b5ca2.js.map": "/facture/static/js/main.420b5ca2.js.map"
+    "main.95e5043c.css.map": "/facture/static/css/main.95e5043c.css.map",
+    "main.29fb461b.js.map": "/facture/static/js/main.29fb461b.js.map"
   },
   "entrypoints": [
-    "static/css/main.0377ab0b.css",
-    "static/js/main.420b5ca2.js"
+    "static/css/main.95e5043c.css",
+    "static/js/main.29fb461b.js"
   ]
 }
