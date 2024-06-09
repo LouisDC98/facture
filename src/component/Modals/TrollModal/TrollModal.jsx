@@ -1,5 +1,4 @@
 import React from 'react'
-import "./TrollModal.css"
 
 function TrollModal(props) {
     let { closeModal, gif } = props
