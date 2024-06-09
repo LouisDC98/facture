@@ -75,3 +75,21 @@
     width: 25px;
     background-image: url('../../../assets/plus.svg');
 }
+
+.error {
+    color: red;
+    position: absolute;
+    bottom: 0;
+    left: 25px;
+}
+
+.errorSelect {
+    color: red;
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+}
+
+.positionRelative {
+    position: relative;
+}

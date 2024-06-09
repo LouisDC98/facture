@@ -222,7 +222,14 @@ function HomePage() {
             </div>
             <div className={`a4Format ${!format ? 'ticketFormat' : ''}`} id="a4Page">
                 {openBarCode && <BarCodeModal closeModal={() => setOpenBarCode(!openBarCode)} articles={articles} />}
-                {openForm && <FormFacture closeModal={() => setOpenForm(!openForm)} setMainInfos={(e) => setMainInfos(e)} mainInfos={mainInfos} />}
+                <CSSTransition
+                    in={openForm}
+                    timeout={300}
+                    classNames="modal"
+                    unmountOnExit
+                >
+                    <FormFacture closeModal={() => setOpenForm(!openForm)} setMainInfos={(e) => setMainInfos(e)} mainInfos={mainInfos} />
+                </CSSTransition>
                 {openEssentials && <EssentialsModal closeModal={() => setOpenEssentials(!openEssentials)} setArticles={(e) => { setArticles(e) }} articles={articles} />}
                 {format ? <HeaderFacture firstProfile={mainInfos.currentProfile} /> : <HeaderTicket firstProfile={mainInfos.currentProfile} setHeure={(heure) => setHeure(heure)} />}
                 {format ? <Bill articles={articles} setArticles={(e) => { setArticles(e) }} /> : <BillTicket articles={articles} setArticles={(e) => { setArticles(e) }} />}

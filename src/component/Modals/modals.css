@@ -21,17 +21,33 @@
 }
 
 .closeButton {
-    top: 20px;
-    height: 25px;
-    width: 25px;
+    top: 10px;
+    right: 10px;
+    height: 20px;
+    width: 20px;
     background-image: url('../../assets/close.svg');
 }
 
 .saveButton {
-    bottom: 20px;
-    height: 25px;
-    width: 25px;
-    background-image: url('../../assets/save.svg');
+    /* bottom: 20px; */
+    /* right: 20px; */
+    /* height: 25px; */
+    /* width: 25px; */
+    /* background-image: url('../../assets/save.svg'); */
+
+    border: 2px solid hsl(345deg 100% 47%);
+    border-radius: 5px;
+    padding: 3px 7px;
+    background-color: transparent;
+    margin-top: 15px;
+    position: fixed;
+    right: 30px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.saveButton:hover {
+    color: white;
+    background-color: hsl(345deg 100% 47%);
 }
 
 input {
@@ -45,7 +61,25 @@ input {
 
 .buttonIcon {
     position: fixed;
-    right: 20px;
+    /* right: 20px; */
     border: none;
     background-color: transparent;
+}
+
+.buttonIcon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgb(209, 209, 209, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+}
+
+.buttonIcon:hover::before {
+    width: 130%;
+    height: 130%;
 }

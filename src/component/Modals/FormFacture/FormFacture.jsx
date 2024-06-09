@@ -9,12 +9,11 @@ import { randomFactureNbr, randomCommandNbr, autoDate, formatDate, formatDateRev
 function FormFacture(props) {
     let { closeModal, setMainInfos, mainInfos } = props
 
-    const { register, handleSubmit, setValue, control } = useForm();
+    const { register, handleSubmit, setValue, control, formState: { errors } } = useForm();
     const { fields, append, remove } = useFieldArray({
         control,
         name: "profile",
     });
-
 
     useEffect(() => {
         if (mainInfos.profile?.length > 0) {
@@ -60,7 +59,7 @@ function FormFacture(props) {
             };
         });
 
-        setMainInfos({ profile: [...formattedData] , currentProfile: formattedData[0] })
+        setMainInfos({ profile: [...formattedData], currentProfile: formattedData[0] })
         closeModal()
     }
 
@@ -87,8 +86,10 @@ function FormFacture(props) {
                                     <td>
                                         <button type='button' className='removeUserBtn' onClick={() => remove(index)} title={"Supprimer la ligne"}></button>
                                     </td>
-                                    <td>
-                                        <select {...register(`profile.${index}.user`)}>
+                                    <td className='positionRelative'>
+                                        <select {...register(`profile.${index}.user`, {
+                                            validate: value => value !== "null" || "choix obligatoire"
+                                        })}>
                                             <option value="null" hidden>Nom</option>
                                             {users.map((option, optIndex) => (
                                                 <option key={optIndex} value={optIndex}>
@@ -96,9 +97,11 @@ function FormFacture(props) {
                                                 </option>
                                             ))}
                                         </select>
+                                        {errors.profile?.[index]?.user && <p className="errorSelect">{errors.profile[index].user.message}</p>}
+
                                     </td>
-                                    <td>
-                                        <select {...register(`profile.${index}.magasin`)}>
+                                    <td className='positionRelative'>
+                                        <select {...register(`profile.${index}.magasin`, { validate: value => value !== "null" || "choix obligatoire" })}>
                                             <option value="null" hidden>Magasin</option>
                                             {magasinList.map((magasin) => (
                                                 <option key={magasin.id} value={magasin.id}>
@@ -106,12 +109,15 @@ function FormFacture(props) {
                                                 </option>
                                             ))}
                                         </select>
+                                        {errors.profile?.[index]?.magasin && <p className="errorSelect">{errors.profile[index].magasin.message}</p>}
                                     </td>
-                                    <td>
-                                        <input type='date' onSelect={(e) => onChangeDate(e.target.value, index)} {...register(`profile.${index}.date`, { required: true })}></input>
+                                    <td className='positionRelative'>
+                                        <input type='date' onSelect={(e) => onChangeDate(e.target.value, index)} {...register(`profile.${index}.date`, { required: "date obligatoire" })}></input>
+                                        {errors.profile?.[index]?.date && <p className="error">{errors.profile[index].date.message}</p>}
                                     </td>
-                                    <td>
-                                        <input type='date' {...register(`profile.${index}.dateFacturation`, { required: true })}></input>
+                                    <td className='positionRelative'>
+                                        <input type='date' {...register(`profile.${index}.dateFacturation`, { required: "date obligatoire" })}></input>
+                                        {errors.profile?.[index]?.dateFacturation && <p className="error">{errors.profile[index].dateFacturation.message}</p>}
                                     </td>
                                 </tr>
 
@@ -134,7 +140,7 @@ function FormFacture(props) {
                         </tfoot>
 
                     </table>
-                <button type='submit' className='buttonIcon saveButton' />
+                    <button type='submit' className='saveButton'>Sauvegarder</button>
                 </form>
 
             </div>
