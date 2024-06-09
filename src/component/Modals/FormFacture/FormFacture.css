@@ -48,9 +48,15 @@
         border: none;
         background-color: transparent;
     }
+    input:focus {
+        outline: none;
+    }
 
     select {
         border: none;
+    }
+    select:focus {
+        outline: none;
     }
 
 }
