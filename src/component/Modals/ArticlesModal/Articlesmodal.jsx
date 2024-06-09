@@ -7,7 +7,8 @@ import arrow from "../../../assets/arrow_down.svg"
 
 
 function ArticlesModal(props) {
-    let { closeModal, setArticles, articles } = props
+    let { closeModal, setArticles, articles, handleRandom } = props
+    let [nbrRandomArticles, setNbrRandomArticles] = useState(0)
 
     const { register, handleSubmit, control, formState: { errors } } = useForm();
     const { fields, append, remove } = useFieldArray({
@@ -65,28 +66,39 @@ function ArticlesModal(props) {
         }
     };
 
+    const handleRandomChild = () => {
+        handleRandom(nbrRandomArticles, articles)
+    };
+
     return (
         <div className='displayModal'>
             <div className='modalBg modalBgArticle'>
                 <h2>Elaborer la liste</h2>
                 <button onClick={() => closeModal()} className='buttonIcon closeButton' />
 
-                <div className="accordionComponent">
-                    <div onClick={handleClick} className="accordionHeader" aria-expanded={!open}>
-                        <div>Articles essentiels</div>
-                        <img src={arrow} alt='openAccordion' className="accordionOpenBtn" />
+                <div className='divUpArticleModal'>
+
+                    <div className="accordionComponent">
+                        <div onClick={handleClick} className="accordionHeader" aria-expanded={!open}>
+                            <div>Articles essentiels</div>
+                            <img src={arrow} alt='openAccordion' className="accordionOpenBtn" />
+                        </div>
+                        <div className="accordionContent" aria-expanded={!open}>
+                            {essentials.map((article, index) => (
+                                <div key={index} className='checkBoxDiv'>
+                                    <input
+                                        type="checkbox"
+                                        checked={fields.findIndex(field => field.code === article.code) !== -1}
+                                        onChange={() => handleCheckboxChange(article)}
+                                    />
+                                    <p>{article.libelle}</p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
-                    <div className="accordionContent" aria-expanded={!open}>
-                        {essentials.map((article, index) => (
-                            <div key={index} className='toto'>
-                                <input
-                                    type="checkbox"
-                                    checked={fields.findIndex(field => field.code === article.code) !== -1}
-                                    onChange={() => handleCheckboxChange(article)}
-                                />
-                                <p>{article.libelle}</p>
-                            </div>
-                        ))}
+                    <div className='divRandom'>+
+                        <input type='number' placeholder='0' onChange={(e) => setNbrRandomArticles(e.target.value)}></input>
+                        <button className='saveRandomBtn' onClick={() => handleRandomChild()}>articles random</button>
                     </div>
                 </div>
 

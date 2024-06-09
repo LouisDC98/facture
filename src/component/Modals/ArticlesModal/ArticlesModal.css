@@ -181,7 +181,7 @@
     transform: rotate(180deg);
 }
 
-.toto {
+.checkBoxDiv {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -194,5 +194,39 @@
 
     input {
         width: 20px;
+    }
+}
+
+.divUpArticleModal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .divRandom {
+        background-color: rgb(220, 205, 205);
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+        padding: 5px 20px;
+        font-size: 15px;
+        height: 18px;
+
+        input {
+            width: 30px;
+        }
+    }
+
+    .saveRandomBtn {
+        border: 2px solid hsl(345deg 100% 47%);
+        border-radius: 5px;
+        padding: 3px 7px;
+        background-color: transparent;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        text-wrap: nowrap;
+    }
+
+    .saveRandomBtn:hover {
+        color: white;
+        background-color: hsl(345deg 100% 47%);
     }
 }

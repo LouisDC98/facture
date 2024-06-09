@@ -211,16 +211,6 @@ function HomePage() {
                 </div>
                 <p>ticket</p>
             </div>
-            <div className="addRandomArticle">
-                <input type='number' onChange={(e) => setNbrRandomArticles(e.target.value)}></input>
-                <button className="button-82-pushable elementToHide" onClick={() => handleAddRandomArticles(nbrRandomArticles, articles)}>
-                    <span className="button-82-shadow"></span>
-                    <span className="button-82-edge"></span>
-                    <span className="button-82-front text displayflex">
-                        + articles random
-                    </span>
-                </button>
-            </div>
             <div className={`a4Format ${!format ? 'ticketFormat' : ''}`} id="a4Page">
                 {openBarCode && <BarCodeModal closeModal={() => setOpenBarCode(!openBarCode)} articles={articles} />}
                 <CSSTransition
@@ -237,7 +227,7 @@ function HomePage() {
                     classNames="modal"
                     unmountOnExit
                 >
-                    <ArticleModal closeModal={() => setOpenArticles(!openArticles)} setArticles={(e) => setArticles(e)} articles={articles} />
+                    <ArticleModal closeModal={() => setOpenArticles(!openArticles)} setArticles={(e) => setArticles(e)} articles={articles} handleRandom={(nbrRandomArticles, articles)=>{handleAddRandomArticles(nbrRandomArticles, articles)}}/>
                 </CSSTransition>
                 {format ? <HeaderFacture firstProfile={mainInfos.currentProfile} /> : <HeaderTicket firstProfile={mainInfos.currentProfile} setHeure={(heure) => setHeure(heure)} />}
                 {format ? <Bill articles={articles} /> : <BillTicket articles={articles} setArticles={(e) => { setArticles(e) }} />}
