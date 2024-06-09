@@ -18,9 +18,12 @@ import randomArticles from "../../data/randomArticles.json"
 import BarCodeModal from '../../component/Modals/BarCodeModal/BarCodeModal';
 
 import { randomFactureNbr, randomCommandNbr } from "../../callBack.js"
-import EssentialsModal from '../../component/Modals/EssentialsModal/EssentialsModal.jsx';
 import BtnCustom from '../../component/BtnCustom/BtnCustom.jsx';
+import TrollModal from '../../component/Modals/TrollModal/TrollModal.jsx';
 import ArticleModal from '../../component/Modals/ArticlesModal/Articlesmodal.jsx';
+
+import duneSilence from "../../assets/duneSlience.gif"
+import duneMore from "../../assets/duneMore.gif"
 
 function HomePage() {
     const fileInputRef = useRef(null);
@@ -32,8 +35,9 @@ function HomePage() {
     let [format, setFormat] = useState(true)
     let [totaux, setTotaux] = useState({ totalRemises: 0, totalPanier: 0, totalNbrArticle: 0 })
     let [openBarCode, setOpenBarCode] = useState(false)
-    let [nbrRandomArticles, setNbrRandomArticles] = useState(0)
+    let [openTroll, setOpenTroll] = useState(false)
     let [openArticles, setOpenArticles] = useState(false)
+    let [gif, setGif] = useState(undefined)
 
     const handleExportPNG = async () => {
         const element = document.getElementById('a4Page');
@@ -98,7 +102,16 @@ function HomePage() {
     }
 
     const handleAddRandomArticles = (nbrToAdd, listArticle) => {
-        if (nbrToAdd < 0) return
+        if (nbrToAdd < 0) {
+            setGif(duneSilence)
+            setOpenTroll(true)
+            return
+        }
+        if (nbrToAdd === 0) {
+            setGif(duneMore)
+            setOpenTroll(true)
+            return
+        }
         const shuffledRandomArticles = [...randomArticles].sort(() => 0.5 - Math.random());
         const selectedArticles = shuffledRandomArticles.slice(0, nbrToAdd);
         const updatedArticles = [...listArticle, ...selectedArticles];
@@ -212,6 +225,7 @@ function HomePage() {
                 <p>ticket</p>
             </div>
             <div className={`a4Format ${!format ? 'ticketFormat' : ''}`} id="a4Page">
+                {openTroll && <TrollModal closeModal={() => setOpenTroll(!openTroll)} gif={gif}/>}
                 {openBarCode && <BarCodeModal closeModal={() => setOpenBarCode(!openBarCode)} articles={articles} />}
                 <CSSTransition
                     in={openForm}
