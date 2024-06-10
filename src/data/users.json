@@ -58,5 +58,15 @@
         "country": "France",
         "clientID": "5188601",
         "cardNumber": "7035124963309544434"
+    },
+    {
+        "firstName": "Jessica",
+        "lastName": "Rivezin",
+        "adresse": "6 rue Michel Floch",
+        "city": "Brest",
+        "codePostal": "37700",
+        "country": "France",
+        "clientID": "5146270",
+        "cardNumber": "8243716954872103921"
     }
 ]

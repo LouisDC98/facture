@@ -75,5 +75,18 @@
             "Lun. au Sam.: 08:00 à 20:30",
             "Dim.: Fermé"
         ]
+    },
+    {
+        "id": 7,
+        "name":"Brest", 
+        "primary": "CARREFOUR BREST",
+        "secondary": "12 Bd de Plymouth",
+        "tel": "02 98 31 42 79",
+        "ticket": "CARREFOUR BREST",
+        "horaires": [
+            "Lun. au Ven.: 08:30 à 21:00",
+            "Sam.: 08:30 à 20:00",
+            "Dim.: 08:30 à 12:30"
+        ]
     }
 ]
