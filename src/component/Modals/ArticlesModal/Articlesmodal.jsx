@@ -37,7 +37,9 @@ function ArticlesModal(props) {
     useEffect(() => {
         if (articles?.length > 0) {
             articles.forEach((element, i) => {
-                append({ code: element.code, libelle: element.libelle, qtyCmd: element.qtyCmd, tva: element.tva, prixUnit: element.prixUnit, prixRemise: element.prixRemise })
+                if (fields.findIndex(field => field.code === element.code) === -1) {
+                    append({ code: element.code, libelle: element.libelle, qtyCmd: element.qtyCmd, tva: element.tva, prixUnit: element.prixUnit, prixRemise: element.prixRemise })
+                }
             });
         } else if (fields.length === 0) {
             append({ code: "", libelle: "", qtyCmd: '', tva: "", prixUnit: "", prixRemise: "" })

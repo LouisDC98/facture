@@ -107,7 +107,7 @@ function HomePage() {
             setOpenTroll(true)
             return
         }
-        if (nbrToAdd === 0) {
+        if (Number(nbrToAdd) === 0) {
             setGif(duneMore)
             setOpenTroll(true)
             return
@@ -225,7 +225,7 @@ function HomePage() {
                 <p>ticket</p>
             </div>
             <div className={`a4Format ${!format ? 'ticketFormat' : ''}`} id="a4Page">
-                {openTroll && <TrollModal closeModal={() => setOpenTroll(!openTroll)} gif={gif}/>}
+                {openTroll && <TrollModal closeModal={() => setOpenTroll(!openTroll)} gif={gif} />}
                 {openBarCode && <BarCodeModal closeModal={() => setOpenBarCode(!openBarCode)} articles={articles} />}
                 <CSSTransition
                     in={openForm}
@@ -241,7 +241,7 @@ function HomePage() {
                     classNames="modal"
                     unmountOnExit
                 >
-                    <ArticleModal closeModal={() => setOpenArticles(!openArticles)} setArticles={(e) => setArticles(e)} articles={articles} handleRandom={(nbrRandomArticles, articles)=>{handleAddRandomArticles(nbrRandomArticles, articles)}}/>
+                    <ArticleModal closeModal={() => setOpenArticles(!openArticles)} setArticles={(e) => setArticles(e)} articles={articles} handleRandom={(nbrRandomArticles, articles) => { handleAddRandomArticles(nbrRandomArticles, articles) }} />
                 </CSSTransition>
                 {format ? <HeaderFacture firstProfile={mainInfos.currentProfile} /> : <HeaderTicket firstProfile={mainInfos.currentProfile} setHeure={(heure) => setHeure(heure)} />}
                 {format ? <Bill articles={articles} /> : <BillTicket articles={articles} setArticles={(e) => { setArticles(e) }} />}
