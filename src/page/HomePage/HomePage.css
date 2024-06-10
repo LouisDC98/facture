@@ -4,6 +4,10 @@
     right: 40px;
 }
 
+.floatingButton:hover {
+    cursor: url('../../assets/penis.svg'), auto;
+}
+
 .downloadButton {
     position: absolute;
     top: 40px;
@@ -16,21 +20,9 @@
     left: 40px;
 }
 
-.PNGButtonx4 {
-    position: absolute;
-    top: 350px;
-    left: 40px;
-}
-
 .articlesButton {
     position: absolute;
     top: 500px;
-    left: 40px;
-}
-
-.copyButton {
-    position: absolute;
-    top: 100px;
     left: 40px;
 }
 
@@ -66,36 +58,6 @@
         transition: background-color 200ms;
         color: white;
     }
-}
-
-/* .uploadButton {
-    position: absolute;
-    top: 160px;
-    left: 40px;
-    width: 130px;
-    height: 50px;
-    color: transparent;
-    border-radius: 12px;
-    padding: 0;
-    border: 3px dashed hsl(345deg 100% 47%);
-    margin: 0;
-
-    label {
-        display: block;
-        width: 100%;
-        height: 50%;
-        cursor: pointer;
-        text-align: center;
-        line-height: 25px;
-        border-radius: 12px;
-        background-color: white;
-        border: none;
-        color: hsl(345deg 100% 47%);
-    }
-} */
-
-.floatingButton:hover {
-    cursor: url('../../assets/penis.svg'), auto;
 }
 
 .shuffleArticles {
