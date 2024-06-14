@@ -41,7 +41,7 @@ function FormFacture(props) {
     const onSubmit = data => {
         const formattedData = data.profile.map((item) => {
             const selectedData = users[item.user];
-            const selectedMagasin = magasinList.find(magasin => magasin.id === parseInt(item.magasin, 10));
+            const selectedMagasin = magasinList.find(magasin => magasin.id === selectedData.magasinId);
             return {
                 lastName: selectedData.lastName,
                 adresse: selectedData.adresse,
@@ -75,7 +75,6 @@ function FormFacture(props) {
                             <tr className='headerRow'>
                                 <th></th>
                                 <th>Utilisateur</th>
-                                <th>Magasin</th>
                                 <th>Commande</th>
                                 <th>Facturation</th>
                             </tr>
@@ -99,17 +98,6 @@ function FormFacture(props) {
                                         </select>
                                         {errors.profile?.[index]?.user && <p className="errorSelect">{errors.profile[index].user.message}</p>}
 
-                                    </td>
-                                    <td className='positionRelative'>
-                                        <select {...register(`profile.${index}.magasin`, { validate: value => value !== "null" || "choix obligatoire" })}>
-                                            <option value="null" hidden>Magasin</option>
-                                            {magasinList.map((magasin) => (
-                                                <option key={magasin.id} value={magasin.id}>
-                                                    {magasin.name}
-                                                </option>
-                                            ))}
-                                        </select>
-                                        {errors.profile?.[index]?.magasin && <p className="errorSelect">{errors.profile[index].magasin.message}</p>}
                                     </td>
                                     <td className='positionRelative'>
                                         <input type='date' onSelect={(e) => onChangeDate(e.target.value, index)} {...register(`profile.${index}.date`, { required: "date obligatoire" })}></input>

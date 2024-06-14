@@ -7,7 +7,8 @@
         "codePostal": "31300",
         "country": "France",
         "clientID": "5092060",
-        "cardNumber": "8136204390218357912"
+        "cardNumber": "8136204390218357912",
+        "magasinId": 1
     },
     {
         "firstName": "Yohan",
@@ -17,7 +18,8 @@
         "codePostal": "31300",
         "country": "France",
         "clientID": "5024049",
-        "cardNumber": "6254973180423560809"
+        "cardNumber": "6254973180423560809",
+        "magasinId": 2
     },
     {
         "firstName": "Paul",
@@ -27,7 +29,8 @@
         "codePostal": "77000",
         "country": "France",
         "clientID": "5019253",
-        "cardNumber": "4790386215096327154"
+        "cardNumber": "4790386215096327154",
+        "magasinId": 3
     },
     {
         "firstName": "Hugo",
@@ -37,7 +40,8 @@
         "codePostal": "13016",
         "country": "France",
         "clientID": "5167204",
-        "cardNumber": "7035124982309561874"
+        "cardNumber": "7035124982309561874",
+        "magasinId": 4
     },
     {
         "firstName": "Tom",
@@ -47,7 +51,8 @@
         "codePostal": "70123",
         "country": "France",
         "clientID": "5197537",
-        "cardNumber": "7035124637309599138"
+        "cardNumber": "7035124637309599138",
+        "magasinId": 5
     },
     {
         "firstName": "Victor",
@@ -57,7 +62,8 @@
         "codePostal": "37700",
         "country": "France",
         "clientID": "5188601",
-        "cardNumber": "7035124963309544434"
+        "cardNumber": "7035124963309544434",
+        "magasinId": 0
     },
     {
         "firstName": "Jessica",
@@ -67,6 +73,7 @@
         "codePostal": "37700",
         "country": "France",
         "clientID": "5146270",
-        "cardNumber": "8243716954872103921"
+        "cardNumber": "8243716954872103921",
+        "magasinId": 7
     }
 ]
