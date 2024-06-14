@@ -114,10 +114,21 @@ function HomePage() {
         }
         const shuffledRandomArticles = [...randomArticles].sort(() => 0.5 - Math.random());
         const selectedArticles = shuffledRandomArticles.slice(0, nbrToAdd);
-        const updatedArticles = [...listArticle, ...selectedArticles];
 
-        setArticles(updatedArticles);
-        return updatedArticles
+        const updatedArticles = selectedArticles.map(article => {
+            const adjustment = (Math.random() - 0.5) * 0.5;
+            const updatedPrixUnit = (article.prixUnit + adjustment).toFixed(2);
+            const updatedArticle = {
+                ...article,
+                prixUnit: parseFloat(updatedPrixUnit)
+            };
+            return updatedArticle;
+        });
+
+        const finalArticles = [...listArticle, ...updatedArticles];
+
+        setArticles(finalArticles);
+        return finalArticles
     }
 
     const handleSaveArticles = () => {
