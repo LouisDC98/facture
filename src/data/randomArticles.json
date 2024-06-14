@@ -6,7 +6,6 @@
       "tva":5.5,
       "prixUnit":2.95,
       "prixRemise":0,
-      "total":5.9,
       "random": true
    },
    {
@@ -16,7 +15,6 @@
       "tva":5.5,
       "prixUnit":2.19,
       "prixRemise":0,
-      "total":2.19,
       "random": true
    },
    {
@@ -26,7 +24,6 @@
       "tva":5.5,
       "prixUnit":3.69,
       "prixRemise":0,
-      "total":3.69,
       "random": true
    },
    {
@@ -36,7 +33,6 @@
       "tva":5.5,
       "prixUnit":1.49,
       "prixRemise":0,
-      "total":1.49,
       "random": true
    },
    {
@@ -46,7 +42,6 @@
       "tva":5.5,
       "prixUnit":1.89,
       "prixRemise":0,
-      "total":1.89,
       "random": true
    },
    {
@@ -56,7 +51,6 @@
       "tva":5.5,
       "prixUnit":2.75,
       "prixRemise":0,
-      "total":2.75,
       "random": true
    },
    {
@@ -66,7 +60,6 @@
       "tva":5.5,
       "prixUnit":1.45,
       "prixRemise":0,
-      "total":2.9,
       "random": true
    },
    {
@@ -76,7 +69,6 @@
       "tva":5.5,
       "prixUnit":1.45,
       "prixRemise":0,
-      "total":1.45,
       "random": true
    },
    {
@@ -86,7 +78,6 @@
       "tva":5.5,
       "prixUnit":2.89,
       "prixRemise":0,
-      "total":5.78,
       "random": true
    },
    {
@@ -96,7 +87,6 @@
       "tva":5.5,
       "prixUnit":1.25,
       "prixRemise":0,
-      "total":1.25,
       "random": true
    },
    {
@@ -106,7 +96,6 @@
       "tva":20,
       "prixUnit":0.49,
       "prixRemise":0,
-      "total":0.49,
       "random": true
    },
    {
@@ -116,7 +105,6 @@
       "tva":20,
       "prixUnit":1.45,
       "prixRemise":0,
-      "total":1.45,
       "random": true
    },
    {
@@ -126,7 +114,6 @@
       "tva":20,
       "prixUnit":2.99,
       "prixRemise":0,
-      "total":2.99,
       "random": true
    },
    {
@@ -136,7 +123,6 @@
       "tva":20,
       "prixUnit":2.79,
       "prixRemise":0,
-      "total":2.79,
       "random": true
    },
    {
@@ -146,7 +132,6 @@
       "tva":20,
       "prixUnit":3.99,
       "prixRemise":0,
-      "total":7.98,
       "random": true
    },
    {
@@ -156,7 +141,6 @@
       "tva":20,
       "prixUnit":1.75,
       "prixRemise":0,
-      "total":1.75,
       "random": true
    },
    {
@@ -166,7 +150,6 @@
       "tva":5.5,
       "prixUnit":1.75,
       "prixRemise":0,
-      "total":1.75,
       "random": true
    },
    {
@@ -176,7 +159,6 @@
       "tva":5.5,
       "prixUnit":1.65,
       "prixRemise":0,
-      "total":1.65,
       "random": true
    },
    {
@@ -186,7 +168,6 @@
       "tva":5.5,
       "prixUnit":1.37,
       "prixRemise":0,
-      "total":8.22,
       "random": true
    },
    {
@@ -196,7 +177,6 @@
       "tva":5.5,
       "prixUnit":1.89,
       "prixRemise":0,
-      "total":3.78,
       "random": true
    },
    {
@@ -206,7 +186,6 @@
       "tva":5.5,
       "prixUnit":1.93,
       "prixRemise":0,
-      "total":1.93,
       "random": true
    },
    {
@@ -216,7 +195,6 @@
       "tva":5.5,
       "prixUnit":2.34,
       "prixRemise":0,
-      "total":2.34,
       "random": true
    },
    {
@@ -226,7 +204,6 @@
       "tva":5.5,
       "prixUnit":2.46,
       "prixRemise":0,
-      "total":2.46,
       "random": true
    },
    {
@@ -236,7 +213,6 @@
       "tva":5.5,
       "prixUnit":1.22,
       "prixRemise":0,
-      "total":1.22,
       "random": true
    },
    {
@@ -246,7 +222,6 @@
       "tva":5.5,
       "prixUnit":3.12,
       "prixRemise":0,
-      "total":6.24,
       "random": true
    },
    {
@@ -256,7 +231,6 @@
       "tva":5.5,
       "prixUnit":2.75,
       "prixRemise":0,
-      "total":2.75,
       "random": true
    },
    {
@@ -266,7 +240,6 @@
       "tva":5.5,
       "prixUnit":3.65,
       "prixRemise":0,
-      "total":3.65,
       "random": true
    }
 ]
