@@ -88,5 +88,23 @@
         "prixUnit": 21.85,
         "prixRemise": 0,
         "total": 87.4
+    },
+    {
+        "code": "3080216055305",
+        "libelle": "Bière Sans Alcool Aromatisée au jus de Framboise 0,0% TOURTEL TWIST ",
+        "qtyCmd": 3,
+        "tva": 5.5,
+        "prixUnit": 10.65,
+        "prixRemise": 0,
+        "total": 31.95
+    },
+    {
+        "code": "3080216055275",
+        "libelle": "Bière Sans Alcool Aromatisée au jus de Citron 0,0% TOURTEL TWIST ",
+        "qtyCmd": 3,
+        "tva": 5.5,
+        "prixUnit": 10.65,
+        "prixRemise": 0,
+        "total": 31.95
     }
 ]
