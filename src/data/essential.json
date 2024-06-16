@@ -58,18 +58,27 @@
         "libelle": "PAPIER TOILETTE Magic RENOVA 12R",
         "qtyCmd": 4,
         "tva": 20,
-        "prixUnit": 4.18,
+        "prixUnit": 4.32,
         "prixRemise": 0,
-        "total": 16.72
+        "total": 17.28
     },
     {
         "code": "5601028035040",
         "libelle": "PAPIER TOILETTE Toucher Magique Ultra Confort 6R",
         "qtyCmd": 4,
         "tva": 20,
-        "prixUnit": 4.7,
+        "prixUnit": 5.2,
         "prixRemise": 0,
-        "total": 18.8
+        "total": 20.8
+    },
+    {
+        "code": "5601028035040",
+        "libelle": "Papier Toilette Ultra Confort RENOVA 6R",
+        "qtyCmd": 4,
+        "tva": 20,
+        "prixUnit": 5.1,
+        "prixRemise": 0,
+        "total": 20.4
     },
     {
         "code": "3119789830498",
