@@ -5,11 +5,12 @@
     padding: 20px;
 
     .codeBarsize {
-        height: 100px;
+        height: 150px;
         filter: blur(5px);
     }
     .codeBarsize:hover {
         filter: blur(0px);
+        /* height: 150px; */
     }
 
     .centerP {
