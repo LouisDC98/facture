@@ -1,0 +1,48 @@
+.accordionComponentChild {
+    width: 100%;
+    margin: 15px 0;
+    border: 1px solid #c3c3c3;
+    border-radius: 5px;
+}
+
+.accordionHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgb(220, 205, 205);
+    color: black;
+    border-radius: 5px 5px 0 0;
+    padding: 5px 20px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.accordionHeader[aria-expanded="true"] {
+    border-radius: 5px;
+    transition: border-radius 1s;
+}
+
+.accordionContent {
+    overflow: hidden;
+    max-height: 1000px;
+    padding: 0 20px;
+    transition: max-height 1s ease-in-out;
+}
+
+.accordionContent[aria-expanded="true"] {
+    max-height: 0px;
+    transition: max-height 1s cubic-bezier(0, 1, 0, 1);
+}
+
+.accordionOpenBtn {
+    width: 16px;
+    height: 16px;
+    align-self: center;
+    margin-left: auto;
+    transition: all 0.35s ease;
+    transform: rotate(0deg);
+}
+
+.accordionOpenBtn[aria-expanded="true"] {
+    transform: rotate(180deg);
+}

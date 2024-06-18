@@ -4,11 +4,17 @@ import '../modals.css'
 import { useForm, useFieldArray } from "react-hook-form";
 import essentials from "../../../data/essential.json"
 import arrow from "../../../assets/arrow_down.svg"
+import Accordion from '../../Accordion/Accordion';
 
 
 function ArticlesModal(props) {
     let { closeModal, setArticles, articles, handleRandom } = props
     let [nbrRandomArticles, setNbrRandomArticles] = useState(0)
+    const [mainOpen, setMainOpen] = useState(true);
+
+    const toggleMainAccordion = () => {
+        setMainOpen(!mainOpen);
+    };
 
     const { register, handleSubmit, control, formState: { errors } } = useForm();
     const { fields, append, remove } = useFieldArray({
@@ -47,12 +53,6 @@ function ArticlesModal(props) {
     }, [articles]);
 
 
-    const [open, setOpen] = useState(false);
-
-    const handleClick = () => {
-        setOpen((value) => !value);
-    };
-
     const handleCheckboxChange = (article) => {
         let index = fields.findIndex(e => e.code === article.code)
         if (index !== -1) {
@@ -72,6 +72,12 @@ function ArticlesModal(props) {
         handleRandom(nbrRandomArticles, articles)
     };
 
+    const categoryList = [
+        "Hygiène & beauté",
+        "À boire",
+        "Autres"
+    ]
+
     return (
         <div className='displayModal'>
             <div className='modalBg modalBgArticle'>
@@ -81,20 +87,19 @@ function ArticlesModal(props) {
                 <div className='divUpArticleModal'>
 
                     <div className="accordionComponent">
-                        <div onClick={handleClick} className="accordionHeader" aria-expanded={!open}>
+                        <div onClick={toggleMainAccordion} className="accordionHeader" aria-expanded={mainOpen}>
                             <div>Articles essentiels</div>
                             <img src={arrow} alt='openAccordion' className="accordionOpenBtn" />
                         </div>
-                        <div className="accordionContent" aria-expanded={!open}>
-                            {essentials.map((article, index) => (
-                                <div key={index} className='checkBoxDiv'>
-                                    <input
-                                        type="checkbox"
-                                        checked={fields.findIndex(field => field.code === article.code) !== -1}
-                                        onChange={() => handleCheckboxChange(article)}
-                                    />
-                                    <p>{article.libelle}</p>
-                                </div>
+                        <div className="accordionContent" aria-expanded={mainOpen}>
+                            {essentials.map((articles, index) => (
+                                <Accordion
+                                    key={index}
+                                    title={categoryList[index]}
+                                    articles={articles}
+                                    fields={fields}
+                                    handleCheckboxChange={handleCheckboxChange}
+                                />
                             ))}
                         </div>
                     </div>
