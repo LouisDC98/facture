@@ -1,5 +1,7 @@
 .modalBgArticle {
     padding: 0px 30px 60px 30px;
+    max-height: 70vh;
+    overflow-y: auto;
 
 
     .tableFormFacture {
@@ -229,4 +231,15 @@
         color: white;
         background-color: hsl(345deg 100% 47%);
     }
+}
+
+.submitArticle {
+    border: 2px solid hsl(345deg 100% 47%);
+    border-radius: 5px;
+    padding: 3px 7px;
+    background-color: transparent;
+    position: absolute;
+    right: 30px;
+    bottom: 2px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }

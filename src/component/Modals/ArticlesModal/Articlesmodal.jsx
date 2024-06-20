@@ -163,6 +163,7 @@ function ArticlesModal(props) {
                                     <button type='button' className='addFieldBtn' onClick={() => append({ code: "", libelle: "", qtyCmd: '', tva: "", prixUnit: "", prixRemise: "" })} title={"Ajouter une ligne"}></button>
                                 </td>
                                 <td colSpan="100%" className='greyCell'>
+                                    <button type='submit' className='submitArticle'>Sauvegarder</button>
                                 </td>
 
                             </tr>
@@ -174,9 +175,7 @@ function ArticlesModal(props) {
                             </tr>
 
                         </tfoot>
-
                     </table>
-                    <button type='submit' className='saveButton'>Sauvegarder</button>
                 </form>
 
             </div>
