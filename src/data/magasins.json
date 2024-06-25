@@ -88,5 +88,17 @@
             "Sam.: 08:30 à 20:00",
             "Dim.: 08:30 à 12:30"
         ]
+    },
+    {
+        "id": 8,
+        "name":"Lille", 
+        "primary": "CENTRE COMMERCIEL CARREFOUR LILLE",
+        "secondary": "1 Centre commercial Euralille",
+        "tel": "03 28 52 99 79",
+        "ticket": "CARREFOUR LILLE",
+        "horaires": [
+            "Lun. au Sam.: 09:00 à 22:00",
+            "Dim.: 09:00 à 12:30"
+        ]
     }
 ]

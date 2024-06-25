@@ -75,5 +75,16 @@
         "clientID": "5146270",
         "cardNumber": "8243716954872103921",
         "magasinId": 7
+    },
+    {
+        "firstName": "Laurence",
+        "lastName": "Camus",
+        "adresse": "1 Rue d'Ostende",
+        "city": "Lille",
+        "codePostal": "59000",
+        "country": "France",
+        "clientID": "5140336",
+        "cardNumber": "4982715309841726358",
+        "magasinId": 8
     }
 ]
