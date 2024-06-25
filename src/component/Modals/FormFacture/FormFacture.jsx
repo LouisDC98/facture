@@ -26,11 +26,43 @@ function FormFacture(props) {
                 setValue(`profile.${i}.date`, formatDateRevert(element.date), { shouldValidate: true });
                 setValue(`profile.${i}.dateFacturation`, formatDateRevert(element.dateFacturation), { shouldValidate: true });
             });
-        } else if (fields.length === 0) {
-            append({ user: "null", magasin: "null", date: "", dateFacturation: "" });
+        } else {
+            let localData = localStorage.getItem("user")
+            if (localData) {
+                let arrayData = JSON.parse(localData);
+
+                arrayData.forEach((element, i) => {
+                    append({ user: "null", magasin: "null", date: getYesterdayDate(), dateFacturation: getTodayDate() });
+                    setValue(`profile.${i}.user`, element, { shouldValidate: true });
+                });
+            } else if (fields.length === 0) {
+                append({ user: "null", magasin: "null", date: getYesterdayDate(), dateFacturation: getTodayDate() });
+            }
         }
     }, [mainInfos]);
 
+
+    const getYesterdayDate = () => {
+        const today = new Date();
+        const yesterday = new Date(today);
+        yesterday.setDate(today.getDate() - 1);
+
+        const year = yesterday.getFullYear();
+        const month = String(yesterday.getMonth() + 1).padStart(2, '0'); 
+        const day = String(yesterday.getDate()).padStart(2, '0');
+
+        return `${year}-${month}-${day}`;
+    }
+
+    const getTodayDate = () => {
+        const today = new Date();
+
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const day = String(today.getDate()).padStart(2, '0');
+
+        return `${year}-${month}-${day}`;
+    }
     const onChangeDate = (e, index) => {
         if (!e) return
         let { day, month, year } = autoDate(e)
@@ -39,9 +71,11 @@ function FormFacture(props) {
     }
 
     const onSubmit = data => {
+        let userLocalStorage = []
         const formattedData = data.profile.map((item) => {
+            userLocalStorage.push(item.user)
             const selectedData = users[item.user];
-            const selectedMagasin = magasinList.find(magasin => magasin.id === parseInt(item.magasin, 10));
+            const selectedMagasin = magasinList.find(magasin => magasin.id === selectedData.magasinId);
             return {
                 lastName: selectedData.lastName,
                 adresse: selectedData.adresse,
@@ -59,6 +93,7 @@ function FormFacture(props) {
             };
         });
 
+        localStorage.setItem("user", JSON.stringify(userLocalStorage));
         setMainInfos({ profile: [...formattedData], currentProfile: formattedData[0] })
         closeModal()
     }
@@ -75,7 +110,6 @@ function FormFacture(props) {
                             <tr className='headerRow'>
                                 <th></th>
                                 <th>Utilisateur</th>
-                                <th>Magasin</th>
                                 <th>Commande</th>
                                 <th>Facturation</th>
                             </tr>
@@ -99,17 +133,6 @@ function FormFacture(props) {
                                         </select>
                                         {errors.profile?.[index]?.user && <p className="errorSelect">{errors.profile[index].user.message}</p>}
 
-                                    </td>
-                                    <td className='positionRelative'>
-                                        <select {...register(`profile.${index}.magasin`, { validate: value => value !== "null" || "choix obligatoire" })}>
-                                            <option value="null" hidden>Magasin</option>
-                                            {magasinList.map((magasin) => (
-                                                <option key={magasin.id} value={magasin.id}>
-                                                    {magasin.name}
-                                                </option>
-                                            ))}
-                                        </select>
-                                        {errors.profile?.[index]?.magasin && <p className="errorSelect">{errors.profile[index].magasin.message}</p>}
                                     </td>
                                     <td className='positionRelative'>
                                         <input type='date' onSelect={(e) => onChangeDate(e.target.value, index)} {...register(`profile.${index}.date`, { required: "date obligatoire" })}></input>
