@@ -79,12 +79,23 @@
     {
         "firstName": "Laurence",
         "lastName": "Camus",
-        "adresse": "1 Rue d'Ostende",
+        "adresse": "1 rue d'Ostende",
         "city": "Lille",
         "codePostal": "59000",
         "country": "France",
         "clientID": "5140336",
         "cardNumber": "4982715309841726358",
         "magasinId": 8
+    },
+    {
+        "firstName": "Quentin",
+        "lastName": "Millet",
+        "adresse": "17 rue Colette Besson",
+        "city": "Angoulins",
+        "codePostal": "17690",
+        "country": "France",
+        "clientID": "5153471",
+        "cardNumber": "6221048165233743450",
+        "magasinId": 9
     }
 ]

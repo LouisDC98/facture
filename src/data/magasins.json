@@ -100,5 +100,17 @@
             "Lun. au Sam.: 09:00 à 22:00",
             "Dim.: 09:00 à 12:30"
         ]
+    },
+    {
+        "id": 9,
+        "name":"Angoulins", 
+        "primary": "CENTRE COMMERCIEL CARREFOUR LILLE",
+        "secondary": "route nationale 137",
+        "tel": "05 46 51 23 79",
+        "ticket": "CARREFOUR ANGOULINS",
+        "horaires": [
+            "Lun. au Sam.: 08:30 à 21:00",
+            "Dim.: 08:30 à 12:30"
+        ]
     }
 ]
