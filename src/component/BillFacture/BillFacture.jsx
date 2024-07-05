@@ -4,6 +4,7 @@ import "./BillFacture.css"
 function Bill(props) {
     let { articles } = props
     let [nbrBags, setNbrBags] = useState(0)
+    console.log('articles', articles)
 
     const nbrArticles = 0;
     const sumWithInitial = articles.reduce(
@@ -24,6 +25,10 @@ function Bill(props) {
             return 4;
         }
     };
+
+    for (const element of articles) {
+        element.total = parseFloat((element.prixUnit * element.qtyCmd - element.prixRemise).toFixed(2));
+    }
 
     return (
         <div className='relativeFacture'>
