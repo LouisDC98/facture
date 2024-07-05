@@ -254,9 +254,9 @@ function HomePage() {
                 >
                     <ArticleModal closeModal={() => setOpenArticles(!openArticles)} setArticles={(e) => setArticles(e)} articles={articles} handleRandom={(nbrRandomArticles, articles) => { handleAddRandomArticles(nbrRandomArticles, articles) }} />
                 </CSSTransition>
-                {format ? <HeaderFacture firstProfile={mainInfos.currentProfile} /> : <HeaderTicket firstProfile={mainInfos.currentProfile} setHeure={(heure) => setHeure(heure)} />}
+                {format ? <HeaderFacture firstProfile={mainInfos.currentProfile} /> : <HeaderTicket firstProfile={mainInfos.currentProfile} setHeure={(heure) => setHeure(heure)} heure={heure} />}
                 {format ? <Bill articles={articles} /> : <BillTicket articles={articles} setArticles={(e) => { setArticles(e) }} />}
-                {format ? <BilanFacture totaux={totaux} tvaArray={tvaArray} /> : <BilanTicket cardNumber={mainInfos.cardNumber} totaux={totaux} tvaArray={tvaArray} />}
+                {format ? <BilanFacture totaux={totaux} tvaArray={tvaArray} /> : <BilanTicket cardNumber={mainInfos.currentProfile.cardNumber} totaux={totaux} tvaArray={tvaArray} />}
                 {format ? <FooterFacture /> : <FooterTicket mainInfos={mainInfos} heure={heure} />}
             </div>
         </div>

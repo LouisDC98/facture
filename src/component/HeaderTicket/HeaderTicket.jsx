@@ -4,12 +4,12 @@ import "./HeaderTicket.css"
 import logo from '../../assets/logoCarrefour.png'
 
 function HeaderTicket(props) {
-    let { firstProfile, setHeure } = props
+    let { firstProfile, setHeure, heure } = props
 
     useEffect(() => {
         let randomHour = heureAleatoire()
         setHeure(randomHour)
-    }, []);
+    });
 
     const heureAleatoire = () => {
         let minutesAleatoires = Math.floor(Math.random() * 300);
@@ -28,12 +28,12 @@ function HeaderTicket(props) {
             <section className='headerTicket'>
                 <img src={logo} alt="logoCarrefour" />
                 <h2 className='wrapperP'>{firstProfile?.magasin?.ticket ? firstProfile.magasin?.ticket : <span>TOULOUSE PURPAN</span>}</h2>
-                <p className='wrapperP telNumberTicket'>{firstProfile?.magasin?.tel ? firstProfile.magasin?.tel + " à " + heureAleatoire() : <span>06 66 66 66 66</span>}</p>
+                <p className='wrapperP telNumberTicket'>{firstProfile?.magasin?.tel ? firstProfile.magasin?.tel + " à " + heure : <span>06 66 66 66 66</span>}</p>
                 {firstProfile?.magasin?.horaires.map((option, index) => (
                     <p key={index}>{option}</p>
                 ))}
             </section>
-            <p className='wrapperP dateTicket'>{firstProfile?.date ? firstProfile.date + " à " + heureAleatoire() : <span>01/01/2000 à 01:01</span>}</p>
+            <p className='wrapperP dateTicket'>{firstProfile?.date ? firstProfile.date + " à " + heure : <span>01/01/2000 à 01:01</span>}</p>
         </>
     )
 }

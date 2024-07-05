@@ -18,7 +18,7 @@ function BillTicket(props) {
                 <tbody>
                     {articles.length > 0 && articles.map((article, index) => (
                         <tr key={index}>
-                            <td valign='top'>{article.tva.toFixed(1) + "%"}</td>
+                            <td valign='top'>{article.tva + "%"}</td>
                             <td valign='top'>{article.libelle} </td>
                             <td valign='top' className='alignEnd'>{article.qtyCmd + " x " + article.prixUnit.toFixed(2)}</td>
                             {/* <td valign='top' className='alignEnd'>{article.prixRemise !== 0 ? -article.prixRemise : ""}</td> */}
