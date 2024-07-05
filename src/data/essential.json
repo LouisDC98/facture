@@ -67,6 +67,14 @@
             "prixRemise": 0
         },
         {
+            "code": "3119780268894",
+            "libelle": "HEINEKEN Bière blonde 5% fût pression 5L",
+            "qtyCmd": 4,
+            "tva": 20,
+            "prixUnit": 22.8,
+            "prixRemise": 0
+        },
+        {
             "code": "3080216055305",
             "libelle": "Bière Sans Alcool Aromatisée au jus de Framboise 0,0% TOURTEL TWIST ",
             "qtyCmd": 3,
