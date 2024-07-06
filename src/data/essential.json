@@ -75,6 +75,14 @@
             "prixRemise": 0
         },
         {
+            "code": "3080216061351",
+            "libelle": "Bière Blonde KRONENBOURG 30x25cl",
+            "qtyCmd": 4,
+            "tva": 20,
+            "prixUnit": 19.21,
+            "prixRemise": 0
+        },
+        {
             "code": "3080216055305",
             "libelle": "Bière Sans Alcool Aromatisée au jus de Framboise 0,0% TOURTEL TWIST ",
             "qtyCmd": 3,
