@@ -8,7 +8,8 @@
         "country": "France",
         "clientID": "5092060",
         "cardNumber": "8136204390218357912",
-        "magasinId": 1
+        "magasinId": 1,
+        "ownerID": 1
     },
     {
         "firstName": "Yohan",
@@ -19,7 +20,8 @@
         "country": "France",
         "clientID": "5024049",
         "cardNumber": "6254973180423560809",
-        "magasinId": 2
+        "magasinId": 2,
+        "ownerID": 2
     },
     {
         "firstName": "Paul",
@@ -30,7 +32,8 @@
         "country": "France",
         "clientID": "5019253",
         "cardNumber": "4790386215096327154",
-        "magasinId": 3
+        "magasinId": 3,
+        "ownerID": 1
     },
     {
         "firstName": "Hugo",
@@ -41,7 +44,8 @@
         "country": "France",
         "clientID": "5167204",
         "cardNumber": "7035124982309561874",
-        "magasinId": 4
+        "magasinId": 4,
+        "ownerID": 2
     },
     {
         "firstName": "Tom",
@@ -52,7 +56,8 @@
         "country": "France",
         "clientID": "5197537",
         "cardNumber": "7035124637309599138",
-        "magasinId": 5
+        "magasinId": 5,
+        "ownerID": 2
     },
     {
         "firstName": "Victor",
@@ -63,7 +68,8 @@
         "country": "France",
         "clientID": "5188601",
         "cardNumber": "7035124963309544434",
-        "magasinId": 6
+        "magasinId": 6,
+        "ownerID": 2
     },
     {
         "firstName": "Jessica",
@@ -74,7 +80,8 @@
         "country": "France",
         "clientID": "5146270",
         "cardNumber": "8243716954872103921",
-        "magasinId": 7
+        "magasinId": 7,
+        "ownerID": 1
     },
     {
         "firstName": "Laurence",
@@ -85,7 +92,8 @@
         "country": "France",
         "clientID": "5140336",
         "cardNumber": "4982715309841726358",
-        "magasinId": 8
+        "magasinId": 8,
+        "ownerID": 1
     },
     {
         "firstName": "Quentin",
@@ -96,6 +104,7 @@
         "country": "France",
         "clientID": "5153471",
         "cardNumber": "6221048165233743450",
-        "magasinId": 9
+        "magasinId": 9,
+        "ownerID": 1
     }
 ]

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import './FormFacture.css'
 import users from "../../../data/users.json"
 import { useForm, useFieldArray } from "react-hook-form";
@@ -48,7 +48,7 @@ function FormFacture(props) {
         yesterday.setDate(today.getDate() - 1);
 
         const year = yesterday.getFullYear();
-        const month = String(yesterday.getMonth() + 1).padStart(2, '0'); 
+        const month = String(yesterday.getMonth() + 1).padStart(2, '0');
         const day = String(yesterday.getDate()).padStart(2, '0');
 
         return `${year}-${month}-${day}`;
@@ -98,6 +98,13 @@ function FormFacture(props) {
         closeModal()
     }
 
+    const groupedUsers = useMemo(() => {
+        return users.reduce((acc, user) => {
+            (acc[user.ownerID] = acc[user.ownerID] || []).push(user);
+            return acc;
+        }, {});
+    }, [users]);
+
     return (
         <div className='displayModal'>
             <div className='modalBg modalBgFacture'>
@@ -125,10 +132,14 @@ function FormFacture(props) {
                                             validate: value => value !== "null" || "choix obligatoire"
                                         })}>
                                             <option value="null" hidden>Nom</option>
-                                            {users.map((option, optIndex) => (
-                                                <option key={optIndex} value={optIndex}>
-                                                    {option.firstName}
-                                                </option>
+                                            {Object.keys(groupedUsers).map((ownerID) => (
+                                                <optgroup key={ownerID} label={Number(ownerID) === 1 ? "Louis" : "Yohan"}>
+                                                    {groupedUsers[ownerID].map((user, optIndex) => (
+                                                        <option key={optIndex} value={optIndex}>
+                                                            {user.firstName}
+                                                        </option>
+                                                    ))}
+                                                </optgroup>
                                             ))}
                                         </select>
                                         {errors.profile?.[index]?.user && <p className="errorSelect">{errors.profile[index].user.message}</p>}
