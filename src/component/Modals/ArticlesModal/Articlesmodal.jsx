@@ -79,6 +79,9 @@ function ArticlesModal(props) {
             .reverse();
 
         indicesToRemove.forEach(index => remove(index));
+
+        const filteredFields = fields.filter(article => !article.random);
+        setArticles(filteredFields);
     };
 
     const categoryList = [
