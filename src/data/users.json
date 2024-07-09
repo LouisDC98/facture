@@ -106,5 +106,17 @@
         "cardNumber": "6221048165233743450",
         "magasinId": 9,
         "ownerID": 1
+    },
+    {
+        "firstName": "Thomas",
+        "lastName": "Luzat",
+        "adresse": "24 rue de la Violette",
+        "city": "Tours",
+        "codePostal": "37700",
+        "country": "France",
+        "clientID": "5148942",
+        "cardNumber": "4128731436074842658",
+        "magasinId": 6,
+        "ownerID": 2
     }
 ]
