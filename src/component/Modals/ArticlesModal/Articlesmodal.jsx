@@ -72,6 +72,15 @@ function ArticlesModal(props) {
         handleRandom(nbrRandomArticles, articles)
     };
 
+    const handleDeleteRandom = () => {
+        const indicesToRemove = fields
+            .map((article, index) => article.random ? index : -1)
+            .filter(index => index !== -1)
+            .reverse();
+
+        indicesToRemove.forEach(index => remove(index));
+    };
+
     const categoryList = [
         "Hygiène & beauté",
         "À boire",
@@ -103,9 +112,13 @@ function ArticlesModal(props) {
                             ))}
                         </div>
                     </div>
-                    <div className='divRandom'>+
-                        <input type='number' placeholder='0' onChange={(e) => setNbrRandomArticles(e.target.value)}></input>
-                        <button className='saveRandomBtn' onClick={() => handleRandomChild()}>articles random</button>
+                    <div className='divRandom'>
+                        <div>
+                            +
+                            <input type='number' placeholder='0' onChange={(e) => setNbrRandomArticles(e.target.value)}></input>
+                            <button className='saveRandomBtn' onClick={() => handleRandomChild()}>articles random</button>
+                        </div>
+                        <button className='saveRandomBtn deleteRandomBtn' onClick={() => handleDeleteRandom()}>delete randoms</button>
                     </div>
                 </div>
 

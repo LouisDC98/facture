@@ -227,6 +227,10 @@
         text-wrap: nowrap;
     }
 
+    .deleteRandomBtn {
+        margin-left: 10px;
+    }
+
     .saveRandomBtn:hover {
         color: white;
         background-color: hsl(345deg 100% 47%);
