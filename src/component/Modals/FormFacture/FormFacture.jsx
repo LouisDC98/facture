@@ -135,7 +135,7 @@ function FormFacture(props) {
                                             {Object.keys(groupedUsers).map((ownerID) => (
                                                 <optgroup key={ownerID} label={Number(ownerID) === 1 ? "Louis" : "Yohan"}>
                                                     {groupedUsers[ownerID].map((user, optIndex) => (
-                                                        <option key={optIndex} value={optIndex}>
+                                                        <option key={optIndex} value={user.userID}>
                                                             {user.firstName}
                                                         </option>
                                                     ))}
