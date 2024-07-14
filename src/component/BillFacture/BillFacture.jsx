@@ -68,7 +68,7 @@ function Bill(props) {
                             <p className='subArticle'>Nb sac(s) livré(s) : {nbrBags} / Nb sac(s) rendu(s) : {nbrBags-2}</p>
                         </td>
                         <td valign='top' className='alignEnd'>{nbrBags}</td>
-                        <td valign='top' className='alignEnd'>{nbrBags-2}</td>
+                        <td valign='top' className='alignEnd'>2</td>
                         <td valign='top' className='alignEnd'>0</td>
                         <td valign='top' className='alignEnd'>0.35</td>
                         <td valign='top' className='alignEnd'></td>
