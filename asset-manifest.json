@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/facture/static/css/main.adaf3ccc.css",
+    "main.css": "/facture/static/css/main.ea44931d.css",
     "main.js": "/facture/static/js/main.c65a7cd3.js",
     "static/media/duneMore.gif": "/facture/static/media/duneMore.0de0ebe935a5b5d521d2.gif",
     "static/media/duneSlience.gif": "/facture/static/media/duneSlience.fabec932b84ee29c30b4.gif",
@@ -14,11 +14,11 @@
     "static/media/arrow_down.svg": "/facture/static/media/arrow_down.8967a58681906be9bf0bf7c140bf1bea.svg",
     "static/media/plus.svg": "/facture/static/media/plus.32bd23b548216c67faf7.svg",
     "static/media/delete.svg": "/facture/static/media/delete.0d99cc422554b3a1952d.svg",
-    "main.adaf3ccc.css.map": "/facture/static/css/main.adaf3ccc.css.map",
+    "main.ea44931d.css.map": "/facture/static/css/main.ea44931d.css.map",
     "main.c65a7cd3.js.map": "/facture/static/js/main.c65a7cd3.js.map"
   },
   "entrypoints": [
-    "static/css/main.adaf3ccc.css",
+    "static/css/main.ea44931d.css",
     "static/js/main.c65a7cd3.js"
   ]
 }
