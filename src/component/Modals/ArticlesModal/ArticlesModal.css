@@ -1,3 +1,23 @@
+@media only screen and (hover: none) and (pointer: coarse) {
+    .modalBgArticle {
+        max-height: none !important;
+        width: 80%;
+        overflow: auto;
+    }
+
+    .checkBoxDiv {
+        margin: 30px 0;
+
+        input {
+            transform: scale(3);
+        }
+
+        p {
+            font-size: 16px !important;
+        }
+    }
+}
+
 .modalBgArticle {
     padding: 0px 30px 60px 30px;
     max-height: 70vh;
@@ -246,4 +266,12 @@
     right: 30px;
     bottom: 2px;
     transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+@media only screen and (hover: none) and (pointer: coarse) {
+    .submitArticle {
+        position: inherit;
+        font-size: 20px;
+    }
 }

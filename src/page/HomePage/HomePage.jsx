@@ -27,7 +27,7 @@ import duneMore from "../../assets/duneMore.gif"
 
 function HomePage() {
     const fileInputRef = useRef(null);
-    let [openForm, setOpenForm] = useState(true)
+    let [openForm, setOpenForm] = useState(!(window.innerWidth < 1000))
     let [mainInfos, setMainInfos] = useState({})
     let [articles, setArticles] = useState([])
     let [tvaArray, setTvaArray] = useState([])
@@ -36,7 +36,7 @@ function HomePage() {
     let [totaux, setTotaux] = useState({ totalRemises: 0, totalPanier: 0, totalNbrArticle: 0 })
     let [openBarCode, setOpenBarCode] = useState(false)
     let [openTroll, setOpenTroll] = useState(false)
-    let [openArticles, setOpenArticles] = useState(false)
+    let [openArticles, setOpenArticles] = useState(window.innerWidth < 1000)
     let [gif, setGif] = useState(undefined)
 
     const handleExportPNG = async () => {
@@ -79,6 +79,8 @@ function HomePage() {
                 });
         }
     };
+
+    let isMobile = window.innerWidth < 1000
 
     useEffect(() => {
         if (articles.length > 0) {
@@ -252,7 +254,7 @@ function HomePage() {
                     classNames="modal"
                     unmountOnExit
                 >
-                    <ArticleModal closeModal={() => setOpenArticles(!openArticles)} setArticles={(e) => setArticles(e)} articles={articles} handleRandom={(nbrRandomArticles, articles) => { handleAddRandomArticles(nbrRandomArticles, articles) }} />
+                    <ArticleModal closeModal={() => setOpenArticles(!openArticles)} setArticles={(e) => { setArticles(e); isMobile && setOpenBarCode(!openBarCode) }} articles={articles} isMobile={isMobile} handleRandom={(nbrRandomArticles, articles) => { handleAddRandomArticles(nbrRandomArticles, articles) }} />
                 </CSSTransition>
                 {format ? <HeaderFacture firstProfile={mainInfos.currentProfile} /> : <HeaderTicket firstProfile={mainInfos.currentProfile} setHeure={(heure) => setHeure(heure)} heure={heure} />}
                 {format ? <Bill articles={articles} /> : <BillTicket articles={articles} setArticles={(e) => { setArticles(e) }} />}
