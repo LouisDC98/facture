@@ -15,7 +15,7 @@ function Accordion({ title, articles, fields, handleCheckboxChange }) {
                 <img src={arrow} alt='openAccordion' className="accordionOpenBtn" />
             </div>
             <div className="accordionContent" aria-expanded={open}>
-                {articles.map((article, index) => (
+                {articles.filter(article => article.active).map((article, index) => (
                     <div key={index} className='checkBoxDiv'>
                         <input
                             type="checkbox"

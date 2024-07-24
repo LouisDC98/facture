@@ -1,6 +1,7 @@
 [
     [
         {
+            "active": true,
             "code": "8006540036853",
             "libelle": "Lessive ARIEL PODS Color 70D",
             "qtyCmd": 2,
@@ -9,6 +10,7 @@
             "prixRemise": 0
         },
         {
+            "active": true,
             "code": "8006540447291",
             "libelle": "Lessive ARIEL liquide POWER Alpine 70D",
             "qtyCmd": 2,
@@ -17,6 +19,7 @@
             "prixRemise": 0
         },
         {
+            "active": true,
             "code": "8006540967027",
             "libelle": "Lessive DASH PODS Air Frais & Fleurs Blanches 40D",
             "qtyCmd": 2,
@@ -25,6 +28,7 @@
             "prixRemise": 0
         },
         {
+            "active": true,
             "code": "8700216319096",
             "libelle": "Lessive DASH PODS EXTRA Fraîcheur de Coton 28D",
             "qtyCmd": 1,
@@ -33,6 +37,7 @@
             "prixRemise": 0
         },
         {
+            "active": true,
             "code": "5601028026901",
             "libelle": "PAPIER TOILETTE Magic RENOVA 12R",
             "qtyCmd": 4,
@@ -41,6 +46,7 @@
             "prixRemise": 0
         },
         {
+            "active": true,
             "code": "5601028035040",
             "libelle": "PAPIER TOILETTE Toucher Magique Ultra Confort 6R",
             "qtyCmd": 4,
@@ -49,6 +55,7 @@
             "prixRemise": 0
         },
         {
+            "active": true,
             "code": "5601028032209",
             "libelle": "Papier Hygiénique RENOVA ultra propre 4 plis 6R",
             "qtyCmd": 4,
@@ -59,6 +66,7 @@
     ],
     [
         {
+            "active": true,
             "code": "3119789830498",
             "libelle": "Bière Blonde Premium HEINEKEN 28x25cl",
             "qtyCmd": 4,
@@ -67,6 +75,7 @@
             "prixRemise": 0
         },
         {
+            "active": true,
             "code": "3119780268894",
             "libelle": "HEINEKEN Bière blonde 5% fût pression 5L",
             "qtyCmd": 4,
@@ -75,6 +84,7 @@
             "prixRemise": 0
         },
         {
+            "active": true,
             "code": "3080216061351",
             "libelle": "Bière Blonde KRONENBOURG 30x25cl",
             "qtyCmd": 4,
@@ -83,6 +93,7 @@
             "prixRemise": 0
         },
         {
+            "active": false,
             "code": "3080216055305",
             "libelle": "Bière Sans Alcool Aromatisée au jus de Framboise 0,0% TOURTEL TWIST ",
             "qtyCmd": 3,
@@ -91,6 +102,7 @@
             "prixRemise": 0
         },
         {
+            "active": false,
             "code": "3080216055275",
             "libelle": "Bière Sans Alcool Aromatisée au jus de Citron 0,0% TOURTEL TWIST ",
             "qtyCmd": 3,
@@ -101,6 +113,7 @@
     ],
     [
         {
+            "active": true,
             "code": "5014328094011",
             "libelle": "TETLEY Thé noir English Breakfast intense et subtil",
             "qtyCmd": 3,
@@ -109,6 +122,7 @@
             "prixRemise": 0
         },
         {
+            "active": true,
             "code": "4006000024141",
             "libelle": "Crème Visage Hydratante 2en1 Anti Taches",
             "qtyCmd": 1,
