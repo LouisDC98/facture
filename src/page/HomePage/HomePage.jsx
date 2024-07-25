@@ -95,12 +95,14 @@ function HomePage() {
     }, [articles]);
 
     const handleShuffleArticle = (customArticle) => {
-        const updatedArticles = [...customArticle];
-        for (let i = updatedArticles.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [updatedArticles[i], updatedArticles[j]] = [updatedArticles[j], updatedArticles[i]];
+        if (customArticle?.length > 0) {
+            const updatedArticles = [...customArticle];
+            for (let i = updatedArticles.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [updatedArticles[i], updatedArticles[j]] = [updatedArticles[j], updatedArticles[i]];
+            }
+            setArticles(updatedArticles)
         }
-        setArticles(updatedArticles)
     }
 
     const handleAddRandomArticles = (nbrToAdd, listArticle) => {
