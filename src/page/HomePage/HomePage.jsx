@@ -71,7 +71,7 @@ function HomePage() {
             html2canvas(element, options)
                 .then((canvas) => {
                     canvas.toBlob((blob) => {
-                        saveAs(blob, `facture_${mainInfos?.currentProfile.factureNumber}.png`);
+                        saveAs(blob, `facture_${mainInfos.profile[i].factureNumber}.png`);
                     }, 'image/png', 1);
                 })
                 .catch((error) => {
