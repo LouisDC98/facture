@@ -2,6 +2,15 @@
     [
         {
             "active": true,
+            "code": "3178041361729",
+            "libelle": "Lessive LE CHAT l'expert bicarbonate 44D",
+            "qtyCmd": 3,
+            "tva": 20,
+            "prixUnit": 15.05,
+            "prixRemise": 0
+        },
+        {
+            "active": true,
             "code": "8006540036853",
             "libelle": "Lessive ARIEL PODS Color 70D",
             "qtyCmd": 2,
