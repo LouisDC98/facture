@@ -105,7 +105,7 @@ function HomePage() {
         }
     }
 
-    const handleAddRandomArticles = (nbrToAdd, listArticle) => {
+    const handleAddRandomArticles = (nbrToAdd, listArticle, initial) => {
         if (nbrToAdd < 0) {
             setGif(duneSilence)
             setOpenTroll(true)
@@ -117,6 +117,13 @@ function HomePage() {
             return
         }
         const shuffledRandomArticles = [...randomArticles].sort(() => 0.5 - Math.random());
+        if (!initial) {
+            if (nbrToAdd > 2 && nbrToAdd <= 6) {
+                nbrToAdd += Math.floor(Math.random() * nbrToAdd - 1)
+            } else if (nbrToAdd > 6) {
+                nbrToAdd -= Math.floor(Math.random() * nbrToAdd - 1)
+            }
+        }
         const selectedArticles = shuffledRandomArticles.slice(0, nbrToAdd);
 
         const updatedArticles = selectedArticles.map(article => {
@@ -256,7 +263,7 @@ function HomePage() {
                     classNames="modal"
                     unmountOnExit
                 >
-                    <ArticleModal closeModal={() => setOpenArticles(!openArticles)} setArticles={(e) => { setArticles(e); isMobile && setOpenBarCode(!openBarCode) }} articles={articles} isMobile={isMobile} handleRandom={(nbrRandomArticles, articles) => { handleAddRandomArticles(nbrRandomArticles, articles) }} />
+                    <ArticleModal closeModal={() => setOpenArticles(!openArticles)} setArticles={(e) => { setArticles(e); isMobile && setOpenBarCode(!openBarCode) }} articles={articles} isMobile={isMobile} handleRandom={(nbrRandomArticles, articles) => { handleAddRandomArticles(nbrRandomArticles, articles, true) }} />
                 </CSSTransition>
                 {format ? <HeaderFacture firstProfile={mainInfos.currentProfile} /> : <HeaderTicket firstProfile={mainInfos.currentProfile} setHeure={(heure) => setHeure(heure)} heure={heure} />}
                 {format ? <Bill articles={articles} /> : <BillTicket articles={articles} setArticles={(e) => { setArticles(e) }} />}
