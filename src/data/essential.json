@@ -1,7 +1,7 @@
 [
     [
         {
-            "active": true,
+            "active": false,
             "code": "3178041361729",
             "libelle": "Lessive LE CHAT l'expert bicarbonate 44D",
             "qtyCmd": 3,
@@ -46,7 +46,7 @@
             "prixRemise": 0
         },
         {
-            "active": true,
+            "active": false,
             "code": "5601028026901",
             "libelle": "PAPIER TOILETTE Magic RENOVA 12R",
             "qtyCmd": 4,
@@ -55,7 +55,7 @@
             "prixRemise": 0
         },
         {
-            "active": true,
+            "active": false,
             "code": "5601028035040",
             "libelle": "PAPIER TOILETTE Toucher Magique Ultra Confort 6R",
             "qtyCmd": 4,
@@ -64,12 +64,39 @@
             "prixRemise": 0
         },
         {
-            "active": true,
+            "active": false,
             "code": "5601028032209",
             "libelle": "Papier Hygiénique RENOVA ultra propre 4 plis 6R",
             "qtyCmd": 4,
             "tva": 20,
             "prixUnit": 5.1,
+            "prixRemise": 0
+        },
+        {
+            "active": true,
+            "code": "8718951551923",
+            "libelle": "Adoucissant Grand Air SOUPLINE",
+            "qtyCmd": 2,
+            "tva": 20,
+            "prixUnit": 9.19,
+            "prixRemise": 0
+        },
+        {
+            "active": true,
+            "code": "8718951579989",
+            "libelle": "Adoucissant à la Lavande SOUPLINE",
+            "qtyCmd": 2,
+            "tva": 20,
+            "prixUnit": 9.19,
+            "prixRemise": 0
+        },
+        {
+            "active": true,
+            "code": "8718951581302",
+            "libelle": "Adoucissant Hypoallergénique SOUPLINE",
+            "qtyCmd": 2,
+            "tva": 20,
+            "prixUnit": 9.19,
             "prixRemise": 0
         }
     ],
