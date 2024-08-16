@@ -30,9 +30,9 @@ function HeaderFacture(props) {
                 <div className='adressInfo'>
                     <p >Adresse de facturation</p>
                     <p className='marginLeft wrapperP'>{firstProfile ? `${firstProfile.lastName} ${firstProfile.firstName}` : <span>Maxime DUPONT</span>}</p>
-                    <p className='marginLeft wrapperP'>{firstProfile ? firstProfile.adresse : <span>11 avenue des Champs Elysées</span>}</p>
-                    <p className='marginLeft wrapperP'>{firstProfile ? `${firstProfile.codePostal} ${firstProfile.city}` : <span>99 999 Paris</span>}</p>
-                    <p className='marginLeft wrapperP'>{firstProfile ? firstProfile.country : <span>France</span>}</p><br />
+                    <p className='marginLeft wrapperP upperCase'>{firstProfile ? firstProfile.adresse : <span>11 avenue des Champs Elysées</span>}</p>
+                    <p className='marginLeft wrapperP upperCase'>{firstProfile ? `${firstProfile.codePostal} ${firstProfile.city}` : <span>99 999 Paris</span>}</p>
+                    <p className='marginLeft wrapperP upperCase'>{firstProfile ? firstProfile.country : <span>France</span>}</p><br />
                 </div>
             </section>
             <section className='dateRow'>
