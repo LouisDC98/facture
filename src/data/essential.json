@@ -10,12 +10,21 @@
             "prixRemise": 0
         },
         {
-            "active": true,
+            "active": false,
             "code": "8006540036853",
             "libelle": "Lessive ARIEL PODS Color 70D",
             "qtyCmd": 2,
             "tva": 20,
             "prixUnit": 59.95,
+            "prixRemise": 0
+        },
+        {
+            "active": true,
+            "code": "8700216114035",
+            "libelle": "Lessive ARIEL PODS All in 1 39D",
+            "qtyCmd": 2,
+            "tva": 20,
+            "prixUnit": 22.82,
             "prixRemise": 0
         },
         {
