@@ -1,20 +1,74 @@
+/* Styles globaux pour l'affichage desktop */
 .modalBgBarCode {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     row-gap: 20px;
+    column-gap: 20px;
     padding: 20px;
+}
+
+.codeBarsize {
+    height: 150px;
+    width: 100%;
+    filter: blur(5px);
+}
+
+.codeBarsize:hover {
+    filter: blur(0px);
+}
+
+.centerP {
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.centerP p {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+/* Styles pour les écrans tactiles */
+@media only screen and (hover: none) and (pointer: coarse) {
+    .modalBgMobile {
+        width: 95%;
+        height: 95%;
+        overflow: auto;
+        background-color: yellow;
+    }
+
+    .modalBgBarCode {
+        grid-template-rows: 100%;
+        /* grid-template-columns: repeat(auto-fit, 100vh); */
+        place-items: center;
+        /* background-color: pink; */
+        transform: rotate(90deg);
+    }
 
     .codeBarsize {
-        height: 150px;
-        filter: blur(5px);
-    }
-    .codeBarsize:hover {
-        filter: blur(0px);
-        /* height: 150px; */
+        /* height: auto; */
+        width: 100vh;
+        /* transform: rotate(90deg); */
     }
 
     .centerP {
-        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+        /* transform: rotate(90deg); */
+        /* background-color: green; */
     }
 
+    .centerP p {
+        font-size: 20px !important;
+        margin-bottom: 20px;
+        position: relative;
+        /* transform: rotate(-90deg); */
+    }
 }

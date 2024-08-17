@@ -7,7 +7,7 @@ function BarCodeModal(props) {
 
     return (
         <div className='displayModal'>
-            <div className='modalBg'>
+            <div className='modalBg modalBgMobile'>
                 <button onClick={() => closeModal()} className='buttonIcon closeButton' />
                 <div className='modalBgBarCode'>
                     {articles.map((article, index) => (
