@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/facture/static/css/main.a19b0ad7.css",
-    "main.js": "/facture/static/js/main.552eff9c.js",
+    "main.css": "/facture/static/css/main.0678ba8d.css",
+    "main.js": "/facture/static/js/main.05b08ec6.js",
     "static/media/duneMore.gif": "/facture/static/media/duneMore.0de0ebe935a5b5d521d2.gif",
     "static/media/duneSlience.gif": "/facture/static/media/duneSlience.fabec932b84ee29c30b4.gif",
     "static/media/carteFidelite.jpg": "/facture/static/media/carteFidelite.a4a4b51166e7258b72b5.jpg",
@@ -14,11 +14,11 @@
     "static/media/arrow_down.svg": "/facture/static/media/arrow_down.8967a58681906be9bf0bf7c140bf1bea.svg",
     "static/media/plus.svg": "/facture/static/media/plus.32bd23b548216c67faf7.svg",
     "static/media/delete.svg": "/facture/static/media/delete.0d99cc422554b3a1952d.svg",
-    "main.a19b0ad7.css.map": "/facture/static/css/main.a19b0ad7.css.map",
-    "main.552eff9c.js.map": "/facture/static/js/main.552eff9c.js.map"
+    "main.0678ba8d.css.map": "/facture/static/css/main.0678ba8d.css.map",
+    "main.05b08ec6.js.map": "/facture/static/js/main.05b08ec6.js.map"
   },
   "entrypoints": [
-    "static/css/main.a19b0ad7.css",
-    "static/js/main.552eff9c.js"
+    "static/css/main.0678ba8d.css",
+    "static/js/main.05b08ec6.js"
   ]
 }
