@@ -44,6 +44,10 @@
     background-color: hsl(345deg 100% 47%);
 }
 
+.saveButtonAndOpen {
+    right: 140px;
+}
+
 input {
     border-radius: 5px;
     border: 1px solid black;

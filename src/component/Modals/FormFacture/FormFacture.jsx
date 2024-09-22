@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { useEffect, useMemo, useState, useCallback} from 'react'
 import './FormFacture.css'
 import users from "../../../data/users.json"
 import { useForm, useFieldArray } from "react-hook-form";
@@ -7,7 +7,8 @@ import magasinList from "../../../data/magasins.json"
 import { randomFactureNbr, randomCommandNbr, autoDate, formatDate, formatDateRevert } from "../../../callBack.js"
 
 function FormFacture(props) {
-    let { closeModal, setMainInfos, mainInfos } = props
+    let { closeModal, setMainInfos, mainInfos, setOpenArticles } = props
+    let [submitAndOpen, setSubmitAndOpen] = useState(false)
 
     const { register, handleSubmit, setValue, control, formState: { errors } } = useForm();
     const { fields, append, remove } = useFieldArray({
@@ -17,24 +18,26 @@ function FormFacture(props) {
 
     useEffect(() => {
         if (mainInfos.profile?.length > 0) {
+            const updatedFields = mainInfos.profile.map((element, i) => ({
+                user: users.findIndex(e => e.firstName === element.firstName),
+                magasin: magasinList.find(e => e.name === element.magasin.name).id,
+                date: formatDateRevert(element.date),
+                dateFacturation: formatDateRevert(element.dateFacturation),
+            }));
 
-            mainInfos.profile.forEach((element, i) => {
-                append({ user: "null", magasin: "null", date: "", dateFacturation: "" });
-
-                setValue(`profile.${i}.user`, users.findIndex(e => e.firstName === element.firstName), { shouldValidate: true });
-                setValue(`profile.${i}.magasin`, magasinList.find(e => e.name === element.magasin.name).id, { shouldValidate: true });
-                setValue(`profile.${i}.date`, formatDateRevert(element.date), { shouldValidate: true });
-                setValue(`profile.${i}.dateFacturation`, formatDateRevert(element.dateFacturation), { shouldValidate: true });
-            });
+            append(updatedFields, { shouldFocus: false });
         } else {
-            let localData = localStorage.getItem("user")
+            let localData = localStorage.getItem("user");
             if (localData) {
-                let arrayData = JSON.parse(localData);
+                const arrayData = JSON.parse(localData);
+                const updatedFields = arrayData.map((element, i) => ({
+                    user: element,
+                    magasin: "null",
+                    date: getYesterdayDate(),
+                    dateFacturation: getTodayDate(),
+                }));
 
-                arrayData.forEach((element, i) => {
-                    append({ user: "null", magasin: "null", date: getYesterdayDate(), dateFacturation: getTodayDate() });
-                    setValue(`profile.${i}.user`, element, { shouldValidate: true });
-                });
+                append(updatedFields, { shouldFocus: false });
             } else if (fields.length === 0) {
                 append({ user: "null", magasin: "null", date: getYesterdayDate(), dateFacturation: getTodayDate() });
             }
@@ -42,61 +45,55 @@ function FormFacture(props) {
     }, [mainInfos]);
 
 
-    const getYesterdayDate = () => {
+    const getYesterdayDate = useCallback(() => {
         const today = new Date();
         const yesterday = new Date(today);
         yesterday.setDate(today.getDate() - 1);
-
-        const year = yesterday.getFullYear();
-        const month = String(yesterday.getMonth() + 1).padStart(2, '0');
-        const day = String(yesterday.getDate()).padStart(2, '0');
-
-        return `${year}-${month}-${day}`;
-    }
-
-    const getTodayDate = () => {
+    
+        return yesterday.toISOString().split('T')[0];
+    }, []);
+    
+    const getTodayDate = useCallback(() => {
         const today = new Date();
-
-        const year = today.getFullYear();
-        const month = String(today.getMonth() + 1).padStart(2, '0');
-        const day = String(today.getDate()).padStart(2, '0');
-
-        return `${year}-${month}-${day}`;
-    }
-    const onChangeDate = (e, index) => {
-        if (!e) return
-        let { day, month, year } = autoDate(e)
-        let facturationDate = year + '-' + month + '-' + day
+        return today.toISOString().split('T')[0];
+    }, []);
+    
+    const onChangeDate = useCallback((e, index) => {
+        if (!e) return;
+        let { day, month, year } = autoDate(e);
+        let facturationDate = `${year}-${month}-${day}`;
         setValue(`profile.${index}.dateFacturation`, facturationDate, { shouldValidate: true });
-    }
+    }, [setValue]);
 
     const onSubmit = data => {
-        let userLocalStorage = []
-        const formattedData = data.profile.map((item) => {
-            userLocalStorage.push(item.user)
-            const selectedData = users[item.user];
-            const selectedMagasin = magasinList.find(magasin => magasin.id === selectedData.magasinId);
+        const userLocalStorage = [];
+        const formattedData = data.profile.map(item => {
+            userLocalStorage.push(item.user);
+            const selectedUser = users[item.user];
+            const selectedMagasin = magasinList.find(magasin => magasin.id === selectedUser.magasinId);
+
             return {
-                lastName: selectedData.lastName,
-                adresse: selectedData.adresse,
-                cardNumber: selectedData.cardNumber,
-                city: selectedData.city,
-                clientID: selectedData.clientID,
-                codePostal: selectedData.codePostal,
-                country: selectedData.country,
-                firstName: selectedData.firstName,
+                ...selectedUser,
                 magasin: selectedMagasin,
                 date: formatDate(item.date),
                 dateFacturation: formatDate(item.dateFacturation),
                 factureNumber: randomFactureNbr(),
-                commandNumber: randomCommandNbr()
+                commandNumber: randomCommandNbr(),
             };
         });
 
         localStorage.setItem("user", JSON.stringify(userLocalStorage));
-        setMainInfos({ profile: [...formattedData], currentProfile: formattedData[0] })
-        closeModal()
-    }
+        setMainInfos({
+            profile: [...formattedData],
+            currentProfile: formattedData[0]
+        });
+        closeModal();
+
+        if (submitAndOpen) {
+            setOpenArticles(true);
+        }
+        setSubmitAndOpen(false);
+    };
 
     const groupedUsers = useMemo(() => {
         return users.reduce((acc, user) => {
@@ -129,7 +126,7 @@ function FormFacture(props) {
                                     </td>
                                     <td className='positionRelative'>
                                         <select {...register(`profile.${index}.user`, {
-                                            validate: value => value !== "null" || "choix obligatoire"
+                                            validate: value => value !== "null" || "obligatoire"
                                         })}>
                                             <option value="null" hidden>Nom</option>
                                             {Object.keys(groupedUsers).map((ownerID) => (
@@ -146,11 +143,11 @@ function FormFacture(props) {
 
                                     </td>
                                     <td className='positionRelative'>
-                                        <input type='date' onSelect={(e) => onChangeDate(e.target.value, index)} {...register(`profile.${index}.date`, { required: "date obligatoire" })}></input>
+                                        <input type='date' onSelect={(e) => onChangeDate(e.target.value, index)} {...register(`profile.${index}.date`, { required: "obligatoire" })}></input>
                                         {errors.profile?.[index]?.date && <p className="error">{errors.profile[index].date.message}</p>}
                                     </td>
                                     <td className='positionRelative'>
-                                        <input type='date' {...register(`profile.${index}.dateFacturation`, { required: "date obligatoire" })}></input>
+                                        <input type='date' {...register(`profile.${index}.dateFacturation`, { required: "obligatoire" })}></input>
                                         {errors.profile?.[index]?.dateFacturation && <p className="error">{errors.profile[index].dateFacturation.message}</p>}
                                     </td>
                                 </tr>
@@ -174,6 +171,7 @@ function FormFacture(props) {
                         </tfoot>
 
                     </table>
+                    <button type='submit' className='saveButton saveButtonAndOpen' onClick={() => setSubmitAndOpen(true)}>Sauvegarder et choisir articles</button>
                     <button type='submit' className='saveButton'>Sauvegarder</button>
                 </form>
 

@@ -255,7 +255,7 @@ function HomePage() {
                     classNames="modal"
                     unmountOnExit
                 >
-                    <FormFacture closeModal={() => setOpenForm(!openForm)} setMainInfos={(e) => setMainInfos(e)} mainInfos={mainInfos} />
+                    <FormFacture closeModal={() => setOpenForm(!openForm)} setMainInfos={(e) => setMainInfos(e)} mainInfos={mainInfos} setOpenArticles={(e) => setOpenArticles(e)}/>
                 </CSSTransition>
                 <CSSTransition
                     in={openArticles}
