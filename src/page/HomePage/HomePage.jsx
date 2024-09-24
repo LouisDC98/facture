@@ -247,15 +247,15 @@ function HomePage() {
                 <p>ticket</p>
             </div>
             <div className={`a4Format ${!format ? 'ticketFormat' : ''}`} id="a4Page">
-                {openTroll && <TrollModal closeModal={() => setOpenTroll(!openTroll)} gif={gif} />}
-                {openBarCode && <BarCodeModal closeModal={() => setOpenBarCode(!openBarCode)} articles={articles} />}
+                {openTroll && <TrollModal closeModal={() => setOpenTroll(false)} gif={gif} />}
+                {openBarCode && <BarCodeModal closeModal={() => setOpenBarCode(false)} articles={articles} />}
                 <CSSTransition
                     in={openForm}
                     timeout={300}
                     classNames="modal"
                     unmountOnExit
                 >
-                    <FormFacture closeModal={() => setOpenForm(!openForm)} setMainInfos={(e) => setMainInfos(e)} mainInfos={mainInfos} setOpenArticles={(e) => setOpenArticles(e)}/>
+                    <FormFacture closeModal={() => setOpenForm(false)} setMainInfos={(e) => setMainInfos(e)} mainInfos={mainInfos} setOpenArticles={(e) => setOpenArticles(e)} />
                 </CSSTransition>
                 <CSSTransition
                     in={openArticles}
@@ -263,7 +263,7 @@ function HomePage() {
                     classNames="modal"
                     unmountOnExit
                 >
-                    <ArticleModal closeModal={() => setOpenArticles(!openArticles)} setArticles={(e) => { setArticles(e); isMobile && setOpenBarCode(!openBarCode) }} articles={articles} isMobile={isMobile} handleRandom={(nbrRandomArticles, articles) => { handleAddRandomArticles(nbrRandomArticles, articles, true) }} />
+                    <ArticleModal closeModal={() => setOpenArticles(false)} setArticles={(e) => { setArticles(e); isMobile && setOpenBarCode(!openBarCode) }} articles={articles} isMobile={isMobile} handleRandom={(nbrRandomArticles, articles) => { handleAddRandomArticles(nbrRandomArticles, articles, true) }} />
                 </CSSTransition>
                 {format ? <HeaderFacture firstProfile={mainInfos.currentProfile} /> : <HeaderTicket firstProfile={mainInfos.currentProfile} setHeure={(heure) => setHeure(heure)} heure={heure} />}
                 {format ? <Bill articles={articles} /> : <BillTicket articles={articles} setArticles={(e) => { setArticles(e) }} />}
