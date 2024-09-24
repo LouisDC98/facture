@@ -28,7 +28,7 @@
             "prixRemise": 0
         },
         {
-            "active": true,
+            "active": false,
             "code": "8006540447291",
             "libelle": "Lessive ARIEL liquide POWER Alpine 70D",
             "qtyCmd": 2,
@@ -37,12 +37,21 @@
             "prixRemise": 0
         },
         {
-            "active": true,
+            "active": false,
             "code": "8006540967027",
             "libelle": "Lessive DASH PODS Air Frais & Fleurs Blanches 40D",
             "qtyCmd": 2,
             "tva": 20,
             "prixUnit": 24.95,
+            "prixRemise": 0
+        },
+        {
+            "active": true,
+            "code": "8700216318709",
+            "libelle": "Lessive DASH PODS Envolée d'Air 33D",
+            "qtyCmd": 2,
+            "tva": 20,
+            "prixUnit": 22.95,
             "prixRemise": 0
         },
         {
@@ -158,7 +167,7 @@
     ],
     [
         {
-            "active": true,
+            "active": false,
             "code": "5014328094011",
             "libelle": "TETLEY Thé noir English Breakfast intense et subtil",
             "qtyCmd": 3,
@@ -167,7 +176,7 @@
             "prixRemise": 0
         },
         {
-            "active": true,
+            "active": false,
             "code": "4006000024141",
             "libelle": "Crème Visage Hydratante 2en1 Anti Taches",
             "qtyCmd": 1,
