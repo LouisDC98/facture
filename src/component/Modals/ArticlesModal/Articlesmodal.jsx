@@ -106,6 +106,7 @@ function ArticlesModal(props) {
                         </div>
                         <div className="accordionContent" aria-expanded={mainOpen}>
                             {essentials.map((articles, index) => (
+                                articles.some(item => item.active === true) && 
                                 <Accordion
                                     key={index}
                                     title={categoryList[index]}
