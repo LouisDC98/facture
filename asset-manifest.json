@@ -1,9 +1,10 @@
 {
   "files": {
-    "main.css": "/facture/static/css/main.bc16f7f0.css",
-    "main.js": "/facture/static/js/main.87f9a124.js",
+    "main.css": "/facture/static/css/main.753da5b3.css",
+    "main.js": "/facture/static/js/main.bf7313b4.js",
     "static/media/duneMore.gif": "/facture/static/media/duneMore.0de0ebe935a5b5d521d2.gif",
     "static/media/duneSlience.gif": "/facture/static/media/duneSlience.fabec932b84ee29c30b4.gif",
+    "static/media/gifYoyo.png": "/facture/static/media/gifYoyo.005c9b966baf6599e547.png",
     "static/media/carteFidelite.jpg": "/facture/static/media/carteFidelite.a4a4b51166e7258b72b5.jpg",
     "static/media/logoCarrefour.png": "/facture/static/media/logoCarrefour.b142899cb0f4e2175a66.png",
     "static/media/penis.svg": "/facture/static/media/penis.83fe61b60c6741db8eee.svg",
@@ -14,11 +15,11 @@
     "static/media/arrow_down.svg": "/facture/static/media/arrow_down.8967a58681906be9bf0bf7c140bf1bea.svg",
     "static/media/plus.svg": "/facture/static/media/plus.32bd23b548216c67faf7.svg",
     "static/media/delete.svg": "/facture/static/media/delete.0d99cc422554b3a1952d.svg",
-    "main.bc16f7f0.css.map": "/facture/static/css/main.bc16f7f0.css.map",
-    "main.87f9a124.js.map": "/facture/static/js/main.87f9a124.js.map"
+    "main.753da5b3.css.map": "/facture/static/css/main.753da5b3.css.map",
+    "main.bf7313b4.js.map": "/facture/static/js/main.bf7313b4.js.map"
   },
   "entrypoints": [
-    "static/css/main.bc16f7f0.css",
-    "static/js/main.87f9a124.js"
+    "static/css/main.753da5b3.css",
+    "static/js/main.bf7313b4.js"
   ]
 }
