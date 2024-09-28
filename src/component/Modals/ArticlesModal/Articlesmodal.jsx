@@ -115,14 +115,14 @@ function ArticlesModal(props) {
                         <div>
                             +
                             <input type='number' placeholder='0' onChange={(e) => setNbrRandomArticles(e.target.value)}></input>
-                            <button className='saveRandomBtn' onClick={() => handleRandomChild()}>articles random</button>
+                            <button className='saveRandomBtn' onClick={() => handleRandomChild()}>add random</button>
                         </div>
                         <button className='saveRandomBtn deleteRandomBtn' onClick={() => handleDeleteRandom()}>delete randoms</button>
                     </div>}
                 </div>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <table className='tableFormFacture'>
+                    <table className='tableModal'>
                         {!isMobile &&
                             <thead>
                                 <tr className='headerRow'>

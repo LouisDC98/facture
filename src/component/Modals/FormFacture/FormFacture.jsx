@@ -109,7 +109,7 @@ function FormFacture(props) {
                 <button onClick={() => closeModal()} className='buttonIcon closeButton' />
 
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <table className='tableFormFacture'>
+                    <table className='tableModal'>
                         <thead>
                             <tr className='headerRow'>
                                 <th></th>
