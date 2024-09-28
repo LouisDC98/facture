@@ -233,11 +233,11 @@ function HomePage() {
             </div>
             <BtnCustom title="Exporter la liste" position="downloadButton" action={() => handleSaveArticles()} />
             <BtnCustom title="Exporter en PNG" position="PNGButton" action={() => handleExportPNG()} />
-            <BtnCustom title="Informations générales" position="floatingButton" action={() => setOpenForm(!openForm)} />
-            <BtnCustom title="Montrer les codes barres" position="barCodesButton" action={() => setOpenBarCode(!openBarCode)} />
+            <BtnCustom title="Informations générales" position="floatingButton" action={() => setOpenForm(true)} />
+            <BtnCustom title="Montrer les codes barres" position="barCodesButton" action={() => setOpenBarCode(true)} />
             <BtnCustom title="Mélanger la liste" position="shuffleArticles" action={() => handleShuffleArticle(articles)} />
             <BtnCustom title="Exporter la liste" position="downloadButton" action={() => handleSaveArticles()} />
-            <BtnCustom title="Gestion articles" position="articlesButton" action={() => setOpenArticles(!openArticles)} />
+            <BtnCustom title="Gestion articles" position="articlesButton" action={() => setOpenArticles(true)} />
             <div className='switchFormat'>
                 <p>facture</p>
                 <div className='formatInput'>
@@ -248,7 +248,7 @@ function HomePage() {
             </div>
             <div className={`a4Format ${!format ? 'ticketFormat' : ''}`} id="a4Page">
                 {openTroll && <TrollModal closeModal={() => setOpenTroll(false)} gif={gif} />}
-                {openBarCode && <BarCodeModal closeModal={() => setOpenBarCode(false)} articles={articles} />}
+                {openBarCode && articles.some(e => !e.random) && <BarCodeModal closeModal={() => setOpenBarCode(false)} articles={articles} />}
                 <CSSTransition
                     in={openForm}
                     timeout={300}
