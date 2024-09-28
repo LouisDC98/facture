@@ -24,6 +24,7 @@ import ArticleModal from '../../component/Modals/ArticlesModal/Articlesmodal.jsx
 
 import duneSilence from "../../assets/duneSlience.gif"
 import duneMore from "../../assets/duneMore.gif"
+import MovingImage from '../../component/MovingImage/MovingImage.jsx';
 
 function HomePage() {
     const fileInputRef = useRef(null);
@@ -227,6 +228,7 @@ function HomePage() {
 
     return (
         <div>
+            <MovingImage />
             <div className="uploadButton">
                 <label htmlFor="fileInput" className="btn">Importer une liste</label>
                 <input style={{ visibility: "hidden" }} type="file" id="fileInput" ref={fileInputRef} accept=".txt" onChange={(e) => { handleFileUpload(e) }} />
