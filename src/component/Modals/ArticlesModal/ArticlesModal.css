@@ -148,7 +148,7 @@
     }
 
     .saveRandomBtn {
-        border: 2px solid hsl(345deg 100% 47%);
+        border: 2px solid hsl(345deg 70% 55%);
         border-radius: 5px;
         padding: 3px 7px;
         background-color: transparent;
@@ -162,12 +162,12 @@
 
     .saveRandomBtn:hover {
         color: white;
-        background-color: hsl(345deg 100% 47%);
+        background-color: hsl(345deg 70% 55%);
     }
 }
 
 .submitArticle {
-    border: 2px solid hsl(345deg 100% 47%);
+    border: 2px solid hsl(345deg 70% 55%);
     border-radius: 5px;
     padding: 3px 7px;
     background-color: transparent;

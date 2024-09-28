@@ -29,7 +29,7 @@
 }
 
 .saveButton {
-    border: 2px solid hsl(345deg 100% 47%);
+    border: 2px solid hsl(345deg 70% 55%);
     border-radius: 5px;
     padding: 3px 7px;
     background-color: transparent;
@@ -41,7 +41,7 @@
 
 .saveButton:hover {
     color: white;
-    background-color: hsl(345deg 100% 47%);
+    background-color: hsl(345deg 70% 55%);
 }
 
 .saveButtonAndOpen {
@@ -94,8 +94,8 @@ h2 {
     overflow: hidden;
 
     .headerRow {
-        background-color: hsl(345deg 100% 47%);
-        border: 1px solid hsl(345deg 100% 47%);
+        background-color: hsl(345deg 70% 55%);
+        border: 1px solid hsl(345deg 70% 55%);
         color: white;
 
         th {
@@ -103,7 +103,7 @@ h2 {
             text-align: start;
             font-weight: 100;
             font-size: 14px;
-            border: 1px solid hsl(345deg 100% 47%);
+            border: 1px solid hsl(345deg 70% 55%);
             text-wrap: nowrap;
 
         }
@@ -125,7 +125,7 @@ h2 {
     }
 
     tfoot {
-        background-color: hsl(345deg 100% 47%);
+        background-color: hsl(345deg 70% 55%);
         height: 5px;
     }
 
