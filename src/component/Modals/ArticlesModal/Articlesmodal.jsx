@@ -85,12 +85,6 @@ function ArticlesModal(props) {
         setArticles(filteredFields);
     };
 
-    const categoryList = [
-        "Hygiène & beauté",
-        "À boire",
-        "Autres"
-    ]
-
     return (
         <div className='displayModal'>
             <div className='modalBg modalBgArticle'>
@@ -105,12 +99,12 @@ function ArticlesModal(props) {
                             <img src={arrow} alt='openAccordion' className="accordionOpenBtn" />
                         </div>
                         <div className="accordionContent" aria-expanded={mainOpen}>
-                            {essentials.map((articles, index) => (
-                                articles.some(item => item.active === true) && 
+                            {Object.keys(essentials).map((key, index) => (
+                                essentials[key].some(item => item.active === true) &&
                                 <Accordion
                                     key={index}
-                                    title={categoryList[index]}
-                                    articles={articles}
+                                    title={key}
+                                    articles={essentials[key]}
                                     fields={fields}
                                     handleCheckboxChange={handleCheckboxChange}
                                 />

@@ -1,5 +1,5 @@
-[
-    [
+{
+    "Hygiène & beauté": [
         {
             "active": false,
             "code": "3178041361729",
@@ -118,7 +118,7 @@
             "prixRemise": 0
         }
     ],
-    [
+    "À boire": [
         {
             "active": true,
             "code": "3119789830498",
@@ -165,7 +165,7 @@
             "prixRemise": 0
         }
     ],
-    [
+    "Autres": [
         {
             "active": false,
             "code": "5014328094011",
@@ -185,4 +185,4 @@
             "prixRemise": 0
         }
     ]
-]
+}
