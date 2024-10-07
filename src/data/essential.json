@@ -10,7 +10,7 @@
             "prixRemise": 0
         },
         {
-            "active": true,
+            "active": false,
             "code": "8006540036853",
             "libelle": "Lessive ARIEL PODS Color 70D",
             "qtyCmd": 2,
@@ -46,7 +46,7 @@
             "prixRemise": 0
         },
         {
-            "active": true,
+            "active": false,
             "code": "8700216318709",
             "libelle": "Lessive DASH PODS Envolée d'Air 33D",
             "qtyCmd": 2,
@@ -64,7 +64,7 @@
             "prixRemise": 0
         },
         {
-            "active": false,
+            "active": true,
             "code": "5601028026901",
             "libelle": "PAPIER TOILETTE Magic RENOVA 12R",
             "qtyCmd": 4,
@@ -73,7 +73,7 @@
             "prixRemise": 0
         },
         {
-            "active": false,
+            "active": true,
             "code": "5601028035040",
             "libelle": "PAPIER TOILETTE Toucher Magique Ultra Confort 6R",
             "qtyCmd": 4,
@@ -82,7 +82,7 @@
             "prixRemise": 0
         },
         {
-            "active": false,
+            "active": true,
             "code": "5601028032209",
             "libelle": "Papier Hygiénique RENOVA ultra propre 4 plis 6R",
             "qtyCmd": 4,
@@ -91,7 +91,7 @@
             "prixRemise": 0
         },
         {
-            "active": true,
+            "active": false,
             "code": "8718951551923",
             "libelle": "Adoucissant Grand Air SOUPLINE",
             "qtyCmd": 2,
@@ -100,7 +100,7 @@
             "prixRemise": 0
         },
         {
-            "active": true,
+            "active": false,
             "code": "8718951579989",
             "libelle": "Adoucissant à la Lavande SOUPLINE",
             "qtyCmd": 2,
@@ -109,7 +109,7 @@
             "prixRemise": 0
         },
         {
-            "active": true,
+            "active": false,
             "code": "8718951581302",
             "libelle": "Adoucissant Hypoallergénique SOUPLINE",
             "qtyCmd": 2,
@@ -120,7 +120,7 @@
     ],
     "À boire": [
         {
-            "active": true,
+            "active": false,
             "code": "3119789830498",
             "libelle": "Bière Blonde Premium HEINEKEN 28x25cl",
             "qtyCmd": 4,
@@ -129,7 +129,7 @@
             "prixRemise": 0
         },
         {
-            "active": true,
+            "active": false,
             "code": "3119780268894",
             "libelle": "HEINEKEN Bière blonde 5% fût pression 5L",
             "qtyCmd": 4,
@@ -138,7 +138,7 @@
             "prixRemise": 0
         },
         {
-            "active": true,
+            "active": false,
             "code": "3080216061351",
             "libelle": "Bière Blonde KRONENBOURG 30x25cl",
             "qtyCmd": 4,
