@@ -10,7 +10,7 @@
             "prixRemise": 0
         },
         {
-            "active": false,
+            "active": true,
             "code": "8006540036853",
             "libelle": "Lessive ARIEL PODS Color 70D",
             "qtyCmd": 2,
