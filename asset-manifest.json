@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/facture/static/css/main.753da5b3.css",
-    "main.js": "/facture/static/js/main.02905b4b.js",
+    "main.js": "/facture/static/js/main.1f520ca3.js",
     "static/media/duneMore.gif": "/facture/static/media/duneMore.0de0ebe935a5b5d521d2.gif",
     "static/media/duneSlience.gif": "/facture/static/media/duneSlience.fabec932b84ee29c30b4.gif",
     "static/media/carteFidelite.jpg": "/facture/static/media/carteFidelite.a4a4b51166e7258b72b5.jpg",
@@ -15,10 +15,10 @@
     "static/media/plus.svg": "/facture/static/media/plus.32bd23b548216c67faf7.svg",
     "static/media/delete.svg": "/facture/static/media/delete.0d99cc422554b3a1952d.svg",
     "main.753da5b3.css.map": "/facture/static/css/main.753da5b3.css.map",
-    "main.02905b4b.js.map": "/facture/static/js/main.02905b4b.js.map"
+    "main.1f520ca3.js.map": "/facture/static/js/main.1f520ca3.js.map"
   },
   "entrypoints": [
     "static/css/main.753da5b3.css",
-    "static/js/main.02905b4b.js"
+    "static/js/main.1f520ca3.js"
   ]
 }
