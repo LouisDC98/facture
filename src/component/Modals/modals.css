@@ -92,6 +92,7 @@ h2 {
     border-collapse: collapse;
     border-radius: 5px;
     overflow: hidden;
+    min-width: 400px;
 
     .headerRow {
         background-color: hsl(345deg 70% 55%);
