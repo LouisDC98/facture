@@ -115,6 +115,10 @@ p {
         visibility: hidden;
     }
 
+    #switch:disabled + label {
+        background-color: grey;
+    }
+    
     label {
         cursor: pointer;
         text-indent: -9999px;

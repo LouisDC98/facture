@@ -240,10 +240,10 @@ function HomePage() {
             <BtnCustom title="Mélanger la liste" position="shuffleArticles" action={() => handleShuffleArticle(articles)} />
             <BtnCustom title="Exporter la liste" position="downloadButton" action={() => handleSaveArticles()} />
             <BtnCustom title="Gestion articles" position="articlesButton" action={() => setOpenArticles(true)} />
-            <div className='switchFormat'>
+            <div className='switchFormat' title="Le choix d'un profil est obligatoire pour accéder au format ticket">
                 <p>facture</p>
                 <div className='formatInput'>
-                    <input type="checkbox" id="switch" onClick={() => setFormat(!format)} />
+                    <input type="checkbox" id="switch" disabled={!mainInfos.currentProfile} onClick={() => setFormat(!format)} />
                     <label htmlFor="switch">Toggle</label>
                 </div>
                 <p>ticket</p>
