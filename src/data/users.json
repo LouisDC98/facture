@@ -128,5 +128,18 @@
         "cardNumber": "4128731436074842658",
         "magasinId": 6,
         "ownerID": 2
-    }
+    },
+     {
+        "userID":10,
+        "firstName": "Mellisandre",
+        "lastName": "Avari",
+        "adresse": "6 Avenue Anatole Maroit",
+        "city": "Paris",
+        "codePostal": "75003",
+        "country": "France",
+        "clientID": "5144403",
+        "cardNumber": "7323731436170042679",
+        "magasinId": 5,
+        "ownerID": 2
+        }
 ]
