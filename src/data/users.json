@@ -1,6 +1,6 @@
 [
     {
-        "userID":0,
+        "userID": 0,
         "firstName": "Louis",
         "lastName": "M Da Costa",
         "adresse": "16 avenue Raymond Badiou",
@@ -13,7 +13,7 @@
         "ownerID": 1
     },
     {
-        "userID":1,
+        "userID": 1,
         "firstName": "Yohan",
         "lastName": "M Davion",
         "adresse": "71 rue de Cugnaux",
@@ -26,7 +26,7 @@
         "ownerID": 2
     },
     {
-        "userID":2,
+        "userID": 2,
         "firstName": "Paul",
         "lastName": "M Lescure",
         "adresse": "10 rue Bancel",
@@ -39,7 +39,7 @@
         "ownerID": 1
     },
     {
-        "userID":3,
+        "userID": 3,
         "firstName": "Hugo",
         "lastName": "M Pavot",
         "adresse": "2 avenue Henri Roure",
@@ -52,7 +52,7 @@
         "ownerID": 2
     },
     {
-        "userID":4,
+        "userID": 4,
         "firstName": "Tom",
         "lastName": "M Vertillon",
         "adresse": "56 rue de Paris",
@@ -65,7 +65,7 @@
         "ownerID": 2
     },
     {
-        "userID":5,
+        "userID": 5,
         "firstName": "Victor",
         "lastName": "M Cazet",
         "adresse": "2 rue de l'Harmonie",
@@ -78,7 +78,7 @@
         "ownerID": 2
     },
     {
-        "userID":6,
+        "userID": 6,
         "firstName": "Jessica",
         "lastName": "Mme Rivezin",
         "adresse": "6 rue Michel Floch",
@@ -91,7 +91,7 @@
         "ownerID": 1
     },
     {
-        "userID":7,
+        "userID": 7,
         "firstName": "Laurence",
         "lastName": "Mme Camus",
         "adresse": "1 rue d'Ostende",
@@ -104,7 +104,7 @@
         "ownerID": 1
     },
     {
-        "userID":8,
+        "userID": 8,
         "firstName": "Quentin",
         "lastName": "M Millet",
         "adresse": "17 rue Colette Besson",
@@ -117,7 +117,7 @@
         "ownerID": 1
     },
     {
-        "userID":9,
+        "userID": 9,
         "firstName": "Thomas",
         "lastName": "M Luzat",
         "adresse": "24 rue de la Violette",
@@ -129,10 +129,10 @@
         "magasinId": 6,
         "ownerID": 2
     },
-     {
-        "userID":10,
+    {
+        "userID": 10,
         "firstName": "Mellisandre",
-        "lastName": "Avari",
+        "lastName": "Mme Avari",
         "adresse": "6 Avenue Anatole Maroit",
         "city": "Paris",
         "codePostal": "75003",
@@ -141,5 +141,18 @@
         "cardNumber": "7323731436170042679",
         "magasinId": 5,
         "ownerID": 2
-        }
+    },
+    {
+        "userID": 11,
+        "firstName": "Béatrice",
+        "lastName": "Mme Jimenez",
+        "adresse": "37 chemin de Sainte-Adèle",
+        "city": "Villefranche-de-Rouergue",
+        "codePostal": "1220",
+        "country": "France",
+        "clientID": "5198743",
+        "cardNumber": "7395826049178567321",
+        "magasinId": 10,
+        "ownerID": 1
+    }
 ]
