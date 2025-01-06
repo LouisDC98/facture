@@ -15,7 +15,7 @@
             "libelle": "Lessive ARIEL PODS Color 70D",
             "qtyCmd": 2,
             "tva": 20,
-            "prixUnit": 39.95,
+            "prixUnit": 29.95,
             "prixRemise": 0
         },
         {
@@ -64,7 +64,7 @@
             "prixRemise": 0
         },
         {
-            "active": true,
+            "active": false,
             "code": "5601028026901",
             "libelle": "PAPIER TOILETTE Magic RENOVA 12R",
             "qtyCmd": 5,
@@ -73,7 +73,7 @@
             "prixRemise": 0
         },
         {
-            "active": true,
+            "active": false,
             "code": "5601028035040",
             "libelle": "PAPIER TOILETTE Toucher Magique Ultra Confort 6R",
             "qtyCmd": 5,
@@ -82,7 +82,7 @@
             "prixRemise": 0
         },
         {
-            "active": true,
+            "active": false,
             "code": "5601028032209",
             "libelle": "Papier Hygiénique RENOVA ultra propre 4 plis 6R",
             "qtyCmd": 5,
@@ -91,7 +91,7 @@
             "prixRemise": 0
         },
         {
-            "active": true,
+            "active": false,
             "code": "5601028035002",
             "libelle": "Essuie Tout Insta Rolls Extra XXL",
             "qtyCmd": 3,
@@ -171,6 +171,15 @@
             "qtyCmd": 3,
             "tva": 5.5,
             "prixUnit": 10.65,
+            "prixRemise": 0
+        },
+        {
+            "active": true,
+            "code": "3700693901758",
+            "libelle": "Bière Blonde Non Filtrée 5,8% GALLIA 12x33cl",
+            "qtyCmd": 3,
+            "tva": 5.5,
+            "prixUnit": 20.65,
             "prixRemise": 0
         }
     ],
