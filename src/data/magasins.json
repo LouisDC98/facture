@@ -92,7 +92,7 @@
     {
         "id": 8,
         "name":"Lille", 
-        "primary": "CENTRE COMMERCIEL CARREFOUR LILLE",
+        "primary": "CENTRE COMMERCIAL CARREFOUR LILLE",
         "secondary": "1 Centre commercial Euralille",
         "tel": "03 28 52 99 79",
         "ticket": "CARREFOUR LILLE",
@@ -104,13 +104,25 @@
     {
         "id": 9,
         "name":"Angoulins", 
-        "primary": "CENTRE COMMERCIEL CARREFOUR ANGOULINS",
+        "primary": "CENTRE COMMERCIAL CARREFOUR ANGOULINS",
         "secondary": "route nationale 137",
         "tel": "05 46 51 23 79",
         "ticket": "CARREFOUR ANGOULINS",
         "horaires": [
             "Lun. au Sam.: 08:30 à 21:00",
             "Dim.: 08:30 à 12:30"
+        ]
+    },
+    {
+        "id": 10,
+        "name":"Villefranche-de-Rouergue", 
+        "primary": "CARREFOUR VILLEFRANCHE DE ROUERGUE",
+        "secondary": "avenue de Toulouse",
+        "tel": "05 65 65 15 30",
+        "ticket": "CARREFOUR VILLEFRANCHE DE ROUERGUE",
+        "horaires": [
+            "Lun. au Sam.: 08:30 à 19:30",
+            "Dim.: 09:00 à 12:30"
         ]
     }
 ]
