@@ -112,7 +112,7 @@ function HomePage() {
             setOpenTroll(true)
             return
         }
-        if (Number(nbrToAdd) === 0) {
+        if (openArticles && Number(nbrToAdd) === 0) {
             setGif(duneMore)
             setOpenTroll(true)
             return
