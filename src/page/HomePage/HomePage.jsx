@@ -88,7 +88,7 @@ function HomePage() {
             let calcs = {
                 totalRemises: parseFloat(articles.filter(element => element.prixRemise !== "").reduce((total, element) => total + parseFloat(element.prixRemise), 0)).toFixed(2),
                 totalPanier: parseFloat(articles.reduce((total, element) => total + parseFloat(element.total), 0) + 0.70),
-                totalNbrArticle: parseFloat(articles.reduce((total, element) => total + parseFloat(element.qtyCmd), 0) + 2)
+                totalNbrArticle: parseFloat(articles.reduce((totals, element) => totals + parseFloat(element.qtyCmd), 0))
             }
             setTotaux(calcs)
         }
