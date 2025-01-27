@@ -38,6 +38,15 @@
         },
         {
             "active": true,
+            "code": "8700216286817",
+            "libelle": "Lessive ARIEL liquide Alpine 70D",
+            "qtyCmd": 2,
+            "tva": 20,
+            "prixUnit": 32.95,
+            "prixRemise": 0
+        },
+        {
+            "active": false,
             "code": "8006540447291",
             "libelle": "Lessive ARIEL liquide POWER Alpine 70D",
             "qtyCmd": 2,
