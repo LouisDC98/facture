@@ -63,8 +63,17 @@
             "prixUnit": 24.95,
             "prixRemise": 0
         },
+                {
+            "active": true,
+            "code": " 8700216698009",
+            "libelle": "Ariel Grandiose PODS Original 29D",
+            "qtyCmd": 2,
+            "tva": 20,
+            "prixUnit": 21.25,
+            "prixRemise": 0
+        },
         {
-            "active": false,
+            "active": true,
             "code": "8700216318709",
             "libelle": "Lessive DASH PODS Envolée d'Air 33D",
             "qtyCmd": 2,
@@ -73,16 +82,16 @@
             "prixRemise": 0
         },
         {
-            "active": false,
+            "active": true,
             "code": "8700216319096",
             "libelle": "Lessive DASH PODS EXTRA Fraîcheur de Coton 28D",
-            "qtyCmd": 1,
+            "qtyCmd": 2,
             "tva": 20,
             "prixUnit": 18.65,
             "prixRemise": 0
         },
         {
-            "active": false,
+            "active": true,
             "code": "5601028026901",
             "libelle": "PAPIER TOILETTE Magic RENOVA 12R",
             "qtyCmd": 5,
@@ -91,21 +100,39 @@
             "prixRemise": 0
         },
         {
-            "active": false,
+            "active": true,
             "code": "5601028035040",
-            "libelle": "PAPIER TOILETTE Toucher Magique Ultra Confort 6R",
+            "libelle": "PAPIER TOILETTE Toucher Magique RENOVA Ultra Confort 6R",
             "qtyCmd": 5,
             "tva": 20,
             "prixUnit": 5.2,
             "prixRemise": 0
         },
         {
-            "active": false,
+            "active": true,
             "code": "5601028032209",
             "libelle": "Papier Hygiénique RENOVA ultra propre 4 plis 6R",
             "qtyCmd": 5,
             "tva": 20,
             "prixUnit": 5.1,
+            "prixRemise": 0
+        },
+        {
+            "active": true,
+            "code": "5601028035002",
+            "libelle": "Essuie tout Insta design Renova",
+            "qtyCmd": 4,
+            "tva": 20,
+            "prixUnit": 4.17,
+            "prixRemise": 0
+        },
+        {
+            "active": false,
+            "code": "5601028026956",
+            "libelle": "Gigaroll Max absorption Deco",
+            "qtyCmd": 4,
+            "tva": 20,
+            "prixUnit": 4.19,
             "prixRemise": 0
         },
         {
@@ -192,7 +219,7 @@
             "prixRemise": 0
         },
         {
-            "active": true,
+            "active": false,
             "code": "3700693901758",
             "libelle": "Bière Blonde Non Filtrée 5,8% GALLIA 12x33cl",
             "qtyCmd": 3,
