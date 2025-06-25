@@ -72,15 +72,6 @@
             "prixUnit": 24.95,
             "prixRemise": 0
         },
-                {
-            "active": true,
-            "code": " 8700216698009",
-            "libelle": "Ariel Grandiose PODS Original 29D",
-            "qtyCmd": 2,
-            "tva": 20,
-            "prixUnit": 21.25,
-            "prixRemise": 0
-        },
         {
             "active": true,
             "code": "8700216318709",
