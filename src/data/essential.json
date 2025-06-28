@@ -1,251 +1,267 @@
 {
-    "Hygiène & beauté": [
-        {
-            "active": false,
-            "code": "3178041361729",
-            "libelle": "Lessive LE CHAT l'expert bicarbonate 44D",
-            "qtyCmd": 3,
-            "tva": 20,
-            "prixUnit": 15.05,
-            "prixRemise": 0
-        },
-        {
-            "active": false,
-            "code": "8006540036853",
-            "libelle": "Lessive ARIEL PODS Color 70D",
-            "qtyCmd": 2,
-            "tva": 20,
-            "prixUnit": 29.95,
-            "prixRemise": 0
-        },
-        {
-            "active": true,
-            "code": " 8700216698009",
-            "libelle": "Ariel Grandiose PODS Original 29D",
-            "qtyCmd": 2,
-            "tva": 20,
-            "prixUnit": 21.25,
-            "prixRemise": 0
-        },
-        {
-            "active": false,
-            "code": "8700216114035",
-            "libelle": "Lessive ARIEL PODS All in 1 39D",
-            "qtyCmd": 2,
-            "tva": 20,
-            "prixUnit": 22.82,
-            "prixRemise": 0
-        },
-        {
-            "active": true,
-            "code": "8700216313186",
-            "libelle": "Lessive ARIEL PODS Ultra 45D",
-            "qtyCmd": 2,
-            "tva": 20,
-            "prixUnit": 29.95,
-            "prixRemise": 0
-        },
-        {
-            "active": true,
-            "code": "8700216286817",
-            "libelle": "Lessive ARIEL liquide Alpine 70D",
-            "qtyCmd": 2,
-            "tva": 20,
-            "prixUnit": 32.95,
-            "prixRemise": 0
-        },
-        {
-            "active": false,
-            "code": "8006540447291",
-            "libelle": "Lessive ARIEL liquide POWER Alpine 70D",
-            "qtyCmd": 2,
-            "tva": 20,
-            "prixUnit": 49.85,
-            "prixRemise": 0
-        },
-        {
-            "active": false,
-            "code": "8006540967027",
-            "libelle": "Lessive DASH PODS Air Frais & Fleurs Blanches 40D",
-            "qtyCmd": 2,
-            "tva": 20,
-            "prixUnit": 24.95,
-            "prixRemise": 0
-        },
-        {
-            "active": true,
-            "code": "8700216318709",
-            "libelle": "Lessive DASH PODS Envolée d'Air 33D",
-            "qtyCmd": 2,
-            "tva": 20,
-            "prixUnit": 22.95,
-            "prixRemise": 0
-        },
-        {
-            "active": true,
-            "code": "8700216319096",
-            "libelle": "Lessive DASH PODS EXTRA Fraîcheur de Coton 28D",
-            "qtyCmd": 2,
-            "tva": 20,
-            "prixUnit": 18.65,
-            "prixRemise": 0
-        },
-        {
-            "active": true,
-            "code": "5601028026901",
-            "libelle": "PAPIER TOILETTE Magic RENOVA 12R",
-            "qtyCmd": 5,
-            "tva": 20,
-            "prixUnit": 4.32,
-            "prixRemise": 0
-        },
-        {
-            "active": true,
-            "code": "5601028035040",
-            "libelle": "PAPIER TOILETTE Toucher Magique RENOVA Ultra Confort 6R",
-            "qtyCmd": 5,
-            "tva": 20,
-            "prixUnit": 5.2,
-            "prixRemise": 0
-        },
-        {
-            "active": true,
-            "code": "5601028032209",
-            "libelle": "Papier Hygiénique RENOVA ultra propre 4 plis 6R",
-            "qtyCmd": 5,
-            "tva": 20,
-            "prixUnit": 5.1,
-            "prixRemise": 0
-        },
-        {
-            "active": true,
-            "code": "5601028035002",
-            "libelle": "Essuie tout Insta design Renova",
-            "qtyCmd": 4,
-            "tva": 20,
-            "prixUnit": 4.17,
-            "prixRemise": 0
-        },
-        {
-            "active": false,
-            "code": "5601028026956",
-            "libelle": "Gigaroll Max absorption Deco",
-            "qtyCmd": 4,
-            "tva": 20,
-            "prixUnit": 4.19,
-            "prixRemise": 0
-        },
-        {
-            "active": false,
-            "code": "5601028035002",
-            "libelle": "Essuie Tout Insta Rolls Extra XXL",
-            "qtyCmd": 3,
-            "tva": 20,
-            "prixUnit": 4.69,
-            "prixRemise": 0
-        },
-        {
-            "active": false,
-            "code": "8718951551923",
-            "libelle": "Adoucissant Grand Air SOUPLINE",
-            "qtyCmd": 2,
-            "tva": 20,
-            "prixUnit": 9.19,
-            "prixRemise": 0
-        },
-        {
-            "active": false,
-            "code": "8718951579989",
-            "libelle": "Adoucissant à la Lavande SOUPLINE",
-            "qtyCmd": 2,
-            "tva": 20,
-            "prixUnit": 9.19,
-            "prixRemise": 0
-        },
-        {
-            "active": false,
-            "code": "8718951581302",
-            "libelle": "Adoucissant Hypoallergénique SOUPLINE",
-            "qtyCmd": 2,
-            "tva": 20,
-            "prixUnit": 9.19,
-            "prixRemise": 0
-        }
-    ],
-    "À boire": [
-        {
-            "active": false,
-            "code": "3119789830498",
-            "libelle": "Bière Blonde Premium HEINEKEN 28x25cl",
-            "qtyCmd": 4,
-            "tva": 20,
-            "prixUnit": 21.85,
-            "prixRemise": 0
-        },
-        {
-            "active": false,
-            "code": "3119780268894",
-            "libelle": "HEINEKEN Bière blonde 5% fût pression 5L",
-            "qtyCmd": 4,
-            "tva": 20,
-            "prixUnit": 22.8,
-            "prixRemise": 0
-        },
-        {
-            "active": false,
-            "code": "3080216061351",
-            "libelle": "Bière Blonde KRONENBOURG 30x25cl",
-            "qtyCmd": 4,
-            "tva": 20,
-            "prixUnit": 19.21,
-            "prixRemise": 0
-        },
-        {
-            "active": false,
-            "code": "3080216055305",
-            "libelle": "Bière Sans Alcool Aromatisée au jus de Framboise 0,0% TOURTEL TWIST ",
-            "qtyCmd": 3,
-            "tva": 5.5,
-            "prixUnit": 10.65,
-            "prixRemise": 0
-        },
-        {
-            "active": false,
-            "code": "3080216055275",
-            "libelle": "Bière Sans Alcool Aromatisée au jus de Citron 0,0% TOURTEL TWIST ",
-            "qtyCmd": 3,
-            "tva": 5.5,
-            "prixUnit": 10.65,
-            "prixRemise": 0
-        },
-        {
-            "active": false,
-            "code": "3700693901758",
-            "libelle": "Bière Blonde Non Filtrée 5,8% GALLIA 12x33cl",
-            "qtyCmd": 3,
-            "tva": 5.5,
-            "prixUnit": 20.65,
-            "prixRemise": 0
-        }
-    ],
-    "Autres": [
-        {
-            "active": false,
-            "code": "5014328094011",
-            "libelle": "TETLEY Thé noir English Breakfast intense et subtil",
-            "qtyCmd": 3,
-            "tva": 5.5,
-            "prixUnit": 7.1,
-            "prixRemise": 0
-        },
-        {
-            "active": false,
-            "code": "4006000024141",
-            "libelle": "Crème Visage Hydratante 2en1 Anti Taches",
-            "qtyCmd": 1,
-            "tva": 20,
-            "prixUnit": 19.8,
-            "prixRemise": 0
-        }
-    ]
+  "Le Chat": [
+    {
+      "active": false,
+      "code": "3178041361729",
+      "libelle": "Lessive LE CHAT l'expert bicarbonate 44D",
+      "qtyCmd": 3,
+      "tva": 20,
+      "prixUnit": 15.05,
+      "prixRemise": 0
+    }
+  ],
+  "Ariel": [
+    {
+      "active": false,
+      "code": "8006540036853",
+      "libelle": "Lessive ARIEL PODS Color 70D",
+      "qtyCmd": 2,
+      "tva": 20,
+      "prixUnit": 29.95,
+      "prixRemise": 0
+    },
+    {
+      "active": true,
+      "code": " 8700216698009",
+      "libelle": "Ariel Grandiose PODS Original 29D",
+      "qtyCmd": 2,
+      "tva": 20,
+      "prixUnit": 21.25,
+      "prixRemise": 0
+    },
+    {
+      "active": false,
+      "code": "8700216114035",
+      "libelle": "Lessive ARIEL PODS All in 1 39D",
+      "qtyCmd": 2,
+      "tva": 20,
+      "prixUnit": 22.82,
+      "prixRemise": 0
+    },
+    {
+      "active": false,
+      "code": "8700216313186",
+      "libelle": "Lessive ARIEL PODS Ultra 45D",
+      "qtyCmd": 2,
+      "tva": 20,
+      "prixUnit": 29.95,
+      "prixRemise": 0
+    },
+    {
+      "active": false,
+      "code": "8700216286817",
+      "libelle": "Lessive ARIEL liquide Alpine 70D",
+      "qtyCmd": 2,
+      "tva": 20,
+      "prixUnit": 32.95,
+      "prixRemise": 0
+    },
+    {
+      "active": false,
+      "code": "8006540447291",
+      "libelle": "Lessive ARIEL liquide POWER Alpine 70D",
+      "qtyCmd": 2,
+      "tva": 20,
+      "prixUnit": 49.85,
+      "prixRemise": 0
+    }
+  ],
+  "Dash": [
+    {
+      "active": false,
+      "code": "8006540967027",
+      "libelle": "Lessive DASH PODS Air Frais & Fleurs Blanches 40D",
+      "qtyCmd": 2,
+      "tva": 20,
+      "prixUnit": 24.95,
+      "prixRemise": 0
+    },
+    {
+      "active": true,
+      "code": "8700216318709",
+      "libelle": "Lessive DASH PODS Envolée d'Air 33D",
+      "qtyCmd": 2,
+      "tva": 20,
+      "prixUnit": 22.95,
+      "prixRemise": 0
+    },
+    {
+      "active": true,
+      "code": "8700216319096",
+      "libelle": "Lessive DASH PODS EXTRA Fraîcheur de Coton 28D",
+      "qtyCmd": 2,
+      "tva": 20,
+      "prixUnit": 18.65,
+      "prixRemise": 0
+    }
+  ],
+  "Renova": [
+    {
+      "active": true,
+      "code": "5601028026901",
+      "libelle": "PAPIER TOILETTE Magic RENOVA 12R",
+      "qtyCmd": 5,
+      "tva": 20,
+      "prixUnit": 4.32,
+      "prixRemise": 0
+    },
+    {
+      "active": false,
+      "code": "5601028035040",
+      "libelle": "PAPIER TOILETTE Toucher Magique RENOVA Ultra Confort 6R",
+      "qtyCmd": 5,
+      "tva": 20,
+      "prixUnit": 5.2,
+      "prixRemise": 0
+    },
+    {
+      "active": false,
+      "code": "5601028032209",
+      "libelle": "Papier Hygiénique RENOVA ultra propre 4 plis 6R",
+      "qtyCmd": 5,
+      "tva": 20,
+      "prixUnit": 5.1,
+      "prixRemise": 0
+    },
+    {
+      "active": true,
+      "code": "5601028035002",
+      "libelle": "Essuie tout Insta design Renova",
+      "qtyCmd": 4,
+      "tva": 20,
+      "prixUnit": 4.17,
+      "prixRemise": 0
+    },
+    {
+      "active": false,
+      "code": "5601028026956",
+      "libelle": "Gigaroll Max absorption Deco",
+      "qtyCmd": 4,
+      "tva": 20,
+      "prixUnit": 4.19,
+      "prixRemise": 0
+    },
+    {
+      "active": false,
+      "code": "5601028035002",
+      "libelle": "Essuie Tout Insta Rolls Extra XXL",
+      "qtyCmd": 3,
+      "tva": 20,
+      "prixUnit": 4.69,
+      "prixRemise": 0
+    }
+  ],
+  "Soupline": [
+    {
+      "active": false,
+      "code": "8718951551923",
+      "libelle": "Adoucissant Grand Air SOUPLINE",
+      "qtyCmd": 2,
+      "tva": 20,
+      "prixUnit": 9.19,
+      "prixRemise": 0
+    },
+    {
+      "active": false,
+      "code": "8718951579989",
+      "libelle": "Adoucissant à la Lavande SOUPLINE",
+      "qtyCmd": 2,
+      "tva": 20,
+      "prixUnit": 9.19,
+      "prixRemise": 0
+    },
+    {
+      "active": false,
+      "code": "8718951581302",
+      "libelle": "Adoucissant Hypoallergénique SOUPLINE",
+      "qtyCmd": 2,
+      "tva": 20,
+      "prixUnit": 9.19,
+      "prixRemise": 0
+    }
+  ],
+  "Heineken": [
+    {
+      "active": false,
+      "code": "3119789830498",
+      "libelle": "Bière Blonde Premium HEINEKEN 28x25cl",
+      "qtyCmd": 4,
+      "tva": 20,
+      "prixUnit": 21.85,
+      "prixRemise": 0
+    },
+    {
+      "active": false,
+      "code": "3119780268894",
+      "libelle": "HEINEKEN Bière blonde 5% fût pression 5L",
+      "qtyCmd": 4,
+      "tva": 20,
+      "prixUnit": 22.8,
+      "prixRemise": 0
+    }
+  ],
+  "Kronenbourg": [
+    {
+      "active": false,
+      "code": "3080216061351",
+      "libelle": "Bière Blonde KRONENBOURG 30x25cl",
+      "qtyCmd": 4,
+      "tva": 20,
+      "prixUnit": 19.21,
+      "prixRemise": 0
+    }
+  ],
+  "Tourtel": [
+    {
+      "active": false,
+      "code": "3080216055305",
+      "libelle": "Bière Sans Alcool Aromatisée au jus de Framboise 0,0% TOURTEL TWIST ",
+      "qtyCmd": 3,
+      "tva": 5.5,
+      "prixUnit": 10.65,
+      "prixRemise": 0
+    },
+    {
+      "active": false,
+      "code": "3080216055275",
+      "libelle": "Bière Sans Alcool Aromatisée au jus de Citron 0,0% TOURTEL TWIST ",
+      "qtyCmd": 3,
+      "tva": 5.5,
+      "prixUnit": 10.65,
+      "prixRemise": 0
+    }
+  ],
+  "Galia": [
+    {
+      "active": false,
+      "code": "3700693901758",
+      "libelle": "Bière Blonde Non Filtrée 5,8% GALLIA 12x33cl",
+      "qtyCmd": 3,
+      "tva": 5.5,
+      "prixUnit": 20.65,
+      "prixRemise": 0
+    }
+  ],
+  "Tetley": [
+    {
+      "active": false,
+      "code": "5014328094011",
+      "libelle": "TETLEY Thé noir English Breakfast intense et subtil",
+      "qtyCmd": 3,
+      "tva": 5.5,
+      "prixUnit": 7.1,
+      "prixRemise": 0
+    }
+  ],
+  "Autres": [
+    {
+      "active": false,
+      "code": "4006000024141",
+      "libelle": "Crème Visage Hydratante 2en1 Anti Taches",
+      "qtyCmd": 1,
+      "tva": 20,
+      "prixUnit": 19.8,
+      "prixRemise": 0
+    }
+  ]
 }
