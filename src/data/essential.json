@@ -12,30 +12,12 @@
   ],
   "Ariel": [
     {
-      "active": false,
-      "code": "8006540036853",
-      "libelle": "Lessive ARIEL PODS Color 70D",
-      "qtyCmd": 2,
-      "tva": 20,
-      "prixUnit": 29.95,
-      "prixRemise": 0
-    },
-    {
       "active": true,
       "code": " 8700216698009",
       "libelle": "Ariel Grandiose PODS Original 29D",
       "qtyCmd": 2,
       "tva": 20,
       "prixUnit": 21.25,
-      "prixRemise": 0
-    },
-    {
-      "active": false,
-      "code": "8700216114035",
-      "libelle": "Lessive ARIEL PODS All in 1 39D",
-      "qtyCmd": 2,
-      "tva": 20,
-      "prixUnit": 22.82,
       "prixRemise": 0
     },
     {
@@ -55,27 +37,9 @@
       "tva": 20,
       "prixUnit": 32.95,
       "prixRemise": 0
-    },
-    {
-      "active": false,
-      "code": "8006540447291",
-      "libelle": "Lessive ARIEL liquide POWER Alpine 70D",
-      "qtyCmd": 2,
-      "tva": 20,
-      "prixUnit": 49.85,
-      "prixRemise": 0
     }
   ],
   "Dash": [
-    {
-      "active": false,
-      "code": "8006540967027",
-      "libelle": "Lessive DASH PODS Air Frais & Fleurs Blanches 40D",
-      "qtyCmd": 2,
-      "tva": 20,
-      "prixUnit": 24.95,
-      "prixRemise": 0
-    },
     {
       "active": true,
       "code": "8700216318709",
