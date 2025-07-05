@@ -24,14 +24,14 @@ const MovingImage = () => {
 
         const intervalId = setInterval(moveImage, 100); // Déplacer toutes les 0.1 seconde
 
-        const timer = setTimeout(() => {
-            setIsVisible(false);
-            clearInterval(intervalId);
-        }, 5000);
+        // const timer = setTimeout(() => {
+        //     setIsVisible(false);
+        //     clearInterval(intervalId);
+        // }, 5000);
 
         return () => {
             clearInterval(intervalId);
-            clearTimeout(timer);
+            // clearTimeout(timer);
         };
     }, []);
 

@@ -1,35 +1,17 @@
 import React, { useEffect, useMemo, useState, useCallback } from 'react'
 import './FormFacture.css'
 import { useForm, useFieldArray } from "react-hook-form";
-import { getMagasins, getUsers } from "../../../db.js"
 
 import { randomFactureNbr, randomCommandNbr, autoDate, formatDate, formatDateRevert } from "../../../callBack.js"
 
 function FormFacture(props) {
-    let { closeModal, setMainInfos, mainInfos, setOpenArticles } = props
+    let { closeModal, setMainInfos, mainInfos, setOpenArticles, magasinList, users } = props
     const [submitAndOpen, setSubmitAndOpen] = useState(false)
-    const [magasinList, setMagasinList] = useState(undefined)
-    const [users, setUsers] = useState(undefined)
 
     const { register, handleSubmit, setValue, control, formState: { errors } } = useForm();
     const { fields, append, remove } = useFieldArray({
         control,
         name: "profile",
-    });
-
-    const getMagasinList = async () => {
-        const response = await getMagasins()
-        setMagasinList(response)
-    }
-
-    const getUserList = async () => {
-        const response = await getUsers()
-        setUsers(response)
-    }
-
-    useEffect(() => {
-        getMagasinList()
-        getUserList()
     });
 
     useEffect(() => {

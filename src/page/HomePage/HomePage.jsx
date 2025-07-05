@@ -17,10 +17,11 @@ import FooterTicket from '../../component/FooterTicket/FooterTicket';
 import BarCodeModal from '../../component/Modals/BarCodeModal/BarCodeModal';
 
 import { randomFactureNbr, randomCommandNbr } from "../../callBack.js"
-import { getRandomArticles } from "../../db.js"
+import { getRandomArticles, getUsers, getMagasins, getEssentials } from "../../db.js"
 import BtnCustom from '../../component/BtnCustom/BtnCustom.jsx';
 import TrollModal from '../../component/Modals/TrollModal/TrollModal.jsx';
 import ArticleModal from '../../component/Modals/ArticlesModal/Articlesmodal.jsx';
+import Loader from "../../component/Loader/Loader.jsx"
 
 import duneSilence from "../../assets/duneSlience.gif"
 import duneMore from "../../assets/duneMore.gif"
@@ -28,7 +29,7 @@ import duneMore from "../../assets/duneMore.gif"
 
 function HomePage() {
     const fileInputRef = useRef(null);
-    let [openForm, setOpenForm] = useState(!(window.innerWidth < 1000))
+    let [openForm, setOpenForm] = useState(false)
     let [mainInfos, setMainInfos] = useState({})
     let [articles, setArticles] = useState([])
     let [tvaArray, setTvaArray] = useState([])
@@ -40,15 +41,40 @@ function HomePage() {
     let [openArticles, setOpenArticles] = useState(window.innerWidth < 1000)
     let [gif, setGif] = useState(undefined)
     const [randomArticles, setRandomArticles] = useState(undefined)
+    const [magasinList, setMagasinList] = useState(undefined)
+    const [users, setUsers] = useState(undefined)
+    const [essentials, setEssentials] = useState(undefined);
+    const [loading, setLoading] = useState(false)
 
     const getRandomList = async () => {
         const response = await getRandomArticles()
         setRandomArticles(response)
     }
 
+    const getMagasinList = async () => {
+        const response = await getMagasins()
+        setMagasinList(response)
+    }
+
+    const getUserList = async () => {
+        const response = await getUsers()
+        setUsers(response)
+    }
+
+    const getEssentialList = async () => {
+        const response = await getEssentials()
+        setEssentials(response)
+    }
+
     useEffect(() => {
+        setLoading(true)
+        getMagasinList()
+        getUserList()
         getRandomList()
-    });
+        getEssentialList()
+        setLoading(false)
+        setOpenForm(true)
+    }, [setLoading]);
 
     const handleExportPNG = async () => {
         const element = document.getElementById('a4Page');
@@ -239,6 +265,7 @@ function HomePage() {
     return (
         <div>
             {/* <MovingImage /> */}
+            {loading && <Loader />}
             <div className="uploadButton">
                 <label htmlFor="fileInput" className="btn">Importer une liste</label>
                 <input style={{ visibility: "hidden" }} type="file" id="fileInput" ref={fileInputRef} accept=".txt" onChange={(e) => { handleFileUpload(e) }} />
@@ -267,7 +294,7 @@ function HomePage() {
                     classNames="modal"
                     unmountOnExit
                 >
-                    <FormFacture closeModal={() => setOpenForm(false)} setMainInfos={(e) => setMainInfos(e)} mainInfos={mainInfos} setOpenArticles={(e) => setOpenArticles(e)} />
+                    <FormFacture closeModal={() => setOpenForm(false)} setMainInfos={(e) => setMainInfos(e)} mainInfos={mainInfos} setOpenArticles={(e) => setOpenArticles(e)} users={users} magasinList={magasinList} />
                 </CSSTransition>
                 <CSSTransition
                     in={openArticles}
@@ -275,7 +302,7 @@ function HomePage() {
                     classNames="modal"
                     unmountOnExit
                 >
-                    <ArticleModal closeModal={() => setOpenArticles(false)} setArticles={(e) => { setArticles(e); isMobile && setOpenBarCode(!openBarCode) }} articles={articles} isMobile={isMobile} handleRandom={(nbrRandomArticles, articles) => { handleAddRandomArticles(nbrRandomArticles, articles, true) }} />
+                    <ArticleModal closeModal={() => setOpenArticles(false)} setArticles={(e) => { setArticles(e); isMobile && setOpenBarCode(!openBarCode) }} articles={articles} isMobile={isMobile} handleRandom={(nbrRandomArticles, articles) => { handleAddRandomArticles(nbrRandomArticles, articles, true) }} essentials={essentials} />
                 </CSSTransition>
                 {format ? <HeaderFacture firstProfile={mainInfos.currentProfile} /> : <HeaderTicket firstProfile={mainInfos.currentProfile} setHeure={(heure) => setHeure(heure)} heure={heure} />}
                 {format ? <Bill articles={articles} /> : <BillTicket articles={articles} setArticles={(e) => { setArticles(e) }} />}

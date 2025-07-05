@@ -2,21 +2,14 @@ import React, { useEffect, useState } from 'react'
 import './ArticlesModal.css'
 import '../modals.css'
 import { useForm, useFieldArray } from "react-hook-form";
-import { getEssentials } from "../../../db.js"
 import arrow from "../../../assets/arrow_down.svg"
 import Accordion from '../../Accordion/Accordion';
 
 
 function ArticlesModal(props) {
-    let { closeModal, setArticles, articles, isMobile, handleRandom } = props
+    let { closeModal, setArticles, articles, isMobile, handleRandom, essentials } = props
     const [nbrRandomArticles, setNbrRandomArticles] = useState(0)
     const [mainOpen, setMainOpen] = useState(true);
-    const [essentials, setEssentials] = useState(undefined);
-
-    const getEssentialList = async () => {
-        const response = await getEssentials()
-        setEssentials(response)
-    }
 
     const toggleMainAccordion = () => {
         setMainOpen(!mainOpen);
@@ -47,10 +40,6 @@ function ArticlesModal(props) {
         setArticles(processed);
         closeModal();
     };
-
-    useEffect(() => {
-        getEssentialList()
-    }, []);
 
     useEffect(() => {
         isMobile && toggleMainAccordion()
