@@ -2,50 +2,63 @@ import React, { useEffect, useState } from 'react'
 import './ArticlesModal.css'
 import '../modals.css'
 import { useForm, useFieldArray } from "react-hook-form";
-import essentials from "../../../data/essential.json"
+import { getEssentials } from "../../../db.js"
 import arrow from "../../../assets/arrow_down.svg"
 import Accordion from '../../Accordion/Accordion';
 
 
 function ArticlesModal(props) {
     let { closeModal, setArticles, articles, isMobile, handleRandom } = props
-    let [nbrRandomArticles, setNbrRandomArticles] = useState(0)
+    const [nbrRandomArticles, setNbrRandomArticles] = useState(0)
     const [mainOpen, setMainOpen] = useState(true);
+    const [essentials, setEssentials] = useState(undefined);
+
+    const getEssentialList = async () => {
+        const response = await getEssentials()
+        setEssentials(response)
+    }
 
     const toggleMainAccordion = () => {
         setMainOpen(!mainOpen);
     };
 
-    const { register, handleSubmit, control, formState: { errors } } = useForm();
+    const { register, handleSubmit, control } = useForm();
     const { fields, append, remove } = useFieldArray({
         control,
         name: "articleItem",
     });
 
-    const onSubmit = data => {
+    const onSubmit = (data) => {
+        const processed = data.articleItem.map(item => {
+            const prixUnit = item.major
+                ? Math.floor((item.prixUnit * 1.2) / 0.05) * 0.05
+                : item.prixUnit;
 
-        for (const element of data.articleItem) {
-            if (element.major) {
-                element.prixUnit *= 1.2;
-                element.prixUnit = Math.floor(element.prixUnit / 0.05) * 0.05;
-                element.prixUnit = parseFloat(element.prixUnit.toFixed(2));
-            }
+            const prixRemise = isNaN(item.prixRemise) ? 0 : item.prixRemise;
 
-            if (isNaN(element.prixRemise)) {
-                element.prixRemise = 0;
-            }
-            element.total = parseFloat((element.prixUnit * element.qtyCmd - element.prixRemise).toFixed(2));
-        }
-        setArticles([...data.articleItem])
-        closeModal()
-    }
+            return {
+                ...item,
+                prixUnit: parseFloat(prixUnit.toFixed(2)),
+                prixRemise,
+                total: parseFloat((prixUnit * item.qtyCmd - prixRemise).toFixed(2))
+            };
+        });
+
+        setArticles(processed);
+        closeModal();
+    };
+
+    useEffect(() => {
+        getEssentialList()
+    }, []);
 
     useEffect(() => {
         isMobile && toggleMainAccordion()
         if (articles?.length > 0) {
-            articles.forEach((element, i) => {
-                if (fields.findIndex(field => field.code === element.code) === -1) {
-                    append({ code: element.code, libelle: element.libelle, qtyCmd: element.qtyCmd, tva: element.tva, prixUnit: element.prixUnit, prixRemise: element.prixRemise, random: element.random })
+            articles.forEach((article) => {
+                const alreadyExists = fields.some(f => f.code === article.code);
+                if (!alreadyExists) {
+                    append({ ...article });
                 }
             });
         } else if (fields.length === 0) {
@@ -65,7 +78,7 @@ function ArticlesModal(props) {
             if (fields[0]?.code === "") {
                 remove(0)
             }
-            append({ code: article.code, libelle: article.libelle, qtyCmd: article.qtyCmd, tva: article.tva, prixUnit: article.prixUnit, prixRemise: article.prixRemise })
+            append({...article})
         }
     };
 
@@ -98,7 +111,7 @@ function ArticlesModal(props) {
                             <div>Articles essentiels</div>
                             <img src={arrow} alt='openAccordion' className="accordionOpenBtn" />
                         </div>
-                        <div className="accordionContent" aria-expanded={mainOpen}>
+                        {essentials && <div className="accordionContent" aria-expanded={mainOpen}>
                             {Object.keys(essentials).map((key, index) => (
                                 essentials[key].some(item => item.active === true) &&
                                 <Accordion
@@ -109,7 +122,7 @@ function ArticlesModal(props) {
                                     handleCheckboxChange={handleCheckboxChange}
                                 />
                             ))}
-                        </div>
+                        </div>}
                     </div>
                     {!isMobile && <div className='divRandom'>
                         <div>
