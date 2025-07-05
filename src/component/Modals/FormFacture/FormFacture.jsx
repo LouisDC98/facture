@@ -1,20 +1,30 @@
-import React, { useEffect, useMemo, useState, useCallback} from 'react'
+import React, { useEffect, useMemo, useState, useCallback } from 'react'
 import './FormFacture.css'
 import users from "../../../data/users.json"
 import { useForm, useFieldArray } from "react-hook-form";
-import magasinList from "../../../data/magasins.json"
+import { getMagasins } from "../../../db.js"
 
 import { randomFactureNbr, randomCommandNbr, autoDate, formatDate, formatDateRevert } from "../../../callBack.js"
 
 function FormFacture(props) {
     let { closeModal, setMainInfos, mainInfos, setOpenArticles } = props
-    let [submitAndOpen, setSubmitAndOpen] = useState(false)
+    const [submitAndOpen, setSubmitAndOpen] = useState(false)
+    const [magasinList, setMagasinList] = useState(undefined)
 
     const { register, handleSubmit, setValue, control, formState: { errors } } = useForm();
     const { fields, append, remove } = useFieldArray({
         control,
         name: "profile",
     });
+
+    const getMagasinList = async () => {
+        const response = await getMagasins()
+        setMagasinList(response)
+    }
+
+    useEffect(() => {
+        getMagasinList()
+    },);
 
     useEffect(() => {
         if (mainInfos.profile?.length > 0) {
@@ -49,15 +59,15 @@ function FormFacture(props) {
         const today = new Date();
         const yesterday = new Date(today);
         yesterday.setDate(today.getDate() - 1);
-    
+
         return yesterday.toISOString().split('T')[0];
     }, []);
-    
+
     const getTodayDate = useCallback(() => {
         const today = new Date();
         return today.toISOString().split('T')[0];
     }, []);
-    
+
     const onChangeDate = useCallback((e, index) => {
         if (!e) return;
         let { day, month, year } = autoDate(e);
