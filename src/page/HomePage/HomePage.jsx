@@ -14,10 +14,10 @@ import BilanFacture from '../../component/BilanFacture/BilanFacture';
 import BilanTicket from '../../component/BilanTicket/BilanTicket';
 import FooterFacture from '../../component/FooterFacture/FooterFacture';
 import FooterTicket from '../../component/FooterTicket/FooterTicket';
-import randomArticles from "../../data/randomArticles.json"
 import BarCodeModal from '../../component/Modals/BarCodeModal/BarCodeModal';
 
 import { randomFactureNbr, randomCommandNbr } from "../../callBack.js"
+import { getRandomArticles } from "../../db.js"
 import BtnCustom from '../../component/BtnCustom/BtnCustom.jsx';
 import TrollModal from '../../component/Modals/TrollModal/TrollModal.jsx';
 import ArticleModal from '../../component/Modals/ArticlesModal/Articlesmodal.jsx';
@@ -39,6 +39,16 @@ function HomePage() {
     let [openTroll, setOpenTroll] = useState(false)
     let [openArticles, setOpenArticles] = useState(window.innerWidth < 1000)
     let [gif, setGif] = useState(undefined)
+    const [randomArticles, setRandomArticles] = useState(undefined)
+
+    const getRandomList = async () => {
+        const response = await getRandomArticles()
+        setRandomArticles(response)
+    }
+
+    useEffect(() => {
+        getRandomList()
+    });
 
     const handleExportPNG = async () => {
         const element = document.getElementById('a4Page');

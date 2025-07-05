@@ -1,6 +1,7 @@
 import essentials from "./data/essential.json"
 import magasins from "./data/magasins.json"
 import users from "./data/users.json"
+import randomArticles from "./data/randomArticles.json"
 
 export async function getEssentials() {
     let essentialList = essentials
@@ -17,3 +18,7 @@ export async function getUsers() {
     return userList
 }
 
+export async function getRandomArticles() {
+    let randomList = randomArticles
+    return randomList
+}
