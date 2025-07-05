@@ -1,8 +1,7 @@
 import React, { useEffect, useMemo, useState, useCallback } from 'react'
 import './FormFacture.css'
-import users from "../../../data/users.json"
 import { useForm, useFieldArray } from "react-hook-form";
-import { getMagasins } from "../../../db.js"
+import { getMagasins, getUsers } from "../../../db.js"
 
 import { randomFactureNbr, randomCommandNbr, autoDate, formatDate, formatDateRevert } from "../../../callBack.js"
 
@@ -10,6 +9,7 @@ function FormFacture(props) {
     let { closeModal, setMainInfos, mainInfos, setOpenArticles } = props
     const [submitAndOpen, setSubmitAndOpen] = useState(false)
     const [magasinList, setMagasinList] = useState(undefined)
+    const [users, setUsers] = useState(undefined)
 
     const { register, handleSubmit, setValue, control, formState: { errors } } = useForm();
     const { fields, append, remove } = useFieldArray({
@@ -22,9 +22,15 @@ function FormFacture(props) {
         setMagasinList(response)
     }
 
+    const getUserList = async () => {
+        const response = await getUsers()
+        setUsers(response)
+    }
+
     useEffect(() => {
         getMagasinList()
-    },);
+        getUserList()
+    });
 
     useEffect(() => {
         if (mainInfos.profile?.length > 0) {
@@ -106,6 +112,7 @@ function FormFacture(props) {
     };
 
     const groupedUsers = useMemo(() => {
+        if (!users) return
         return users.reduce((acc, user) => {
             (acc[user.ownerID] = acc[user.ownerID] || []).push(user);
             return acc;
@@ -139,7 +146,7 @@ function FormFacture(props) {
                                             validate: value => value !== "null" || "obligatoire"
                                         })}>
                                             <option value="null" hidden>Nom</option>
-                                            {Object.keys(groupedUsers).map((ownerID) => (
+                                            {groupedUsers && Object.keys(groupedUsers).map((ownerID) => (
                                                 <optgroup key={ownerID} label={Number(ownerID) === 1 ? "Louis" : "Yohan"}>
                                                     {groupedUsers[ownerID].map((user, optIndex) => (
                                                         <option key={optIndex} value={user.userID}>
