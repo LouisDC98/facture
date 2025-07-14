@@ -11,3 +11,12 @@ export async function getAllEssentials() {
         console.error('error', error)
     }
 }
+
+export async function insertEssential(body) {
+    try {
+        const result = await axios.post("/essentials", body);
+        return result.data
+    } catch (error) {
+        console.error('error', error)
+    }
+}

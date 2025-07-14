@@ -11,3 +11,12 @@ export async function getAllRandoms() {
         console.error('error', error)
     }
 }
+
+export async function insertRandom(body) {
+    try {
+        const result = await axios.post("/randoms", body);
+        return result.data
+    } catch (error) {
+        console.error('error', error)
+    }
+}

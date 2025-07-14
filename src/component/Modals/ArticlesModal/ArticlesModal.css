@@ -178,6 +178,15 @@
 
 }
 
+.createArticleBtn {
+    border: 2px solid hsl(345deg 70% 55%);
+    border-radius: 5px;
+    padding: 3px 7px;
+    background-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
 @media only screen and (hover: none) and (pointer: coarse) {
     .submitArticle {
         position: inherit;
