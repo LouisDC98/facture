@@ -14,8 +14,8 @@ function HeaderFacture(props) {
             </section>
             <section className='displayMainInfoFacture'>
                 <div>
-                    <p className='wrapperP'>{firstProfile ? firstProfile.magasin?.primary : <span>CARREFOUR TOULOUSE PURPAN 36 RTE DE BAYONNE</span>}</p>
-                    <p className='wrapperP'>{firstProfile ? firstProfile.magasin?.secondary : <span>PURPAN 31000 TOULOUSE</span>}</p><br />
+                    <p className='wrapperP'>{firstProfile ? firstProfile.magasin?.primary_address : <span>CARREFOUR TOULOUSE PURPAN 36 RTE DE BAYONNE</span>}</p>
+                    <p className='wrapperP'>{firstProfile ? firstProfile.magasin?.secondary_address : <span>PURPAN 31000 TOULOUSE</span>}</p><br />
 
                     <p className='size11'>Une question sur votre facture ?</p>
                     <p>www.carrefour.fr/nous-contacter</p>

@@ -47,7 +47,7 @@ function ArticlesModal(props) {
             articles.forEach((article) => {
                 const alreadyExists = fields.some(f => f.code === article.code);
                 if (!alreadyExists) {
-                    append({ ...article });
+                    append({ ...article});
                 }
             });
         } else if (fields.length === 0) {
@@ -67,7 +67,7 @@ function ArticlesModal(props) {
             if (fields[0]?.code === "") {
                 remove(0)
             }
-            append({...article})
+            append({ ...article })
         }
     };
 
@@ -100,18 +100,28 @@ function ArticlesModal(props) {
                             <div>Articles essentiels</div>
                             <img src={arrow} alt='openAccordion' className="accordionOpenBtn" />
                         </div>
-                        {essentials && <div className="accordionContent" aria-expanded={mainOpen}>
-                            {Object.keys(essentials).map((key, index) => (
-                                essentials[key].some(item => item.active === true) &&
-                                <Accordion
-                                    key={index}
-                                    title={key}
-                                    articles={essentials[key]}
-                                    fields={fields}
-                                    handleCheckboxChange={handleCheckboxChange}
-                                />
-                            ))}
-                        </div>}
+                        {essentials && (
+                            <div className="accordionContent" aria-expanded={mainOpen}>
+                                {Object.entries(
+                                    essentials
+                                        .filter(item => item.active === 1 || item.active === true)
+                                        .reduce((acc, item) => {
+                                            const brand = item.marque || "Sans marque";
+                                            if (!acc[brand]) acc[brand] = [];
+                                            acc[brand].push(item);
+                                            return acc;
+                                        }, {})
+                                ).map(([marque, articles], index) => (
+                                    <Accordion
+                                        key={index}
+                                        title={marque}
+                                        articles={articles}
+                                        fields={fields}
+                                        handleCheckboxChange={handleCheckboxChange}
+                                    />
+                                ))}
+                            </div>
+                        )}
                     </div>
                     {!isMobile && <div className='divRandom'>
                         <div>

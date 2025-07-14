@@ -17,7 +17,6 @@ import FooterTicket from '../../component/FooterTicket/FooterTicket';
 import BarCodeModal from '../../component/Modals/BarCodeModal/BarCodeModal';
 
 import { randomFactureNbr, randomCommandNbr } from "../../callBack.js"
-import { getRandomArticles, getUsers, getMagasins, getEssentials } from "../../db.js"
 import BtnCustom from '../../component/BtnCustom/BtnCustom.jsx';
 import TrollModal from '../../component/Modals/TrollModal/TrollModal.jsx';
 import ArticleModal from '../../component/Modals/ArticlesModal/Articlesmodal.jsx';
@@ -26,6 +25,12 @@ import Loader from "../../component/Loader/Loader.jsx"
 import duneSilence from "../../assets/duneSlience.gif"
 import duneMore from "../../assets/duneMore.gif"
 // import MovingImage from '../../component/MovingImage/MovingImage.jsx';
+
+import { getAllUser } from '../../services/userServices.js';
+import { getAllEssentials } from '../../services/essentialsServices.js';
+import { getAllRandoms } from '../../services/randomsServices.js';
+import { getAllMagasins } from '../../services/magasinsServices.js';
+
 
 function HomePage() {
     const fileInputRef = useRef(null);
@@ -47,22 +52,22 @@ function HomePage() {
     const [loading, setLoading] = useState(false)
 
     const getRandomList = async () => {
-        const response = await getRandomArticles()
+        const response = await getAllRandoms()
         setRandomArticles(response)
     }
 
     const getMagasinList = async () => {
-        const response = await getMagasins()
+        const response = await getAllMagasins()
         setMagasinList(response)
     }
 
     const getUserList = async () => {
-        const response = await getUsers()
+        const response = await getAllUser()
         setUsers(response)
     }
 
     const getEssentialList = async () => {
-        const response = await getEssentials()
+        const response = await getAllEssentials()
         setEssentials(response)
     }
 
@@ -165,7 +170,7 @@ function HomePage() {
 
         const updatedArticles = selectedArticles.map(article => {
             const adjustment = (Math.random() - 0.5) * 0.5;
-            const updatedPrixUnit = (article.prixUnit + adjustment).toFixed(2);
+            const updatedPrixUnit = (parseInt(article.prixUnit) + adjustment).toFixed(2);
             const updatedArticle = {
                 ...article,
                 prixUnit: parseFloat(updatedPrixUnit)
