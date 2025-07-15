@@ -4,16 +4,17 @@ import '../modals.css'
 import { useForm, useFieldArray } from "react-hook-form";
 
 function ManageArticle(props) {
-    const { closeModal, selectedArticle, action } = props
+    const { closeModal, selectedArticle, action, isRandom } = props
 
     const { register, handleSubmit, control } = useForm({
         defaultValues: {
             newArticle:
             {
+                ...(!isRandom && { marque: selectedArticle?.marque }),
                 code: selectedArticle?.code,
                 libelle: selectedArticle?.libelle,
                 qtyCmd: selectedArticle?.qtyCmd,
-                tva: selectedArticle?.tva,
+                tva: parseFloat(selectedArticle?.tva),
                 prixUnit: selectedArticle?.prixUnit,
                 prixRemise: selectedArticle?.prixRemise
             }
@@ -35,6 +36,13 @@ function ManageArticle(props) {
                 <button onClick={() => closeModal()} className='buttonIcon closeButton' />
                 <div className='confirmModal'>
                     <form onSubmit={handleSubmit(onSubmit)} className='form'>
+
+                        {!isRandom &&
+                            <div className='input'>
+                                <div className='titleInput'>Marque</div>
+                                <input className='field' type='text' {...register(`newArticle.marque`, { required: true })}></input>
+                            </div>
+                        }
                         <div className='input'>
                             <div className='titleInput'>Code EAN</div>
                             <input className='field' type='text' disabled={selectedArticle} {...register(`newArticle.code`, { required: true })}></input>

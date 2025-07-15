@@ -3,7 +3,7 @@ import './Dashboard.css'
 
 import toast, { Toaster } from 'react-hot-toast';
 import { getAllRandoms, removeRandom, updateRandom, insertRandom } from '../../services/randomsServices.js';
-import { getAllEssentials } from '../../services/essentialsServices.js';
+import { getAllEssentials, removeEssentials, updateEssentials, insertEssential } from '../../services/essentialsServices.js';
 
 import ConfirmModal from '../../component/Modals/ConfirmModal/ConfirmModal.jsx';
 import EditArticle from '../Modals/ManageArticle/ManageArticle.jsx';
@@ -83,9 +83,53 @@ function Dashboard(props) {
         setLoading(false)
     }
 
+    const deleteEssential = async (article) => {
+        setLoading(true)
+        try {
+            await removeEssentials(article.code)
+            getEssentialList()
+            toast.success('Suppression réussie')
+        } catch {
+            toast.error('Une erreur est survenue')
+        }
+        setOpenConfirm(false)
+        setLoading(false)
+    }
+
+    const editEssential = async (newArticle) => {
+        setLoading(true)
+        try {
+            await updateEssentials(newArticle)
+            getEssentialList()
+            setOpenEdit(!openEdit)
+            setSelectedArticle(undefined)
+            toast.success('Modification réussie')
+        } catch {
+            toast.error('Une erreur est survenue')
+        }
+        setLoading(false)
+    }
+
+    const createEssential = async (newArticle) => {
+        setLoading(true)
+        try {
+            await insertEssential(newArticle)
+            getEssentialList()
+            setOpenNew(!openNew)
+            toast.success('Création réussie')
+        } catch {
+            toast.error('Une erreur est survenue')
+        }
+        setLoading(false)
+    }
+
     const handleDelete = (article) => {
         setOpenConfirm(!openConfirm)
-        setConfirmAction(() => () => deleteRandom(article))
+        if (type === "random") {
+            setConfirmAction(() => () => deleteRandom(article))
+        } else if (type === "essential") {
+            setConfirmAction(() => () => deleteEssential(article))
+        }
     }
 
     const handleEdit = (article) => {
@@ -102,8 +146,8 @@ function Dashboard(props) {
     return (
         <div className="tableDisplay">
             <div><Toaster /></div>
-            {openEdit && <EditArticle closeModal={() => { setOpenEdit(false) }} selectedArticle={selectedArticle} action={(newArticle) => { editRandom(newArticle) }} />}
-            {openNew && <EditArticle closeModal={() => { setOpenNew(false) }} selectedArticle={undefined} action={(newArticle) => { createRandom(newArticle) }} />}
+            {openEdit && <EditArticle closeModal={() => { setOpenEdit(false) }} selectedArticle={selectedArticle} action={(newArticle) => type === 'random' ? editRandom(newArticle) : editEssential(newArticle)} isRandom={type === "random"} />}
+            {openNew && <EditArticle closeModal={() => { setOpenNew(false) }} selectedArticle={undefined} action={(newArticle) => type === 'random' ? createRandom(newArticle) : createEssential(newArticle)} isRandom={type === "random"} />}
             {openConfirm && <ConfirmModal confirmAction={confirmAction} closeModal={() => { setOpenConfirm(false) }} />}
             <div className='titleDisplay'>
                 <h3>Liste des articles</h3>
@@ -127,7 +171,7 @@ function Dashboard(props) {
                         {articleList?.map((article) => (
                             <tr key={article.code} className='divField'>
                                 <td className="largeCol">{article.code}</td>
-                                 {isEssential &&  <td className="smallCol">{article.marque}</td>}
+                                {isEssential && <td className="smallCol">{article.marque}</td>}
                                 <td className="largeCol">{article.libelle}</td>
                                 <td className="smallCol">{article.qtyCmd}</td>
                                 <td className="smallCol">{article.tva}%</td>

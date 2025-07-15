@@ -20,3 +20,21 @@ export async function insertEssential(body) {
         console.error('error', error)
     }
 }
+
+export async function removeEssentials(code) {
+    try {
+        const result = await axios.delete(`/essentials/${code}`);
+        return result.data
+    } catch (error) {
+        console.error('error', error)
+    }
+}
+
+export async function updateEssentials(body) {
+    try {
+        const result = await axios.put(`/essentials/${body.code}`, body);
+        return result.data
+    } catch (error) {
+        console.error('error', error)
+    }
+}
