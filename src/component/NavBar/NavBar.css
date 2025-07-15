@@ -20,7 +20,11 @@
 
     .navBtn:hover {
         background-color: hsl(345, 76%, 63%);
-        border : 3px solid hsl(345, 79%, 62%)
     }
+
+    .navBtn.active {
+    background-color: rgb(255, 255, 255);
+    color: hsl(345deg 70% 55%);
+}
 
 }

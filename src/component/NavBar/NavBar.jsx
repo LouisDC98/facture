@@ -1,12 +1,18 @@
 import './NavBar.css'
 
-function NavBar() {
+function NavBar(props) {
+    let { type, setType } = props
+
+      const getButtonClass = (value) => {
+        return `navBtn ${type === value ? 'active' : ''}`
+    }
+
     return (
         <div className='navBar'>
-            <button className='navBtn'>Article randoms</button>
-            <button className='navBtn'>Article essentiels</button>
-            <button className='navBtn'>Profils</button>
-            <button className='navBtn'>Magasins</button>
+            <button className={getButtonClass("random")} onClick={() => setType("random")}>Article randoms</button>
+            <button className={getButtonClass("essential")} onClick={() => setType("essential")}>Article essentiels</button>
+            <button className={getButtonClass("profile")} onClick={() => setType("profile")}>Profils</button>
+            <button className={getButtonClass("magasin")} onClick={() => setType("magasin")}>Magasins</button>
         </div>
     )
 }

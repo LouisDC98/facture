@@ -3,13 +3,16 @@ import './Dashboard.css'
 
 import toast, { Toaster } from 'react-hot-toast';
 import { getAllRandoms, removeRandom, updateRandom, insertRandom } from '../../services/randomsServices.js';
+import { getAllEssentials } from '../../services/essentialsServices.js';
 
 import ConfirmModal from '../../component/Modals/ConfirmModal/ConfirmModal.jsx';
 import EditArticle from '../Modals/ManageArticle/ManageArticle.jsx';
 
-function Dashboard() {
+function Dashboard(props) {
+    const { type } = props
     const [loading, setLoading] = useState(false)
     const [randomArticles, setRandomArticles] = useState(undefined)
+    const [essentialsArticles, setEssentialsArticles] = useState(undefined)
     const [selectedArticle, setSelectedArticle] = useState(undefined)
     const [openConfirm, setOpenConfirm] = useState(false)
     const [openEdit, setOpenEdit] = useState(false)
@@ -18,16 +21,26 @@ function Dashboard() {
 
     useEffect(() => {
         setLoading(true)
+        if (type === "random") {
+            getRandomList()
+        } else if (type === "essential") {
+            getEssentialList()
+        }
         // getMagasinList()
         // getUserList()
-        getRandomList()
-        // getEssentialList()
         setLoading(false)
-    }, [setLoading]);
+    }, [type]);
 
     const getRandomList = async () => {
+        setEssentialsArticles(undefined)
         const response = await getAllRandoms()
         setRandomArticles(response)
+    }
+
+    const getEssentialList = async () => {
+        setRandomArticles(undefined)
+        const response = await getAllEssentials()
+        setEssentialsArticles(response)
     }
 
     const deleteRandom = async (article) => {
@@ -84,6 +97,8 @@ function Dashboard() {
         setOpenNew(!openNew)
     }
 
+    const articleList = randomArticles || essentialsArticles;
+    const isEssential = Boolean(essentialsArticles);
     return (
         <div className="tableDisplay">
             <div><Toaster /></div>
@@ -91,7 +106,7 @@ function Dashboard() {
             {openNew && <EditArticle closeModal={() => { setOpenNew(false) }} selectedArticle={undefined} action={(newArticle) => { createRandom(newArticle) }} />}
             {openConfirm && <ConfirmModal confirmAction={confirmAction} closeModal={() => { setOpenConfirm(false) }} />}
             <div className='titleDisplay'>
-                <h3>Liste des article randoms</h3>
+                <h3>Liste des articles</h3>
                 <button onClick={() => handleNew()} className='newArticleBtn'>Ajouter un article</button>
             </div>
             <div className="tableContainer">
@@ -99,6 +114,7 @@ function Dashboard() {
                     <thead>
                         <tr className='headerRow'>
                             <th>Code EAN</th>
+                            {isEssential && <th>Marque</th>}
                             <th>Libelé</th>
                             <th>Qte</th>
                             <th>TVA</th>
@@ -108,9 +124,10 @@ function Dashboard() {
                         </tr>
                     </thead>
                     <tbody>
-                        {randomArticles?.map((article) => (
+                        {articleList?.map((article) => (
                             <tr key={article.code} className='divField'>
                                 <td className="largeCol">{article.code}</td>
+                                 {isEssential &&  <td className="smallCol">{article.marque}</td>}
                                 <td className="largeCol">{article.libelle}</td>
                                 <td className="smallCol">{article.qtyCmd}</td>
                                 <td className="smallCol">{article.tva}%</td>
