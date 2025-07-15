@@ -1,9 +1,9 @@
-import './EditArticle.css'
+import './ManageArticle.css'
 import '../modals.css'
 
 import { useForm, useFieldArray } from "react-hook-form";
 
-function EditArticle(props) {
+function ManageArticle(props) {
     const { closeModal, selectedArticle, action } = props
 
     const { register, handleSubmit, control } = useForm({
@@ -78,4 +78,4 @@ function EditArticle(props) {
     )
 }
 
-export default EditArticle
+export default ManageArticle

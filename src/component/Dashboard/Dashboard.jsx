@@ -5,7 +5,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { getAllRandoms, removeRandom, updateRandom, insertRandom } from '../../services/randomsServices.js';
 
 import ConfirmModal from '../../component/Modals/ConfirmModal/ConfirmModal.jsx';
-import EditArticle from '../Modals/EditArticle/EditArticle.jsx';
+import EditArticle from '../Modals/ManageArticle/ManageArticle.jsx';
 
 function Dashboard() {
     const [loading, setLoading] = useState(false)
