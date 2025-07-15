@@ -151,8 +151,8 @@ function Dashboard(props) {
     return (
         <div className="tableDisplay">
             <div><Toaster /></div>
-            {openEdit && <EditArticle closeModal={() => { setOpenEdit(false) }} selectedArticle={selectedArticle} action={(newArticle) => type === 'random' ? editRandom(newArticle) : editEssential(newArticle)} isRandom={type === "random"} />}
-            {openNew && <EditArticle closeModal={() => { setOpenNew(false) }} selectedArticle={undefined} action={(newArticle) => type === 'random' ? createRandom(newArticle) : createEssential(newArticle)} isRandom={type === "random"} />}
+            {openEdit && <EditArticle closeModal={() => { setOpenEdit(false) }} selectedArticle={selectedArticle} action={(newArticle) => type === 'random' ? editRandom(newArticle) : editEssential(newArticle)} isRandom={type === "random"} essentials={essentialsArticles}/>}
+            {openNew && <EditArticle closeModal={() => { setOpenNew(false) }} selectedArticle={undefined} action={(newArticle) => type === 'random' ? createRandom(newArticle) : createEssential(newArticle)} isRandom={type === "random"} essentials={essentialsArticles}/>}
             {openConfirm && <ConfirmModal confirmAction={confirmAction} closeModal={() => { setOpenConfirm(false) }} />}
             <div className='titleDisplay'>
                 <h3>Liste des articles</h3>

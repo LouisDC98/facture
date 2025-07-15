@@ -4,7 +4,7 @@ import '../modals.css'
 import { useForm, useFieldArray } from "react-hook-form";
 
 function ManageArticle(props) {
-    const { closeModal, selectedArticle, action, isRandom } = props
+    const { closeModal, selectedArticle, action, isRandom, essentials } = props
 
     const { register, handleSubmit, control } = useForm({
         defaultValues: {
@@ -40,7 +40,14 @@ function ManageArticle(props) {
                         {!isRandom &&
                             <div className='input'>
                                 <div className='titleInput'>Marque</div>
-                                <input className='field' type='text' {...register(`newArticle.marque`, { required: true })}></input>
+                                <input className='field' type='text' list="marqueList"{...register(`newArticle.marque`, { required: true })}></input>
+                                <datalist id="marqueList">
+                                    {[...new Set(essentials.map(item => item.marque || "Sans marque"))]
+                                        .sort()
+                                        .map((brand, index) => (
+                                            <option key={index} value={brand}></option>
+                                        ))}
+                                </datalist>
                             </div>
                         }
                         <div className='input'>
