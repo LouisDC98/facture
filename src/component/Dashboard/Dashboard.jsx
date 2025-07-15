@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Dashboard.css'
 
 import toast, { Toaster } from 'react-hot-toast';
-import { getAllRandoms, removeRandom, updateRandom } from '../../services/randomsServices.js';
+import { getAllRandoms, removeRandom, updateRandom, insertRandom } from '../../services/randomsServices.js';
 
 import ConfirmModal from '../../component/Modals/ConfirmModal/ConfirmModal.jsx';
 import EditArticle from '../Modals/EditArticle/EditArticle.jsx';
@@ -12,7 +12,8 @@ function Dashboard() {
     const [randomArticles, setRandomArticles] = useState(undefined)
     const [selectedArticle, setSelectedArticle] = useState(undefined)
     const [openConfirm, setOpenConfirm] = useState(false)
-        const [openEdit, setOpenEdit] = useState(false)
+    const [openEdit, setOpenEdit] = useState(false)
+    const [openNew, setOpenNew] = useState(false)
     const [confirmAction, setConfirmAction] = useState(null)
 
     useEffect(() => {
@@ -29,13 +30,12 @@ function Dashboard() {
         setRandomArticles(response)
     }
 
-    const deleteRandom = async () => {
+    const deleteRandom = async (article) => {
         setLoading(true)
         try {
-            await removeRandom(selectedArticle.code)
+            await removeRandom(article.code)
             getRandomList()
-            setSelectedArticle(undefined)
-            toast.success('Suppression effectuée')
+            toast.success('Suppression réussie')
         } catch {
             toast.error('Une erreur est survenue')
         }
@@ -50,33 +50,50 @@ function Dashboard() {
             getRandomList()
             setOpenEdit(!openEdit)
             setSelectedArticle(undefined)
-            toast.success('Modification effectuée')
+            toast.success('Modification réussie')
         } catch {
             toast.error('Une erreur est survenue')
         }
-        setOpenConfirm(false)
+        setLoading(false)
+    }
+
+    const createRandom = async (newArticle) => {
+        setLoading(true)
+        try {
+            await insertRandom(newArticle)
+            getRandomList()
+            setOpenNew(!openNew)
+            toast.success('Création réussie')
+        } catch {
+            toast.error('Une erreur est survenue')
+        }
         setLoading(false)
     }
 
     const handleDelete = (article) => {
-        setSelectedArticle(article)
         setOpenConfirm(!openConfirm)
-        setConfirmAction(() => deleteRandom)
+        setConfirmAction(() => () => deleteRandom(article))
     }
 
     const handleEdit = (article) => {
         setSelectedArticle(article)
         setOpenEdit(!openEdit)
-        setConfirmAction(() => editRandom)
+    }
+
+    const handleNew = () => {
+        setOpenNew(!openNew)
     }
 
     return (
         <div className="tableDisplay">
             <div><Toaster /></div>
-            {openEdit && <EditArticle closeModal={() => { setOpenEdit(false)}} selectedArticle={selectedArticle} action={(newArticle)=> {editRandom(newArticle)}}/>}
-            {openConfirm && <ConfirmModal confirmAction={confirmAction} closeModal={() => { setOpenConfirm(false); setSelectedArticle(undefined)}} />}
-            <h3>Liste des article randoms</h3>
-
+            {openEdit && <EditArticle closeModal={() => { setOpenEdit(false) }} selectedArticle={selectedArticle} action={(newArticle) => { editRandom(newArticle) }} />}
+            {openNew && <EditArticle closeModal={() => { setOpenNew(false) }} selectedArticle={undefined} action={(newArticle) => { createRandom(newArticle) }} />}
+            {openConfirm && <ConfirmModal confirmAction={confirmAction} closeModal={() => { setOpenConfirm(false) }} />}
+            <div className='titleDisplay'>
+                <h3>Liste des article randoms</h3>
+                <button onClick={() => handleNew()} className='newArticleBtn'>Ajouter un article</button>
+            </div>
             <div className="tableContainer">
                 <table className='tableDashboard'>
                     <thead>

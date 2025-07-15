@@ -7,6 +7,22 @@
         width: 100%;
     }
 
+    .titleDisplay {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .newArticleBtn {
+            border: 2px solid hsl(345deg 70% 55%);
+            border-radius: 5px;
+            padding: 3px 7px;
+            background-color: hsl(345deg 70% 55%);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-size: 15px;
+            color: white;
+        }
+    }
+
     .tableContainer {
         max-height: 700px;
         overflow-y: auto;

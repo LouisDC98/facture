@@ -10,12 +10,12 @@ function EditArticle(props) {
         defaultValues: {
             newArticle:
             {
-                code: selectedArticle.code,
-                libelle: selectedArticle.libelle,
-                qtyCmd: selectedArticle.qtyCmd,
-                tva: selectedArticle.tva,
-                prixUnit: selectedArticle.prixUnit,
-                prixRemise: selectedArticle.prixRemise
+                code: selectedArticle?.code,
+                libelle: selectedArticle?.libelle,
+                qtyCmd: selectedArticle?.qtyCmd,
+                tva: selectedArticle?.tva,
+                prixUnit: selectedArticle?.prixUnit,
+                prixRemise: selectedArticle?.prixRemise
             }
 
         }
@@ -26,7 +26,6 @@ function EditArticle(props) {
     });
 
     const onSubmit = (data) => {
-        console.log('data', data.newArticle)
         action(data.newArticle)
     };
 
@@ -38,7 +37,7 @@ function EditArticle(props) {
                     <form onSubmit={handleSubmit(onSubmit)} className='form'>
                         <div className='input'>
                             <div className='titleInput'>Code EAN</div>
-                            <input className='field' type='text' disabled {...register(`newArticle.code`, { required: true })}></input>
+                            <input className='field' type='text' disabled={selectedArticle} {...register(`newArticle.code`, { required: true })}></input>
                         </div>
 
                         <div className='input'>
@@ -71,7 +70,7 @@ function EditArticle(props) {
                             <input className='field' type='number' min={0} step="any" {...register(`newArticle.prixRemise`, { required: true, valueAsNumber: true })}></input>
                         </div>
 
-                        <button type='submit' className='submitEdit'>Modifier</button>
+                        <button type='submit' className='submitEdit'>{selectedArticle ? "Confirmer les modifications" : "Créer l'article"}</button>
                     </form>
                 </div>
             </div>
