@@ -1,0 +1,26 @@
+.confirmModal {
+    margin: 15px 30px;
+
+    p {
+        font-size: 17px;
+        margin-top: 30px;
+    }
+
+    .displayBtn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        gap: 15px;
+    }
+
+    .btn {
+        border: 2px solid hsl(345deg 70% 55%);
+        border-radius: 5px;
+        padding: 3px 7px;
+        background-color: transparent;
+        transition: background-color 0.3s ease, color 0.3s ease;
+
+    }
+
+}

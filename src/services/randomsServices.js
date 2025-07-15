@@ -20,3 +20,13 @@ export async function insertRandom(body) {
         console.error('error', error)
     }
 }
+
+export async function removeRandom(code) {
+    try {
+        const result = await axios.delete(`/randoms/${code}`);
+        return result.data
+    } catch (error) {
+        console.error('error', error)
+    }
+}
+

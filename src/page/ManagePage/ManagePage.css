@@ -1,0 +1,16 @@
+.managePage {
+    display: flex;
+    justify-content: flex-start;
+
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(235, 235, 235);
+
+    .navBarDisplay {
+        width: 15%;
+    }
+
+    .dashboardDisplay {
+        margin: 20px 0 0 20px;
+    }
+}
