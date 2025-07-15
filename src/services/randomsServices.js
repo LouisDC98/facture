@@ -30,3 +30,12 @@ export async function removeRandom(code) {
     }
 }
 
+export async function updateRandom(body) {
+    try {
+        const result = await axios.put(`/randoms/${body.code}`, body);
+        return result.data
+    } catch (error) {
+        console.error('error', error)
+    }
+}
+
