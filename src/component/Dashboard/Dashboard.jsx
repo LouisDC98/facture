@@ -101,7 +101,7 @@ function Dashboard(props) {
         try {
             await updateEssentials(newArticle)
             getEssentialList()
-            setOpenEdit(!openEdit)
+            setOpenEdit(false)
             setSelectedArticle(undefined)
             toast.success('Modification réussie')
         } catch {
@@ -141,6 +141,11 @@ function Dashboard(props) {
         setOpenNew(!openNew)
     }
 
+    const handleToggleActive = (article, value) => {
+        editEssential({ ...article, active: value })
+    }
+
+
     const articleList = randomArticles || essentialsArticles;
     const isEssential = Boolean(essentialsArticles);
     return (
@@ -164,6 +169,7 @@ function Dashboard(props) {
                             <th>TVA</th>
                             <th>Prix Unit</th>
                             <th>Remise</th>
+                            {isEssential && <th>Actif</th>}
                             <th></th>
                         </tr>
                     </thead>
@@ -177,6 +183,14 @@ function Dashboard(props) {
                                 <td className="smallCol">{article.tva}%</td>
                                 <td className="smallCol">{article.prixUnit} €</td>
                                 <td className="smallCol">{article.prixRemise} €</td>
+                                {isEssential && <td style={{ position: 'relative' }}>
+                                    <div className='switchFormat3'>
+                                        <div className='formatInput'>
+                                            <input type="checkbox" id="switch3" checked={article.active} onChange={(e) => handleToggleActive(article, e.target.checked)} />
+                                            <label htmlFor="switch3">Toggle</label>
+                                        </div>
+                                    </div>
+                                </td>}
                                 <td>
                                     <button onClick={() => handleDelete(article)} className="deleteRow"></button>
                                     <button onClick={() => handleEdit(article)} className="editRow"></button>
