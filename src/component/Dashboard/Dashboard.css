@@ -97,6 +97,7 @@
             height: 0;
             width: 0;
             visibility: hidden;
+            margin: 0;
         }
 
         #switch3:disabled+label {
