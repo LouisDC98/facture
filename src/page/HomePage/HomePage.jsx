@@ -26,7 +26,7 @@ import duneSilence from "../../assets/duneSlience.gif"
 import duneMore from "../../assets/duneMore.gif"
 // import MovingImage from '../../component/MovingImage/MovingImage.jsx';
 
-import { getAllUser } from '../../services/userServices.js';
+import { getAllProfiles } from '../../services/profileServices.js';
 import { getAllEssentials } from '../../services/essentialsServices.js';
 import { getAllRandoms } from '../../services/randomsServices.js';
 import { getAllMagasins } from '../../services/magasinsServices.js';
@@ -62,7 +62,7 @@ function HomePage() {
     }
 
     const getUserList = async () => {
-        const response = await getAllUser()
+        const response = await getAllProfiles()
         setUsers(response)
     }
 

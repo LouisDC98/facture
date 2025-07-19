@@ -68,7 +68,7 @@ function FormFacture(props) {
         const formattedData = data.profile.map(item => {
             userLocalStorage.push(item.user);
             const selectedUser = users[item.user];
-            const selectedMagasin = magasinList.find(magasin => magasin.id === selectedUser.magasinId);
+            const selectedMagasin = magasinList.find(magasin => magasin.id === selectedUser.magasinID);
 
             return {
                 ...selectedUser,
@@ -131,7 +131,7 @@ function FormFacture(props) {
                                             {groupedUsers && Object.keys(groupedUsers).map((ownerID) => (
                                                 <optgroup key={ownerID} label={Number(ownerID) === 1 ? "Louis" : "Yohan"}>
                                                     {groupedUsers[ownerID].map((user, optIndex) => (
-                                                        <option key={optIndex} value={user.userID}>
+                                                        <option key={optIndex} value={user.profileID}>
                                                             {user.firstName}
                                                         </option>
                                                     ))}

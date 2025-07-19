@@ -3,9 +3,10 @@ import './ManagePage.css'
 
 import NavBar from "../../component/NavBar/NavBar.jsx"
 import Dashboard from '../../component/Dashboard/Dashboard.jsx';
+import DashboardProfil from '../../component/DashboardProfil/DashboardProfil.jsx';
 
 function ManagePage() {
-  const [type, setType] = useState(undefined)
+  const [type, setType] = useState("essential")
 
   return (
     <div className="managePage">
@@ -14,8 +15,12 @@ function ManagePage() {
       </div>
       <div className="dashboardDisplay">
 
-
-        <Dashboard type={type} />
+        {(type === "random" || type === "essential") &&
+          <Dashboard type={type} />
+        }
+        {type === "profile" &&
+          <DashboardProfil />
+        }
 
       </div>
     </div>
