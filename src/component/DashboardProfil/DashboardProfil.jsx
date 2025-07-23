@@ -3,6 +3,7 @@ import './DashboardProfil.css'
 
 import toast, { Toaster } from 'react-hot-toast';
 import { getAllProfiles, removeProfile, updateProfile, insertProfile } from '../../services/profileServices.js';
+import { getAllStores } from '../../services/storeServices.js';
 
 import ConfirmModal from '../../component/Modals/ConfirmModal/ConfirmModal.jsx';
 import ManageProfile from '../Modals/ManageProfile/ManageProfile.jsx';
@@ -10,6 +11,7 @@ import ManageProfile from '../Modals/ManageProfile/ManageProfile.jsx';
 function DashboardProfil() {
     const [loading, setLoading] = useState(false)
     const [profileList, setProfileList] = useState(undefined)
+    const [storeList, setStoreList] = useState(undefined)
     const [openConfirm, setOpenConfirm] = useState(false)
     const [openNew, setOpenNew] = useState(false)
     const [openEdit, setOpenEdit] = useState(false)
@@ -18,13 +20,13 @@ function DashboardProfil() {
     useEffect(() => {
         setLoading(true)
         getProfileList()
+        getStoreList()
         setLoading(false)
     }, []);
 
     const getProfileList = async () => {
         const response = await getAllProfiles()
         setProfileList(response)
-        console.log('response', response)
     }
 
     const deleteProfile = async () => {
@@ -67,6 +69,11 @@ function DashboardProfil() {
         setLoading(false)
     }
 
+    const getStoreList = async () => {
+        const response = await getAllStores()
+        setStoreList(response)
+    }
+
     const handleDelete = (item) => {
         setOpenConfirm(!openConfirm)
         setSelectedItem(item)
@@ -88,13 +95,13 @@ function DashboardProfil() {
             {openNew && <EditArticle closeModal={() => { setOpenNew(false) }} selectedArticle={undefined} action={(newArticle) => type === 'random' ? createRandom(newArticle) : createEssential(newArticle)} isRandom={type === "random"} essentials={essentialsArticles} />}
             {openConfirm && <ConfirmModal confirmAction={confirmAction} closeModal={() => { setOpenConfirm(false) }} />} */}
             {openConfirm && <ConfirmModal confirmAction={(selectedItem) => deleteProfile(selectedItem)} closeModal={() => { setOpenConfirm(false) }} />}
-            {openNew && <ManageProfile closeModal={() => { setOpenNew(false) }} selectedItem={undefined} action={(newItem) => createProfile(newItem)} profiles={profileList} />}
-            {openEdit && <ManageProfile closeModal={() => { setOpenEdit(false) }} selectedItem={selectedItem} action={(newArticle) => editProfile(newArticle)} profiles={profileList} />}
+            {openNew && <ManageProfile closeModal={() => { setOpenNew(false) }} selectedItem={undefined} action={(newItem) => createProfile(newItem)} storeList={storeList} />}
+            {openEdit && <ManageProfile closeModal={() => { setOpenEdit(false) }} selectedItem={selectedItem} action={(newArticle) => editProfile(newArticle)} storeList={storeList} />}
 
 
 
             <div className='titleDisplay'>
-                <h3>Liste des articles</h3>
+                <h3>Liste des profils</h3>
                 <button onClick={() => handleNew()} className='newArticleBtn'>Ajouter un profil</button>
             </div>
             <div className="tableContainer">
@@ -103,8 +110,8 @@ function DashboardProfil() {
                         <tr className='headerRow'>
                             <th>Prénom</th>
                             <th>Nom</th>
-                            <th>Ville</th>
                             <th>Adresse</th>
+                            <th>Magasin</th>
                             <th>ID client</th>
                             <th></th>
                         </tr>
@@ -114,8 +121,8 @@ function DashboardProfil() {
                             <tr key={item.code} className='divField'>
                                 <td className="largeCol">{item.firstName}</td>
                                 <td className="largeCol">{item.lastName}</td>
-                                <td className="smallCol">{item.adresse}</td>
-                                <td className="smallCol">{item.city + " " + item.codePostal}</td>
+                                <td className="smallCol">{item.adresse + " " + item.city}</td>
+                                <td className="smallCol">{storeList?.find(e => e.id === item.magasinID).name}</td>
                                 <td className="smallCol">{item.clientID}</td>
                                 <td>
                                     <button onClick={() => handleDelete(item)} className="deleteRow"></button>

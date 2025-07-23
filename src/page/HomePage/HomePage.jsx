@@ -29,7 +29,7 @@ import duneMore from "../../assets/duneMore.gif"
 import { getAllProfiles } from '../../services/profileServices.js';
 import { getAllEssentials } from '../../services/essentialsServices.js';
 import { getAllRandoms } from '../../services/randomsServices.js';
-import { getAllMagasins } from '../../services/magasinsServices.js';
+import { getAllStores } from '../../services/storeServices.js';
 
 
 function HomePage() {
@@ -57,7 +57,7 @@ function HomePage() {
     }
 
     const getMagasinList = async () => {
-        const response = await getAllMagasins()
+        const response = await getAllStores()
         setMagasinList(response)
     }
 
