@@ -16,17 +16,17 @@
     }
 
     .tvaCol {
-        grid-column: 3 / 6;
+        grid-column: 5 / 6;
         grid-row: 3;
     }
 
     .unitPriceCol {
-        grid-column: 1/ 2;
+        grid-column: 1/ 3;
         grid-row: 3;
     }
 
     .discountPriceCol {
-        grid-column: 2 / 3;
+        grid-column: 3 / 5;
         grid-row: 3;
     }
 
