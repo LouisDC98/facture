@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.secondaryBtn {
+  border: 2px solid hsl(345deg 70% 55%);
+  border-radius: 5px;
+  padding: 3px 7px;
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
