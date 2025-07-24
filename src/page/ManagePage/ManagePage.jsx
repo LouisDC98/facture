@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './ManagePage.css'
 
 import NavBar from "../../component/NavBar/NavBar.jsx"
-import Dashboard from '../../component/Dashboard/Dashboard.jsx';
+import DashboardArticle from '../../component/DashboardArticle/DashboardArticle.jsx';
 import DashboardProfil from '../../component/DashboardProfil/DashboardProfil.jsx';
 import DashboardStore from '../../component/DashboardStore/DashboardStore.jsx';
 
@@ -17,7 +17,7 @@ function ManagePage() {
       <div className="dashboardDisplay">
 
         {(type === "random" || type === "essential") &&
-          <Dashboard type={type} />
+          <DashboardArticle type={type} />
         }
         {type === "profile" &&
           <DashboardProfil />

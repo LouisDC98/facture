@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import './Dashboard.css'
+import './DashboardArticle.css'
 
 import toast, { Toaster } from 'react-hot-toast';
 import { getAllRandoms, removeRandom, updateRandom, insertRandom } from '../../services/randomsServices.js';
 import { getAllEssentials, removeEssentials, updateEssentials, insertEssential } from '../../services/essentialsServices.js';
 
-import ConfirmModal from '../../component/Modals/ConfirmModal/ConfirmModal.jsx';
+import ConfirmModal from '../Modals/ConfirmModal/ConfirmModal.jsx';
 import ManageArticle from '../Modals/ManageArticle/ManageArticle.jsx';
 
-function Dashboard(props) {
+function DashboardArticle(props) {
     const { type } = props
     const [loading, setLoading] = useState(false)
     const [randomArticles, setRandomArticles] = useState(undefined)
@@ -26,8 +26,6 @@ function Dashboard(props) {
         } else if (type === "essential") {
             getEssentialList()
         }
-        // getMagasinList()
-        // getUserList()
         setLoading(false)
     }, [type]);
 
@@ -204,4 +202,4 @@ function Dashboard(props) {
     )
 }
 
-export default Dashboard
+export default DashboardArticle
