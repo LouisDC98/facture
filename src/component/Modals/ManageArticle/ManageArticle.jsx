@@ -1,46 +1,42 @@
 import './ManageArticle.css'
 import '../modals.css'
 
-import { useForm, useFieldArray } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 function ManageArticle(props) {
-    const { closeModal, selectedArticle, action, isRandom, essentials } = props
+    const { closeModal, selectedItem, action, isRandom, essentials } = props
 
-    const { register, handleSubmit, control } = useForm({
+    const { register, handleSubmit } = useForm({
         defaultValues: {
-            newArticle:
-            {
-                ...(!isRandom && { marque: selectedArticle?.marque }),
-                code: selectedArticle?.code,
-                libelle: selectedArticle?.libelle,
-                qtyCmd: selectedArticle?.qtyCmd,
-                tva: parseFloat(selectedArticle?.tva),
-                prixUnit: selectedArticle?.prixUnit,
-                prixRemise: selectedArticle?.prixRemise
-            }
-
+            ...(!isRandom && { marque: selectedItem?.marque }),
+            code: selectedItem?.code,
+            libelle: selectedItem?.libelle,
+            qtyCmd: selectedItem?.qtyCmd,
+            tva: parseFloat(selectedItem?.tva),
+            prixUnit: selectedItem?.prixUnit,
+            prixRemise: selectedItem?.prixRemise
         }
-    });
-    const { fields } = useFieldArray({
-        control,
-        name: "newArticle",
     });
 
     const onSubmit = (data) => {
-        action(data.newArticle)
+        action(data)
     };
 
     return (
-        <div className='displayModal'>
+        <div className='displayModal manageArticle'>
             <div className='modalBg'>
-                <button onClick={() => closeModal()} className='buttonIcon closeButton' />
+                <div className='moddalHeader'>
+                    <h3 className='titleModal'>{selectedItem ? "Modifier un article" : "Créer un article"}</h3>
+                    <button onClick={() => closeModal()} className='closeButtonNew' />
+                </div>
+                <span className='spanRow'></span>
                 <div className='confirmModal'>
-                    <form onSubmit={handleSubmit(onSubmit)} className='form'>
+                    <form onSubmit={handleSubmit(onSubmit)} className='form gridDisposal'>
 
                         {!isRandom &&
                             <div className='input'>
                                 <div className='titleInput'>Marque</div>
-                                <input className='field' type='text' list="marqueList"{...register(`newArticle.marque`, { required: true })}></input>
+                                <input className='field' type='text' list="marqueList"{...register(`marque`, { required: true })}></input>
                                 <datalist id="marqueList">
                                     {[...new Set(essentials.map(item => item.marque || "Sans marque"))]
                                         .sort()
@@ -50,42 +46,42 @@ function ManageArticle(props) {
                                 </datalist>
                             </div>
                         }
-                        <div className='input'>
+                        <div className='input eanCol'>
                             <div className='titleInput'>Code EAN</div>
-                            <input className='field' type='text' disabled={selectedArticle} {...register(`newArticle.code`, { required: true })}></input>
+                            <input className='field' type='text' disabled={selectedItem} {...register(`code`, { required: true })}></input>
                         </div>
 
-                        <div className='input'>
-                            <div className='titleInput'>Libellé</div>
-                            <input className='field' type='text' {...register(`newArticle.libelle`, { required: true })}></input>
-                        </div>
-
-                        <div className='input'>
-                            <div className='titleInput'>Quantité commandée</div>
-                            <input className='field' type='number' min={0} step="any" {...register(`newArticle.qtyCmd`, { required: true, valueAsNumber: true })}></input>
-                        </div>
-
-                        <div className='input'>
+                        <div className='input tvaCol'>
                             <div className='titleInput'>TVA</div>
-                            <select className='field selectTVA' {...register(`newArticle.tva`, { required: true })}>
+                            <select className='field select' {...register(`tva`, { required: true })}>
                                 <option value="20">20</option>
                                 <option value="10">10</option>
                                 <option value="5.5">5.5</option>
                                 <option value="0">0</option>
                             </select>
                         </div>
+                        <div className='input libelleCol'>
+                            <div className='titleInput'>Libellé</div>
+                            <input className='field' type='text' {...register(`libelle`, { required: true })}></input>
+                        </div>
 
-                        <div className='input'>
+                        <div className='input qtyCol'>
+                            <div className='titleInput'>Quantité commandée</div>
+                            <input className='field' type='number' min={0} step="any" {...register(`qtyCmd`, { required: true, valueAsNumber: true })}></input>
+                        </div>
+
+
+                        <div className='input unitPriceCol'>
                             <div className='titleInput'>Prix unitaire</div>
-                            <input className='field' type='number' min={0} step="any" {...register(`newArticle.prixUnit`, { required: true, valueAsNumber: true })}></input>
+                            <input className='field' type='number' min={0} step="any" {...register(`prixUnit`, { required: true, valueAsNumber: true })}></input>
                         </div>
 
-                        <div className='input'>
+                        <div className='input discountPriceCol'>
                             <div className='titleInput'>Prix remise</div>
-                            <input className='field' type='number' min={0} step="any" {...register(`newArticle.prixRemise`, { required: true, valueAsNumber: true })}></input>
+                            <input className='field' type='number' min={0} step="any" {...register(`prixRemise`, { required: true, valueAsNumber: true })}></input>
                         </div>
 
-                        <button type='submit' className='submitEdit'>{selectedArticle ? "Confirmer les modifications" : "Créer l'article"}</button>
+                        <button type='submit' className='secondaryBtn submitBtn btnCol'>{selectedItem ? "Confirmer les modifications" : "Créer l'article"}</button>
                     </form>
                 </div>
             </div>
