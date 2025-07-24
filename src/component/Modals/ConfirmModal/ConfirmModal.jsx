@@ -10,8 +10,8 @@ function ConfirmModal(props) {
                 <div className='confirmModal'>
                     <p>Etes-vous sûr de continuer ?</p>
                     <div className='displayBtn'>
-                    <button  className='btn' onClick={() => closeModal()}>Annuler</button>
-                    <button className='btn' onClick={() => confirmAction()}>Continuer</button>
+                    <button  className='secondaryBtn' onClick={() => closeModal()}>Annuler</button>
+                    <button className='secondaryBtn' onClick={() => confirmAction()}>Continuer</button>
 
                     </div>
                 </div>
