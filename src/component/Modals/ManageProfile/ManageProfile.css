@@ -51,21 +51,6 @@
 
     .select {
         border-radius: 5px;
-        padding: 0;
-    }
-
-
-    .field {
-        margin: 0;
-        background-color: rgb(230, 230, 230);
-        border: none;
-        width: 100%;
-        box-sizing: border-box;
-        padding: 10px 5px;
-    }
-
-    .select {
-        border-radius: 5px;
         padding: 3px;
     }
 
