@@ -74,7 +74,7 @@ function ManageProfile(props) {
                     <button onClick={() => closeModal()} className='closeButtonNew' />
                 </div>
                 <span className='spanRow'></span>
-                <form onSubmit={handleSubmit(onSubmit)} className='form'>
+                <form onSubmit={handleSubmit(onSubmit)} className='form gridDisposal'>
                     <div className='input genderCol'>
                         <div className='radioGroup'>
                             <label>
@@ -166,7 +166,7 @@ function ManageProfile(props) {
                     </div>
 
 
-                    <button type='submit' className='submitBtn submitCol'>{selectedItem ? "Confirmer les modifications" : "Créer l'article"}</button>
+                    <button type='submit' className='secondaryBtn submitBtn submitCol'>{selectedItem ? "Confirmer les modifications" : "Créer l'article"}</button>
                 </form>
             </div>
         </div>
