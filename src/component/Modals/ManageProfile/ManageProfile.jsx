@@ -76,8 +76,8 @@ function ManageProfile(props) {
                 <span className='spanRow'></span>
                 <form onSubmit={handleSubmit(onSubmit)} className='form gridDisposal'>
                     <div className='input genderCol'>
-                        <div className='radioGroup'>
-                            <label>
+                        <div>
+                            <label className='radioLabel'>
                                 <input
                                     type='radio'
                                     value='male'
@@ -85,7 +85,7 @@ function ManageProfile(props) {
                                 />
                                 Homme
                             </label>
-                            <label>
+                            <label className='radioLabel'>
                                 <input
                                     type='radio'
                                     value='female'

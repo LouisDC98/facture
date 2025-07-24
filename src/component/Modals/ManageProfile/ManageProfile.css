@@ -23,6 +23,10 @@
         grid-row: 8;
     }
 
+    .radioLabel {
+        font-size: 14px;
+    }
+
     .randomDiv {
         display: flex;
         justify-content: flex-start;
