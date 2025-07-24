@@ -7,6 +7,7 @@ import { getAllEssentials, removeEssentials, updateEssentials, insertEssential }
 
 import ConfirmModal from '../Modals/ConfirmModal/ConfirmModal.jsx';
 import ManageArticle from '../Modals/ManageArticle/ManageArticle.jsx';
+import Loader from '../Loader/Loader.jsx'
 
 function DashboardArticle(props) {
     const { type } = props
@@ -148,12 +149,12 @@ function DashboardArticle(props) {
     const isEssential = Boolean(essentialsArticles);
     return (
         <div className="tableDisplay">
-            <div><Toaster /></div>
-            {openEdit && <ManageArticle closeModal={() => { setOpenEdit(false) }} selectedItem={selectedArticle} action={(newArticle) => type === 'random' ? editRandom(newArticle) : editEssential(newArticle)} isRandom={type === "random"} essentials={essentialsArticles}/>}
-            {openNew && <ManageArticle closeModal={() => { setOpenNew(false) }} selectedItem={undefined} action={(newArticle) => type === 'random' ? createRandom(newArticle) : createEssential(newArticle)} isRandom={type === "random"} essentials={essentialsArticles}/>}
+            <Toaster />
+            {loading && <Loader />}
+            {openEdit && <ManageArticle closeModal={() => { setOpenEdit(false) }} selectedItem={selectedArticle} action={(newArticle) => type === 'random' ? editRandom(newArticle) : editEssential(newArticle)} isRandom={type === "random"} essentials={essentialsArticles} />}
+            {openNew && <ManageArticle closeModal={() => { setOpenNew(false) }} selectedItem={undefined} action={(newArticle) => type === 'random' ? createRandom(newArticle) : createEssential(newArticle)} isRandom={type === "random"} essentials={essentialsArticles} />}
             {openConfirm && <ConfirmModal confirmAction={confirmAction} closeModal={() => { setOpenConfirm(false) }} />}
             <div className='titleDisplay'>
-                <h3>Liste des articles</h3>
                 <button onClick={() => handleNew()} className='newArticleBtn'>Ajouter un article</button>
             </div>
             <div className="tableContainer">

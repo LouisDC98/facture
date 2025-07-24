@@ -7,6 +7,7 @@ import { getAllStores } from '../../services/storeServices.js';
 
 import ConfirmModal from '../../component/Modals/ConfirmModal/ConfirmModal.jsx';
 import ManageProfile from '../Modals/ManageProfile/ManageProfile.jsx';
+import Loader from '../Loader/Loader.jsx'
 
 function DashboardProfil() {
     const [loading, setLoading] = useState(false)
@@ -90,13 +91,13 @@ function DashboardProfil() {
 
     return (
         <div className="tableDisplay">
-            <div><Toaster /></div>
+           <Toaster />
+                        {loading && <Loader />}
             {openConfirm && <ConfirmModal confirmAction={(selectedItem) => deleteProfile(selectedItem)} closeModal={() => { setOpenConfirm(false) }} />}
             {openNew && <ManageProfile closeModal={() => { setOpenNew(false) }} selectedItem={undefined} action={(newItem) => createProfile(newItem)} storeList={storeList} />}
             {openEdit && <ManageProfile closeModal={() => { setOpenEdit(false) }} selectedItem={selectedItem} action={(newArticle) => editProfile(newArticle)} storeList={storeList} />}
 
             <div className='titleDisplay'>
-                <h3>Liste des profils</h3>
                 <button onClick={() => handleNew()} className='newArticleBtn'>Ajouter un profil</button>
             </div>
             <div className="tableContainer">

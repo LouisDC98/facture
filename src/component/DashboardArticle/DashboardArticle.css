@@ -8,8 +8,9 @@
 
     .titleDisplay {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: center;
+        height: 60px;
 
         .newArticleBtn {
             border: 2px solid hsl(345deg 70% 55%);

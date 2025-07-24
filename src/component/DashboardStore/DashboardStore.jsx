@@ -6,6 +6,7 @@ import { getAllStores, insertStore, updateStore, removeStore } from '../../servi
 
 import ConfirmModal from '../../component/Modals/ConfirmModal/ConfirmModal.jsx';
 import ManageStore from '../Modals/ManageStore/ManageStore.jsx';
+import Loader from '../Loader/Loader.jsx'
 
 function DashboardStore() {
     const [loading, setLoading] = useState(false)
@@ -82,13 +83,13 @@ function DashboardStore() {
 
     return (
         <div className="tableDisplay">
-            <div><Toaster /></div>
+            <Toaster />
+            {loading && <Loader />}
             {openConfirm && <ConfirmModal confirmAction={(selectedItem) => deleteProfile(selectedItem)} closeModal={() => { setOpenConfirm(false) }} />}
             {openNew && <ManageStore closeModal={() => { setOpenNew(false) }} selectedItem={undefined} action={(newItem) => createStore(newItem)} />}
             {openEdit && <ManageStore closeModal={() => { setOpenEdit(false) }} selectedItem={selectedItem} action={(newItem) => editStore(newItem)} storeList={storeList} />}
 
             <div className='titleDisplay'>
-                <h3>Liste des magasins</h3>
                 <button onClick={() => handleNew()} className='newArticleBtn'>Ajouter un magasin</button>
             </div>
             <div className="tableContainer">
