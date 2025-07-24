@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './ManagePage.css'
 
 import NavBar from "../../component/NavBar/NavBar.jsx"
@@ -8,25 +8,46 @@ import DashboardStore from '../../component/DashboardStore/DashboardStore.jsx';
 
 function ManagePage() {
   const [type, setType] = useState("essential")
+  const [displayNavBar, setDisplayNavBar] = useState(true)
+
+  const headerTitles = {
+    random: "Articles randoms",
+    essential: "Articles essentiels",
+    profile: "Profils",
+    store: "Magasins",
+  };
+
+  const currentHeaderTitle = headerTitles[type] || "Dashboard";
+
+  const renderDashboardContent = (type) => {
+    if (type === "random" || type === "essential") {
+      return <DashboardArticle type={type} />;
+    }
+
+    if (type === "profile") {
+      return <DashboardProfil />;
+    }
+
+    if (type === "store") {
+      return <DashboardStore />;
+    }
+
+    return null;
+  };
 
   return (
     <div className="managePage">
-      <div className="navBarDisplay">
+      <div className={`navBarDisplay ${!displayNavBar && 'closed'}`} >
         <NavBar type={type} setType={(newType) => setType(newType)} />
       </div>
       <div className="dashboardDisplay">
-
-        {(type === "random" || type === "essential") &&
-          <DashboardArticle type={type} />
-        }
-        {type === "profile" &&
-          <DashboardProfil />
-        }
-
-        {type === "store" &&
-          <DashboardStore />
-        }
-
+        <div className='headerManage'>
+          <button onClick={() => setDisplayNavBar(!displayNavBar)} className='burgerBtn'></button>
+          <div className='headerTitle'>{currentHeaderTitle}</div>
+        </div>
+        <div style={{ margin: "20px" }}>
+          {renderDashboardContent(type)}
+        </div>
       </div>
     </div>
   )
