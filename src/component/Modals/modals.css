@@ -18,7 +18,6 @@
     border-radius: 25px;
     padding: 30px 40px;
     box-sizing: border-box;
-    max-width: 500px;
 }
 
 .closeButton {
@@ -226,6 +225,7 @@ h2 {
     column-gap: 25px;
     row-gap: 5px;
     align-items: center;
+    max-width: 500px;
     /* font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
 }
 
