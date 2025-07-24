@@ -17,5 +17,10 @@ code {
   border-radius: 5px;
   padding: 3px 7px;
   background-color: transparent;
-  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.secondaryBtn:hover {
+  background-color: hsl(345deg 70% 55%);
+  color: white;
+  transition: background-color 0.8s ease, color 0.8s ease;
 }
