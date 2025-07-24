@@ -4,6 +4,7 @@ import './ManagePage.css'
 import NavBar from "../../component/NavBar/NavBar.jsx"
 import Dashboard from '../../component/Dashboard/Dashboard.jsx';
 import DashboardProfil from '../../component/DashboardProfil/DashboardProfil.jsx';
+import DashboardStore from '../../component/DashboardStore/DashboardStore.jsx';
 
 function ManagePage() {
   const [type, setType] = useState("essential")
@@ -20,6 +21,10 @@ function ManagePage() {
         }
         {type === "profile" &&
           <DashboardProfil />
+        }
+
+        {type === "store" &&
+          <DashboardStore />
         }
 
       </div>

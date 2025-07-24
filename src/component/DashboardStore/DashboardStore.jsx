@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from 'react'
-import './DashboardProfil.css'
+import { useEffect, useState } from 'react'
+import './DashboardStore.css'
 
 import toast, { Toaster } from 'react-hot-toast';
-import { getAllProfiles, removeProfile, updateProfile, insertProfile } from '../../services/profileServices.js';
-import { getAllStores } from '../../services/storeServices.js';
+import { getAllStores, insertStore, updateStore, removeStore } from '../../services/storeServices.js';
 
 import ConfirmModal from '../../component/Modals/ConfirmModal/ConfirmModal.jsx';
-import ManageProfile from '../Modals/ManageProfile/ManageProfile.jsx';
+import ManageStore from '../Modals/ManageStore/ManageStore.jsx';
 
-function DashboardProfil() {
+function DashboardStore() {
     const [loading, setLoading] = useState(false)
-    const [profileList, setProfileList] = useState(undefined)
     const [storeList, setStoreList] = useState(undefined)
     const [openConfirm, setOpenConfirm] = useState(false)
     const [openNew, setOpenNew] = useState(false)
@@ -19,21 +17,15 @@ function DashboardProfil() {
 
     useEffect(() => {
         setLoading(true)
-        getProfileList()
         getStoreList()
         setLoading(false)
     }, []);
 
-    const getProfileList = async () => {
-        const response = await getAllProfiles()
-        setProfileList(response)
-    }
-
     const deleteProfile = async () => {
         setLoading(true)
         try {
-            await removeProfile(selectedItem.profileID)
-            getProfileList()
+            await removeStore(selectedItem.profileID)
+            getStoreList()
             toast.success('Suppression réussie')
         } catch {
             toast.error('Une erreur est survenue')
@@ -42,11 +34,11 @@ function DashboardProfil() {
         setLoading(false)
     }
 
-    const createProfile = async (newArticle) => {
+    const createStore = async (newItem) => {
         setLoading(true)
         try {
-            await insertProfile(newArticle)
-            getProfileList()
+            await insertStore(newItem)
+            getStoreList()
             setOpenNew(!openNew)
             toast.success('Création réussie')
         } catch {
@@ -55,11 +47,11 @@ function DashboardProfil() {
         setLoading(false)
     }
 
-    const editProfile = async (updatedItem) => {
+    const editStore = async (updatedItem) => {
         setLoading(true)
         try {
-            await updateProfile(updatedItem)
-            getProfileList()
+            await updateStore(updatedItem)
+            getStoreList()
             setOpenEdit(false)
             setSelectedItem(undefined)
             toast.success('Modification réussie')
@@ -92,33 +84,29 @@ function DashboardProfil() {
         <div className="tableDisplay">
             <div><Toaster /></div>
             {openConfirm && <ConfirmModal confirmAction={(selectedItem) => deleteProfile(selectedItem)} closeModal={() => { setOpenConfirm(false) }} />}
-            {openNew && <ManageProfile closeModal={() => { setOpenNew(false) }} selectedItem={undefined} action={(newItem) => createProfile(newItem)} storeList={storeList} />}
-            {openEdit && <ManageProfile closeModal={() => { setOpenEdit(false) }} selectedItem={selectedItem} action={(newArticle) => editProfile(newArticle)} storeList={storeList} />}
+            {openNew && <ManageStore closeModal={() => { setOpenNew(false) }} selectedItem={undefined} action={(newItem) => createStore(newItem)} />}
+            {openEdit && <ManageStore closeModal={() => { setOpenEdit(false) }} selectedItem={selectedItem} action={(newItem) => editStore(newItem)} storeList={storeList} />}
 
             <div className='titleDisplay'>
-                <h3>Liste des profils</h3>
-                <button onClick={() => handleNew()} className='newArticleBtn'>Ajouter un profil</button>
+                <h3>Liste des magasins</h3>
+                <button onClick={() => handleNew()} className='newArticleBtn'>Ajouter un magasin</button>
             </div>
             <div className="tableContainer">
                 <table className='tableDashboard'>
                     <thead>
                         <tr className='headerRow'>
-                            <th>Prénom</th>
-                            <th>Nom</th>
+                            <th>Ville</th>
                             <th>Adresse</th>
-                            <th>Magasin</th>
-                            <th>ID client</th>
+                            <th>Téléphone</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        {profileList?.map((item) => (
+                        {storeList?.map((item) => (
                             <tr key={item.code} className='divField'>
-                                <td className="largeCol">{item.firstName}</td>
-                                <td className="largeCol">{item.lastName}</td>
-                                <td className="smallCol">{item.adresse + " " + item.city}</td>
-                                <td className="smallCol">{storeList?.find(e => e.id === item.magasinID).name}</td>
-                                <td className="smallCol">{item.clientID}</td>
+                                <td className="largeCol">{item.name}</td>
+                                <td className="smallCol">{item.primary_address}</td>
+                                <td className="largeCol">{item.tel}</td>
                                 <td>
                                     <button onClick={() => handleDelete(item)} className="deleteRow"></button>
                                     <button onClick={() => handleEdit(item)} className="editRow"></button>
@@ -132,4 +120,4 @@ function DashboardProfil() {
     )
 }
 
-export default DashboardProfil
+export default DashboardStore

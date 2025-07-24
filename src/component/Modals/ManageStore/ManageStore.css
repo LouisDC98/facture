@@ -1,0 +1,36 @@
+.manageStore {
+
+    .fieldTextArea {
+        resize: none;
+    }
+
+    .gridDisposal {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .primAddressCol {
+        grid-column: 1 / 3;
+        grid-row: 2;
+    }
+
+    .secondAddressCol {
+        grid-column: 1 / 3;
+        grid-row: 3;
+    }
+
+    .ticketCol {
+        grid-column: 1 / 3;
+        grid-row: 4;
+    }
+
+    .hoursCol {
+        grid-column: 1 / 3;
+        grid-row: 5;
+    }
+
+    .submitCol {
+        grid-column: 1 / 3;
+        grid-row: 6;
+    }
+
+}
