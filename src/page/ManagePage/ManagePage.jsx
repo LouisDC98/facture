@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './ManagePage.css'
+import { NavLink } from 'react-router-dom';
 
 import NavBar from "../../component/NavBar/NavBar.jsx"
 import DashboardArticle from '../../component/DashboardArticle/DashboardArticle.jsx';
@@ -44,6 +45,7 @@ function ManagePage() {
         <div className='headerManage'>
           <button onClick={() => setDisplayNavBar(!displayNavBar)} className='burgerBtn'></button>
           <div className='headerTitle'>{currentHeaderTitle}</div>
+          <NavLink to="/facture" className="primaryBtn navLink">Créer une facture</NavLink>
         </div>
         <div style={{ margin: "20px" }}>
           {renderDashboardContent(type)}

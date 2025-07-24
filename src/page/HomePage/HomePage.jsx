@@ -30,6 +30,7 @@ import { getAllProfiles } from '../../services/profileServices.js';
 import { getAllEssentials } from '../../services/essentialsServices.js';
 import { getAllRandoms } from '../../services/randomsServices.js';
 import { getAllStores } from '../../services/storeServices.js';
+import { NavLink } from 'react-router-dom';
 
 
 function HomePage() {
@@ -282,6 +283,7 @@ function HomePage() {
             <BtnCustom title="Mélanger la liste" position="shuffleArticles" action={() => handleShuffleArticle(articles)} />
             <BtnCustom title="Exporter la liste" position="downloadButton" action={() => handleSaveArticles()} />
             <BtnCustom title="Gestion articles" position="articlesButton" action={() => setOpenArticles(true)} />
+            <NavLink to="/manage" className="primaryBtn navManageBtn">Gérer les données</NavLink>
             <div className='switchFormat' title="Le choix d'un profil est obligatoire pour accéder au format ticket">
                 <p>facture</p>
                 <div className='formatInput'>

@@ -12,6 +12,22 @@ code {
     monospace;
 }
 
+.primaryBtn {
+  border: 2px solid hsl(345deg 70% 55%);
+  border-radius: 5px;
+  padding: 3px 7px;
+  background-color: hsl(345deg 70% 55%);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 15px;
+  color: white;
+}
+
+.primaryBtn:hover {
+  background-color: white;
+  color: hsl(345deg 70% 55%);
+  transition: background-color 0.8s ease, color 0.8s ease;
+}
+
 .secondaryBtn {
   border: 2px solid hsl(345deg 70% 55%);
   border-radius: 5px;

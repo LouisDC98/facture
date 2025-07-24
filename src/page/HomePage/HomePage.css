@@ -67,6 +67,16 @@
     height: 40px;
 }
 
+.navManageBtn {
+    position: absolute;
+    top: 100px;
+    right: 40px;
+         text-decoration: none;
+        margin-left: auto;
+        padding: 10px 20px;
+        font-weight: 600;
+}
+
 .barCodesButton {
     position: absolute;
     top: 440px;

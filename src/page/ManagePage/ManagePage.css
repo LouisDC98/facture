@@ -49,4 +49,11 @@
         font-size: 22px;
         font-weight: bold;
     }
+
+    .navLink {
+        text-decoration: none;
+        margin-left: auto;
+        padding: 10px 20px;
+        font-weight: 600;
+    }
 }
