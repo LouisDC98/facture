@@ -1,8 +1,23 @@
 .manageArticle {
 
+    .qtyEssentialCol {
+        grid-column: 5 / 6;
+        grid-row: 2;
+    }
+
+    .qtyRandomCol {
+        grid-column: 3 / 6;
+        grid-row: 2;
+    }
+
     .libelleCol {
         grid-column: 1 / 6;
         grid-row: 1;
+    }
+
+    .brandCol {
+        grid-column: 3 / 5;
+        grid-row: 2;
     }
 
     .eanCol {

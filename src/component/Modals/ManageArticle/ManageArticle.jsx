@@ -34,7 +34,7 @@ function ManageArticle(props) {
                     <form onSubmit={handleSubmit(onSubmit)} className='form gridDisposal'>
 
                         {!isRandom &&
-                            <div className='input'>
+                            <div className='input brandCol'>
                                 <div className='titleInput'>Marque</div>
                                 <input className='field' type='text' list="marqueList"{...register(`marque`, { required: true })}></input>
                                 <datalist id="marqueList">
@@ -65,8 +65,8 @@ function ManageArticle(props) {
                             <input className='field' type='text' {...register(`libelle`, { required: true })}></input>
                         </div>
 
-                        <div className='input qtyCol'>
-                            <div className='titleInput'>Quantité commandée</div>
+                        <div  className={isRandom ? 'input qtyRandomCol' : 'input qtyEssentialCol'}>
+                            <div className='titleInput'>Quantité</div>
                             <input className='field' type='number' min={0} step="any" {...register(`qtyCmd`, { required: true, valueAsNumber: true })}></input>
                         </div>
 
