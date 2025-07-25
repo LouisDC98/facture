@@ -6,9 +6,10 @@ import NavBar from "../../component/NavBar/NavBar.jsx"
 import DashboardArticle from '../../component/DashboardArticle/DashboardArticle.jsx';
 import DashboardProfil from '../../component/DashboardProfil/DashboardProfil.jsx';
 import DashboardStore from '../../component/DashboardStore/DashboardStore.jsx';
+import DashboardGeneral from '../../component/DashboardGeneral/DashboardGeneral.jsx';
 
 function ManagePage() {
-  const [type, setType] = useState("essential")
+  const [type, setType] = useState("dashboard")
   const [displayNavBar, setDisplayNavBar] = useState(true)
 
   const headerTitles = {
@@ -31,6 +32,10 @@ function ManagePage() {
 
     if (type === "store") {
       return <DashboardStore />;
+    }
+
+    if (type === "dashboard") {
+      return <DashboardGeneral />;
     }
 
     return null;

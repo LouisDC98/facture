@@ -1,0 +1,52 @@
+.dashboardGeneral {
+
+    .tip {
+        background-color: white;
+        border-radius: 20px;
+        padding: 20px;
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .subtitle {
+        font-size: 15px;
+    }
+
+    .nbrItem {
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+    .addBtn {
+        margin: 10px;
+        width: 60px;
+        height: 60px;
+        border: 2px solid hsl(345deg 70% 55%);
+        background-color: hsl(345deg 70% 55%);
+        color: white;
+        font-weight: bold;
+        font-size: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .addBtn:hover {
+        border: 2px solid hsl(345deg 70% 55%);
+        background-color: white;
+        color: hsl(345deg 70% 55%);
+        transition: background-color 0.8s ease, color 0.8s ease;
+    }
+}

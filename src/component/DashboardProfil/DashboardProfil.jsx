@@ -91,8 +91,8 @@ function DashboardProfil() {
 
     return (
         <div className="tableDisplay">
-           <Toaster />
-                        {loading && <Loader />}
+            <Toaster />
+            {loading && <Loader />}
             {openConfirm && <ConfirmModal confirmAction={(selectedItem) => deleteProfile(selectedItem)} closeModal={() => { setOpenConfirm(false) }} />}
             {openNew && <ManageProfile closeModal={() => { setOpenNew(false) }} selectedItem={undefined} action={(newItem) => createProfile(newItem)} storeList={storeList} />}
             {openEdit && <ManageProfile closeModal={() => { setOpenEdit(false) }} selectedItem={selectedItem} action={(newArticle) => editProfile(newArticle)} storeList={storeList} />}
