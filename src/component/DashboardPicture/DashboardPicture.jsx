@@ -9,8 +9,6 @@ import ManagePicture from '../Modals/ManagePicture/ManagePicture.jsx';
 import Loader from '../Loader/Loader.jsx'
 
 function DashboardPicture() {
-    const [openNew, setOpenNew] = useState(false)
-    const [openDelete, setOpenDelete] = useState(false)
     const [loading, setLoading] = useState(false)
     const [essentialsArticles, setEssentialsArticles] = useState(undefined)
     const [pictureList, setPictureList] = useState(undefined)
@@ -45,7 +43,6 @@ function DashboardPicture() {
             formData.append('code', data.code);
             await insertPicture(formData)
             getPictureList()
-            setOpenNew(false)
             toast.success('Création réussie')
         } catch {
             toast.error('Une erreur est survenue')
@@ -57,23 +54,10 @@ function DashboardPicture() {
         <div className='dashboardPicture'>
             <Toaster />
             {loading && <Loader />}
-            {openNew && <ManagePicture closeModal={() => { setOpenNew(false) }} action={(newItem) => createPicture(newItem)} essentials={essentialsArticles} />}
-            {openDelete && <ManagePicture closeModal={() => { setOpenDelete(false) }} action={(newItem) => createPicture(newItem)} essentials={essentialsArticles} isDelete={true} pictureList={pictureList}/>}
-            <button onClick={() => setOpenNew(!openNew)} className='primaryBtn'>New image</button>
-            <button onClick={() => setOpenDelete(!openDelete)} className='primaryBtn'>Delete image</button>
             <div className='container'>
-
-
+                <ManagePicture action={(newItem) => createPicture(newItem)} essentials={essentialsArticles} pictureList={pictureList} />
             </div>
-            {/* <div className='wrapper'>
-                <div className='tip'>
-                    <p className='subtitle'>Nombre de magasin : </p>
-                    <div className='nbrItem'>{pictureList?.length}</div>
 
-                </div>
-                <div>{toto?.name}</div>
-                <img src={`data:image/jpeg;base64,${toto?._data}`} alt="tutu" className='toto' />
-            </div> */}
         </div>
     )
 }

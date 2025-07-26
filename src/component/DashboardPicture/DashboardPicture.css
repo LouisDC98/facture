@@ -12,11 +12,9 @@
     }
 
     .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 20px;
+        background-color: white;
+        padding: 10px 30px;
+        border-radius: 20px;
     }
 
     .wrapper {
