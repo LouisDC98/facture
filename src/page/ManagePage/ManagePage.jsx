@@ -7,6 +7,7 @@ import DashboardArticle from '../../component/DashboardArticle/DashboardArticle.
 import DashboardProfil from '../../component/DashboardProfil/DashboardProfil.jsx';
 import DashboardStore from '../../component/DashboardStore/DashboardStore.jsx';
 import DashboardGeneral from '../../component/DashboardGeneral/DashboardGeneral.jsx';
+import DashboardPicture from '../../component/DashboardPicture/DashboardPicture.jsx';
 
 function ManagePage() {
   const [type, setType] = useState("dashboard")
@@ -36,6 +37,10 @@ function ManagePage() {
 
     if (type === "dashboard") {
       return <DashboardGeneral />;
+    }
+
+    if (type === "picture") {
+      return <DashboardPicture />;
     }
 
     return null;

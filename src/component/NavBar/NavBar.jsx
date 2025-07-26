@@ -5,6 +5,7 @@ import essentials from '../../assets/essentialsIcon.svg'
 import randomArticles from '../../assets/randomsIcon.svg'
 import profiles from '../../assets/profilesIcon.svg'
 import stores from '../../assets/storesIcon.svg'
+import pictures from '../../assets/picturesIcon.svg'
 
 function NavBar(props) {
     let { type, setType } = props
@@ -23,6 +24,7 @@ function NavBar(props) {
             <button className={getButtonClass("random")} onClick={() => setType("random")}><img alt='randoms_icon' src={randomArticles} />Articles randoms</button>
             <button className={getButtonClass("profile")} onClick={() => setType("profile")}><img alt='profile_icon' src={profiles} />Profils</button>
             <button className={getButtonClass("store")} onClick={() => setType("store")}><img alt='stores_icon' src={stores} />Magasins</button>
+            <button className={getButtonClass("picture")} onClick={() => setType("picture")}><img alt='pictures_icon' src={pictures} />Photos</button>
         </div>
     )
 }
