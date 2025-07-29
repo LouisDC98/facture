@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import './HomePage.css'
 import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
+import JSZip from 'jszip';
 import { CSSTransition } from 'react-transition-group';
 
 
@@ -31,6 +32,8 @@ import { getAllEssentials } from '../../services/essentialsServices.js';
 import { getAllRandoms } from '../../services/randomsServices.js';
 import { getAllStores } from '../../services/storeServices.js';
 import { NavLink } from 'react-router-dom';
+
+import { getByCode } from '../../services/picturesServices.js';
 
 
 function HomePage() {
@@ -82,22 +85,45 @@ function HomePage() {
         setOpenForm(true)
     }, [setLoading]);
 
+    const getPicturesByCode = async (code) => {
+        try {
+            const response = await getByCode(code, false);
+            console.log('repsponse', response)
+
+            if (response.length === 0) {
+                console.warn(`Aucune image trouvée pour le code ${code}`);
+                return null;
+            }
+
+            return response;
+        } catch (error) {
+            console.error('Une erreur est survenue', error);
+            return null;
+        }
+    };
+
     const handleExportPNG = async () => {
         const element = document.getElementById('a4Page');
         const scale = 2;
-        const options = {
-            scale: scale,
-            useCORS: true
-        };
+        const options = { scale, useCORS: true };
+        const zip = new JSZip();
+
+        const essentialsArticles = articles.filter(article => !article.random);
+
+        const images = await Promise.all(
+            essentialsArticles.map(article => getPicturesByCode(article.code))
+        );
+        
+        console.log('toto', images)
+        const validImages = images.filter(Boolean);
 
         for (let i = 0; i < mainInfos?.profile?.length; i++) {
             if (i > 0) {
-                let filteredArticles = articles.filter(article => !article.random)
+                const filteredArticles = articles.filter(article => !article.random);
                 setArticles(filteredArticles);
-                let nbrRandomArticles2 = articles.filter(article => article.random).length;
-
-                let newArticles = handleAddRandomArticles(nbrRandomArticles2, filteredArticles)
-                handleShuffleArticle(newArticles)
+                const nbrRandomArticles2 = articles.filter(article => article.random).length;
+                const newArticles = handleAddRandomArticles(nbrRandomArticles2, filteredArticles);
+                handleShuffleArticle(newArticles);
             }
 
             setMainInfos(prevState => ({
@@ -111,16 +137,18 @@ function HomePage() {
             }));
             await new Promise(resolve => setTimeout(resolve, 100));
 
-            html2canvas(element, options)
-                .then((canvas) => {
-                    canvas.toBlob((blob) => {
-                        saveAs(blob, `facture_${mainInfos.profile[i].commandNumber}.png`);
-                    }, 'image/png', 1);
-                })
-                .catch((error) => {
-                    console.error('Erreur lors de la conversion en image :', error);
-                });
+            const canvas = await html2canvas(element, options);
+            const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png', 1));
+            const factureName = `facture_${mainInfos.profile[i].commandNumber}.png`;
+            zip.file(factureName, blob);
+            for (const image of validImages) {
+                const byteArray = new Uint8Array(image.data.data);
+                zip.file(image.name, byteArray);
+            }
         }
+
+        const zipBlob = await zip.generateAsync({ type: 'blob' });
+        saveAs(zipBlob, 'export_factures_et_images.zip');
     };
 
     let isMobile = window.innerWidth < 1000

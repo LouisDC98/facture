@@ -42,7 +42,7 @@ function ManagePicture(props) {
         setLoading(true)
         try {
             setSelectedArticle(code)
-            const response = await getByCode(code)
+            const response = await getByCode(code, true)
             setImages(response)
         } catch {
             console.error('Une erreur est survenue')

@@ -12,12 +12,13 @@ export async function getAllPicture() {
     }
 }
 
-export async function getByCode(id) {
+export async function getByCode(id, multiple = false) {
     try {
-        const result = await axios.get(`/pictures/${id}`);
-        return result.data
+        const url = multiple ? `/pictures/${id}?multiple=true` : `/pictures/${id}`;
+        const result = await axios.get(url);
+        return result.data;
     } catch (error) {
-        console.error('error', error)
+        console.error('error', error);
     }
 }
 
