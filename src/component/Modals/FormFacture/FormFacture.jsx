@@ -17,7 +17,7 @@ function FormFacture(props) {
     useEffect(() => {
         if (mainInfos.profile?.length > 0) {
             const updatedFields = mainInfos.profile.map((element, i) => ({
-                user: users.findIndex(e => e.firstName === element.firstName),
+                user: users.find(e => e.firstName === element.firstName).profileID,
                 magasin: magasinList.find(e => e.name === element.magasin.name).id,
                 date: formatDateRevert(element.date),
                 dateFacturation: formatDateRevert(element.dateFacturation),
@@ -67,7 +67,7 @@ function FormFacture(props) {
         const userLocalStorage = [];
         const formattedData = data.profile.map(item => {
             userLocalStorage.push(item.user);
-            const selectedUser = users[item.user];
+            const selectedUser = users.find(e => e.profileID === item.user);
             const selectedMagasin = magasinList.find(magasin => magasin.id === selectedUser.magasinID);
 
             return {
@@ -125,7 +125,7 @@ function FormFacture(props) {
                                     </td>
                                     <td className='positionRelative'>
                                         <select {...register(`profile.${index}.user`, {
-                                            validate: value => value !== "null" || "obligatoire"
+                                            validate: value => value !== "null" || "obligatoire", valueAsNumber: true,
                                         })}>
                                             <option value="null" hidden>Nom</option>
                                             {groupedUsers && Object.keys(groupedUsers).map((ownerID) => (
@@ -170,8 +170,8 @@ function FormFacture(props) {
                         </tfoot>
 
                     </table>
-                    <button type='submit' className='saveButton saveButtonAndOpen' onClick={() => setSubmitAndOpen(true)}>Sauvegarder et choisir articles</button>
-                    <button type='submit' className='saveButton'>Sauvegarder</button>
+                    <button type='submit' className='saveButton secondaryBtn saveButtonAndOpen' onClick={() => setSubmitAndOpen(true)}>Sauvegarder et choisir articles</button>
+                    <button type='submit' className='secondaryBtn saveButton'>Sauvegarder</button>
                 </form>
 
             </div>

@@ -4,14 +4,12 @@ import '../modals.css'
 import { useForm, useFieldArray } from "react-hook-form";
 import arrow from "../../../assets/arrow_down.svg"
 import Accordion from '../../Accordion/Accordion';
-import NewArticle from '../../NewArticle/NewArticle';
 
 
 function ArticlesModal(props) {
     let { closeModal, setArticles, articles, isMobile, handleRandom, essentials } = props
     const [nbrRandomArticles, setNbrRandomArticles] = useState(0)
     const [mainOpen, setMainOpen] = useState(true);
-    const [openNewEssential, setOpenNewEssential] = useState(false);
 
     const toggleMainAccordion = () => {
         setMainOpen(!mainOpen);
@@ -69,6 +67,7 @@ function ArticlesModal(props) {
             if (fields[0]?.code === "") {
                 remove(0)
             }
+            article.tva =   parseFloat(article.tva)
             append({ ...article })
         }
     };
@@ -94,9 +93,6 @@ function ArticlesModal(props) {
             <div className='modalBg modalBgArticle'>
                 <h2>Elaborer la liste</h2>
                 <button onClick={() => closeModal()} className='buttonIcon closeButton' />
-                <button onClick={() => setOpenNewEssential(!openNewEssential)} className='createArticleBtn'>Ajouter article à une liste</button>
-
-                {openNewEssential && <NewArticle essentials={essentials} />}
 
                 <div className='divUpArticleModal'>
 
