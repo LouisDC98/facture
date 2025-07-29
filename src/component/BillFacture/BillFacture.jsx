@@ -4,7 +4,6 @@ import "./BillFacture.css"
 function Bill(props) {
     let { articles } = props
     let [nbrBags, setNbrBags] = useState(0)
-    console.log('articles', articles)
 
     const nbrArticles = 0;
     const sumWithInitial = articles.reduce(

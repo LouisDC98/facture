@@ -67,7 +67,7 @@ function ArticlesModal(props) {
             if (fields[0]?.code === "") {
                 remove(0)
             }
-            article.tva =   parseFloat(article.tva)
+            article.tva = parseFloat(article.tva)
             append({ ...article })
         }
     };
