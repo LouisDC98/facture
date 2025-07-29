@@ -94,14 +94,14 @@
         display: flex;
         align-items: end;
 
-        #switch3 {
+        .switch3 {
             height: 0;
             width: 0;
             visibility: hidden;
             margin: 0;
         }
 
-        #switch3:disabled+label {
+        .switch3:disabled+label {
             background-color: grey;
         }
 
@@ -128,11 +128,11 @@
             transition: 0.3s;
         }
 
-        #switch3:checked+label {
+        .switch3:checked+label {
             background: #bada55;
         }
 
-        #switch3:checked+label:after {
+        .switch3:checked+label:after {
             left: calc(100% - 5px);
             transform: translateX(-100%);
         }

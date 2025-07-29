@@ -90,7 +90,7 @@ function HomePage() {
             useCORS: true
         };
 
-        for (let i = 0; i < mainInfos.profile.length; i++) {
+        for (let i = 0; i < mainInfos?.profile?.length; i++) {
             if (i > 0) {
                 let filteredArticles = articles.filter(article => !article.random)
                 setArticles(filteredArticles);

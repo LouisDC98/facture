@@ -185,8 +185,8 @@ function DashboardArticle(props) {
                                 {isEssential && <td style={{ position: 'relative' }}>
                                     <div className='switchFormat3'>
                                         <div className='formatInput'>
-                                            <input type="checkbox" id="switch3" checked={article.active} onChange={(e) => handleToggleActive(article, e.target.checked)} />
-                                            <label htmlFor="switch3">Toggle</label>
+                                            <input type="checkbox" id={`switch-${article.code}`} className='switch3' checked={article.active} onChange={(e) => handleToggleActive(article, e.target.checked)} />
+                                            <label htmlFor={`switch-${article.code}`}>Toggle</label>
                                         </div>
                                     </div>
                                 </td>}
