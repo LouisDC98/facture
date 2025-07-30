@@ -1,0 +1,90 @@
+.tableEssentials {
+    border-collapse: collapse;
+    width: 100%;
+
+    thead th {
+        font-weight: 600;
+        color: rgb(96, 96, 96);
+        text-align: start;
+
+    }
+
+    th:not(:first-child) {
+        padding-right: 55px;
+    }
+
+    tr {
+        border-bottom: 1px solid rgb(232, 232, 232);
+        height: 35px;
+    }
+
+    td {
+        border: none;
+        font-size: 14px;
+    }
+
+    input,
+    select {
+        font-size: 13px;
+        border: none;
+        background-color: rgb(235, 235, 235);
+        border-radius: 5px;
+        outline: none;
+    }
+
+    select {
+        padding: 3px;
+    }
+}
+
+/* Switch button */
+.switchFormat4 {
+    display: flex;
+
+    .switch4 {
+        height: 0;
+        width: 0;
+        visibility: hidden;
+        margin: 0;
+    }
+
+    .switch4:disabled+label {
+        background-color: grey;
+    }
+
+    label {
+        cursor: pointer;
+        text-indent: -9999px;
+        width: 35px;
+        height: 15px;
+        background: #c3c3c3;
+        display: block;
+        border-radius: 50px;
+        position: relative;
+    }
+
+    label:after {
+        content: '';
+        position: absolute;
+        top: 2.5px;
+        left: 2.5px;
+        width: 10px;
+        height: 10px;
+        background: #fff;
+        border-radius: 90px;
+        transition: 0.3s;
+    }
+
+    .switch4:checked+label {
+        background: #bada55;
+    }
+
+    .switch4:checked+label:after {
+        left: calc(100% - 5px);
+        transform: translateX(-100%);
+    }
+
+    label:active:after {
+        width: 30px;
+    }
+}

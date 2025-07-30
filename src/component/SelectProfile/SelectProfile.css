@@ -1,0 +1,43 @@
+.selectProfiles {
+    width: 100%;
+
+    .tableProfils {
+        border-collapse: collapse;
+        width: 100%;
+
+        thead th {
+            font-weight: 600;
+            color: rgb(96, 96, 96);
+            text-align: start;
+
+        }
+
+        th:not(:first-child) {
+            padding-right: 55px;
+        }
+
+        tr {
+            border-bottom: 1px solid rgb(232, 232, 232);
+            height: 35px;
+        }
+
+        td {
+            border: none;
+            font-size: 14px;
+        }
+
+        input,
+        select {
+            font-size: 13px;
+            border: none;
+            background-color: rgb(235, 235, 235);
+            border-radius: 5px;
+            outline: none;
+        }
+
+        select {
+            padding: 3px;
+        }
+    }
+
+}

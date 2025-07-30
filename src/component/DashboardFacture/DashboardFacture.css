@@ -1,0 +1,101 @@
+.dashboardFacture {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+
+    .tip {
+        background-color: white;
+        border-radius: 20px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .bigTip {
+        grid-column: span 2;
+    }
+
+    .subtitle {
+        font-size: 15px;
+    }
+
+    .addBtn {
+        margin: 0 5px;
+        width: 20px;
+        height: 20px;
+        border: 2px solid hsl(345deg 70% 55%);
+        background-color: hsl(345deg 70% 55%);
+        color: white;
+        font-weight: bold;
+        font-size: 15px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-family: monospace;
+    }
+
+    .addBtn:hover {
+        border: 2px solid hsl(345deg 70% 55%);
+        background-color: white;
+        color: hsl(345deg 70% 55%);
+        transition: background-color 0.8s ease, color 0.8s ease;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        backdrop-filter: blur(5px);
+        background-color: rgba(0, 0, 0, 0.1);
+        z-index: 999;
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        padding-top: 20px;
+    }
+
+    .a4Format {
+        height: 292mm;
+        width: 210mm;
+        background-color: white;
+        padding: 20px;
+        position: relative;
+        transform-origin: top center;
+        z-index: 1000;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .displayBtnPreview {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        height: 100%;
+    }
+
+    .btn2 {
+        height: 60px;
+        min-width: 70px;
+    }
+
+    .closePreviewButton {
+        position: absolute;
+        height: 25px;
+        width: 25px;
+        background-image: url('../../assets/close.svg');
+        border: none;
+        right: calc(50% - 125mm);
+        top: 25px;
+        transform: translate(50%);
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 0 0 0 5px white, 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+}
