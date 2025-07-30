@@ -19,6 +19,8 @@ function ManagePage() {
     essential: "Articles essentiels",
     profile: "Profils",
     store: "Magasins",
+    picture: "Photo",
+    bill: "Facture",
   };
 
   const currentHeaderTitle = headerTitles[type] || "Dashboard";
@@ -62,7 +64,7 @@ function ManagePage() {
           <div className='headerTitle'>{currentHeaderTitle}</div>
           <NavLink to="/facture" className="primaryBtn navLink">Créer une facture</NavLink>
         </div>
-        <div style={{ margin: "20px" }}>
+        <div className='scrollAllow' >
           {renderDashboardContent(type)}
         </div>
       </div>
