@@ -142,6 +142,42 @@
       "tva": 20,
       "prixUnit": 9.19,
       "prixRemise": 0
+    },
+    {
+      "active": true,
+      "code": "8718951730373",
+      "libelle": "Soupline Fraîcheur Infinie Caresse d'Azur 800ml",
+      "qtyCmd": 2,
+      "tva": 20,
+      "prixUnit": 7.63,
+      "prixRemise": 0
+    },
+    {
+      "active": true,
+      "code": "8718951725188",
+      "libelle": "Soupline Fraîcheur Infinie Bonheur Floral 800ml",
+      "qtyCmd": 2,
+      "tva": 20,
+      "prixUnit": 7.63,
+      "prixRemise": 0
+    },
+    {
+      "active": true,
+      "code": "8718951725140",
+      "libelle": "Soupline Fraîcheur Infinie Douceur du Lagon 800ml",
+      "qtyCmd": 2,
+      "tva": 20,
+      "prixUnit": 7.63,
+      "prixRemise": 0
+    },
+    {
+      "active": true,
+      "code": "8718951725119",
+      "libelle": "Soupline Fraîcheur Infinie Rose Eclatante 800ml",
+      "qtyCmd": 2,
+      "tva": 20,
+      "prixUnit": 7.63,
+      "prixRemise": 0
     }
   ],
   "Heineken": [
