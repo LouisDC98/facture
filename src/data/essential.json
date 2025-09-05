@@ -189,6 +189,107 @@
       "prixRemise": 0
     }
   ],
+  "Kleenex": [
+    {
+      "active": true,
+      "code": "5029053573557",
+      "libelle": "Kleenex Papier Toilette Coussiné x6",
+      "qtyCmd": 5,
+      "tva": 20,
+      "prixUnit": 4.09,
+      "prixRemise": 0
+    },
+    {
+      "active": true,
+      "code": "5029053577616",
+      "libelle": "Kleenex Papier Toilette Dermo Douceur x6",
+      "qtyCmd": 5,
+      "tva": 20,
+      "prixUnit": 4.89,
+      "prixRemise": 0
+    },
+    {
+      "active": true,
+      "code": "5029053582801",
+      "libelle": "Kleenex Papier Toilette Soin Complet XXL x6",
+      "qtyCmd": 5,
+      "tva": 20,
+      "prixUnit": 5.49,
+      "prixRemise": 0
+    },
+    {
+      "active": true,
+      "code": "5029053582214",
+      "libelle": "Kleenex Papier Toilette Humide Pure x38",
+      "qtyCmd": 5,
+      "tva": 20,
+      "prixUnit": 2.35,
+      "prixRemise": 0
+    },
+    {
+      "active": true,
+      "code": "5029053581620",
+      "libelle": "Kleenex Essuie-Tout Ultra-Clean x2",
+      "qtyCmd": 5,
+      "tva": 20,
+      "prixUnit": 4.89,
+      "prixRemise": 0
+    },
+    {
+      "active": true,
+      "code": "5029053582474",
+      "libelle": "Kleenex Essuie-Tout Flexi-Clean x2",
+      "qtyCmd": 5,
+      "tva": 20,
+      "prixUnit": 5.29,
+      "prixRemise": 0
+    },
+    {
+      "active": true,
+      "code": "5029053580005",
+      "libelle": "Kleenex Mouchoirs Maxi-Pack Ultra Soft x112",
+      "qtyCmd": 5,
+      "tva": 20,
+      "prixUnit": 3.19,
+      "prixRemise": 0
+    },
+    {
+      "active": true,
+      "code": "5029053579290",
+      "libelle": "Kleenex Mouchoirs Boîte Ultra Soft x64",
+      "qtyCmd": 5,
+      "tva": 20,
+      "prixUnit": 2.50,
+      "prixRemise": 0
+    },
+    {
+      "active": true,
+      "code": "5029053579504",
+      "libelle": "Kleenex Mouchoirs Boîte Balsam x64",
+      "qtyCmd": 5,
+      "tva": 20,
+      "prixUnit": 2.50,
+      "prixRemise": 0
+    },
+    {
+      "active": true,
+      "code": "5029053562186",
+      "libelle": "Kleenex Mouchoirs Étuis Standard Balsam x10",
+      "qtyCmd": 5,
+      "tva": 20,
+      "prixUnit": 2.55,
+      "prixRemise": 0
+    },
+    {
+      "active": true,
+      "code": "5029053580890",
+      "libelle": "Kleenex Mouchoirs Boîte Carrée XL Original x40",
+      "qtyCmd": 5,
+      "tva": 20,
+      "prixUnit": 1.09,
+      "prixRemise": 0
+    }
+  ],
   "Heineken": [
     {
       "active": false,
